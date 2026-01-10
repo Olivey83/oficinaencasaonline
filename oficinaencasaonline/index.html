@@ -1,370 +1,455 @@
 <!DOCTYPE html>
-<html lang="es" class="scroll-smooth">
+<html lang="es">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Oficina en Casa Online | Teletrabajo Premium 2026</title>
-    <meta name="description" content="Guía premium para montar tu oficina en casa con productos recomendados, ergonomía y accesorios esenciales para teletrabajo.">
-    
-    <!-- TailwindCSS CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Oficina en Casa Online | Teletrabajo Premium</title>
+<meta name="description" content="Guía premium para montar tu oficina en casa con productos recomendados, ergonomía y accesorios esenciales para teletrabajo.">
 
-    <script>
-        tailwind.config = {
-            darkMode: 'class',
-            theme: {
-                extend: {
-                    colors: {
-                        primary: "#2563eb",
-                        primaryDark: "#1e40af",
-                        accent: "#0f172a",
-                    },
-                    boxShadow: {
-                        premium: "0 20px 60px rgba(15,23,42,0.22)",
-                        card: "0 10px 30px -10px rgba(0,0,0,0.1)",
-                    },
-                    borderRadius: { '3xl': '1.75rem' },
-                    animation: {
-                        'fade-in-up': 'fade-in-up 0.8s ease-out forwards',
-                        'float': 'float 6s ease-in-out infinite',
-                    },
-                    keyframes: {
-                        'fade-in-up': {
-                            '0%': { opacity: '0', transform: 'translateY(30px)' },
-                            '100%': { opacity: '1', transform: 'translateY(0)' },
-                        },
-                        'float': {
-                            '0%, 100%': { transform: 'translateY(0)' },
-                            '50%': { transform: 'translateY(-20px)' },
-                        }
-                    }
-                }
-            }
-        }
-    </script>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+tailwind.config = {
+  darkMode: 'class',
+  theme: {
+    extend: {
+      colors: { primary: '#6366f1' },
+      boxShadow: {
+        premium: '0 20px 40px rgba(0,0,0,.15)',
+        card: '0 10px 25px rgba(0,0,0,.08)'
+      }
+    }
+  }
+}
+</script>
 
-    <style>
-        .reveal { opacity: 0; transform: translateY(30px); transition: all 0.8s ease-out; }
-        .reveal.active { opacity: 1; transform: translateY(0); }
-        .glass { background: rgba(255, 255, 255, 0.7); backdrop-filter: blur(12px); }
-        .dark .glass { background: rgba(15, 23, 42, 0.8); }
-        .product-card { transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1); }
-    </style>
+<style>
+.reveal{opacity:0;transform:translateY(40px);transition:.8s}
+.reveal.active{opacity:1;transform:none}
+.filter-btn.active{background:#6366f1;color:#fff}
+</style>
 </head>
 
-<body class="bg-slate-50 text-slate-900 dark:bg-slate-950 dark:text-slate-50 antialiased overflow-x-hidden">
+<body class="bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-white">
 
-<svg class="hidden">
-    <symbol id="icon-amazon" viewBox="0 0 24 24" fill="currentColor">
-        <path d="M15.012 13.844c-.53.43-1.286.666-2.268.706-1.12.046-2.19-.188-3.21-.692-.128-.063-.2-.047-.25.047l-.375.61c-.047.078-.03.14.047.203 1.25.92 2.782 1.344 4.5 1.25 1.516-.078 2.766-.547 3.704-1.42.062-.064.047-.14-.032-.204l-.53-.438c-.08-.063-.157-.063-.235.03zM22.5 12c0 5.797-4.703 10.5-10.5 10.5S1.5 17.797 1.5 12 6.203 1.5 12 1.5 22.5 6.203 22.5 12zm-3.875 3.328c-.125.11-.234.078-.328-.047-.14-.187-.64-.937-.734-1.078-.063-.094-.14-.11-.235-.047-1.42 1-3.218 1.53-5.28 1.485-2.22-.047-4.14-.735-5.673-2.016-.078-.063-.11-.03-.094.062.25 1.36.938 2.454 1.953 3.313 2.156 1.83 5.375 2.22 8.36 1.094.672-.25 1.265-.578 1.812-.97.094-.06.125-.155.22-.25.093-.093.11-.187.015-.296-.015-.016-.015-.047-.015-.047z"/>
-    </symbol>
-</svg>
+<!-- NAV -->
+<nav id="main-nav" class="fixed w-full top-0 z-50 transition-all bg-white/80 dark:bg-slate-900/80 backdrop-blur border-b border-slate-200/60 dark:border-slate-800/60">
+<div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+  <div class="flex items-center gap-3 font-bold text-xl">
+    <div class="w-9 h-9 bg-primary rounded-xl flex items-center justify-center text-white">O</div>
+    Oficina en Casa
+  </div>
 
-<!-- NAVIGATION -->
-<header class="fixed w-full top-0 z-50 glass border-b border-slate-200/50 dark:border-slate-800/50 transition-all duration-300" id="main-nav">
-    <div class="max-w-7xl mx-auto flex items-center justify-between px-6 py-4">
-        <a href="#" class="flex items-center gap-3 group">
-            <div class="w-10 h-10 bg-gradient-to-br from-primary to-emerald-500 rounded-xl flex items-center justify-center text-white shadow-lg transition-transform group-hover:scale-110">
-                <span class="font-bold text-xl">O</span>
-            </div>
-            <span class="font-bold text-lg tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-slate-900 to-slate-600 dark:from-white dark:to-slate-400">
-                Oficina en Casa
-            </span>
-        </a>
+  <div class="hidden md:flex items-center gap-8">
+    <a href="#productos" class="hover:text-primary">Productos</a>
+    <a href="#guia" class="hover:text-primary">Guía</a>
+    <a href="#consejos" class="hover:text-primary">Consejos</a>
 
-        <nav class="hidden md:flex items-center gap-8">
-            <a href="#productos" class="text-sm font-semibold hover:text-primary transition">Productos</a>
-            <a href="#guia" class="text-sm font-semibold hover:text-primary transition">Guía</a>
-            <a href="#consejos" class="text-sm font-semibold hover:text-primary transition">Errores</a>
-            <button id="theme-toggle" class="p-2 rounded-full hover:bg-slate-200/50 dark:hover:bg-slate-800/50 transition">
-                <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
-                <svg id="theme-toggle-light-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z"></path></svg>
-            </button>
-        </nav>
+    <button id="theme-toggle" class="p-2 rounded-lg bg-slate-100 dark:bg-slate-800">
+      <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1z"/></svg>
+      <svg id="theme-toggle-light-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M10 15a5 5 0 100-10 5 5 0 000 10z"/></svg>
+    </button>
+  </div>
 
-        <button class="md:hidden p-2" id="mobile-menu-btn">
-            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
-        </button>
-    </div>
+  <button id="mobile-menu-btn" class="md:hidden p-2">
+    <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+  </button>
+</div>
 
-    <div id="mobile-menu" class="hidden bg-white dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800 p-6 space-y-4 shadow-xl">
-        <a href="#productos" class="block text-lg font-medium">Productos</a>
-        <a href="#guia" class="block text-lg font-medium">Guía</a>
-        <a href="#consejos" class="block text-lg font-medium">Errores</a>
-    </div>
-</header>
+<div id="mobile-menu" class="hidden bg-white dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800">
+  <a href="#productos" class="block px-6 py-4">Productos</a>
+  <a href="#guia" class="block px-6 py-4">Guía</a>
+  <a href="#consejos" class="block px-6 py-4">Consejos</a>
+</div>
+</nav>
 
 <!-- HERO -->
-<section class="relative pt-32 pb-20 md:pt-48 md:pb-32 overflow-hidden">
-    <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full -z-10">
-        <div class="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-primary/10 blur-[120px] rounded-full animate-pulse"></div>
-        <div class="absolute bottom-[10%] right-[-5%] w-[30%] h-[30%] bg-emerald-500/10 blur-[120px] rounded-full"></div>
-    </div>
-
-    <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-16 items-center">
-        <div class="animate-fade-in-up">
-            <span class="inline-block px-4 py-1.5 rounded-full bg-primary/10 text-primary text-sm font-bold mb-6">EDICIÓN 2026</span>
-            <h1 class="text-5xl md:text-7xl font-extrabold leading-tight mb-6">Tu espacio de <span class="text-primary italic">trabajo</span> profesional</h1>
-            <p class="text-lg md:text-xl text-slate-600 dark:text-slate-400 mb-10 leading-relaxed max-w-lg">
-                Recomendaciones reales de material de oficina. Buscamos productos útiles, cómodos y con diseño minimalista.
-            </p>
-            <a href="#productos" class="px-8 py-4 bg-primary text-white rounded-2xl font-bold shadow-lg shadow-primary/30 hover:bg-primaryDark transition text-center inline-block">Ver Catálogo Completo</a>
-        </div>
-
-        <div class="relative hidden md:block group animate-float">
-            <div class="absolute inset-0 bg-gradient-to-tr from-primary to-emerald-400 rounded-[3rem] blur-3xl opacity-20 group-hover:opacity-30 transition-opacity"></div>
-            <img src="https://images.unsplash.com/photo-1499750310107-5fef28a66643?auto=format&fit=crop&q=80&w=800" 
-                 alt="Setup Minimalista" class="rounded-[2.5rem] shadow-premium border-8 border-white dark:border-slate-900 object-cover w-full h-[500px]">
-        </div>
-    </div>
+<section class="pt-32 pb-24 bg-gradient-to-b from-indigo-50 dark:from-slate-900 reveal">
+<div class="max-w-7xl mx-auto px-6 text-center">
+  <h1 class="text-5xl md:text-6xl font-extrabold mb-6">Tu Oficina en Casa Perfecta</h1>
+  <p class="text-slate-500 dark:text-slate-400 max-w-2xl mx-auto">Productos seleccionados y consejos reales para trabajar cómodo y productivo.</p>
+</div>
 </section>
 
-<!-- PRODUCTOS (1 a 6) -->
-<section id="productos" class="max-w-7xl mx-auto px-6 py-20 reveal">
-<div id="product-grid" class="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+<!-- PRODUCTOS -->
+<section id="productos" class="py-24 reveal">
+<div class="max-w-7xl mx-auto px-6">
 
-<!-- 1. Silla -->
-<article class="product-card ergo bg-white dark:bg-slate-900 rounded-[2rem] overflow-hidden border border-slate-200/60 dark:border-slate-800/60 shadow-card hover:shadow-premium hover:-translate-y-2 transition-all duration-500 group">
-<div class="relative overflow-hidden aspect-square">
-<img src="https://m.media-amazon.com/images/I/81tt0QgRGJL._AC_SL1500_.jpg" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+<div class="flex flex-wrap gap-4 justify-center mb-12">
+  <button class="filter-btn active px-6 py-2 rounded-xl bg-primary text-white" data-category="all">Todos</button>
+  <button class="filter-btn px-6 py-2 rounded-xl bg-white dark:bg-slate-800" data-category="chair">Sillas</button>
+  <button class="filter-btn px-6 py-2 rounded-xl bg-white dark:bg-slate-800" data-category="desk">Escritorio</button>
+  <button class="filter-btn px-6 py-2 rounded-xl bg-white dark:bg-slate-800" data-category="ergo">Ergonomía</button>
+  <button class="filter-btn px-6 py-2 rounded-xl bg-white dark:bg-slate-800" data-category="acc">Accesorios</button>
 </div>
-<div class="p-6 flex flex-col h-[200px] justify-between">
-<h3 class="font-bold text-lg mb-2">Mejor silla calidad-precio</h3>
-<p class="text-xs text-slate-500 line-clamp-2">Soporte lumbar ajustable para evitar dolores de espalda en jornadas largas.</p>
-<a href="https://amzn.to/44Wcq3f" target="_blank" class="w-full mt-4 flex items-center justify-center gap-2 py-3 bg-slate-100 dark:bg-slate-800 rounded-xl font-bold text-sm group-hover:bg-primary group-hover:text-white transition">
-<svg class="w-5 h-5"><use href="#icon-amazon"/></svg> Ver en Amazon
-</a>
-</div>
+
+<div class="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+
+<!-- 1. Silla Calidad Precio -->
+<article class="product-card chair bg-white dark:bg-slate-900 rounded-[2rem] overflow-hidden border border-slate-200/60 dark:border-slate-800/60 shadow-card hover:shadow-premium hover:-translate-y-2 transition-all duration-500 group">
+  <div class="relative overflow-hidden aspect-square">
+    <img src="https://m.media-amazon.com/images/I/71k+5K1bZDL._AC_SL1500_.jpg" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+  </div>
+  <div class="p-6 flex flex-col h-[200px] justify-between">
+    <div>
+      <h3 class="font-bold text-lg mb-2">Silla ergonómica calidad-precio</h3>
+      <p class="text-xs text-slate-500 line-clamp-2">Respaldo transpirable y soporte lumbar ajustable para largas jornadas.</p>
+    </div>
+    <a href="https://amzn.to/3YRFntF" target="_blank" class="w-full flex items-center justify-center gap-2 py-3 bg-slate-100 dark:bg-slate-800 rounded-xl font-bold text-sm group-hover:bg-primary group-hover:text-white transition">
+      <svg class="w-5 h-5"><use href="#icon-amazon"/></svg> Ver en Amazon
+    </a>
+  </div>
 </article>
 
-<!-- 2. Escritorio -->
+<!-- 2. Escritorio Regulable -->
 <article class="product-card desk bg-white dark:bg-slate-900 rounded-[2rem] overflow-hidden border border-slate-200/60 dark:border-slate-800/60 shadow-card hover:shadow-premium hover:-translate-y-2 transition-all duration-500 group">
-<div class="relative overflow-hidden aspect-square">
-<img src="https://m.media-amazon.com/images/I/61pl8xkp5xL._AC_SX679_.jpg" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
-</div>
-<div class="p-6 flex flex-col h-[200px] justify-between">
-<h3 class="font-bold text-lg mb-2">Escritorio regulable</h3>
-<p class="text-xs text-slate-500 line-clamp-2">Alterna entre trabajar sentado y de pie para cuidar tu espalda.</p>
-<a href="https://amzn.to/4qupXHA" target="_blank" class="w-full mt-4 flex items-center justify-center gap-2 py-3 bg-slate-100 dark:bg-slate-800 rounded-xl font-bold text-sm group-hover:bg-primary group-hover:text-white transition">
-<svg class="w-5 h-5"><use href="#icon-amazon"/></svg> Ver en Amazon
-</a>
-</div>
+  <div class="relative overflow-hidden aspect-square">
+    <img src="https://m.media-amazon.com/images/I/71xJb9yK6VL._AC_SL1500_.jpg" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+  </div>
+  <div class="p-6 flex flex-col h-[200px] justify-between">
+    <div>
+      <h3 class="font-bold text-lg mb-2">Escritorio regulable en altura</h3>
+      <p class="text-xs text-slate-500 line-clamp-2">Trabaja sentado o de pie y mejora tu postura durante el día.</p>
+    </div>
+    <a href="https://amzn.to/4qupXHA" target="_blank" class="w-full flex items-center justify-center gap-2 py-3 bg-slate-100 dark:bg-slate-800 rounded-xl font-bold text-sm group-hover:bg-primary group-hover:text-white transition">
+      <svg class="w-5 h-5"><use href="#icon-amazon"/></svg> Ver en Amazon
+    </a>
+  </div>
 </article>
-
-<!-- 3. Soporte portátil -->
+<!-- 3. Soporte Laptop -->
 <article class="product-card ergo bg-white dark:bg-slate-900 rounded-[2rem] overflow-hidden border border-slate-200/60 dark:border-slate-800/60 shadow-card hover:shadow-premium hover:-translate-y-2 transition-all duration-500 group">
-<div class="relative overflow-hidden aspect-square">
-<img src="https://m.media-amazon.com/images/I/61BK9+YGKML._AC_SL1500_.jpg" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
-</div>
-<div class="p-6 flex flex-col h-[200px] justify-between">
-<h3 class="font-bold text-lg mb-2">Soporte para portátil</h3>
-<p class="text-xs text-slate-500 line-clamp-2">Eleva la pantalla a la altura de tus ojos para mejorar la postura cervical.</p>
-<a href="https://amzn.to/4aGRYar" target="_blank" class="w-full mt-4 flex items-center justify-center gap-2 py-3 bg-slate-100 dark:bg-slate-800 rounded-xl font-bold text-sm group-hover:bg-primary group-hover:text-white transition">
-<svg class="w-5 h-5"><use href="#icon-amazon"/></svg> Ver en Amazon
-</a>
-</div>
+  <div class="relative overflow-hidden aspect-square">
+    <img src="https://m.media-amazon.com/images/I/61BK9+YGKML._AC_SL1500_.jpg" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+  </div>
+  <div class="p-6 flex flex-col h-[200px] justify-between">
+    <div>
+      <h3 class="font-bold text-lg mb-2">Soporte para portátil</h3>
+      <p class="text-xs text-slate-500 line-clamp-2">Eleva la pantalla a la altura de tus ojos para mejorar la postura cervical.</p>
+    </div>
+    <a href="https://amzn.to/4aGRYar" target="_blank" class="w-full flex items-center justify-center gap-2 py-3 bg-slate-100 dark:bg-slate-800 rounded-xl font-bold text-sm group-hover:bg-primary group-hover:text-white transition">
+      <svg class="w-5 h-5"><use href="#icon-amazon"/></svg> Ver en Amazon
+    </a>
+  </div>
 </article>
 
-<!-- 4. Lámpara -->
+<!-- 4. Lámpara de despacho -->
 <article class="product-card desk bg-white dark:bg-slate-900 rounded-[2rem] overflow-hidden border border-slate-200/60 dark:border-slate-800/60 shadow-card hover:shadow-premium hover:-translate-y-2 transition-all duration-500 group">
-<div class="relative overflow-hidden aspect-square">
-<img src="https://m.media-amazon.com/images/I/61HWVh6wxqL._AC_SL1500_.jpg" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
-</div>
-<div class="p-6 flex flex-col h-[200px] justify-between">
-<h3 class="font-bold text-lg mb-2">Lámpara de despacho</h3>
-<p class="text-xs text-slate-500 line-clamp-2">Luz focal regulable que reduce la fatiga visual al trabajar de noche.</p>
-<a href="https://amzn.to/3YRFntF" target="_blank" class="w-full mt-4 flex items-center justify-center gap-2 py-3 bg-slate-100 dark:bg-slate-800 rounded-xl font-bold text-sm group-hover:bg-primary group-hover:text-white transition">
-<svg class="w-5 h-5"><use href="#icon-amazon"/></svg> Ver en Amazon
-</a>
-</div>
+  <div class="relative overflow-hidden aspect-square">
+    <img src="https://m.media-amazon.com/images/I/61HWVh6wxqL._AC_SL1500_.jpg" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+  </div>
+  <div class="p-6 flex flex-col h-[200px] justify-between">
+    <div>
+      <h3 class="font-bold text-lg mb-2">Lámpara de despacho</h3>
+      <p class="text-xs text-slate-500 line-clamp-2">Luz focal regulable que reduce la fatiga visual al trabajar de noche.</p>
+    </div>
+    <a href="https://amzn.to/3YRFntF" target="_blank" class="w-full flex items-center justify-center gap-2 py-3 bg-slate-100 dark:bg-slate-800 rounded-xl font-bold text-sm group-hover:bg-primary group-hover:text-white transition">
+      <svg class="w-5 h-5"><use href="#icon-amazon"/></svg> Ver en Amazon
+    </a>
+  </div>
 </article>
 
 <!-- 5. Reposapiés -->
-<article class="product-card ergo bg-white dark:bg-slate-900 rounded-[2rem] overflow-hidden border border-slate-200/60 dark:border-slate-800/60 shadow-card hover:shadow-premium hover:-translate-y-2 transition-all duration-500 group">
-<div class="relative overflow-hidden aspect-square">
-<img src="https://m.media-amazon.com/images/I/51-LmMCoscL._AC_SL1000_.jpg" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
-</div>
-<div class="p-6 flex flex-col h-[200px] justify-between">
-<h3 class="font-bold text-lg mb-2">Reposapiés ergonómico</h3>
-<p class="text-xs text-slate-500 line-clamp-2">Mejora la circulación de las piernas en jornadas sedentarias.</p>
-<a href="https://amzn.to/3LFOfQb" target="_blank" class="w-full mt-4 flex items-center justify-center gap-2 py-3 bg-slate-100 dark:bg-slate-800 rounded-xl font-bold text-sm group-hover:bg-primary group-hover:text-white transition">
-<svg class="w-5 h-5"><use href="#icon-amazon"/></svg> Ver en Amazon
-</a>
-</div>
+<article class="product-card acc bg-white dark:bg-slate-900 rounded-[2rem] overflow-hidden border border-slate-200/60 dark:border-slate-800/60 shadow-card hover:shadow-premium hover:-translate-y-2 transition-all duration-500 group">
+  <div class="relative overflow-hidden aspect-square">
+    <img src="https://m.media-amazon.com/images/I/51-LmMCoscL._AC_SL1000_.jpg" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+  </div>
+  <div class="p-6 flex flex-col h-[200px] justify-between">
+    <div>
+      <h3 class="font-bold text-lg mb-2">Reposapiés</h3>
+      <p class="text-xs text-slate-500 line-clamp-2">Mejora la circulación de las piernas en jornadas sedentarias.</p>
+    </div>
+    <a href="https://amzn.to/3LFOfQb" target="_blank" class="w-full flex items-center justify-center gap-2 py-3 bg-slate-100 dark:bg-slate-800 rounded-xl font-bold text-sm group-hover:bg-primary group-hover:text-white transition">
+      <svg class="w-5 h-5"><use href="#icon-amazon"/></svg> Ver en Amazon
+    </a>
+  </div>
 </article>
 
-<!-- 6. Cajonera -->
+<!-- 6. Cajonera móvil -->
 <article class="product-card desk bg-white dark:bg-slate-900 rounded-[2rem] overflow-hidden border border-slate-200/60 dark:border-slate-800/60 shadow-card hover:shadow-premium hover:-translate-y-2 transition-all duration-500 group">
-<div class="relative overflow-hidden aspect-square">
-<img src="https://m.media-amazon.com/images/I/511hfGz8lpL._AC_SL1500_.jpg" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
-</div>
-<div class="p-6 flex flex-col h-[200px] justify-between">
-<h3 class="font-bold text-lg mb-2">Cajonera móvil</h3>
-<p class="text-xs text-slate-500 line-clamp-2">Organización eficiente que se adapta a cualquier rincón de tu oficina.</p>
-<a href="https://amzn.to/4qFHtZG" target="_blank" class="w-full mt-4 flex items-center justify-center gap-2 py-3 bg-slate-100 dark:bg-slate-800 rounded-xl font-bold text-sm group-hover:bg-primary group-hover:text-white transition">
-<svg class="w-5 h-5"><use href="#icon-amazon"/></svg> Ver en Amazon
-</a>
-</div>
+  <div class="relative overflow-hidden aspect-square">
+    <img src="https://m.media-amazon.com/images/I/511hfGz8lpL._AC_SL1500_.jpg" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+  </div>
+  <div class="p-6 flex flex-col h-[200px] justify-between">
+    <div>
+      <h3 class="font-bold text-lg mb-2">Cajonera móvil</h3>
+      <p class="text-xs text-slate-500 line-clamp-2">Organización eficiente que se adapta a cualquier rincón de tu oficina.</p>
+    </div>
+    <a href="https://amzn.to/4qFHtZG" target="_blank" class="w-full flex items-center justify-center gap-2 py-3 bg-slate-100 dark:bg-slate-800 rounded-xl font-bold text-sm group-hover:bg-primary group-hover:text-white transition">
+      <svg class="w-5 h-5"><use href="#icon-amazon"/></svg> Ver en Amazon
+    </a>
+  </div>
 </article>
-<!-- 7. Alfombrilla -->
+
+<!-- 7. Módulo 5 cajones A4+ -->
 <article class="product-card desk bg-white dark:bg-slate-900 rounded-[2rem] overflow-hidden border border-slate-200/60 dark:border-slate-800/60 shadow-card hover:shadow-premium hover:-translate-y-2 transition-all duration-500 group">
-<div class="relative overflow-hidden aspect-square">
-<img src="https://m.media-amazon.com/images/I/71fY5xkZlWL._AC_SL1500_.jpg" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
-</div>
-<div class="p-6 flex flex-col h-[200px] justify-between">
-<h3 class="font-bold text-lg mb-2">Alfombrilla XL escritorio</h3>
-<p class="text-xs text-slate-500 line-clamp-2">Protege la mesa y mejora el deslizamiento del ratón.</p>
-<a href="https://amzn.to/3ZQ1a9V" target="_blank" class="w-full mt-4 flex items-center justify-center gap-2 py-3 bg-slate-100 dark:bg-slate-800 rounded-xl font-bold text-sm group-hover:bg-primary group-hover:text-white transition">
-<svg class="w-5 h-5"><use href="#icon-amazon"/></svg> Ver en Amazon
-</a>
-</div>
+  <div class="relative overflow-hidden aspect-square">
+    <img src="https://m.media-amazon.com/images/I/61OkbjZ7otL._AC_SL1200_.jpg" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+  </div>
+  <div class="p-6 flex flex-col h-[200px] justify-between">
+    <div>
+      <h3 class="font-bold text-lg mb-2">Módulo 5 cajones A4+</h3>
+      <p class="text-xs text-slate-500 line-clamp-2">Clasifica documentos sin recargar visualmente tu escritorio.</p>
+    </div>
+    <a href="https://amzn.to/4jnUiVX" target="_blank" class="w-full flex items-center justify-center gap-2 py-3 bg-slate-100 dark:bg-slate-800 rounded-xl font-bold text-sm group-hover:bg-primary group-hover:text-white transition">
+      <svg class="w-5 h-5"><use href="#icon-amazon"/></svg> Ver en Amazon
+    </a>
+  </div>
 </article>
 
-<!-- 8. Regleta -->
+<!-- 8. Papelera malla metálica -->
+<article class="product-card acc bg-white dark:bg-slate-900 rounded-[2rem] overflow-hidden border border-slate-200/60 dark:border-slate-800/60 shadow-card hover:shadow-premium hover:-translate-y-2 transition-all duration-500 group">
+  <div class="relative overflow-hidden aspect-square">
+    <img src="https://m.media-amazon.com/images/I/81yckur-iIL._SL1500_.jpg" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+  </div>
+  <div class="p-6 flex flex-col h-[200px] justify-between">
+    <div>
+      <h3 class="font-bold text-lg mb-2">Papelera malla metálica</h3>
+      <p class="text-xs text-slate-500 line-clamp-2">Diseño polivalente ideal para cualquier estancia.</p>
+    </div>
+    <a href="https://amzn.to/3L8SIuF" target="_blank" class="w-full flex items-center justify-center gap-2 py-3 bg-slate-100 dark:bg-slate-800 rounded-xl font-bold text-sm group-hover:bg-primary group-hover:text-white transition">
+      <svg class="w-5 h-5"><use href="#icon-amazon"/></svg> Ver en Amazon
+    </a>
+  </div>
+</article>
+<!-- 9. Elevador de Madera -->
+<article class="product-card acc bg-white dark:bg-slate-900 rounded-[2rem] overflow-hidden border border-slate-200/60 dark:border-slate-800/60 shadow-card hover:shadow-premium hover:-translate-y-2 transition-all duration-500 group">
+  <div class="relative overflow-hidden aspect-square">
+    <img src="https://m.media-amazon.com/images/I/61heBUIQLtL._AC_SL1500_.jpg" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+  </div>
+  <div class="p-6 flex flex-col h-[200px] justify-between">
+    <div>
+      <h3 class="font-bold text-lg mb-2">Elevador de Madera</h3>
+      <p class="text-xs text-slate-500 line-clamp-2">Añade estética natural y espacio extra bajo tu monitor.</p>
+    </div>
+    <a href="https://amzn.to/49wFyzJ" target="_blank" class="w-full flex items-center justify-center gap-2 py-3 bg-slate-100 dark:bg-slate-800 rounded-xl font-bold text-sm group-hover:bg-primary group-hover:text-white transition">
+      <svg class="w-5 h-5"><use href="#icon-amazon"/></svg> Ver en Amazon
+    </a>
+  </div>
+</article>
+
+<!-- 10. Organizador Escritorio Detectalia -->
+<article class="product-card acc bg-white dark:bg-slate-900 rounded-[2rem] overflow-hidden border border-slate-200/60 dark:border-slate-800/60 shadow-card hover:shadow-premium hover:-translate-y-2 transition-all duration-500 group">
+  <div class="relative overflow-hidden aspect-square">
+    <img src="https://m.media-amazon.com/images/I/71tEutfM3eL._AC_SL1500_.jpg" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+  </div>
+  <div class="p-6 flex flex-col h-[200px] justify-between">
+    <div>
+      <h3 class="font-bold text-lg mb-2">Organizador Escritorio</h3>
+      <p class="text-xs text-slate-500 line-clamp-2">Todo en su sitio: bolígrafos, notas y pequeños accesorios.</p>
+    </div>
+    <a href="https://amzn.to/4qLZGEH" target="_blank" class="w-full flex items-center justify-center gap-2 py-3 bg-slate-100 dark:bg-slate-800 rounded-xl font-bold text-sm group-hover:bg-primary group-hover:text-white transition">
+      <svg class="w-5 h-5"><use href="#icon-amazon"/></svg> Ver en Amazon
+    </a>
+  </div>
+</article>
+
+<!-- 11. Organizador Versátil -->
+<article class="product-card acc bg-white dark:bg-slate-900 rounded-[2rem] overflow-hidden border border-slate-200/60 dark:border-slate-800/60 shadow-card hover:shadow-premium hover:-translate-y-2 transition-all duration-500 group">
+  <div class="relative overflow-hidden aspect-square">
+    <img src="https://m.media-amazon.com/images/I/61K3aaAo9cL._AC_SL1500_.jpg" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+  </div>
+  <div class="p-6 flex flex-col h-[200px] justify-between">
+    <div>
+      <h3 class="font-bold text-lg mb-2">Organizador de Suministros</h3>
+      <p class="text-xs text-slate-500 line-clamp-2">Optimiza el espacio con compartimentos verticales inteligentes.</p>
+    </div>
+    <a href="https://amzn.to/4jF6EcE" target="_blank" class="w-full flex items-center justify-center gap-2 py-3 bg-slate-100 dark:bg-slate-800 rounded-xl font-bold text-sm group-hover:bg-primary group-hover:text-white transition">
+      <svg class="w-5 h-5"><use href="#icon-amazon"/></svg> Ver en Amazon
+    </a>
+  </div>
+</article>
+
+<!-- 12. Alfombrilla de Fieltro -->
 <article class="product-card desk bg-white dark:bg-slate-900 rounded-[2rem] overflow-hidden border border-slate-200/60 dark:border-slate-800/60 shadow-card hover:shadow-premium hover:-translate-y-2 transition-all duration-500 group">
-<div class="relative overflow-hidden aspect-square">
-<img src="https://m.media-amazon.com/images/I/61r7Xk7QXLL._AC_SL1500_.jpg" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
-</div>
-<div class="p-6 flex flex-col h-[200px] justify-between">
-<h3 class="font-bold text-lg mb-2">Regleta con USB</h3>
-<p class="text-xs text-slate-500 line-clamp-2">Conecta todos tus dispositivos sin enredos de cables.</p>
-<a href="https://amzn.to/4aZQ4T3" target="_blank" class="w-full mt-4 flex items-center justify-center gap-2 py-3 bg-slate-100 dark:bg-slate-800 rounded-xl font-bold text-sm group-hover:bg-primary group-hover:text-white transition">
-<svg class="w-5 h-5"><use href="#icon-amazon"/></svg> Ver en Amazon
-</a>
-</div>
+  <div class="relative overflow-hidden aspect-square">
+    <img src="https://m.media-amazon.com/images/I/71sNZ6t0z8L._AC_SL1500_.jpg" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+  </div>
+  <div class="p-6 flex flex-col h-[200px] justify-between">
+    <div>
+      <h3 class="font-bold text-lg mb-2">Alfombrilla de Fieltro</h3>
+      <p class="text-xs text-slate-500 line-clamp-2">100x40cm de suavidad y silencio para tu ratón y teclado.</p>
+    </div>
+    <a href="https://amzn.to/49wShm0" target="_blank" class="w-full flex items-center justify-center gap-2 py-3 bg-slate-100 dark:bg-slate-800 rounded-xl font-bold text-sm group-hover:bg-primary group-hover:text-white transition">
+      <svg class="w-5 h-5"><use href="#icon-amazon"/></svg> Ver en Amazon
+    </a>
+  </div>
 </article>
-
-<!-- 9. Monitor -->
-<article class="product-card desk bg-white dark:bg-slate-900 rounded-[2rem] overflow-hidden border border-slate-200/60 dark:border-slate-800/60 shadow-card hover:shadow-premium hover:-translate-y-2 transition-all duration-500 group">
-<div class="relative overflow-hidden aspect-square">
-<img src="https://m.media-amazon.com/images/I/71KRXn+4z8L._AC_SL1500_.jpg" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
-</div>
-<div class="p-6 flex flex-col h-[200px] justify-between">
-<h3 class="font-bold text-lg mb-2">Monitor 27” Full HD</h3>
-<p class="text-xs text-slate-500 line-clamp-2">Pantalla grande para productividad y multitarea.</p>
-<a href="https://amzn.to/3XH7K9N" target="_blank" class="w-full mt-4 flex items-center justify-center gap-2 py-3 bg-slate-100 dark:bg-slate-800 rounded-xl font-bold text-sm group-hover:bg-primary group-hover:text-white transition">
-<svg class="w-5 h-5"><use href="#icon-amazon"/></svg> Ver en Amazon
-</a>
-</div>
-</article>
-
-<!-- 10. Brazo monitor -->
-<article class="product-card ergo bg-white dark:bg-slate-900 rounded-[2rem] overflow-hidden border border-slate-200/60 dark:border-slate-800/60 shadow-card hover:shadow-premium hover:-translate-y-2 transition-all duration-500 group">
-<div class="relative overflow-hidden aspect-square">
-<img src="https://m.media-amazon.com/images/I/61F0cFhF+2L._AC_SL1500_.jpg" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
-</div>
-<div class="p-6 flex flex-col h-[200px] justify-between">
-<h3 class="font-bold text-lg mb-2">Brazo articulado monitor</h3>
-<p class="text-xs text-slate-500 line-clamp-2">Ajusta la altura y libera espacio en el escritorio.</p>
-<a href="https://amzn.to/4b7oRWT" target="_blank" class="w-full mt-4 flex items-center justify-center gap-2 py-3 bg-slate-100 dark:bg-slate-800 rounded-xl font-bold text-sm group-hover:bg-primary group-hover:text-white transition">
-<svg class="w-5 h-5"><use href="#icon-amazon"/></svg> Ver en Amazon
-</a>
-</div>
-</article>
-
-<!-- 11. Organizadores -->
-<article class="product-card desk bg-white dark:bg-slate-900 rounded-[2rem] overflow-hidden border border-slate-200/60 dark:border-slate-800/60 shadow-card hover:shadow-premium hover:-translate-y-2 transition-all duration-500 group">
-<div class="relative overflow-hidden aspect-square">
-<img src="https://m.media-amazon.com/images/I/61n9MZ0V8pL._AC_SL1500_.jpg" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
-</div>
-<div class="p-6 flex flex-col h-[200px] justify-between">
-<h3 class="font-bold text-lg mb-2">Organizadores de escritorio</h3>
-<p class="text-xs text-slate-500 line-clamp-2">Mantén todo ordenado y a mano durante el trabajo.</p>
-<a href="https://amzn.to/3XK9Q2H" target="_blank" class="w-full mt-4 flex items-center justify-center gap-2 py-3 bg-slate-100 dark:bg-slate-800 rounded-xl font-bold text-sm group-hover:bg-primary group-hover:text-white transition">
-<svg class="w-5 h-5"><use href="#icon-amazon"/></svg> Ver en Amazon
-</a>
-</div>
-</article>
-
-<!-- 12. Panel acústico -->
-<article class="product-card ergo bg-white dark:bg-slate-900 rounded-[2rem] overflow-hidden border border-slate-200/60 dark:border-slate-800/60 shadow-card hover:shadow-premium hover:-translate-y-2 transition-all duration-500 group">
-<div class="relative overflow-hidden aspect-square">
-<img src="https://m.media-amazon.com/images/I/71Bq7cWq5BL._AC_SL1500_.jpg" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
-</div>
-<div class="p-6 flex flex-col h-[200px] justify-between">
-<h3 class="font-bold text-lg mb-2">Paneles acústicos</h3>
-<p class="text-xs text-slate-500 line-clamp-2">Reduce el eco y mejora la calidad de sonido.</p>
-<a href="https://amzn.to/3ZP9FQW" target="_blank" class="w-full mt-4 flex items-center justify-center gap-2 py-3 bg-slate-100 dark:bg-slate-800 rounded-xl font-bold text-sm group-hover:bg-primary group-hover:text-white transition">
-<svg class="w-5 h-5"><use href="#icon-amazon"/></svg> Ver en Amazon
-</a>
-</div>
-</article>
-
-</div>
+</div> <!-- cierre product-grid -->
+</section> <!-- cierre sección productos -->
+<!-- GUÍA DE ERGONOMÍA -->
+<section id="guia" class="bg-white dark:bg-slate-900 py-24 reveal">
+    <div class="max-w-7xl mx-auto px-6">
+        <h2 class="text-4xl font-bold mb-12 text-center">Claves del Setup Perfecto</h2>
+        <div class="grid md:grid-cols-2 gap-16 items-center">
+            <div class="space-y-8">
+                <div class="flex gap-6">
+                    <div class="w-14 h-14 flex-shrink-0 bg-primary/20 text-primary rounded-2xl flex items-center justify-center font-bold text-xl">1</div>
+                    <div>
+                        <h4 class="text-xl font-bold mb-2 text-slate-900 dark:text-white">Soporte Lumbar</h4>
+                        <p class="text-slate-500 dark:text-slate-400">Tu silla debe seguir la curva natural de tu espalda. Si no, usa un cojín externo.</p>
+                    </div>
+                </div>
+                <div class="flex gap-6">
+                    <div class="w-14 h-14 flex-shrink-0 bg-emerald-500/20 text-emerald-500 rounded-2xl flex items-center justify-center font-bold text-xl">2</div>
+                    <div>
+                        <h4 class="text-xl font-bold mb-2 text-slate-900 dark:text-white">Regla de los 90º</h4>
+                        <p class="text-slate-500 dark:text-slate-400">Codos y rodillas deben formar ángulos rectos para evitar fatiga articular.</p>
+                    </div>
+                </div>
+                <div class="flex gap-6">
+                    <div class="w-14 h-14 flex-shrink-0 bg-orange-500/20 text-orange-500 rounded-2xl flex items-center justify-center font-bold text-xl">3</div>
+                    <div>
+                        <h4 class="text-xl font-bold mb-2 text-slate-900 dark:text-white">Descansos Visuales</h4>
+                        <p class="text-slate-500 dark:text-slate-400">Cada 20 minutos, mira algo a 6 metros de distancia durante 20 segundos.</p>
+                    </div>
+                </div>
+            </div>
+            <img src="https://images.unsplash.com/photo-1593642532400-2682810df593?auto=format&fit=crop&q=80&w=800" class="rounded-[2.5rem] shadow-premium border-4 border-slate-100 dark:border-slate-800 transition-all duration-700">
+        </div>
+    </div>
 </section>
 
-<!-- GUIA -->
-<section id="guia" class="max-w-5xl mx-auto px-6 py-24 reveal">
-<h2 class="text-4xl font-extrabold mb-10 text-center">Cómo montar tu oficina en casa</h2>
-<div class="grid md:grid-cols-3 gap-10">
-<div class="p-8 bg-white dark:bg-slate-900 rounded-3xl shadow-card">
-<h3 class="font-bold text-xl mb-3">1. Prioriza ergonomía</h3>
-<p class="text-sm text-slate-600 dark:text-slate-400">Silla, altura de pantalla y postura correcta son clave.</p>
-</div>
-<div class="p-8 bg-white dark:bg-slate-900 rounded-3xl shadow-card">
-<h3 class="font-bold text-xl mb-3">2. Iluminación adecuada</h3>
-<p class="text-sm text-slate-600 dark:text-slate-400">Evita reflejos y cuida la vista durante largas jornadas.</p>
-</div>
-<div class="p-8 bg-white dark:bg-slate-900 rounded-3xl shadow-card">
-<h3 class="font-bold text-xl mb-3">3. Orden y cables</h3>
-<p class="text-sm text-slate-600 dark:text-slate-400">Un espacio limpio mejora la concentración y productividad.</p>
-</div>
-</div>
-</section>
+<!-- ERRORES COMUNES (SECCIÓN CONSEJOS) -->
+<section id="consejos" class="bg-slate-900 text-white py-24 reveal">
+    <div class="max-w-7xl mx-auto px-6">
+        <div class="text-center mb-16">
+            <span class="text-orange-500 font-bold tracking-widest text-sm">NO HAGAS ESTO</span>
+            <h2 class="text-4xl font-bold mt-4">Errores típicos al montar tu oficina</h2>
+        </div>
+        
+        <div class="grid md:grid-cols-3 gap-8">
+            <div class="bg-slate-800/50 p-8 rounded-3xl border border-slate-700 hover:border-orange-500 transition-colors group">
+                <div class="w-12 h-12 bg-orange-500/10 text-orange-500 rounded-full flex items-center justify-center mb-6 text-2xl font-bold">!</div>
+                <h3 class="text-xl font-bold mb-4 group-hover:text-orange-500 transition-colors">Trabajar en el sofá</h3>
+                <p class="text-slate-400 leading-relaxed">Parece cómodo, pero destruye tu postura lumbar y reduce tu concentración drásticamente en menos de 30 minutos.</p>
+            </div>
+            
+            <div class="bg-slate-800/50 p-8 rounded-3xl border border-slate-700 hover:border-orange-500 transition-colors group">
+                <div class="w-12 h-12 bg-orange-500/10 text-orange-500 rounded-full flex items-center justify-center mb-6 text-2xl font-bold">!</div>
+                <h3 class="text-xl font-bold mb-4 group-hover:text-orange-500 transition-colors">Mala iluminación</h3>
+                <p class="text-slate-400 leading-relaxed">Trabajar solo con la luz del techo genera sombras y fatiga visual. Necesitas una luz focal suave en tu zona de tareas.</p>
+            </div>
 
-<!-- ERRORES -->
-<section id="consejos" class="bg-slate-100 dark:bg-slate-900 py-24 reveal">
-<div class="max-w-6xl mx-auto px-6">
-<h2 class="text-4xl font-extrabold mb-10 text-center">Errores comunes en teletrabajo</h2>
-<ul class="grid md:grid-cols-2 gap-8 text-sm">
-<li class="p-6 bg-white dark:bg-slate-800 rounded-2xl shadow-card">❌ Trabajar desde el sofá</li>
-<li class="p-6 bg-white dark:bg-slate-800 rounded-2xl shadow-card">❌ No invertir en una buena silla</li>
-<li class="p-6 bg-white dark:bg-slate-800 rounded-2xl shadow-card">❌ Mala iluminación</li>
-<li class="p-6 bg-white dark:bg-slate-800 rounded-2xl shadow-card">❌ Pantalla demasiado baja</li>
-</ul>
-</div>
+            <div class="bg-slate-800/50 p-8 rounded-3xl border border-slate-700 hover:border-orange-500 transition-colors group">
+                <div class="w-12 h-12 bg-orange-500/10 text-orange-500 rounded-full flex items-center justify-center mb-6 text-2xl font-bold">!</div>
+                <h3 class="text-xl font-bold mb-4 group-hover:text-orange-500 transition-colors">Ignorar los cables</h3>
+                <p class="text-slate-400 leading-relaxed">El "caos visual" genera estrés inconsciente. Un buen sistema de gestión de cables limpia tu mente tanto como tu escritorio.</p>
+            </div>
+        </div>
+    </div>
 </section>
 
 <!-- FOOTER -->
-<footer class="bg-slate-950 text-slate-400 py-14">
-<div class="max-w-7xl mx-auto px-6 text-center">
-<p class="text-sm">© 2026 Oficina en Casa Online — Algunos enlaces son afiliados de Amazon.</p>
-</div>
+<footer class="bg-white dark:bg-slate-950 pt-20 pb-10 border-t border-slate-200 dark:border-slate-800">
+    <div class="max-w-7xl mx-auto px-6">
+        <div class="text-center mb-12">
+            <div class="flex items-center justify-center gap-3 mb-6">
+                <div class="w-10 h-10 bg-primary rounded-xl flex items-center justify-center text-white font-bold">O</div>
+                <span class="font-bold text-2xl">Oficina en Casa</span>
+            </div>
+            <p id="legal" class="text-slate-400 text-sm max-w-lg mx-auto italic">
+                Participamos en el Programa de Afiliados de Amazon. Si compras a través de nuestros enlaces, recibimos una comisión sin coste extra para ti.
+            </p>
+        </div>
+        <div class="pt-8 border-t border-slate-100 dark:border-slate-900 text-center">
+            <p class="text-xs text-slate-500">© 2026 Oficina en Casa Online. Diseñado para la productividad.</p>
+        </div>
+    </div>
 </footer>
 
-<!-- SCRIPTS -->
+<button id="scroll-top" class="fixed bottom-8 right-8 p-4 bg-primary text-white rounded-full shadow-2xl translate-y-24 opacity-0 transition-all duration-300 z-50 hover:scale-110">
+    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"></path></svg>
+</button>
+
 <script>
-const toggleBtn = document.getElementById('theme-toggle');
-const darkIcon = document.getElementById('theme-toggle-dark-icon');
-const lightIcon = document.getElementById('theme-toggle-light-icon');
+    // DARK MODE
+    const themeToggleBtn = document.getElementById('theme-toggle');
+    const darkIcon = document.getElementById('theme-toggle-dark-icon');
+    const lightIcon = document.getElementById('theme-toggle-light-icon');
 
-if (localStorage.getItem('theme') === 'dark' || 
-   (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-    document.documentElement.classList.add('dark');
-    lightIcon.classList.remove('hidden');
-} else {
-    darkIcon.classList.remove('hidden');
-}
+    if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.documentElement.classList.add('dark');
+        lightIcon.classList.remove('hidden');
+    } else {
+        darkIcon.classList.remove('hidden');
+    }
 
-toggleBtn.addEventListener('click', () => {
-    document.documentElement.classList.toggle('dark');
-    darkIcon.classList.toggle('hidden');
-    lightIcon.classList.toggle('hidden');
-    localStorage.setItem('theme', document.documentElement.classList.contains('dark') ? 'dark' : 'light');
-});
+    themeToggleBtn.addEventListener('click', () => {
+        document.documentElement.classList.toggle('dark');
+        darkIcon.classList.toggle('hidden');
+        lightIcon.classList.toggle('hidden');
+    });
 
-const menuBtn = document.getElementById('mobile-menu-btn');
-const mobileMenu = document.getElementById('mobile-menu');
-menuBtn.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
+    // REVEAL ANIMATION
+    const reveal = () => {
+        document.querySelectorAll('.reveal').forEach(el => {
+            if (el.getBoundingClientRect().top < window.innerHeight - 100) el.classList.add('active');
+        });
+    };
+    window.addEventListener('scroll', reveal);
+    reveal();
 
-const observer = new IntersectionObserver(entries => {
-entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('active'); });
-});
-document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    // NAV & SCROLL TOP
+    window.addEventListener('scroll', () => {
+        const nav = document.getElementById('main-nav');
+        const scrollBtn = document.getElementById('scroll-top');
+        if (window.scrollY > 50) {
+            nav.classList.add('py-2', 'shadow-lg');
+            scrollBtn.classList.remove('translate-y-24', 'opacity-0');
+        } else {
+            nav.classList.remove('py-2', 'shadow-lg');
+            scrollBtn.classList.add('translate-y-24', 'opacity-0');
+        }
+    });
+
+    // MENU MOBILE
+    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    mobileMenuBtn.addEventListener('click', () => {
+        mobileMenu.classList.toggle('hidden');
+    });
+
+    // Close mobile menu on click link
+    mobileMenu.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => mobileMenu.classList.add('hidden'));
+    });
+
+    document.getElementById('scroll-top').addEventListener('click', () => window.scrollTo({top: 0}));
+
+    // PRODUCT FILTERING
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    const products = document.querySelectorAll('.product-card');
+
+    filterBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            filterBtns.forEach(b => {
+                b.classList.remove('active', 'bg-primary', 'text-white');
+                b.classList.add('bg-white', 'dark:bg-slate-800');
+            });
+            btn.classList.add('active', 'bg-primary', 'text-white');
+            btn.classList.remove('bg-white', 'dark:bg-slate-800');
+
+            const category = btn.dataset.category;
+            products.forEach(p => {
+                if (category === 'all' || p.classList.contains(category)) {
+                    p.style.display = 'block';
+                    setTimeout(() => p.style.opacity = '1', 10);
+                } else {
+                    p.style.opacity = '0';
+                    setTimeout(() => p.style.display = 'none', 500);
+                }
+            });
+        });
+    });
 </script>
-
 </body>
 </html>
+
+
+
+
+
+
+
 
 
 
