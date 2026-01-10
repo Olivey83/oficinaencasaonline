@@ -1,491 +1,502 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" class="scroll-smooth">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Oficina en Casa Online | Teletrabajo Premium</title>
-  <meta name="description" content="Guía premium para montar tu oficina en casa con productos recomendados, ergonomía y accesorios esenciales para teletrabajo.">
-  <meta name="robots" content="index,follow" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Oficina en Casa Online | Teletrabajo Premium 2026</title>
+    <meta name="description" content="Guía premium para montar tu oficina en casa con productos recomendados, ergonomía y accesorios esenciales para teletrabajo.">
+    
+    <!-- TailwindCSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
 
-  <!-- Favicon (puedes guardar el SVG del logo como /favicon.svg) -->
-  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-
-  <!-- TailwindCSS CDN -->
-  <script src="https://cdn.tailwindcss.com"></script>
-
-  <!-- Configuración Tailwind personalizada -->
-  <script>
-    tailwind.config = {
-      darkMode: 'media',
-      theme: {
-        extend: {
-          colors: {
-            primary: "#2563eb",
-            primaryDark: "#1e40af",
-            accent: "#0f172a",
-          },
-          boxShadow: {
-            premium: "0 20px 60px rgba(15,23,42,0.22)",
-          },
-          borderRadius: {
-            '3xl': '1.75rem',
-          },
-          keyframes: {
-            'fade-in-up': {
-              '0%': { opacity: '0', transform: 'translateY(20px)' },
-              '100%': { opacity: '1', transform: 'translateY(0)' },
-            },
-            'float-slow': {
-              '0%, 100%': { transform: 'translateY(0px)' },
-              '50%': { transform: 'translateY(-10px)' },
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: "#2563eb",
+                        primaryDark: "#1e40af",
+                        accent: "#0f172a",
+                    },
+                    boxShadow: {
+                        premium: "0 20px 60px rgba(15,23,42,0.22)",
+                        card: "0 10px 30px -10px rgba(0,0,0,0.1)",
+                    },
+                    borderRadius: { '3xl': '1.75rem' },
+                    animation: {
+                        'fade-in-up': 'fade-in-up 0.8s ease-out forwards',
+                        'float': 'float 6s ease-in-out infinite',
+                    },
+                    keyframes: {
+                        'fade-in-up': {
+                            '0%': { opacity: '0', transform: 'translateY(30px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        },
+                        'float': {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-20px)' },
+                        }
+                    }
+                }
             }
-          },
-          animation: {
-            'fade-in-up': 'fade-in-up 0.9s ease-out both',
-            'float-slow': 'float-slow 12s ease-in-out infinite',
-          }
         }
-      }
-    }
-  </script>
+    </script>
 
-  <style>
-    /* Parallax suave en el hero */
-    .hero-parallax {
-      background-attachment: fixed;
-    }
-  </style>
+    <style>
+        .reveal { opacity: 0; transform: translateY(30px); transition: all 0.8s ease-out; }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+        .glass { background: rgba(255, 255, 255, 0.7); backdrop-filter: blur(12px); }
+        .dark .glass { background: rgba(15, 23, 42, 0.8); }
+        .product-card { transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1); }
+    </style>
 </head>
 
-<body class="bg-gray-50 text-gray-900 dark:bg-slate-950 dark:text-slate-50 antialiased">
+<body class="bg-slate-50 text-slate-900 dark:bg-slate-950 dark:text-slate-50 antialiased overflow-x-hidden">
 
-  <!-- SVG LOGO DEFINICIÓN (puedes copiar esto a favicon.svg si quieres) -->
-  <!-- Variante abstracta relacionada con oficina / teletrabajo, minimalista -->
-  <svg
-    id="logo-oficina"
-    xmlns="http://www.w3.org/2000/svg"
-    viewBox="0 0 64 64"
-    class="hidden"
-  >
-    <!-- Fondo transparente (no se pinta) -->
-    <rect width="64" height="64" fill="none" />
+    <svg class="hidden">
+        <symbol id="icon-amazon" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M15.012 13.844c-.53.43-1.286.666-2.268.706-1.12.046-2.19-.188-3.21-.692-.128-.063-.2-.047-.25.047l-.375.61c-.047.078-.03.14.047.203 1.25.92 2.782 1.344 4.5 1.25 1.516-.078 2.766-.547 3.704-1.42.062-.064.047-.14-.032-.204l-.53-.438c-.08-.063-.157-.063-.235.03zM22.5 12c0 5.797-4.703 10.5-10.5 10.5S1.5 17.797 1.5 12 6.203 1.5 12 1.5 22.5 6.203 22.5 12zm-3.875 3.328c-.125.11-.234.078-.328-.047-.14-.187-.64-.937-.734-1.078-.063-.094-.14-.11-.235-.047-1.42 1-3.218 1.53-5.28 1.485-2.22-.047-4.14-.735-5.673-2.016-.078-.063-.11-.03-.094.062.25 1.36.938 2.454 1.953 3.313 2.156 1.83 5.375 2.22 8.36 1.094.672-.25 1.265-.578 1.812-.97.094-.06.125-.155.22-.25.093-.093.11-.187.015-.296-.015-.016-.015-.047-.015-.047z"/>
+        </symbol>
+    </svg>
 
-    <!-- Forma abstracta estilo Big Sur + guiño a escritorio/silla -->
-    <defs>
-      <linearGradient id="grad-logo" x1="0%" y1="0%" x2="100%" y2="100%">
-        <stop offset="0%" stop-color="#38bdf8" />
-        <stop offset="50%" stop-color="#6366f1" />
-        <stop offset="100%" stop-color="#22c55e" />
-      </linearGradient>
-    </defs>
+    <!-- NAVIGATION -->
+    <header class="fixed w-full top-0 z-50 glass border-b border-slate-200/50 dark:border-slate-800/50 transition-all duration-300" id="main-nav">
+        <div class="max-w-7xl mx-auto flex items-center justify-between px-6 py-4">
+            <a href="#" class="flex items-center gap-3 group">
+                <div class="w-10 h-10 bg-gradient-to-br from-primary to-emerald-500 rounded-xl flex items-center justify-center text-white shadow-lg transition-transform group-hover:scale-110">
+                    <span class="font-bold text-xl">O</span>
+                </div>
+                <span class="font-bold text-lg tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-slate-900 to-slate-600 dark:from-white dark:to-slate-400">
+                    Oficina en Casa
+                </span>
+            </a>
+            
+            <nav class="hidden md:flex items-center gap-8">
+                <a href="#productos" class="text-sm font-semibold hover:text-primary transition">Productos</a>
+                <a href="#guia" class="text-sm font-semibold hover:text-primary transition">Guía</a>
+                <a href="#consejos" class="text-sm font-semibold hover:text-primary transition">Errores</a>
+                <button id="theme-toggle" class="p-2 rounded-full hover:bg-slate-200/50 dark:hover:bg-slate-800/50 transition">
+                    <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
+                    <svg id="theme-toggle-light-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z"></path></svg>
+                </button>
+            </nav>
 
-    <!-- Blob principal -->
-    <path
-      d="M12 22C12 14 18 8 26 8h12c8 0 14 6 14 14v8c0 8-6 14-14 14h-6c-2.5 0-4.5 0.7-6.4 2l-4.5 3.1C18 51 15 50 14 47.5 13 45 13 42 13 40v-6c-1-2-1-4-1-6z"
-      fill="url(#grad-logo)"
-    />
-
-    <!-- Línea base tipo mesa -->
-    <rect x="18" y="30" width="28" height="3" rx="1.5" fill="white" opacity="0.9" />
-
-    <!-- Pantalla minimalista -->
-    <rect x="22" y="18" width="20" height="10" rx="2" fill="white" opacity="0.95" />
-
-    <!-- Pequeña base -->
-    <rect x="28" y="30" width="8" height="3" rx="1.5" fill="white" opacity="0.9" />
-
-    <!-- Sombra sutil bajo la mesa -->
-    <ellipse cx="32" cy="42" rx="10" ry="3" fill="black" opacity="0.12" />
-  </svg>
-
-  <!-- NAV -->
-  <header class="sticky top-0 z-40 backdrop-blur bg-white/70 dark:bg-slate-950/70 border-b border-slate-200/80 dark:border-slate-800/80">
-    <div class="max-w-6xl mx-auto flex items-center justify-between px-4 py-3">
-      <a href="#" class="flex items-center gap-2 group">
-        <!-- Uso del logo como inline SVG, con animación hover -->
-        <svg
-          viewBox="0 0 64 64"
-          aria-hidden="true"
-          class="h-9 w-9 drop-shadow-md transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:scale-105"
-        >
-          <use href="#logo-oficina" />
-        </svg>
-        <span class="font-semibold tracking-tight text-slate-900 dark:text-slate-100 text-sm md:text-base">
-          Oficina en Casa Online
-        </span>
-      </a>
-      <nav class="hidden md:flex items-center gap-6 text-sm font-medium">
-        <a href="#productos" class="text-slate-600 dark:text-slate-300 hover:text-primary dark:hover:text-primary transition">Productos</a>
-        <a href="#guia" class="text-slate-600 dark:text-slate-300 hover:text-primary dark:hover:text-primary transition">Guía</a>
-        <a href="#consejos" class="text-slate-600 dark:text-slate-300 hover:text-primary dark:hover:text-primary transition">Consejos</a>
-        <a href="#legal" class="text-slate-600 dark:text-slate-300 hover:text-primary dark:hover:text-primary transition">Legal</a>
-      </nav>
-    </div>
-  </header>
-
-  <!-- HERO -->
-  <section class="relative hero-parallax overflow-hidden bg-gradient-to-br from-sky-500 via-primary to-primaryDark text-white">
-    <!-- Fondo abstracto estilo Big Sur -->
-    <div class="pointer-events-none absolute inset-0 opacity-60">
-      <div class="absolute -top-32 -left-20 h-80 w-80 rounded-full bg-gradient-to-br from-sky-300 via-fuchsia-300 to-emerald-300 blur-3xl"></div>
-      <div class="absolute -bottom-40 -right-10 h-96 w-96 rounded-full bg-gradient-to-br from-blue-300 via-indigo-400 to-pink-300 blur-3xl"></div>
-    </div>
-
-    <div class="relative max-w-6xl mx-auto px-4 md:px-6 py-20 md:py-28 flex flex-col md:flex-row items-center gap-12 md:gap-16">
-      <!-- Texto -->
-      <div class="md:w-1/2 animate-fade-in-up">
-        <p class="uppercase tracking-[0.18em] text-xs font-semibold text-sky-100/90 mb-3">
-          TELETRABAJO · ERGONOMÍA · PRODUCTIVIDAD
-        </p>
-        <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight">
-          Tu oficina en casa,
-          <span class="block mt-1 text-sky-100">
-            con calidad de estudio profesional.
-          </span>
-        </h1>
-        <p class="mt-6 text-base md:text-lg text-sky-100/90 max-w-xl">
-          Monta un espacio de teletrabajo cómodo, minimalista y ergonómico. Productos probados, sin ruido visual
-          y con una estética tan cuidada como tu trabajo.
-        </p>
-        <div class="mt-8 flex flex-wrap items-center gap-4">
-          <a href="#productos" class="inline-flex items-center justify-center px-6 py-3 rounded-full bg-white text-primary font-semibold shadow-lg shadow-sky-900/40 hover:bg-slate-50 transition">
-            Ver productos recomendados
-          </a>
-          <a href="#guia" class="inline-flex items-center justify-center px-5 py-3 rounded-full border border-sky-100/70 text-sky-100 hover:bg-white/10 transition text-sm font-medium">
-            Leer guía completa
-          </a>
+            <button class="md:hidden p-2" id="mobile-menu-btn">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+            </button>
         </div>
-        <p class="mt-4 text-xs text-sky-100/80">
-          Enlaces de afiliado · Sin coste extra para ti · Selección 2026
-        </p>
-      </div>
-
-      <!-- Ilustración estilo Apple / Big Sur -->
-      <div class="md:w-1/2">
-        <div class="relative max-w-md mx-auto aspect-[4/3] rounded-3xl bg-white/10 backdrop-blur-xl border border-white/30 shadow-premium overflow-hidden animate-float-slow">
-          <div class="absolute inset-0 bg-gradient-to-br from-sky-200/60 via-fuchsia-200/60 to-emerald-200/60 dark:from-sky-500/40 dark:via-indigo-500/40 dark:to-emerald-400/40"></div>
-          <div class="relative h-full w-full p-6 flex flex-col justify-between">
-            <div class="mx-auto w-9/12 h-3/5 rounded-3xl bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 dark:from-slate-950 dark:via-slate-900 dark:to-slate-950 shadow-xl flex items-center justify-center">
-              <div class="w-10/12 h-3/4 rounded-3xl bg-gradient-to-br from-sky-400 via-indigo-400 to-emerald-400 opacity-90"></div>
-            </div>
-            <div class="mt-4 flex items-end justify-center gap-4">
-              <div class="w-10 h-10 rounded-2xl bg-white/90 shadow-md"></div>
-              <div class="h-1 w-7/12 rounded-full bg-slate-800/80 dark:bg-slate-900/90"></div>
-              <div class="w-7 h-7 rounded-full bg-white/80 shadow-md"></div>
-            </div>
-            <div class="mt-4 flex justify-between text-[0.65rem] text-slate-800/80 dark:text-slate-900/80 font-medium">
-              <span>Setup ergonómico</span>
-              <span>Iluminación suave</span>
-              <span>Minimalismo digital</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- INTRO BREVE -->
-  <section class="max-w-4xl mx-auto px-4 md:px-6 -mt-10 md:-mt-16 relative z-10">
-    <div class="bg-white dark:bg-slate-900/90 border border-slate-200 dark:border-slate-800 rounded-3xl shadow-xl shadow-slate-900/10 px-6 md:px-8 py-7">
-      <h2 class="text-xl md:text-2xl font-semibold text-accent dark:text-slate-100">
-        Oficina en Casa Online
-      </h2>
-      <p class="mt-3 text-sm md:text-base text-slate-600 dark:text-slate-300">
-        Recomendaciones reales de material de oficina para personas que teletrabajan desde casa. Busco productos útiles,
-        cómodos, con buena relación calidad-precio y un diseño que no desentone con una estética minimalista.
-      </p>
-      <p class="mt-3 text-xs md:text-sm text-slate-500 dark:text-slate-400">
-        Algunos enlaces son de afiliado de Amazon. Si compras a través de ellos, puedo recibir una pequeña comisión
-        sin coste adicional para ti. Es una forma de apoyar este proyecto.
-      </p>
-    </div>
-  </section>
-
-  <!-- CATEGORÍAS -->
-  <section class="max-w-6xl mx-auto px-4 md:px-6 mt-16 md:mt-20">
-    <h2 class="text-2xl md:text-3xl font-bold text-accent dark:text-slate-50 text-center">
-      Categorías clave para tu espacio de trabajo
-    </h2>
-    <p class="mt-3 text-center text-sm md:text-base text-slate-600 dark:text-slate-300 max-w-2xl mx-auto">
-      No necesitas comprarlo todo. Empieza por lo que más impacto tiene en tu postura, tu concentración
-      y tu bienestar diario.
-    </p>
-
-    <div class="mt-10 grid gap-6 md:grid-cols-4">
-      <div class="group bg-white dark:bg-slate-900/90 border border-slate-200 dark:border-slate-800 rounded-3xl p-5 shadow-sm hover:shadow-lg hover:-translate-y-1 transition">
-        <div class="h-9 w-9 rounded-2xl bg-gradient-to-br from-sky-500 to-sky-700 flex items-center justify-center text-white text-lg shadow-md mb-3">
-          💺
-        </div>
-        <h3 class="font-semibold text-sm md:text-base text-accent dark:text-slate-50">Sillas ergonómicas</h3>
-        <p class="mt-2 text-xs md:text-sm text-slate-600 dark:text-slate-300">
-          El centro de todo. Una buena silla marca la diferencia después de 8 horas.
-        </p>
-      </div>
-
-      <div class="group bg-white dark:bg-slate-900/90 border border-slate-200 dark:border-slate-800 rounded-3xl p-5 shadow-sm hover:shadow-lg hover:-translate-y-1 transition">
-        <div class="h-9 w-9 rounded-2xl bg-gradient-to-br from-indigo-500 to-indigo-700 flex items-center justify-center text-white text-lg shadow-md mb-3">
-          🧍
-        </div>
-        <h3 class="font-semibold text-sm md:text-base text-accent dark:text-slate-50">Escritorios regulables</h3>
-        <p class="mt-2 text-xs md:text-sm text-slate-600 dark:text-slate-300">
-          Alternar entre trabajar sentado y de pie mejora tu postura y tu energía.
-        </p>
-      </div>
-
-      <div class="group bg-white dark:bg-slate-900/90 border border-slate-200 dark:border-slate-800 rounded-3xl p-5 shadow-sm hover:shadow-lg hover:-translate-y-1 transition">
-        <div class="h-9 w-9 rounded-2xl bg-gradient-to-br from-emerald-500 to-emerald-700 flex items-center justify-center text-white text-lg shadow-md mb-3">
-          💡
-        </div>
-        <h3 class="font-semibold text-sm md:text-base text-accent dark:text-slate-50">Iluminación</h3>
-        <p class="mt-2 text-xs md:text-sm text-slate-600 dark:text-slate-300">
-          Luz regulable y bien dirigida para reducir la fatiga visual y el cansancio.
-        </p>
-      </div>
-
-      <div class="group bg-white dark:bg-slate-900/90 border border-slate-200 dark:border-slate-800 rounded-3xl p-5 shadow-sm hover:shadow-lg hover:-translate-y-1 transition">
-        <div class="h-9 w-9 rounded-2xl bg-gradient-to-br from-pink-500 to-pink-700 flex items-center justify-center text-white text-lg shadow-md mb-3">
-          🗂️
-        </div>
-        <h3 class="font-semibold text-sm md:text-base text-accent dark:text-slate-50">Organización</h3>
-        <p class="mt-2 text-xs md:text-sm text-slate-600 dark:text-slate-300">
-          Cajoneras, módulos y pequeños detalles que mantienen tu escritorio despejado.
-        </p>
-      </div>
-    </div>
-  </section>
-
-<!-- PRODUCTOS DESTACADOS - GRID -->
-<section id="productos" class="max-w-6xl mx-auto px-4 md:px-6 mt-16 md:mt-20">
-  <h2 class="text-2xl md:text-3xl font-bold text-accent dark:text-slate-50 text-center">
-    Selección destacada 2026
-  </h2>
-  <p class="mt-3 text-center text-sm md:text-base text-slate-600 dark:text-slate-300 max-w-2xl mx-auto">
-    Encuentra los productos clave para montar tu oficina en casa de forma cómoda y práctica.
-  </p>
-
-  <div class="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-    <!-- Producto 1 -->
-    <article class="bg-white dark:bg-slate-900/90 border border-slate-200 dark:border-slate-800 rounded-3xl shadow-lg p-4 flex flex-col hover:-translate-y-1 hover:shadow-xl transition">
-      <img src="https://m.media-amazon.com/images/I/81tt0QgRGJL._AC_SL1500_.jpg" alt="Mejor silla calidad-precio" class="rounded-2xl mb-4 aspect-square object-cover">
-      <h3 class="text-sm font-semibold text-accent dark:text-slate-50">Mejor silla calidad-precio</h3>
-      <p class="mt-2 text-xs text-slate-600 dark:text-slate-300">Evita dolores de espalda si pasas muchas horas sentado frente al ordenador.</p>
-      <a href="https://amzn.to/44Wcq3f" target="_blank" class="mt-4 inline-flex items-center justify-center px-4 py-2.5 rounded-full bg-primary text-white text-xs font-semibold hover:bg-primaryDark transition">
-        Ver en Amazon
-      </a>
-    </article>
-
-    <!-- Producto 2 -->
-    <article class="bg-white dark:bg-slate-900/90 border border-slate-200 dark:border-slate-800 rounded-3xl shadow-lg p-4 flex flex-col hover:-translate-y-1 hover:shadow-xl transition">
-      <img src="https://m.media-amazon.com/images/I/61pl8xkp5xL._AC_SX679_.jpg" alt="Escritorio regulable" class="rounded-2xl mb-4 aspect-square object-cover">
-      <h3 class="text-sm font-semibold text-accent dark:text-slate-50">Escritorio regulable</h3>
-      <p class="mt-2 text-xs text-slate-600 dark:text-slate-300">Alterna entre trabajar sentado y de pie, y cuida tu espalda a largo plazo.</p>
-      <a href="https://amzn.to/4qupXHA" target="_blank" class="mt-4 inline-flex items-center justify-center px-4 py-2.5 rounded-full bg-primary text-white text-xs font-semibold hover:bg-primaryDark transition">
-        Ver en Amazon
-      </a>
-    </article>
-
-    <!-- Producto 3 -->
-    <article class="bg-white dark:bg-slate-900/90 border border-slate-200 dark:border-slate-800 rounded-3xl shadow-lg p-4 flex flex-col hover:-translate-y-1 hover:shadow-xl transition">
-      <img src="https://m.media-amazon.com/images/I/61BK9+YGKML._AC_SL1500_.jpg" alt="Soporte para portátil" class="rounded-2xl mb-4 aspect-square object-cover">
-      <h3 class="text-sm font-semibold text-accent dark:text-slate-50">Soporte para portátil</h3>
-      <p class="mt-2 text-xs text-slate-600 dark:text-slate-300">Eleva la pantalla a la altura correcta y mejora tu postura cervical.</p>
-      <a href="https://amzn.to/4aGRYar" target="_blank" class="mt-4 inline-flex items-center justify-center px-4 py-2.5 rounded-full bg-primary text-white text-xs font-semibold hover:bg-primaryDark transition">
-        Ver en Amazon
-      </a>
-    </article>
-
-    <!-- Producto 4 -->
-    <article class="bg-white dark:bg-slate-900/90 border border-slate-200 dark:border-slate-800 rounded-3xl shadow-lg p-4 flex flex-col hover:-translate-y-1 hover:shadow-xl transition">
-      <img src="https://m.media-amazon.com/images/I/61HWVh6wxqL._AC_SL1500_.jpg" alt="Lámpara de despacho" class="rounded-2xl mb-4 aspect-square object-cover">
-      <h3 class="text-sm font-semibold text-accent dark:text-slate-50">Lámpara de despacho</h3>
-      <p class="mt-2 text-xs text-slate-600 dark:text-slate-300">Una buena luz focal reduce la fatiga visual y mejora la concentración.</p>
-      <a href="https://amzn.to/3YRFntF" target="_blank" class="mt-4 inline-flex items-center justify-center px-4 py-2.5 rounded-full bg-primary text-white text-xs font-semibold hover:bg-primaryDark transition">
-        Ver en Amazon
-      </a>
-    </article>
-
-    <!-- Producto 5 -->
-    <article class="bg-white dark:bg-slate-900/90 border border-slate-200 dark:border-slate-800 rounded-3xl shadow-lg p-4 flex flex-col hover:-translate-y-1 hover:shadow-xl transition">
-      <img src="https://m.media-amazon.com/images/I/51-LmMCoscL._AC_SL1000_.jpg" class="rounded-2xl mb-4 aspect-square object-cover">
-      <h3 class="text-sm font-semibold text-accent dark:text-slate-50">Auriculares inalámbricos</h3>
-      <p class="mt-2 text-xs text-slate-600 dark:text-slate-300">Ideales para videollamadas y concentración sin cables.</p>
-      <a href="https://amzn.to/3LFOfQb" target="_blank" class="mt-4 inline-flex items-center justify-center px-4 py-2.5 rounded-full bg-primary text-white text-xs font-semibold hover:bg-primaryDark transition">
-        Ver en Amazon
-      </a>
-    </article>
-
-    <!-- Producto 6 -->
-    <article class="bg-white dark:bg-slate-900/90 border border-slate-200 dark:border-slate-800 rounded-3xl shadow-lg p-4 flex flex-col hover:-translate-y-1 hover:shadow-xl transition">
-      <img src="https://m.media-amazon.com/images/I/511hfGz8lpL._AC_SL1500_.jpg" alt="Cajonera archivador móvil" class="rounded-2xl mb-4 aspect-square object-cover">
-      <h3 class="text-sm font-semibold text-accent dark:text-slate-50">Cajonera archivador móvil</h3>
-      <p class="mt-2 text-xs text-slate-600 dark:text-slate-300">Organiza documentos sin recargar visualmente el espacio de trabajo.</p>
-      <a href="https://amzn.to/4qFHtZG" target="_blank" class="mt-4 inline-flex items-center justify-center px-4 py-2.5 rounded-full bg-primary text-white text-xs font-semibold hover:bg-primaryDark transition">
-        Ver en Amazon
-      </a>
-    </article>
-
-    <!-- Producto 7 -->
-    <article class="bg-white dark:bg-slate-900/90 border border-slate-200 dark:border-slate-800 rounded-3xl shadow-lg p-4 flex flex-col hover:-translate-y-1 hover:shadow-xl transition">
-      <img src="https://m.media-amazon.com/images/I/61OkbjZ7otL._AC_SL1200_.jpg" alt="Módulo con 5 cajones A4+" class="rounded-2xl mb-4 aspect-square object-cover">
-      <h3 class="text-sm font-semibold text-accent dark:text-slate-50">Módulo con 5 cajones A4+</h3>
-      <p class="mt-2 text-xs text-slate-600 dark:text-slate-300">Clasifica papeles y material sin perder el aspecto limpio del escritorio.</p>
-      <a href="https://amzn.to/4jnUiVX" target="_blank" class="mt-4 inline-flex items-center justify-center px-4 py-2.5 rounded-full bg-primary text-white text-xs font-semibold hover:bg-primaryDark transition">
-        Ver en Amazon
-      </a>
-    </article>
-
-    <!-- Producto 8 -->
-    <article class="bg-white dark:bg-slate-900/90 border border-slate-200 dark:border-slate-800 rounded-3xl shadow-lg p-4 flex flex-col hover:-translate-y-1 hover:shadow-xl transition">
-      <img src="https://m.media-amazon.com/images/I/81yckur-iIL._SL1500_.jpg" class="rounded-2xl mb-4 aspect-square object-cover">
-      <h3 class="text-sm font-semibold text-accent dark:text-slate-50">Reposapiés ergonómico</h3>
-      <p class="mt-2 text-xs text-slate-600 dark:text-slate-300">Mejora la circulación y reduce tensión en piernas y espalda.</p>
-      <a href="https://amzn.to/3L8SIuF" target="_blank" class="mt-4 inline-flex items-center justify-center px-4 py-2.5 rounded-full bg-primary text-white text-xs font-semibold hover:bg-primaryDark transition">
-        Ver en Amazon
-      </a>
-    </article>
-
-   <!-- Producto 9 -->
-<article class="bg-white dark:bg-slate-900/90 border border-slate-200 dark:border-slate-800 rounded-3xl shadow-lg p-4 flex flex-col hover:-translate-y-1 hover:shadow-xl transition">
-  <img src="https://m.media-amazon.com/images/I/61heBUIQLtL._AC_SL1500_.jpg" class="rounded-2xl mb-4 aspect-square object-cover">
-  <h3 class="text-sm font-semibold">BONTEC Elevador de Monitor de Madera</h3>
-  <p class="mt-2 text-xs">Eleva la pantalla y mejora la postura del cuello.</p>
-  <a href="https://amzn.to/49wFyzJ" target="_blank" class="mt-4 px-4 py-2 rounded-full bg-primary text-white text-xs text-center">Ver en Amazon</a>
-</article>
-
-<!-- Producto 10 -->
-<article class="bg-white dark:bg-slate-900/90 border border-slate-200 dark:border-slate-800 rounded-3xl shadow-lg p-4 flex flex-col hover:-translate-y-1 hover:shadow-xl transition">
-  <img src="https://m.media-amazon.com/images/I/71tEutfM3eL._AC_SL1500_.jpg" class="rounded-2xl mb-4 aspect-square object-cover">
-  <h3 class="text-sm font-semibold">Detectalia Organizador de Escritorio</h3>
-  <p class="mt-2 text-xs">Mantén bolígrafos, notas y accesorios siempre ordenados.</p>
-  <a href="https://amzn.to/4qLZGEH" target="_blank" class="mt-4 px-4 py-2 rounded-full bg-primary text-white text-xs text-center">Ver en Amazon</a>
-</article>
-
-    <!-- Producto 11 -->
-<article class="bg-white dark:bg-slate-900/90 border border-slate-200 dark:border-slate-800 rounded-3xl shadow-lg p-4 flex flex-col hover:-translate-y-1 hover:shadow-xl transition">
-  <img src="https://m.media-amazon.com/images/I/61K3aaAo9cL._AC_SL1500_.jpg" class="rounded-2xl mb-4 aspect-square object-cover" alt="Organizador escritorio versátil">
-  <h3 class="text-sm font-semibold text-accent dark:text-slate-50">Organizador escritorio versátil</h3>
-  <p class="mt-2 text-xs text-slate-600 dark:text-slate-300">Ideal para suministros de oficina, artículos de papelería y accesorios de escritorio en poco espacio.</p>
-  <a href="https://amzn.to/4jF6EcE" target="_blank" class="mt-4 px-4 py-2 rounded-full bg-primary text-white text-xs text-center">Ver en Amazon</a>
-</article>
-
-    <!-- Producto 12 -->
-<article class="bg-white dark:bg-slate-900/90 border border-slate-200 dark:border-slate-800 rounded-3xl shadow-lg p-4 flex flex-col hover:-translate-y-1 hover:shadow-xl transition">
-  <img src="https://m.media-amazon.com/images/I/71sNZ6t0z8L._AC_SL1500_.jpg" class="rounded-2xl mb-4 aspect-square object-cover" alt="DAWNTREES Alfombrilla de escritorio de fieltro">
-  <h3 class="text-sm font-semibold text-accent dark:text-slate-50">DAWNTREES Alfombrilla de escritorio de fieltro (100 x 40 cm)</h3>
-  <p class="mt-2 text-xs text-slate-600 dark:text-slate-300">Alfombrilla de ratón grande, antideslizante y silenciosa, ideal para escritorio.</p>
-  <a href="https://amzn.to/49wShm0" target="_blank" class="mt-4 px-4 py-2 rounded-full bg-primary text-white text-xs text-center hover:bg-primaryDark transition">
-    Ver en Amazon
-  </a>
-</article>
         
-      </div>
-    </div>
-  </section>
+        <div id="mobile-menu" class="hidden md:hidden bg-white dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800 p-6 space-y-4 shadow-xl">
+            <a href="#productos" class="block text-lg font-medium">Productos</a>
+            <a href="#guia" class="block text-lg font-medium">Guía</a>
+            <a href="#consejos" class="block text-lg font-medium">Errores</a>
+        </div>
+    </header>
 
-  <!-- GUÍA COMPLETA -->
-  <section id="guia" class="max-w-5xl mx-auto px-4 md:px-6 mt-18 md:mt-24">
-    <h2 class="text-2xl md:text-3xl font-bold text-accent dark:text-slate-50">
-      Guía completa: Cómo montar una oficina en casa perfecta
-    </h2>
+    <!-- HERO SECTION -->
+    <section class="relative pt-32 pb-20 md:pt-48 md:pb-32 overflow-hidden">
+        <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full -z-10">
+            <div class="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-primary/10 blur-[120px] rounded-full animate-pulse"></div>
+            <div class="absolute bottom-[10%] right-[-5%] w-[30%] h-[30%] bg-emerald-500/10 blur-[120px] rounded-full"></div>
+        </div>
 
-    <div class="mt-6 grid md:grid-cols-2 gap-8 text-sm md:text-base text-slate-700 dark:text-slate-200">
-      <div class="space-y-4">
-        <p><strong>1. Elige el lugar adecuado:</strong> si puedes, evita el salón y el comedor. Busca un espacio con buena iluminación natural, ventilación y la menor cantidad de ruido posible.</p>
-        <p><strong>2. Invierte en una silla ergonómica:</strong> debe ofrecer soporte lumbar, ajuste de altura y permitirte apoyar bien los pies. Tu espalda te lo va a recordar todos los días.</p>
-        <p><strong>3. Escritorio: altura y espacio:</strong> un tablero amplio, limpio y a la altura correcta evita posturas forzadas de cuello y hombros.</p>
-        <p><strong>4. Iluminación adecuada:</strong> combina luz ambiental y una lámpara de escritorio regulable. Evita reflejos directos en la pantalla.</p>
-      </div>
-      <div class="space-y-4">
-        <p><strong>5. Organización del espacio:</strong> cajoneras, archivadores y bandejas te ayudan a mantener el escritorio despejado y la mente más clara.</p>
-        <p><strong>6. Accesorios útiles:</strong> un soporte para portátil, un reposapiés y organizadores de cables marcan más diferencia de la que parece.</p>
-        <p><strong>7. Rutina saludable:</strong> levántate cada 60–90 minutos, estira un poco y cambia de postura. Tu cuerpo no está pensado para estar quieto todo el día.</p>
-        <p><strong>8. Separación mental:</strong> si es posible, reserva este espacio solo para trabajar. Ayuda a desconectar mejor al acabar la jornada.</p>
-      </div>
-    </div>
-  </section>
+        <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-16 items-center">
+            <div class="animate-fade-in-up">
+                <span class="inline-block px-4 py-1.5 rounded-full bg-primary/10 text-primary text-sm font-bold mb-6">EDICIÓN 2026</span>
+                <h1 class="text-5xl md:text-7xl font-extrabold leading-tight mb-6">Tu espacio de <span class="text-primary italic">trabajo</span> profesional</h1>
+                <p class="text-lg md:text-xl text-slate-600 dark:text-slate-400 mb-10 leading-relaxed max-w-lg">
+                    Recomendaciones reales de material de oficina. Buscamos productos útiles, cómodos y con diseño minimalista.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4">
+                    <a href="#productos" class="px-8 py-4 bg-primary text-white rounded-2xl font-bold shadow-lg shadow-primary/30 hover:bg-primaryDark transition text-center">Ver Catálogo Completo</a>
+                </div>
+            </div>
 
-  <!-- COMPARATIVA -->
-  <section class="max-w-5xl mx-auto px-4 md:px-6 mt-18 md:mt-24">
-    <h2 class="text-2xl md:text-3xl font-bold text-accent dark:text-slate-50 text-center">
-      Comparativa rápida de accesorios clave
-    </h2>
-    <p class="mt-3 text-center text-sm md:text-base text-slate-600 dark:text-slate-300 max-w-2xl mx-auto">
-      Una vista rápida para entender qué aporta cada pieza y dónde te conviene invertir primero.
-    </p>
+            <div class="relative hidden md:block group animate-float">
+                <div class="absolute inset-0 bg-gradient-to-tr from-primary to-emerald-400 rounded-[3rem] blur-3xl opacity-20 group-hover:opacity-30 transition-opacity"></div>
+                <img src="https://images.unsplash.com/photo-1499750310107-5fef28a66643?auto=format&fit=crop&q=80&w=800" 
+                     alt="Setup Minimalista" class="rounded-[2.5rem] shadow-premium border-8 border-white dark:border-slate-900 object-cover w-full h-[500px]">
+            </div>
+        </div>
+    </section>
 
-    <div class="mt-8 overflow-x-auto">
-      <table class="w-full text-left text-sm bg-white dark:bg-slate-900/90 rounded-3xl border border-slate-200 dark:border-slate-800 shadow-lg shadow-slate-900/10">
-        <thead class="bg-slate-50 dark:bg-slate-900/80 text-slate-800 dark:text-slate-100">
-          <tr>
-            <th class="p-4 font-semibold">Producto</th>
-            <th class="p-4 font-semibold">Ventajas</th>
-            <th class="p-4 font-semibold">Ideal para</th>
-          </tr>
-        </thead>
-        <tbody class="text-slate-700 dark:text-slate-200">
-          <tr class="border-t border-slate-100 dark:border-slate-800">
-            <td class="p-4">Silla ergonómica</td>
-            <td class="p-4">Soporte lumbar, ajuste de altura, comodidad prolongada</td>
-            <td class="p-4">Jornadas largas frente al ordenador</td>
-          </tr>
-          <tr class="border-t border-slate-100 dark:border-slate-800">
-            <td class="p-4">Escritorio regulable</td>
-            <td class="p-4">Permite trabajar sentado o de pie</td>
-            <td class="p-4">Mejorar postura y energía durante el día</td>
-          </tr>
-          <tr class="border-t border-slate-100 dark:border-slate-800">
-            <td class="p-4">Cajonera móvil</td>
-            <td class="p-4">Organización y movilidad del almacenamiento</td>
-            <td class="p-4">Espacios pequeños o polivalentes</td>
-          </tr>
-          <tr class="border-t border-slate-100 dark:border-slate-800">
-            <td class="p-4">Módulo 5 cajones</td>
-            <td class="p-4">Compacto, práctico y visualmente limpio</td>
-            <td class="p-4">Documentos y material pequeño de oficina</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-  </section>
+    <!-- PRODUCT CATALOG -->
+    <section id="productos" class="max-w-7xl mx-auto px-6 py-20 reveal">
+        <div class="text-center mb-12">
+            <h2 class="text-3xl md:text-4xl font-bold mb-4">Selección Destacada</h2>
+            <p class="text-slate-500 max-w-2xl mx-auto mb-8">Todos los productos indispensables para tu oficina en casa, filtrados por categoría.</p>
+            
+            <div class="flex flex-wrap justify-center gap-3 mt-8">
+                <button class="filter-btn active px-6 py-2.5 rounded-full bg-primary text-white font-semibold text-sm transition" data-category="all">Todos (12)</button>
+                <button class="filter-btn px-6 py-2.5 rounded-full bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-sm font-semibold transition" data-category="ergo">Ergonomía</button>
+                <button class="filter-btn px-6 py-2.5 rounded-full bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-sm font-semibold transition" data-category="desk">Escritorio</button>
+                <button class="filter-btn px-6 py-2.5 rounded-full bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-sm font-semibold transition" data-category="acc">Accesorios</button>
+            </div>
+        </div>
 
-  <!-- CONSEJOS Y ERRORES -->
-  <section id="consejos" class="max-w-5xl mx-auto px-4 md:px-6 mt-18 md:mt-24 mb-16">
-    <h2 class="text-2xl md:text-3xl font-bold text-accent dark:text-slate-50">
-      5 errores comunes al montar una oficina en casa
-    </h2>
+        <div id="product-grid" class="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+            <!-- 1. Silla -->
+            <article class="product-card ergo bg-white dark:bg-slate-900 rounded-[2rem] overflow-hidden border border-slate-200/60 dark:border-slate-800/60 shadow-card hover:shadow-premium hover:-translate-y-2 transition-all duration-500 group">
+                <div class="relative overflow-hidden aspect-square">
+                    <img src="https://m.media-amazon.com/images/I/81tt0QgRGJL._AC_SL1500_.jpg" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                    <div class="absolute top-4 left-4 bg-primary text-white text-[10px] font-bold px-3 py-1 rounded-full">TOP VENTAS</div>
+                </div>
+                <div class="p-6 flex flex-col h-[200px] justify-between">
+                    <div>
+                        <h3 class="font-bold text-lg mb-2">Mejor silla calidad-precio</h3>
+                        <p class="text-xs text-slate-500 line-clamp-2">Soporte lumbar ajustable para evitar dolores de espalda en jornadas largas.</p>
+                    </div>
+                    <a href="https://amzn.to/44Wcq3f" target="_blank" class="w-full flex items-center justify-center gap-2 py-3 bg-slate-100 dark:bg-slate-800 rounded-xl font-bold text-sm group-hover:bg-primary group-hover:text-white transition">
+                        <svg class="w-5 h-5"><use href="#icon-amazon"/></svg> Ver en Amazon
+                    </a>
+                </div>
+            </article>
 
-    <div class="mt-6 grid md:grid-cols-2 gap-6 text-sm md:text-base text-slate-700 dark:text-slate-200">
-      <ul class="space-y-4">
-        <li><strong>1. Trabajar en la mesa del comedor:</strong> no está pensada para largas horas de trabajo y suele acabar invadiendo toda tu casa.</li>
-        <li><strong>2. No invertir en una buena silla:</strong> es donde pasas más horas. Ahorrar aquí suele salir caro en forma de dolores de espalda.</li>
-        <li><strong>3. Mala iluminación:</strong> trabajar con poca luz o con reflejos constantes en la pantalla agota la vista y la cabeza.</li>
-      </ul>
-      <ul class="space-y-4">
-        <li><strong>4. Desorden en el espacio:</strong> montones de papeles, cables y objetos dispersos dificultan la concentración.</li>
-        <li><strong>5. No separar vida personal y laboral:</strong> trabajar en cualquier sitio hace que tu cerebro nunca termine de “salir” del trabajo.</li>
-      </ul>
-    </div>
-  </section>
+            <!-- 2. Escritorio -->
+            <article class="product-card desk bg-white dark:bg-slate-900 rounded-[2rem] overflow-hidden border border-slate-200/60 dark:border-slate-800/60 shadow-card hover:shadow-premium hover:-translate-y-2 transition-all duration-500 group">
+                <div class="relative overflow-hidden aspect-square">
+                    <img src="https://m.media-amazon.com/images/I/61pl8xkp5xL._AC_SX679_.jpg" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                </div>
+                <div class="p-6 flex flex-col h-[200px] justify-between">
+                    <div>
+                        <h3 class="font-bold text-lg mb-2">Escritorio regulable</h3>
+                        <p class="text-xs text-slate-500 line-clamp-2">Alterna entre trabajar sentado y de pie para cuidar tu espalda.</p>
+                    </div>
+                    <a href="https://amzn.to/4qupXHA" target="_blank" class="w-full flex items-center justify-center gap-2 py-3 bg-slate-100 dark:bg-slate-800 rounded-xl font-bold text-sm group-hover:bg-primary group-hover:text-white transition">
+                        <svg class="w-5 h-5"><use href="#icon-amazon"/></svg> Ver en Amazon
+                    </a>
+                </div>
+            </article>
 
-  <!-- LEGAL -->
-  <section id="legal" class="max-w-5xl mx-auto px-4 md:px-6 mb-20">
-    <div class="bg-white dark:bg-slate-900/90 border border-slate-200 dark:border-slate-800 rounded-3xl shadow-lg shadow-slate-900/10 px-6 md:px-8 py-7">
-      <h2 class="text-xl md:text-2xl font-bold text-accent dark:text-slate-50">
-        Aviso legal
-      </h2>
-      <p class="mt-3 text-sm md:text-base text-slate-600 dark:text-slate-300">
-        Esta web participa en el Programa de Afiliados de Amazon, un programa diseñado para que los sitios web
-        obtengan comisiones mediante enlaces a Amazon.es. Los productos recomendados se han seleccionado por su
-        utilidad y relación calidad-precio dentro de un contexto de teletrabajo.
-      </p>
-    </div>
-  </section>
+            <!-- 3. Soporte Laptop -->
+            <article class="product-card ergo bg-white dark:bg-slate-900 rounded-[2rem] overflow-hidden border border-slate-200/60 dark:border-slate-800/60 shadow-card hover:shadow-premium hover:-translate-y-2 transition-all duration-500 group">
+                <div class="relative overflow-hidden aspect-square">
+                    <img src="https://m.media-amazon.com/images/I/61BK9+YGKML._AC_SL1500_.jpg" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                </div>
+                <div class="p-6 flex flex-col h-[200px] justify-between">
+                    <div>
+                        <h3 class="font-bold text-lg mb-2">Soporte para portátil</h3>
+                        <p class="text-xs text-slate-500 line-clamp-2">Eleva la pantalla a la altura de tus ojos para mejorar la postura cervical.</p>
+                    </div>
+                    <a href="https://amzn.to/4aGRYar" target="_blank" class="w-full flex items-center justify-center gap-2 py-3 bg-slate-100 dark:bg-slate-800 rounded-xl font-bold text-sm group-hover:bg-primary group-hover:text-white transition">
+                        <svg class="w-5 h-5"><use href="#icon-amazon"/></svg> Ver en Amazon
+                    </a>
+                </div>
+            </article>
 
-  <!-- FOOTER -->
-  <footer class="border-t border-slate-200 dark:border-slate-800 py-8 text-center text-xs md:text-sm text-slate-500 dark:text-slate-400">
-    © 2026 Oficina en Casa Online — Recomendaciones para teletrabajo
-  </footer>
+            <!-- 4. Lámpara -->
+            <article class="product-card desk bg-white dark:bg-slate-900 rounded-[2rem] overflow-hidden border border-slate-200/60 dark:border-slate-800/60 shadow-card hover:shadow-premium hover:-translate-y-2 transition-all duration-500 group">
+                <div class="relative overflow-hidden aspect-square">
+                    <img src="https://m.media-amazon.com/images/I/61HWVh6wxqL._AC_SL1500_.jpg" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                </div>
+                <div class="p-6 flex flex-col h-[200px] justify-between">
+                    <div>
+                        <h3 class="font-bold text-lg mb-2">Lámpara de despacho</h3>
+                        <p class="text-xs text-slate-500 line-clamp-2">Luz focal regulable que reduce la fatiga visual al trabajar de noche.</p>
+                    </div>
+                    <a href="https://amzn.to/3YRFntF" target="_blank" class="w-full flex items-center justify-center gap-2 py-3 bg-slate-100 dark:bg-slate-800 rounded-xl font-bold text-sm group-hover:bg-primary group-hover:text-white transition">
+                        <svg class="w-5 h-5"><use href="#icon-amazon"/></svg> Ver en Amazon
+                    </a>
+                </div>
+            </article>
 
+            <!-- 5. Auriculares -->
+            <article class="product-card acc bg-white dark:bg-slate-900 rounded-[2rem] overflow-hidden border border-slate-200/60 dark:border-slate-800/60 shadow-card hover:shadow-premium hover:-translate-y-2 transition-all duration-500 group">
+                <div class="relative overflow-hidden aspect-square">
+                    <img src="https://m.media-amazon.com/images/I/51-LmMCoscL._AC_SL1000_.jpg" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                </div>
+                <div class="p-6 flex flex-col h-[200px] justify-between">
+                    <div>
+                        <h3 class="font-bold text-lg mb-2">Auriculares Wireless</h3>
+                        <p class="text-xs text-slate-500 line-clamp-2">Ideales para videollamadas nítidas y concentración total sin cables.</p>
+                    </div>
+                    <a href="https://amzn.to/3LFOfQb" target="_blank" class="w-full flex items-center justify-center gap-2 py-3 bg-slate-100 dark:bg-slate-800 rounded-xl font-bold text-sm group-hover:bg-primary group-hover:text-white transition">
+                        <svg class="w-5 h-5"><use href="#icon-amazon"/></svg> Ver en Amazon
+                    </a>
+                </div>
+            </article>
+
+            <!-- 6. Cajonera -->
+            <article class="product-card desk bg-white dark:bg-slate-900 rounded-[2rem] overflow-hidden border border-slate-200/60 dark:border-slate-800/60 shadow-card hover:shadow-premium hover:-translate-y-2 transition-all duration-500 group">
+                <div class="relative overflow-hidden aspect-square">
+                    <img src="https://m.media-amazon.com/images/I/511hfGz8lpL._AC_SL1500_.jpg" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                </div>
+                <div class="p-6 flex flex-col h-[200px] justify-between">
+                    <div>
+                        <h3 class="font-bold text-lg mb-2">Cajonera móvil</h3>
+                        <p class="text-xs text-slate-500 line-clamp-2">Organización eficiente que se adapta a cualquier rincón de tu oficina.</p>
+                    </div>
+                    <a href="https://amzn.to/4qFHtZG" target="_blank" class="w-full flex items-center justify-center gap-2 py-3 bg-slate-100 dark:bg-slate-800 rounded-xl font-bold text-sm group-hover:bg-primary group-hover:text-white transition">
+                        <svg class="w-5 h-5"><use href="#icon-amazon"/></svg> Ver en Amazon
+                    </a>
+                </div>
+            </article>
+
+            <!-- 7. Módulo Cajones -->
+            <article class="product-card desk bg-white dark:bg-slate-900 rounded-[2rem] overflow-hidden border border-slate-200/60 dark:border-slate-800/60 shadow-card hover:shadow-premium hover:-translate-y-2 transition-all duration-500 group">
+                <div class="relative overflow-hidden aspect-square">
+                    <img src="https://m.media-amazon.com/images/I/61OkbjZ7otL._AC_SL1200_.jpg" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                </div>
+                <div class="p-6 flex flex-col h-[200px] justify-between">
+                    <div>
+                        <h3 class="font-bold text-lg mb-2">Módulo 5 cajones A4+</h3>
+                        <p class="text-xs text-slate-500 line-clamp-2">Clasifica documentos sin recargar visualmente tu escritorio.</p>
+                    </div>
+                    <a href="https://amzn.to/4jnUiVX" target="_blank" class="w-full flex items-center justify-center gap-2 py-3 bg-slate-100 dark:bg-slate-800 rounded-xl font-bold text-sm group-hover:bg-primary group-hover:text-white transition">
+                        <svg class="w-5 h-5"><use href="#icon-amazon"/></svg> Ver en Amazon
+                    </a>
+                </div>
+            </article>
+
+            <!-- 8. Reposapiés -->
+            <article class="product-card ergo bg-white dark:bg-slate-900 rounded-[2rem] overflow-hidden border border-slate-200/60 dark:border-slate-800/60 shadow-card hover:shadow-premium hover:-translate-y-2 transition-all duration-500 group">
+                <div class="relative overflow-hidden aspect-square">
+                    <img src="https://m.media-amazon.com/images/I/81yckur-iIL._SL1500_.jpg" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                </div>
+                <div class="p-6 flex flex-col h-[200px] justify-between">
+                    <div>
+                        <h3 class="font-bold text-lg mb-2">Reposapiés ergonómico</h3>
+                        <p class="text-xs text-slate-500 line-clamp-2">Mejora la circulación de las piernas en jornadas sedentarias.</p>
+                    </div>
+                    <a href="https://amzn.to/3L8SIuF" target="_blank" class="w-full flex items-center justify-center gap-2 py-3 bg-slate-100 dark:bg-slate-800 rounded-xl font-bold text-sm group-hover:bg-primary group-hover:text-white transition">
+                        <svg class="w-5 h-5"><use href="#icon-amazon"/></svg> Ver en Amazon
+                    </a>
+                </div>
+            </article>
+
+            <!-- 9. Elevador Madera -->
+            <article class="product-card acc bg-white dark:bg-slate-900 rounded-[2rem] overflow-hidden border border-slate-200/60 dark:border-slate-800/60 shadow-card hover:shadow-premium hover:-translate-y-2 transition-all duration-500 group">
+                <div class="relative overflow-hidden aspect-square">
+                    <img src="https://m.media-amazon.com/images/I/61heBUIQLtL._AC_SL1500_.jpg" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                </div>
+                <div class="p-6 flex flex-col h-[200px] justify-between">
+                    <div>
+                        <h3 class="font-bold text-lg mb-2">Elevador de Madera</h3>
+                        <p class="text-xs text-slate-500 line-clamp-2">Añade estética natural y espacio extra bajo tu monitor.</p>
+                    </div>
+                    <a href="https://amzn.to/49wFyzJ" target="_blank" class="w-full flex items-center justify-center gap-2 py-3 bg-slate-100 dark:bg-slate-800 rounded-xl font-bold text-sm group-hover:bg-primary group-hover:text-white transition">
+                        <svg class="w-5 h-5"><use href="#icon-amazon"/></svg> Ver en Amazon
+                    </a>
+                </div>
+            </article>
+
+            <!-- 10. Organizador Detectalia -->
+            <article class="product-card acc bg-white dark:bg-slate-900 rounded-[2rem] overflow-hidden border border-slate-200/60 dark:border-slate-800/60 shadow-card hover:shadow-premium hover:-translate-y-2 transition-all duration-500 group">
+                <div class="relative overflow-hidden aspect-square">
+                    <img src="https://m.media-amazon.com/images/I/71tEutfM3eL._AC_SL1500_.jpg" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                </div>
+                <div class="p-6 flex flex-col h-[200px] justify-between">
+                    <div>
+                        <h3 class="font-bold text-lg mb-2">Organizador Escritorio</h3>
+                        <p class="text-xs text-slate-500 line-clamp-2">Todo en su sitio: bolígrafos, notas y pequeños accesorios.</p>
+                    </div>
+                    <a href="https://amzn.to/4qLZGEH" target="_blank" class="w-full flex items-center justify-center gap-2 py-3 bg-slate-100 dark:bg-slate-800 rounded-xl font-bold text-sm group-hover:bg-primary group-hover:text-white transition">
+                        <svg class="w-5 h-5"><use href="#icon-amazon"/></svg> Ver en Amazon
+                    </a>
+                </div>
+            </article>
+
+            <!-- 11. Organizador Versátil -->
+            <article class="product-card acc bg-white dark:bg-slate-900 rounded-[2rem] overflow-hidden border border-slate-200/60 dark:border-slate-800/60 shadow-card hover:shadow-premium hover:-translate-y-2 transition-all duration-500 group">
+                <div class="relative overflow-hidden aspect-square">
+                    <img src="https://m.media-amazon.com/images/I/61K3aaAo9cL._AC_SL1500_.jpg" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                </div>
+                <div class="p-6 flex flex-col h-[200px] justify-between">
+                    <div>
+                        <h3 class="font-bold text-lg mb-2">Organizador de Suministros</h3>
+                        <p class="text-xs text-slate-500 line-clamp-2">Optimiza el espacio con compartimentos verticales inteligentes.</p>
+                    </div>
+                    <a href="https://amzn.to/4jF6EcE" target="_blank" class="w-full flex items-center justify-center gap-2 py-3 bg-slate-100 dark:bg-slate-800 rounded-xl font-bold text-sm group-hover:bg-primary group-hover:text-white transition">
+                        <svg class="w-5 h-5"><use href="#icon-amazon"/></svg> Ver en Amazon
+                    </a>
+                </div>
+            </article>
+
+            <!-- 12. Alfombrilla Fieltro -->
+            <article class="product-card desk bg-white dark:bg-slate-900 rounded-[2rem] overflow-hidden border border-slate-200/60 dark:border-slate-800/60 shadow-card hover:shadow-premium hover:-translate-y-2 transition-all duration-500 group">
+                <div class="relative overflow-hidden aspect-square">
+                    <img src="https://m.media-amazon.com/images/I/71sNZ6t0z8L._AC_SL1500_.jpg" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                </div>
+                <div class="p-6 flex flex-col h-[200px] justify-between">
+                    <div>
+                        <h3 class="font-bold text-lg mb-2">Alfombrilla de Fieltro</h3>
+                        <p class="text-xs text-slate-500 line-clamp-2">100x40cm de suavidad y silencio para tu ratón y teclado.</p>
+                    </div>
+                    <a href="https://amzn.to/49wShm0" target="_blank" class="w-full flex items-center justify-center gap-2 py-3 bg-slate-100 dark:bg-slate-800 rounded-xl font-bold text-sm group-hover:bg-primary group-hover:text-white transition">
+                        <svg class="w-5 h-5"><use href="#icon-amazon"/></svg> Ver en Amazon
+                    </a>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <!-- GUÍA DE ERGONOMÍA -->
+    <section id="guia" class="bg-white dark:bg-slate-900 py-24 reveal">
+        <div class="max-w-7xl mx-auto px-6">
+            <h2 class="text-4xl font-bold mb-12 text-center">Claves del Setup Perfecto</h2>
+            <div class="grid md:grid-cols-2 gap-16 items-center">
+                <div class="space-y-8">
+                    <div class="flex gap-6">
+                        <div class="w-14 h-14 flex-shrink-0 bg-primary/20 text-primary rounded-2xl flex items-center justify-center font-bold text-xl">1</div>
+                        <div>
+                            <h4 class="text-xl font-bold mb-2 text-slate-900 dark:text-white">Soporte Lumbar</h4>
+                            <p class="text-slate-500 dark:text-slate-400">Tu silla debe seguir la curva natural de tu espalda. Si no, usa un cojín externo.</p>
+                        </div>
+                    </div>
+                    <div class="flex gap-6">
+                        <div class="w-14 h-14 flex-shrink-0 bg-emerald-500/20 text-emerald-500 rounded-2xl flex items-center justify-center font-bold text-xl">2</div>
+                        <div>
+                            <h4 class="text-xl font-bold mb-2 text-slate-900 dark:text-white">Regla de los 90º</h4>
+                            <p class="text-slate-500 dark:text-slate-400">Codos y rodillas deben formar ángulos rectos para evitar fatiga articular.</p>
+                        </div>
+                    </div>
+                    <div class="flex gap-6">
+                        <div class="w-14 h-14 flex-shrink-0 bg-orange-500/20 text-orange-500 rounded-2xl flex items-center justify-center font-bold text-xl">3</div>
+                        <div>
+                            <h4 class="text-xl font-bold mb-2 text-slate-900 dark:text-white">Descansos Visuales</h4>
+                            <p class="text-slate-500 dark:text-slate-400">Cada 20 minutos, mira algo a 6 metros de distancia durante 20 segundos.</p>
+                        </div>
+                    </div>
+                </div>
+                <img src="https://images.unsplash.com/photo-1593642532400-2682810df593?auto=format&fit=crop&q=80&w=800" class="rounded-[2.5rem] shadow-premium border-4 border-slate-100 dark:border-slate-800 transition-all duration-700">
+            </div>
+        </div>
+    </section>
+
+    <!-- ERRORES COMUNES (SECCIÓN CONSEJOS) -->
+    <section id="consejos" class="bg-slate-900 text-white py-24 reveal">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <span class="text-orange-500 font-bold tracking-widest text-sm">NO HAGAS ESTO</span>
+                <h2 class="text-4xl font-bold mt-4">Errores típicos al montar tu oficina</h2>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-slate-800/50 p-8 rounded-3xl border border-slate-700 hover:border-orange-500 transition-colors group">
+                    <div class="w-12 h-12 bg-orange-500/10 text-orange-500 rounded-full flex items-center justify-center mb-6 text-2xl font-bold">!</div>
+                    <h3 class="text-xl font-bold mb-4 group-hover:text-orange-500 transition-colors">Trabajar en el sofá</h3>
+                    <p class="text-slate-400 leading-relaxed">Parece cómodo, pero destruye tu postura lumbar y reduce tu concentración drásticamente en menos de 30 minutos.</p>
+                </div>
+                
+                <div class="bg-slate-800/50 p-8 rounded-3xl border border-slate-700 hover:border-orange-500 transition-colors group">
+                    <div class="w-12 h-12 bg-orange-500/10 text-orange-500 rounded-full flex items-center justify-center mb-6 text-2xl font-bold">!</div>
+                    <h3 class="text-xl font-bold mb-4 group-hover:text-orange-500 transition-colors">Mala iluminación</h3>
+                    <p class="text-slate-400 leading-relaxed">Trabajar solo con la luz del techo genera sombras y fatiga visual. Necesitas una luz focal suave en tu zona de tareas.</p>
+                </div>
+
+                <div class="bg-slate-800/50 p-8 rounded-3xl border border-slate-700 hover:border-orange-500 transition-colors group">
+                    <div class="w-12 h-12 bg-orange-500/10 text-orange-500 rounded-full flex items-center justify-center mb-6 text-2xl font-bold">!</div>
+                    <h3 class="text-xl font-bold mb-4 group-hover:text-orange-500 transition-colors">Ignorar los cables</h3>
+                    <p class="text-slate-400 leading-relaxed">El "caos visual" genera estrés inconsciente. Un buen sistema de gestión de cables limpia tu mente tanto como tu escritorio.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-white dark:bg-slate-950 pt-20 pb-10 border-t border-slate-200 dark:border-slate-800">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-12">
+                <div class="flex items-center justify-center gap-3 mb-6">
+                    <div class="w-10 h-10 bg-primary rounded-xl flex items-center justify-center text-white font-bold">O</div>
+                    <span class="font-bold text-2xl">Oficina en Casa</span>
+                </div>
+                <p id="legal" class="text-slate-400 text-sm max-w-lg mx-auto italic">
+                    Participamos en el Programa de Afiliados de Amazon. Si compras a través de nuestros enlaces, recibimos una comisión sin coste extra para ti.
+                </p>
+            </div>
+            <div class="pt-8 border-t border-slate-100 dark:border-slate-900 text-center">
+                <p class="text-xs text-slate-500">© 2026 Oficina en Casa Online. Diseñado para la productividad.</p>
+            </div>
+        </div>
+    </footer>
+
+    <button id="scroll-top" class="fixed bottom-8 right-8 p-4 bg-primary text-white rounded-full shadow-2xl translate-y-24 opacity-0 transition-all duration-300 z-50 hover:scale-110">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"></path></svg>
+    </button>
+
+    <script>
+        // DARK MODE
+        const themeToggleBtn = document.getElementById('theme-toggle');
+        const darkIcon = document.getElementById('theme-toggle-dark-icon');
+        const lightIcon = document.getElementById('theme-toggle-light-icon');
+
+        if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            document.documentElement.classList.add('dark');
+            lightIcon.classList.remove('hidden');
+        } else {
+            darkIcon.classList.remove('hidden');
+        }
+
+        themeToggleBtn.addEventListener('click', () => {
+            document.documentElement.classList.toggle('dark');
+            darkIcon.classList.toggle('hidden');
+            lightIcon.classList.toggle('hidden');
+        });
+
+        // REVEAL ANIMATION
+        const reveal = () => {
+            document.querySelectorAll('.reveal').forEach(el => {
+                if (el.getBoundingClientRect().top < window.innerHeight - 100) el.classList.add('active');
+            });
+        };
+        window.addEventListener('scroll', reveal);
+        reveal();
+
+        // NAV & SCROLL TOP
+        window.addEventListener('scroll', () => {
+            const nav = document.getElementById('main-nav');
+            const scrollBtn = document.getElementById('scroll-top');
+            if (window.scrollY > 50) {
+                nav.classList.add('py-2', 'shadow-lg');
+                scrollBtn.classList.remove('translate-y-24', 'opacity-0');
+            } else {
+                nav.classList.remove('py-2', 'shadow-lg');
+                scrollBtn.classList.add('translate-y-24', 'opacity-0');
+            }
+        });
+
+        // MENU MOBILE
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Close mobile menu on click link
+        mobileMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => mobileMenu.classList.add('hidden'));
+        });
+
+        document.getElementById('scroll-top').addEventListener('click', () => window.scrollTo({top: 0}));
+
+        // PRODUCT FILTERING
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const products = document.querySelectorAll('.product-card');
+
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                filterBtns.forEach(b => {
+                    b.classList.remove('active', 'bg-primary', 'text-white');
+                    b.classList.add('bg-white', 'dark:bg-slate-800');
+                });
+                btn.classList.add('active', 'bg-primary', 'text-white');
+                btn.classList.remove('bg-white', 'dark:bg-slate-800');
+
+                const category = btn.dataset.category;
+                products.forEach(p => {
+                    if (category === 'all' || p.classList.contains(category)) {
+                        p.style.display = 'block';
+                        setTimeout(() => p.style.opacity = '1', 10);
+                    } else {
+                        p.style.opacity = '0';
+                        setTimeout(() => p.style.display = 'none', 500);
+                    }
+                });
+            });
+        });
+    </script>
 </body>
 </html>
 
