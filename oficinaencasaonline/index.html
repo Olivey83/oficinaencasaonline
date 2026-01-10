@@ -254,122 +254,115 @@
     </div>
   </section>
 
-  <!-- CARRUSEL DE PRODUCTOS DESTACADOS -->
-  <section id="productos" class="max-w-6xl mx-auto px-4 md:px-6 mt-16 md:mt-20">
-    <div class="flex items-baseline justify-between gap-4">
-      <h2 class="text-2xl md:text-3xl font-bold text-accent dark:text-slate-50">
-        Selección destacada 2026
-      </h2>
-      <span class="text-xs md:text-sm text-slate-500 dark:text-slate-400">
-        Desliza horizontalmente para ver más
-      </span>
-    </div>
+<!-- PRODUCTOS DESTACADOS - GRID -->
+<section id="productos" class="max-w-6xl mx-auto px-4 md:px-6 mt-16 md:mt-20">
+  <h2 class="text-2xl md:text-3xl font-bold text-accent dark:text-slate-50 text-center">
+    Selección destacada 2026
+  </h2>
+  <p class="mt-3 text-center text-sm md:text-base text-slate-600 dark:text-slate-300 max-w-2xl mx-auto">
+    Encuentra los productos clave para montar tu oficina en casa de forma cómoda y práctica.
+  </p>
 
-    <div class="mt-8 overflow-x-auto pb-3">
-      <div class="flex gap-6 min-w-max snap-x snap-mandatory">
-        <!-- Producto 1 -->
-        <article class="snap-start bg-white dark:bg-slate-900/90 border border-slate-200 dark:border-slate-800 rounded-3xl shadow-lg shadow-slate-900/10 w-72 shrink-0 p-4 flex flex-col hover:-translate-y-1 hover:shadow-xl transition">
-          <img src="https://m.media-amazon.com/images/I/81tt0QgRGJL._AC_SL1500_.jpg" alt="Silla ergonómica" class="rounded-2xl mb-4 aspect-square object-cover">
-          <h3 class="text-sm font-semibold text-accent dark:text-slate-50">Mejor silla calidad-precio</h3>
-          <p class="mt-2 text-xs text-slate-600 dark:text-slate-300">
-            Evita dolores de espalda si pasas muchas horas sentado frente al ordenador.
-          </p>
-          <a href="https://amzn.to/44Wcq3f" target="_blank" class="mt-4 inline-flex items-center justify-center px-4 py-2.5 rounded-full bg-primary text-white text-xs font-semibold hover:bg-primaryDark transition">
-            Ver en Amazon
-          </a>
-        </article>
+  <div class="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+    <!-- Producto 1 -->
+    <article class="bg-white dark:bg-slate-900/90 border border-slate-200 dark:border-slate-800 rounded-3xl shadow-lg p-4 flex flex-col hover:-translate-y-1 hover:shadow-xl transition">
+      <img src="https://m.media-amazon.com/images/I/81tt0QgRGJL._AC_SL1500_.jpg" alt="Mejor silla calidad-precio" class="rounded-2xl mb-4 aspect-square object-cover">
+      <h3 class="text-sm font-semibold text-accent dark:text-slate-50">Mejor silla calidad-precio</h3>
+      <p class="mt-2 text-xs text-slate-600 dark:text-slate-300">Evita dolores de espalda si pasas muchas horas sentado frente al ordenador.</p>
+      <a href="https://amzn.to/44Wcq3f" target="_blank" class="mt-4 inline-flex items-center justify-center px-4 py-2.5 rounded-full bg-primary text-white text-xs font-semibold hover:bg-primaryDark transition">
+        Ver en Amazon
+      </a>
+    </article>
 
-        <!-- Producto 2 -->
-        <article class="snap-start bg-white dark:bg-slate-900/90 border border-slate-200 dark:border-slate-800 rounded-3xl shadow-lg shadow-slate-900/10 w-72 shrink-0 p-4 flex flex-col hover:-translate-y-1 hover:shadow-xl transition">
-          <img src="https://m.media-amazon.com/images/I/61pl8xkp5xL._AC_SX679_.jpg" alt="Escritorio regulable" class="rounded-2xl mb-4 aspect-square object-cover">
-          <h3 class="text-sm font-semibold text-accent dark:text-slate-50">Escritorio regulable</h3>
-          <p class="mt-2 text-xs text-slate-600 dark:text-slate-300">
-            Alterna entre trabajar sentado y de pie, y cuida tu espalda a largo plazo.
-          </p>
-          <a href="https://amzn.to/4qupXHA" target="_blank" class="mt-4 inline-flex items-center justify-center px-4 py-2.5 rounded-full bg-primary text-white text-xs font-semibold hover:bg-primaryDark transition">
-            Ver en Amazon
-          </a>
-        </article>
+    <!-- Producto 2 -->
+    <article class="bg-white dark:bg-slate-900/90 border border-slate-200 dark:border-slate-800 rounded-3xl shadow-lg p-4 flex flex-col hover:-translate-y-1 hover:shadow-xl transition">
+      <img src="https://m.media-amazon.com/images/I/61pl8xkp5xL._AC_SX679_.jpg" alt="Escritorio regulable" class="rounded-2xl mb-4 aspect-square object-cover">
+      <h3 class="text-sm font-semibold text-accent dark:text-slate-50">Escritorio regulable</h3>
+      <p class="mt-2 text-xs text-slate-600 dark:text-slate-300">Alterna entre trabajar sentado y de pie, y cuida tu espalda a largo plazo.</p>
+      <a href="https://amzn.to/4qupXHA" target="_blank" class="mt-4 inline-flex items-center justify-center px-4 py-2.5 rounded-full bg-primary text-white text-xs font-semibold hover:bg-primaryDark transition">
+        Ver en Amazon
+      </a>
+    </article>
 
-        <!-- Producto 3 -->
-        <article class="snap-start bg-white dark:bg-slate-900/90 border border-slate-200 dark:border-slate-800 rounded-3xl shadow-lg shadow-slate-900/10 w-72 shrink-0 p-4 flex flex-col hover:-translate-y-1 hover:shadow-xl transition">
-          <img src="https://m.media-amazon.com/images/I/61BK9+YGKML._AC_SL1500_.jpg" alt="Soporte para portátil" class="rounded-2xl mb-4 aspect-square object-cover">
-          <h3 class="text-sm font-semibold text-accent dark:text-slate-50">Soporte para portátil</h3>
-          <p class="mt-2 text-xs text-slate-600 dark:text-slate-300">
-            Eleva la pantalla a la altura correcta y mejora tu postura cervical.
-          </p>
-          <a href="https://amzn.to/4aGRYar" target="_blank" class="mt-4 inline-flex items-center justify-center px-4 py-2.5 rounded-full bg-primary text-white text-xs font-semibold hover:bg-primaryDark transition">
-            Ver en Amazon
-          </a>
-        </article>
+    <!-- Producto 3 -->
+    <article class="bg-white dark:bg-slate-900/90 border border-slate-200 dark:border-slate-800 rounded-3xl shadow-lg p-4 flex flex-col hover:-translate-y-1 hover:shadow-xl transition">
+      <img src="https://m.media-amazon.com/images/I/61BK9+YGKML._AC_SL1500_.jpg" alt="Soporte para portátil" class="rounded-2xl mb-4 aspect-square object-cover">
+      <h3 class="text-sm font-semibold text-accent dark:text-slate-50">Soporte para portátil</h3>
+      <p class="mt-2 text-xs text-slate-600 dark:text-slate-300">Eleva la pantalla a la altura correcta y mejora tu postura cervical.</p>
+      <a href="https://amzn.to/4aGRYar" target="_blank" class="mt-4 inline-flex items-center justify-center px-4 py-2.5 rounded-full bg-primary text-white text-xs font-semibold hover:bg-primaryDark transition">
+        Ver en Amazon
+      </a>
+    </article>
 
-        <!-- Producto 4 -->
-        <article class="snap-start bg-white dark:bg-slate-900/90 border border-slate-200 dark:border-slate-800 rounded-3xl shadow-lg shadow-slate-900/10 w-72 shrink-0 p-4 flex flex-col hover:-translate-y-1 hover:shadow-xl transition">
-          <img src="https://m.media-amazon.com/images/I/61HWVh6wxqL._AC_SL1500_.jpg" alt="Lámpara de despacho" class="rounded-2xl mb-4 aspect-square object-cover">
-          <h3 class="text-sm font-semibold text-accent dark:text-slate-50">Lámpara de despacho</h3>
-          <p class="mt-2 text-xs text-slate-600 dark:text-slate-300">
-            Una buena luz focal reduce la fatiga visual y mejora la concentración.
-          </p>
-          <a href="https://amzn.to/3YRFntF" target="_blank" class="mt-4 inline-flex items-center justify-center px-4 py-2.5 rounded-full bg-primary text-white text-xs font-semibold hover:bg-primaryDark transition">
-            Ver en Amazon
-          </a>
-        </article>
-        
-  <!-- Producto 5 -->
-      <article class="snap-start bg-white dark:bg-slate-900/90 border rounded-3xl shadow-lg w-72 shrink-0 p-4 flex flex-col hover:-translate-y-1 transition">
-        <img src="https://m.media-amazon.com/images/I/51-LmMCoscL._AC_SL1000_.jpg" class="rounded-2xl mb-4 aspect-square object-cover">
-        <h3 class="text-sm font-semibold">Auriculares inalámbricos</h3>
-        <p class="mt-2 text-xs">Ideales para videollamadas y concentración sin cables.</p>
-        <a href="https://amzn.to/3LFOfQb" target="_blank" class="mt-4 px-4 py-2 rounded-full bg-primary text-white text-xs text-center">Ver en Amazon</a>
-      </article>
-        
-        <!-- Producto 6 -->
-        <article class="snap-start bg-white dark:bg-slate-900/90 border border-slate-200 dark:border-slate-800 rounded-3xl shadow-lg shadow-slate-900/10 w-72 shrink-0 p-4 flex flex-col hover:-translate-y-1 hover:shadow-xl transition">
-          <img src="https://m.media-amazon.com/images/I/511hfGz8lpL._AC_SL1500_.jpg" alt="Cajonera archivador móvil" class="rounded-2xl mb-4 aspect-square object-cover">
-          <h3 class="text-sm font-semibold text-accent dark:text-slate-50">Cajonera archivador móvil</h3>
-          <p class="mt-2 text-xs text-slate-600 dark:text-slate-300">
-            Organiza documentos sin recargar visualmente el espacio de trabajo.
-          </p>
-          <a href="https://amzn.to/4qFHtZG" target="_blank" class="mt-4 inline-flex items-center justify-center px-4 py-2.5 rounded-full bg-primary text-white text-xs font-semibold hover:bg-primaryDark transition">
-            Ver en Amazon
-          </a>
-        </article>
-        
-        <!-- Producto 7 -->
-        <article class="snap-start bg-white dark:bg-slate-900/90 border border-slate-200 dark:border-slate-800 rounded-3xl shadow-lg shadow-slate-900/10 w-72 shrink-0 p-4 flex flex-col hover:-translate-y-1 hover:shadow-xl transition">
-          <img src="https://m.media-amazon.com/images/I/61OkbjZ7otL._AC_SL1200_.jpg" alt="Módulo con 5 cajones A4+" class="rounded-2xl mb-4 aspect-square object-cover">
-          <h3 class="text-sm font-semibold text-accent dark:text-slate-50">Módulo con 5 cajones A4+</h3>
-          <p class="mt-2 text-xs text-slate-600 dark:text-slate-300">
-            Clasifica papeles y material sin perder el aspecto limpio del escritorio.
-          </p>
-          <a href="https://amzn.to/4jnUiVX" target="_blank" class="mt-4 inline-flex items-center justify-center px-4 py-2.5 rounded-full bg-primary text-white text-xs font-semibold hover:bg-primaryDark transition">
-            Ver en Amazon
-          </a>
-        </article>
+    <!-- Producto 4 -->
+    <article class="bg-white dark:bg-slate-900/90 border border-slate-200 dark:border-slate-800 rounded-3xl shadow-lg p-4 flex flex-col hover:-translate-y-1 hover:shadow-xl transition">
+      <img src="https://m.media-amazon.com/images/I/61HWVh6wxqL._AC_SL1500_.jpg" alt="Lámpara de despacho" class="rounded-2xl mb-4 aspect-square object-cover">
+      <h3 class="text-sm font-semibold text-accent dark:text-slate-50">Lámpara de despacho</h3>
+      <p class="mt-2 text-xs text-slate-600 dark:text-slate-300">Una buena luz focal reduce la fatiga visual y mejora la concentración.</p>
+      <a href="https://amzn.to/3YRFntF" target="_blank" class="mt-4 inline-flex items-center justify-center px-4 py-2.5 rounded-full bg-primary text-white text-xs font-semibold hover:bg-primaryDark transition">
+        Ver en Amazon
+      </a>
+    </article>
 
-         <!-- Producto 8 -->
-      <article class="snap-start bg-white dark:bg-slate-900/90 border rounded-3xl shadow-lg w-72 shrink-0 p-4 flex flex-col hover:-translate-y-1 transition">
-        <img src="https://m.media-amazon.com/images/I/81yckur-iIL._SL1500_.jpg" class="rounded-2xl mb-4 aspect-square object-cover">
-        <h3 class="text-sm font-semibold">Reposapiés ergonómico</h3>
-        <p class="mt-2 text-xs">Mejora la circulación y reduce tensión en piernas y espalda.</p>
-        <a href="https://amzn.to/3L8SIuF" target="_blank" class="mt-4 px-4 py-2 rounded-full bg-primary text-white text-xs text-center">Ver en Amazon</a>
-      </article>
+    <!-- Producto 5 -->
+    <article class="bg-white dark:bg-slate-900/90 border border-slate-200 dark:border-slate-800 rounded-3xl shadow-lg p-4 flex flex-col hover:-translate-y-1 hover:shadow-xl transition">
+      <img src="https://m.media-amazon.com/images/I/51-LmMCoscL._AC_SL1000_.jpg" class="rounded-2xl mb-4 aspect-square object-cover">
+      <h3 class="text-sm font-semibold text-accent dark:text-slate-50">Auriculares inalámbricos</h3>
+      <p class="mt-2 text-xs text-slate-600 dark:text-slate-300">Ideales para videollamadas y concentración sin cables.</p>
+      <a href="https://amzn.to/3LFOfQb" target="_blank" class="mt-4 inline-flex items-center justify-center px-4 py-2.5 rounded-full bg-primary text-white text-xs font-semibold hover:bg-primaryDark transition">
+        Ver en Amazon
+      </a>
+    </article>
 
-         <!-- Producto 9 -->
-      <article class="snap-start bg-white dark:bg-slate-900/90 border rounded-3xl shadow-lg w-72 shrink-0 p-4 flex flex-col hover:-translate-y-1 transition">
-        <img src="https://m.media-amazon.com/images/I/61heBUIQLtL._AC_SL1500_.jpg" class="rounded-2xl mb-4 aspect-square object-cover">
-        <h3 class="text-sm font-semibold">Detectalia Organizador de Escritorio</h3>
-        <p class="mt-2 text-xs">Mantén bolígrafos, notas y accesorios siempre ordenados.</p>
-        <a href="https://amzn.to/4qLZGEH" target="_blank" class="mt-4 px-4 py-2 rounded-full bg-primary text-white text-xs text-center">Ver en Amazon</a>
-      </article>
+    <!-- Producto 6 -->
+    <article class="bg-white dark:bg-slate-900/90 border border-slate-200 dark:border-slate-800 rounded-3xl shadow-lg p-4 flex flex-col hover:-translate-y-1 hover:shadow-xl transition">
+      <img src="https://m.media-amazon.com/images/I/511hfGz8lpL._AC_SL1500_.jpg" alt="Cajonera archivador móvil" class="rounded-2xl mb-4 aspect-square object-cover">
+      <h3 class="text-sm font-semibold text-accent dark:text-slate-50">Cajonera archivador móvil</h3>
+      <p class="mt-2 text-xs text-slate-600 dark:text-slate-300">Organiza documentos sin recargar visualmente el espacio de trabajo.</p>
+      <a href="https://amzn.to/4qFHtZG" target="_blank" class="mt-4 inline-flex items-center justify-center px-4 py-2.5 rounded-full bg-primary text-white text-xs font-semibold hover:bg-primaryDark transition">
+        Ver en Amazon
+      </a>
+    </article>
 
-      <!-- Producto 10 -->
-      <article class="snap-start bg-white dark:bg-slate-900/90 border rounded-3xl shadow-lg w-72 shrink-0 p-4 flex flex-col hover:-translate-y-1 transition">
-        <img src="https://m.media-amazon.com/images/I/71tEutfM3eL._AC_SL1500_.jpg" class="rounded-2xl mb-4 aspect-square object-cover">
-        <h3 class="text-sm font-semibold">BONTEC Elevador de Monitor de Madera</h3>
-        <p class="mt-2 text-xs">Eleva la pantalla y mejora la postura del cuello.</p>
-        <a href="https://amzn.to/49wFyzJ" target="_blank" class="mt-4 px-4 py-2 rounded-full bg-primary text-white text-xs text-center">Ver en Amazon</a>
-      </article>
+    <!-- Producto 7 -->
+    <article class="bg-white dark:bg-slate-900/90 border border-slate-200 dark:border-slate-800 rounded-3xl shadow-lg p-4 flex flex-col hover:-translate-y-1 hover:shadow-xl transition">
+      <img src="https://m.media-amazon.com/images/I/61OkbjZ7otL._AC_SL1200_.jpg" alt="Módulo con 5 cajones A4+" class="rounded-2xl mb-4 aspect-square object-cover">
+      <h3 class="text-sm font-semibold text-accent dark:text-slate-50">Módulo con 5 cajones A4+</h3>
+      <p class="mt-2 text-xs text-slate-600 dark:text-slate-300">Clasifica papeles y material sin perder el aspecto limpio del escritorio.</p>
+      <a href="https://amzn.to/4jnUiVX" target="_blank" class="mt-4 inline-flex items-center justify-center px-4 py-2.5 rounded-full bg-primary text-white text-xs font-semibold hover:bg-primaryDark transition">
+        Ver en Amazon
+      </a>
+    </article>
+
+    <!-- Producto 8 -->
+    <article class="bg-white dark:bg-slate-900/90 border border-slate-200 dark:border-slate-800 rounded-3xl shadow-lg p-4 flex flex-col hover:-translate-y-1 hover:shadow-xl transition">
+      <img src="https://m.media-amazon.com/images/I/81yckur-iIL._SL1500_.jpg" class="rounded-2xl mb-4 aspect-square object-cover">
+      <h3 class="text-sm font-semibold text-accent dark:text-slate-50">Reposapiés ergonómico</h3>
+      <p class="mt-2 text-xs text-slate-600 dark:text-slate-300">Mejora la circulación y reduce tensión en piernas y espalda.</p>
+      <a href="https://amzn.to/3L8SIuF" target="_blank" class="mt-4 inline-flex items-center justify-center px-4 py-2.5 rounded-full bg-primary text-white text-xs font-semibold hover:bg-primaryDark transition">
+        Ver en Amazon
+      </a>
+    </article>
+
+    <!-- Producto 9 -->
+    <article class="bg-white dark:bg-slate-900/90 border border-slate-200 dark:border-slate-800 rounded-3xl shadow-lg p-4 flex flex-col hover:-translate-y-1 hover:shadow-xl transition">
+      <img src="https://m.media-amazon.com/images/I/61heBUIQLtL._AC_SL1500_.jpg" class="rounded-2xl mb-4 aspect-square object-cover">
+      <h3 class="text-sm font-semibold text-accent dark:text-slate-50">Detectalia Organizador de Escritorio</h3>
+      <p class="mt-2 text-xs text-slate-600 dark:text-slate-300">Mantén bolígrafos, notas y accesorios siempre ordenados.</p>
+      <a href="https://amzn.to/4qLZGEH" target="_blank" class="mt-4 inline-flex items-center justify-center px-4 py-2.5 rounded-full bg-primary text-white text-xs font-semibold hover:bg-primaryDark transition">
+        Ver en Amazon
+      </a>
+    </article>
+
+    <!-- Producto 10 -->
+    <article class="bg-white dark:bg-slate-900/90 border border-slate-200 dark:border-slate-800 rounded-3xl shadow-lg p-4 flex flex-col hover:-translate-y-1 hover:shadow-xl transition">
+      <img src="https://m.media-amazon.com/images/I/71tEutfM3eL._AC_SL1500_.jpg" class="rounded-2xl mb-4 aspect-square object-cover">
+      <h3 class="text-sm font-semibold text-accent dark:text-slate-50">BONTEC Elevador de Monitor de Madera</h3>
+      <p class="mt-2 text-xs text-slate-600 dark:text-slate-300">Eleva la pantalla y mejora la postura del cuello.</p>
+      <a href="https://amzn.to/49wFyzJ" target="_blank" class="mt-4 inline-flex items-center justify-center px-4 py-2.5 rounded-full bg-primary text-white text-xs font-semibold hover:bg-primaryDark transition">
+        Ver en Amazon
+      </a>
+    </article>
         
       </div>
     </div>
@@ -481,6 +474,7 @@
 
 </body>
 </html>
+
 
 
 
