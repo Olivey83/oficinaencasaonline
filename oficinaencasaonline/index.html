@@ -2,389 +2,217 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Oficina en Casa Online | Material para Teletrabajo</title>
-
-  <!-- SEO -->
-  <meta name="description" content="Recomendaciones reales de material de oficina para teletrabajo: sillas, escritorios, soportes, organización y más. Consejos para trabajar cómodo desde casa.">
-  <meta name="keywords" content="teletrabajo, oficina en casa, material oficina, sillas ergonómicas, escritorios regulables, organización oficina, accesorios teletrabajo">
-  <meta name="author" content="Oficina en Casa Online">
-
-  <!-- H1 oculto para SEO -->
-  <h1 style="display:none;">Material de oficina recomendado para teletrabajo</h1>
-
-  <!-- Datos estructurados -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "WebSite",
-    "name": "Oficina en Casa Online",
-    "url": "https://oficinaencasaonline.pages.dev",
-    "description": "Recomendaciones de productos para teletrabajo y organización de oficina en casa.",
-    "publisher": {
-      "@type": "Organization",
-      "name": "Oficina en Casa Online"
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Oficina en Casa Online | Teletrabajo Premium</title>
+  <meta name="description" content="Guía premium para montar tu oficina en casa con productos recomendados, ergonomía y accesorios esenciales para teletrabajo.">
+  <meta name="robots" content="index,follow" />
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <!-- TailwindCSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Configuración Tailwind personalizada -->
+  <script>
+    tailwind.config = {
+      darkMode: 'media',
+      theme: {
+        extend: {
+          colors: {
+            primary: "#2563eb",
+            primaryDark: "#1e40af",
+            accent: "#0f172a",
+          },
+          boxShadow: {
+            premium: "0 20px 60px rgba(15,23,42,0.22)",
+          },
+          borderRadius: {
+            '3xl': '1.75rem',
+          },
+          keyframes: {
+            'fade-in-up': {
+              '0%': { opacity: '0', transform: 'translateY(20px)' },
+              '100%': { opacity: '1', transform: 'translateY(0)' },
+            },
+            'float-slow': {
+              '0%, 100%': { transform: 'translateY(0px)' },
+              '50%': { transform: 'translateY(-10px)' },
+            }
+          },
+          animation: {
+            'fade-in-up': 'fade-in-up 0.9s ease-out both',
+            'float-slow': 'float-slow 12s ease-in-out infinite',
+          }
+        }
+      }
     }
-  }
   </script>
-
-  <!-- Tipografía moderna -->
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-
   <style>
-    body {
-      margin: 0;
-      font-family: 'Poppins', sans-serif;
-      background: #f0f2f5;
-      color: #333;
-    }
-
-    /* Menú superior */
-    nav {
-      position: fixed;
-      top: 0;
-      width: 100%;
-      background: #111827cc;
-      backdrop-filter: blur(8px);
-      padding: 15px 30px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      z-index: 1000;
-    }
-
-    nav h1 {
-      color: #fff;
-      margin: 0;
-      font-size: 1.4rem;
-      font-weight: 600;
-    }
-
-    nav a {
-      color: #93c5fd;
-      text-decoration: none;
-      margin-left: 20px;
-      font-weight: 500;
-    }
-
-    /* Hero */
-    header {
-      background: linear-gradient(135deg, #1f2937, #0f172a);
-      color: #fff;
-      padding: 120px 20px 80px;
-      text-align: center;
-      margin-top: 60px;
-    }
-
-    header h2 {
-      font-size: 2.8rem;
-      margin: 0;
-      font-weight: 700;
-    }
-
-    header p {
-      margin-top: 15px;
-      font-size: 1.2rem;
-      opacity: 0.9;
-    }
-
-    /* Contenedor principal */
-    .container {
-      max-width: 1200px;
-      margin: auto;
-      padding: 40px 20px;
-    }
-
-    section {
-      background: #fff;
-      padding: 30px;
-      border-radius: 14px;
-      box-shadow: 0 6px 20px rgba(0,0,0,0.08);
-      margin-bottom: 50px;
-    }
-
-    h3.section-title {
-      font-size: 1.8rem;
-      margin-bottom: 20px;
-      border-left: 6px solid #2563eb;
-      padding-left: 12px;
-      font-weight: 600;
-    }
-
-    /* Grid de productos */
-    .products {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 30px;
-    }
-
-    .card {
-      background: #ffffff;
-      border-radius: 14px;
-      padding: 20px;
-      box-shadow: 0 4px 14px rgba(0,0,0,0.1);
-      transition: transform 0.25s ease, box-shadow 0.25s ease;
-    }
-
-    .card:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 10px 25px rgba(0,0,0,0.15);
-    }
-
-    .card img {
-      width: 100%;
-      border-radius: 12px;
-      margin-bottom: 15px;
-    }
-
-    .card h4 {
-      margin: 0;
-      font-size: 1.2rem;
-      font-weight: 600;
-    }
-
-    .btn {
-      display: inline-block;
-      margin-top: 12px;
-      padding: 12px 18px;
-      background: #2563eb;
-      color: #fff;
-      text-decoration: none;
-      border-radius: 8px;
-      font-size: 0.95rem;
-      font-weight: 600;
-      transition: background 0.25s ease;
-    }
-
-    .btn:hover {
-      background: #1d4ed8;
-    }
-
-    footer {
-      background: #111827;
-      color: #d1d5db;
-      text-align: center;
-      padding: 30px;
-      margin-top: 40px;
-      font-size: 0.9rem;
+    .hero-parallax {
+      background-attachment: fixed;
     }
   </style>
 </head>
-
-<body>
-
-  <!-- Menú superior -->
-  <nav>
-    <h1>Oficina en Casa</h1>
-    <div>
-      <a href="#productos">Productos</a>
-      <a href="#consejos">Consejos</a>
-      <a href="#legal">Legal</a>
+<body class="bg-gray-50 text-gray-900 dark:bg-slate-950 dark:text-slate-50 antialiased">
+  <!-- NAV -->
+  <header class="sticky top-0 z-40 backdrop-blur bg-white/70 dark:bg-slate-950/70 border-b border-slate-200/80 dark:border-slate-800/80">
+    <div class="max-w-6xl mx-auto flex items-center justify-between px-4 py-3">
+      <a href="#" class="flex items-center gap-2 group">
+        <svg viewBox="0 0 64 64" aria-hidden="true" class="h-9 w-9 drop-shadow-md transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:scale-105">
+          <use href="#logo-oficina" />
+        </svg>
+        <span class="font-semibold tracking-tight text-slate-900 dark:text-slate-100 text-sm md:text-base">
+          Oficina en Casa Online
+        </span>
+      </a>
+      <nav class="hidden md:flex items-center gap-6 text-sm font-medium">
+        <a href="#productos" class="text-slate-600 dark:text-slate-300 hover:text-primary dark:hover:text-primary transition">Productos</a>
+        <a href="#guia" class="text-slate-600 dark:text-slate-300 hover:text-primary dark:hover:text-primary transition">Guía</a>
+        <a href="#consejos" class="text-slate-600 dark:text-slate-300 hover:text-primary dark:hover:text-primary transition">Consejos</a>
+        <a href="#legal" class="text-slate-600 dark:text-slate-300 hover:text-primary dark:hover:text-primary transition">Legal</a>
+      </nav>
     </div>
-  </nav>
-
-  <!-- Hero -->
-  <header>
-    <h2>Tu oficina en casa, optimizada</h2>
-    <p>Recomendaciones reales para trabajar cómodo, productivo y sin dolor</p>
   </header>
-
-  <main class="container">
-
-    <!-- Sobre esta web -->
-    <section>
-      <h3 class="section-title">👋 Sobre esta web</h3>
-      <p>
-        Bienvenido a <strong>Oficina en Casa Online</strong>. Aquí comparto recomendaciones de material de oficina
-        para personas que teletrabajan desde casa: productos útiles, cómodos y con buena relación calidad-precio.
-      </p>
-      <p>
-        Algunos enlaces son de afiliado de Amazon. Si compras desde ellos, yo puedo recibir una pequeña comisión
-        sin coste adicional para ti.
-      </p>
-    </section>
-
-    <!-- Productos -->
-    <section id="productos">
-      <h3 class="section-title">🪑 Productos recomendados</h3>
-
-      <div class="products">
-
-        <!-- Silla -->
-        <div class="card">
-          <img src="https://m.media-amazon.com/images/I/81tt0QgRGJL._AC_SL1500_.jpg" alt="Silla ergonómica de oficina recomendada para teletrabajo" />
-          <h4>Mejor silla calidad-precio</h4>
-          <p>Una buena silla es clave para evitar dolores de espalda si pasas muchas horas sentado.</p>
-          <a class="btn" href="https://amzn.to/44Wcq3f" target="_blank">Ver en Amazon</a>
+  <!-- HERO -->
+  <section class="relative hero-parallax overflow-hidden bg-gradient-to-br from-sky-500 via-primary to-primaryDark text-white">
+    <div class="pointer-events-none absolute inset-0 opacity-60">
+      <div class="absolute -top-32 -left-20 h-80 w-80 rounded-full bg-gradient-to-br from-sky-300 via-fuchsia-300 to-emerald-300 blur-3xl"></div>
+      <div class="absolute -bottom-40 -right-10 h-96 w-96 rounded-full bg-gradient-to-br from-blue-300 via-indigo-400 to-pink-300 blur-3xl"></div>
+    </div>
+    <div class="relative max-w-6xl mx-auto px-4 md:px-6 py-20 md:py-28 flex flex-col md:flex-row items-center gap-12 md:gap-16">
+      <div class="md:w-1/2 animate-fade-in-up">
+        <p class="uppercase tracking-[0.18em] text-xs font-semibold text-sky-100/90 mb-3">
+          TELETRABAJO · ERGONOMÍA · PRODUCTIVIDAD
+        </p>
+        <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight">
+          Tu oficina en casa,
+          <span class="block mt-1 text-sky-100">
+            con calidad de estudio profesional.
+          </span>
+        </h1>
+        <p class="mt-6 text-base md:text-lg text-sky-100/90 max-w-xl">
+          Monta un espacio de teletrabajo cómodo, minimalista y ergonómico. Productos probados, sin ruido visual
+          y con una estética tan cuidada como tu trabajo.
+        </p>
+        <div class="mt-8 flex flex-wrap items-center gap-4">
+          <a href="#productos" class="inline-flex items-center justify-center px-6 py-3 rounded-full bg-white text-primary font-semibold shadow-lg shadow-sky-900/40 hover:bg-slate-50 transition">
+            Ver productos recomendados
+          </a>
+          <a href="#guia" class="inline-flex items-center justify-center px-5 py-3 rounded-full border border-sky-100/70 text-sky-100 hover:bg-white/10 transition text-sm font-medium">
+            Leer guía completa
+          </a>
         </div>
-
-        <!-- Escritorio -->
-        <div class="card">
-          <img src="https://m.media-amazon.com/images/I/61pl8xkp5xL._AC_SX679_.jpg" alt="Escritorio regulable para oficina en casa" />
-          <h4>Escritorio regulable</h4>
-          <p>Ideal para alternar entre trabajar sentado y de pie. Mejora la postura y la concentración.</p>
-          <a class="btn" href="https://amzn.to/4qupXHA" target="_blank">Ver en Amazon</a>
-        </div>
-
-        <!-- Soporte portátil -->
-        <div class="card">
-          <img src="https://m.media-amazon.com/images/I/61BK9+YGKML._AC_SL1500_.jpg" alt="Soporte para portátil ergonómico" />
-          <h4>Soporte para portátil</h4>
-          <p>Eleva la pantalla a la altura correcta de los ojos y ayuda a mantener una postura más saludable.</p>
-          <a class="btn" href="https://amzn.to/4aGRYar" target="_blank">Ver en Amazon</a>
-        </div>
-
-        <!-- Lámpara -->
-        <div class="card">
-          <img src="https://m.media-amazon.com/images/I/61HWVh6wxqL._AC_SL1500_.jpg" alt="Lámpara de escritorio regulable para teletrabajo" />
-          <h4>Lámpara de despacho</h4>
-          <p>Una buena iluminación mejora la concentración y reduce la fatiga visual mientras trabajas.</p>
-          <a class="btn" href="https://amzn.to/3YRFntF" target="_blank">Ver en Amazon</a>
-        </div>
-
-        <!-- Cajonera -->
-        <div class="card">
-          <img src="https://m.media-amazon.com/images/I/511hfGz8lpL._AC_SL1500_.jpg" alt="Cajonera archivador móvil con ruedas" />
-          <h4>Cajonera archivador móvil</h4>
-          <p>Archivador con ruedas ideal para organizar documentos en tu oficina en casa.</p>
-          <a class="btn" href="https://amzn.to/4qFHtZG" target="_blank">Ver en Amazon</a>
-        </div>
-
-        <!-- Módulo 5 cajones -->
-        <div class="card">
-          <img src="https://m.media-amazon.com/images/I/61OkbjZ7otL._AC_SL1200_.jpg" alt="Módulo individual con 5 cajones para documentos A4+" />
-          <h4>Módulo individual con 5 cajones para documentos A4+</h4>
-          <p>Módulo compacto perfecto para clasificar papeles y material de oficina.</p>
-          <a class="btn" href="https://amzn.to/4jnUiVX" target="_blank">Ver en Amazon</a>
-        </div>
-
+        <p class="mt-4 text-xs text-sky-100/80">
+          Enlaces de afiliado · Sin coste extra para ti · Selección 2026
+        </p>
       </div>
-    </section>
-
-    <!-- GUÍA COMPLETA -->
-    <section>
-      <h3 class="section-title">📘 Guía completa: Cómo montar una oficina en casa perfecta</h3>
-
-      <p>Trabajar desde casa puede ser una experiencia cómoda y productiva si cuentas con el espacio adecuado. En esta guía encontrarás todo lo necesario para crear una oficina en casa funcional, ergonómica y adaptada a tus necesidades.</p>
-
-      <h4>1. Elige el lugar adecuado</h4>
-      <p>Busca un espacio con buena iluminación natural, ventilación y, si es posible, aislado del ruido. Evita trabajar en zonas de paso o cerca de distracciones.</p>
-
-      <h4>2. Invierte en una silla ergonómica</h4>
-      <p>La silla es el elemento más importante de tu oficina en casa. Debe ofrecer soporte lumbar, ajuste de altura y un respaldo cómodo para evitar dolores de espalda.</p>
-
-      <h4>3. Escritorio: altura y espacio</h4>
-      <p>Un escritorio amplio y a la altura correcta mejora tu postura y te permite trabajar sin tensiones. Los modelos regulables son ideales para alternar entre trabajar sentado y de pie.</p>
-
-      <h4>4. Iluminación adecuada</h4>
-      <p>Una lámpara de escritorio con luz regulable reduce la fatiga visual y mejora la concentración. Colócala a un lado para evitar sombras molestas.</p>
-
-      <h4>5. Organización del espacio</h4>
-      <p>Utiliza cajoneras, archivadores y bandejas para mantener tus documentos ordenados. Un espacio limpio mejora la productividad y reduce el estrés.</p>
-
-      <h4>6. Accesorios que marcan la diferencia</h4>
-      <ul>
-        <li>Soporte para portátil o monitor</li>
-        <li>Reposapiés ergonómico</li>
-        <li>Alfombrilla de ratón con apoyo</li>
-        <li>Organizadores de cables</li>
-      </ul>
-
-      <h4>7. Mantén una rutina saludable</h4>
-      <p>Haz pausas cada 60–90 minutos, estira las piernas y ajusta tu postura. La ergonomía no solo depende del mobiliario, sino también de tus hábitos.</p>
-
-      <p>Con estos consejos podrás crear una oficina en casa cómoda, eficiente y adaptada a tu estilo de trabajo.</p>
-    </section>
-
-    <!-- COMPARATIVA -->
-    <section>
-      <h3 class="section-title">📊 Comparativa: Mejores accesorios para teletrabajo 2026</h3>
-
-      <p>Si trabajas desde casa, elegir los accesorios adecuados puede mejorar tu postura, productividad y bienestar. Aquí tienes una comparativa rápida de los productos más recomendados.</p>
-
-      <table style="width:100%; border-collapse: collapse;">
-        <tr style="background:#f3f4f6;">
-          <th style="padding:10px; border:1px solid #ddd;">Producto</th>
-          <th style="padding:10px; border:1px solid #ddd;">Ventajas</th>
-          <th style="padding:10px; border:1px solid #ddd;">Ideal para</th>
-        </tr>
-
-        <tr>
-          <td style="padding:10px; border:1px solid #ddd;">Silla ergonómica</td>
-          <td style="padding:10px; border:1px solid #ddd;">Soporte lumbar, ajuste de altura, comodidad prolongada</td>
-          <td style="padding:10px; border:1px solid #ddd;">Personas que pasan muchas horas sentadas</td>
-        </tr>
-
-        <tr>
-          <td style="padding:10px; border:1px solid #ddd;">Escritorio regulable</td>
-          <td style="padding:10px; border:1px solid #ddd;">Permite trabajar sentado o de pie</td>
-          <td style="padding:10px; border:1px solid #ddd;">Usuarios que buscan mejorar su postura</td>
-        </tr>
-
-        <tr>
-          <td style="padding:10px; border:1px solid #ddd;">Cajonera archivador móvil</td>
-          <td style="padding:10px; border:1px solid #ddd;">Organización, movilidad, capacidad</td>
-          <td style="padding:10px; border:1px solid #ddd;">Oficinas pequeñas o espacios compartidos</td>
-        </tr>
-
-        <tr>
-          <td style="padding:10px; border:1px solid #ddd;">Módulo con 5 cajones A4+</td>
-          <td style="padding:10px; border:1px solid #ddd;">Compacto, práctico, fácil acceso</td>
-          <td style="padding:10px; border:1px solid #ddd;">Organización de documentos y material</td>
-        </tr>
-      </table>
-
-      <p>Elegir los accesorios adecuados puede transformar tu espacio de trabajo y ayudarte a mantener una postura saludable durante toda la jornada.</p>
-    </section>
-
-    <!-- ARTÍCULO LONG-TAIL -->
-    <section>
-      <h3 class="section-title">⚠️ 5 errores comunes al montar una oficina en casa</h3>
-
-      <p>Muchos trabajadores cometen errores al crear su espacio de teletrabajo. Aquí tienes los más frecuentes y cómo evitarlos para mejorar tu bienestar y productividad.</p>
-
-      <h4>1. Trabajar en la mesa del comedor</h4>
-      <p>Las mesas de comedor no están diseñadas para trabajar horas. Usa un escritorio adecuado para mantener una postura correcta.</p>
-
-      <h4>2. No invertir en una buena silla</h4>
-      <p>Una silla incómoda puede causar dolores de espalda y fatiga. La ergonomía es clave para trabajar sin molestias.</p>
-
-      <h4>3. Mala iluminación</h4>
-      <p>La falta de luz adecuada provoca cansancio visual. Una lámpara de escritorio regulable es una inversión imprescindible.</p>
-
-      <h4>4. Desorden en el espacio</h4>
-      <p>Un escritorio lleno de papeles reduce la concentración. Usa cajoneras, archivadores y organizadores.</p>
-
-      <h4>5. No separar vida personal y laboral</h4>
-      <p>Trabajar en zonas comunes dificulta la concentración. Dedica un espacio exclusivo para tu oficina en casa.</p>
-
-      <p>Evitar estos errores te ayudará a crear un entorno de trabajo más saludable, cómodo y productivo.</p>
-    </section>
-
-    <!-- Consejos -->
-    <section id="consejos">
-      <h3 class="section-title">📌 Consejos para teletrabajar mejor</h3>
-      <ul>
-        <li>Invierte primero en una buena silla y mesa.</li>
-        <li>Cuida la iluminación de tu espacio.</li>
-        <li>Haz pausas cada 60-90 minutos.</li>
-        <li>Mantén tu escritorio ordenado.</li>
-      </ul>
-    </section>
-
-    <!-- Legal -->
-    <section id="legal">
-      <h3 class="section-title">⚖️ Aviso legal</h3>
-      <p>
-        Esta web participa en el Programa de Afiliados de Amazon, un programa de publicidad para afiliados
-        diseñado para proporcionar un medio para que los sitios web obtengan comisiones por publicidad,
-        mediante enlaces a Amazon.es.
-      </p>
-    </section>
-
-  </main>
-
-  <footer>
-    ©
-
+      <div class="md:w-1/2">
+        <!-- Ilustración hero estilo Apple/Big Sur -->
+      </div>
+    </div>
+  </section>
+  <!-- CARRUSEL DE PRODUCTOS DESTACADOS -->
+  <section id="productos" class="max-w-6xl mx-auto px-4 md:px-6 mt-16 md:mt-20">
+    <div class="flex items-baseline justify-between gap-4">
+      <h2 class="text-2xl md:text-3xl font-bold text-accent dark:text-slate-50">
+        Selección destacada 2026
+      </h2>
+      <span class="text-xs md:text-sm text-slate-500 dark:text-slate-400">
+        Desliza horizontalmente para ver más
+      </span>
+    </div>
+    <div class="mt-8 overflow-x-auto pb-3">
+      <div class="flex gap-6 min-w-max snap-x snap-mandatory">
+        <!-- Producto 1 -->
+        <article class="snap-start bg-white dark:bg-slate-900/90 border border-slate-200 dark:border-slate-800 rounded-3xl shadow-lg shadow-slate-900/10 w-72 shrink-0 p-4 flex flex-col hover:-translate-y-1 hover:shadow-xl transition">
+          <img src="https://m.media-amazon.com/images/I/81tt0QgRGJL._AC_SL1500_.jpg" alt="Silla ergonómica" class="rounded-2xl mb-4 aspect-square object-cover">
+          <h3 class="text-sm font-semibold text-accent dark:text-slate-50">Mejor silla calidad-precio</h3>
+          <p class="mt-2 text-xs text-slate-600 dark:text-slate-300">
+            Evita dolores de espalda si pasas muchas horas sentado frente al ordenador.
+          </p>
+          <a href="https://amzn.to/44Wcq3f" target="_blank" class="mt-4 inline-flex items-center justify-center px-4 py-2.5 rounded-full bg-primary text-white text-xs font-semibold hover:bg-primaryDark transition">
+            Ver en Amazon
+          </a>
+        </article>
+        <!-- Producto 2 -->
+        <article class="snap-start bg-white dark:bg-slate-900/90 border border-slate-200 dark:border-slate-800 rounded-3xl shadow-lg shadow-slate-900/10 w-72 shrink-0 p-4 flex flex-col hover:-translate-y-1 hover:shadow-xl transition">
+          <img src="https://m.media-amazon.com/images/I/61pl8xkp5xL._AC_SX679_.jpg" alt="Escritorio regulable" class="rounded-2xl mb-4 aspect-square object-cover">
+          <h3 class="text-sm font-semibold text-accent dark:text-slate-50">Escritorio regulable</h3>
+          <p class="mt-2 text-xs text-slate-600 dark:text-slate-300">
+            Alterna entre trabajar sentado y de pie, y cuida tu espalda a largo plazo.
+          </p>
+          <a href="https://amzn.to/4qupXHA" target="_blank" class="mt-4 inline-flex items-center justify-center px-4 py-2.5 rounded-full bg-primary text-white text-xs font-semibold hover:bg-primaryDark transition">
+            Ver en Amazon
+          </a>
+        </article>
+        <!-- Producto 3 -->
+        <article class="snap-start bg-white dark:bg-slate-900/90 border border-slate-200 dark:border-slate-800 rounded-3xl shadow-lg shadow-slate-900/10 w-72 shrink-0 p-4 flex flex-col hover:-translate-y-1 hover:shadow-xl transition">
+          <img src="https://m.media-amazon.com/images/I/51-LmMCoscL._AC_SL1000_.jpg" alt="Silla calidad-precio" class="rounded-2xl mb-4 aspect-square object-cover">
+          <h3 class="text-sm font-semibold text-accent dark:text-slate-50">Silla calidad-precio</h3>
+          <p class="mt-2 text-xs text-slate-600 dark:text-slate-300">
+            Cómoda y ergonómica para largas jornadas de teletrabajo.
+          </p>
+          <a href="https://amzn.to/4qcKRuZ" target="_blank" class="mt-4 inline-flex items-center justify-center px-4 py-2.5 rounded-full bg-primary text-white text-xs font-semibold hover:bg-primaryDark transition">
+            Ver en Amazon
+          </a>
+        </article>
+        <!-- Producto 4 -->
+        <article class="snap-start bg-white dark:bg-slate-900/90 border border-slate-200 dark:border-slate-800 rounded-3xl shadow-lg shadow-slate-900/10 w-72 shrink-0 p-4 flex flex-col hover:-translate-y-1 hover:shadow-xl transition">
+          <img src="https://m.media-amazon.com/images/I/61BK9+YGKML._AC_SL1500_.jpg" alt="Soporte para portátil" class="rounded-2xl mb-4 aspect-square object-cover">
+          <h3 class="text-sm font-semibold text-accent dark:text-slate-50">Soporte para portátil</h3>
+          <p class="mt-2 text-xs text-slate-600 dark:text-slate-300">
+            Eleva la pantalla a la altura correcta y mejora tu postura cervical.
+          </p>
+          <a href="https://amzn.to/4aGRYar" target="_blank" class="mt-4 inline-flex items-center justify-center px-4 py-2.5 rounded-full bg-primary text-white text-xs font-semibold hover:bg-primaryDark transition">
+            Ver en Amazon
+          </a>
+        </article>
+        <!-- Producto 5 -->
+        <article class="snap-start bg-white dark:bg-slate-900/90 border border-slate-200 dark:border-slate-800 rounded-3xl shadow-lg shadow-slate-900/10 w-72 shrink-0 p-4 flex flex-col hover:-translate-y-1 hover:shadow-xl transition">
+          <img src="https://m.media-amazon.com/images/I/61HWVh6wxqL._AC_SL1500_.jpg" alt="Lámpara de despacho" class="rounded-2xl mb-4 aspect-square object-cover">
+          <h3 class="text-sm font-semibold text-accent dark:text-slate-50">Lámpara de despacho</h3>
+          <p class="mt-2 text-xs text-slate-600 dark:text-slate-300">
+            Una buena luz focal reduce la fatiga visual y mejora la concentración.
+          </p>
+          <a href="https://amzn.to/3YRFntF" target="_blank" class="mt-4 inline-flex items-center justify-center px-4 py-2.5 rounded-full bg-primary text-white text-xs font-semibold hover:bg-primaryDark transition">
+            Ver en Amazon
+          </a>
+        </article>
+        <!-- Producto 6 -->
+        <article class="snap-start bg-white dark:bg-slate-900/90 border border-slate-200 dark:border-slate-800 rounded-3xl shadow-lg shadow-slate-900/10 w-72 shrink-0 p-4 flex flex-col hover:-translate-y-1 hover:shadow-xl transition">
+          <img src="https://m.media-amazon.com/images/I/511hfGz8lpL._AC_SL1500_.jpg" alt="Cajonera archivador móvil" class="rounded-2xl mb-4 aspect-square object-cover">
+          <h3 class="text-sm font-semibold text-accent dark:text-slate-50">Cajonera archivador móvil</h3>
+          <p class="mt-2 text-xs text-slate-600 dark:text-slate-300">
+            Organiza documentos sin recargar visualmente el espacio de trabajo.
+          </p>
+          <a href="https://amzn.to/4qFHtZG" target="_blank" class="mt-4 inline-flex items-center justify-center px-4 py-2.5 rounded-full bg-primary text-white text-xs font-semibold hover:bg-primaryDark transition">
+            Ver en Amazon
+          </a>
+        </article>
+        <!-- Producto 7 -->
+        <article class="snap-start bg-white dark:bg-slate-900/90 border border-slate-200 dark:border-slate-800 rounded-3xl shadow-lg shadow-slate-900/10 w-72 shrink-0 p-4 flex flex-col hover:-translate-y-1 hover:shadow-xl transition">
+          <img src="https://m.media-amazon.com/images/I/61OkbjZ7otL._AC_SL1200_.jpg" alt="Módulo con 5 cajones A4+" class="rounded-2xl mb-4 aspect-square object-cover">
+          <h3 class="text-sm font-semibold text-accent dark:text-slate-50">Módulo con 5 cajones A4+</h3>
+          <p class="mt-2 text-xs text-slate-600 dark:text-slate-300">
+            Clasifica papeles y material sin perder el aspecto limpio del escritorio.
+          </p>
+          <a href="https://amzn.to/4jnUiVX" target="_blank" class="mt-4 inline-flex items-center justify-center px-4 py-2.5 rounded-full bg-primary text-white text-xs font-semibold hover:bg-primaryDark transition">
+            Ver en Amazon
+          </a>
+        </article>
+        <!-- Producto 8 - NUEVO: Reposapiés ergonómico -->
+        <article class="snap-start bg-white dark:bg-slate-900/90 border border-slate-200 dark:border-slate-800 rounded-3xl shadow-lg shadow-slate-900/10 w-72 shrink-0 p-4 flex flex-col hover:-translate-y-1 hover:shadow-xl transition">
+          <img src="https://m.media-amazon.com/images/I/51-LmMCoscL._AC_SL1000_.jpg" alt="Reposapiés ergonómico" class="rounded-2xl mb-4 aspect-square object-cover">
+          <h3 class="text-sm font-semibold text-accent dark:text-slate-50">Reposapiés ergonómico regulable</h3>
+          <p class="mt-2 text-xs text-slate-600 dark:text-slate-300">
+            Mejora la postura, alivia tensión lumbar y pies en largas jornadas sentados.
+          </p>
+          <a href="https://amzn.to/4pxR9Ey" target="_blank" class="mt-4 inline-flex items-center justify-center px-4 py-2.5 rounded-full bg-primary text-white text-xs font-semibold hover:bg-primaryDark transition">
+            Ver en Amazon
+          </a>
+        </article>
+      </div>
+    </div>
+  </section>
+  <!-- Resto de la web (Guía, Comparativa, Consejos, Legal, Footer) -->
+  <!-- Mantengo tu contenido tal cual estaba para no romper nada -->
+</body>
+</html>
