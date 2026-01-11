@@ -3,8 +3,18 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Oficina en Casa Online | Teletrabajo Premium 2026</title>
-    <meta name="description" content="Guía premium para montar tu oficina en casa con productos recomendados, ergonomía y accesorios esenciales para teletrabajo.">
+    
+    <title>Oficina en Casa: Guía de Productos Ergonómicos y Teletrabajo 2026</title>
+    <meta name="description" content="Descubre los mejores productos para tu oficina en casa. Sillas ergonómicas, escritorios elevables y accesorios para evitar el dolor de espalda. Guía 2026.">
+    <meta name="keywords" content="oficina en casa, teletrabajo, silla ergonómica, escritorio elevable, soporte portatil, dolor espalda teletrabajo, setup minimalista, trabajar desde casa">
+    <meta name="author" content="Oficina en Casa Online">
+    <meta name="robots" content="index, follow">
+
+    <meta property="og:title" content="Tu Oficina en Casa Perfecta - Guía 2026">
+    <meta property="og:description" content="¿Dolor de espalda al trabajar? Mira nuestra selección de productos ergonómicos probados.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://oficinaencasaonline.pages.dev">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1499750310107-5fef28a66643?auto=format&fit=crop&q=80&w=800">
     
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -117,7 +127,7 @@
             <div class="relative hidden md:block group animate-float">
                 <div class="absolute inset-0 bg-gradient-to-tr from-primary to-emerald-400 rounded-[3rem] blur-3xl opacity-20 group-hover:opacity-30 transition-opacity"></div>
                 <img src="https://images.unsplash.com/photo-1499750310107-5fef28a66643?auto=format&fit=crop&q=80&w=800" 
-                     alt="Setup Minimalista" class="rounded-[2.5rem] shadow-premium border-8 border-white dark:border-slate-900 object-cover w-full h-[500px]">
+                     alt="Setup Minimalista con tecnología Apple" class="rounded-[2.5rem] shadow-premium border-8 border-white dark:border-slate-900 object-cover w-full h-[500px]">
             </div>
         </div>
     </section>
@@ -165,7 +175,10 @@
                         </div>
                     </div>
                 </div>
-                <img src="https://images.unsplash.com/photo-1593642532400-2682810df593?auto=format&fit=crop&q=80&w=800" class="rounded-[2.5rem] shadow-premium border-4 border-slate-100 dark:border-slate-800 transition-all duration-700">
+                <img src="https://images.unsplash.com/photo-1593642532400-2682810df593?auto=format&fit=crop&q=80&w=800" 
+                     alt="Ordenador portátil en escritorio ergonómico"
+                     loading="lazy"
+                     class="rounded-[2.5rem] shadow-premium border-4 border-slate-100 dark:border-slate-800 transition-all duration-700">
             </div>
         </div>
     </section>
@@ -227,7 +240,7 @@
 
     <script>
         // ==========================================
-        // 1. BASE DE DATOS DE PRODUCTOS
+        // 1. BASE DE DATOS DE PRODUCTOS (¡TUS ENLACES REALES!)
         // ==========================================
         const productos = [
             {
@@ -318,7 +331,7 @@
         ];
 
         // ==========================================
-        // 2. LÓGICA DE RENDERIZADO
+        // 2. LÓGICA DE RENDERIZADO (OPTIMIZADA)
         // ==========================================
         const grid = document.getElementById('product-grid');
 
@@ -333,7 +346,7 @@
 
                 card.innerHTML = `
                     <div class="relative overflow-hidden aspect-square">
-                        <img src="${prod.img}" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                        <img src="${prod.img}" alt="${prod.titulo} - Accesorio para oficina" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy">
                         ${tagHtml}
                     </div>
                     <div class="p-6 flex flex-col h-[200px] justify-between">
@@ -438,7 +451,6 @@
     </script>
 </body>
 </html>
-
 
 
 
