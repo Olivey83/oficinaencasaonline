@@ -59,8 +59,15 @@
     <header class="fixed w-full top-0 z-50 glass border-b border-slate-200/50 dark:border-slate-800/50 transition-all duration-300" id="main-nav">
         <div class="max-w-7xl mx-auto flex items-center justify-between px-6 py-4">
             <a href="#" class="flex items-center gap-3 group">
-                <div class="w-10 h-10 bg-gradient-to-br from-primary to-emerald-500 rounded-xl flex items-center justify-center text-white shadow-lg transition-transform group-hover:scale-110">
-                    <span class="font-bold text-xl">O</span>
+                <div class="relative w-11 h-11 rounded-2xl flex items-center justify-center transition-all duration-300 group-hover:scale-110 group-hover:shadow-lg overflow-hidden bg-gradient-to-br from-white/60 to-blue-100/20 dark:from-slate-800/60 dark:to-slate-900/20 backdrop-blur-xl border border-white/60 dark:border-slate-600/30 shadow-sm">
+                    <svg class="w-8 h-8" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M18 34C9.16344 34 2 26.8366 2 18C2 9.16344 9.16344 2 18 2C21.049 2 23.895 2.85802 26.3471 4.3506L24.153 8.15094C22.3654 7.4096 20.2624 7 18 7C11.9249 7 7 11.9249 7 18C7 24.0751 11.9249 29 18 29C24.0751 29 29 24.0751 29 18C29 16.683 28.7682 15.4176 28.3424 14.2387L32.9153 11.5989C33.618 13.557 34 15.7202 34 18C34 26.8366 26.8366 34 18 34Z" class="fill-blue-400/10 dark:fill-blue-500/10 stroke-blue-500/50 dark:stroke-blue-400/50" stroke-width="1"/>
+                        <g class="filter drop-shadow-sm">
+                            <path d="M34 2L24 12H29C29 18.0751 24.0751 23 18 23V28C23.5228 28 28 23.5228 28 18H34V2Z" class="fill-emerald-500 dark:fill-emerald-400"/>
+                            <path d="M29 5V11" stroke="white" stroke-width="2" stroke-linecap="round"/>
+                            <path d="M27 7C27 7 27.5 9 29 9C30.5 9 31 7 31 7" stroke="white" stroke-width="2" stroke-linecap="round"/>
+                        </g>
+                    </svg>
                 </div>
                 <span class="font-bold text-lg tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-slate-900 to-slate-600 dark:from-white dark:to-slate-400">
                     Oficina en Casa
@@ -196,7 +203,12 @@
         <div class="max-w-7xl mx-auto px-6">
             <div class="text-center mb-12">
                 <div class="flex items-center justify-center gap-3 mb-6">
-                    <div class="w-10 h-10 bg-primary rounded-xl flex items-center justify-center text-white font-bold">O</div>
+                    <div class="relative w-10 h-10 rounded-xl flex items-center justify-center overflow-hidden bg-gradient-to-br from-primary to-emerald-500">
+                         <svg class="w-6 h-6 text-white" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M18 34C9.16344 34 2 26.8366 2 18C2 9.16344 9.16344 2 18 2C21.049 2 23.895 2.85802 26.3471 4.3506L24.153 8.15094C22.3654 7.4096 20.2624 7 18 7C11.9249 7 7 11.9249 7 18C7 24.0751 11.9249 29 18 29C24.0751 29 29 24.0751 29 18C29 16.683 28.7682 15.4176 28.3424 14.2387L32.9153 11.5989C33.618 13.557 34 15.7202 34 18C34 26.8366 26.8366 34 18 34Z" class="fill-white/20 stroke-white/50" stroke-width="1"/>
+                            <path d="M34 2L24 12H29C29 18.0751 24.0751 23 18 23V28C23.5228 28 28 23.5228 28 18H34V2Z" fill="white"/>
+                        </svg>
+                    </div>
                     <span class="font-bold text-2xl">Oficina en Casa</span>
                 </div>
                 <p id="legal" class="text-slate-400 text-sm max-w-lg mx-auto italic">
@@ -216,7 +228,6 @@
     <script>
         // ==========================================
         // 1. BASE DE DATOS DE PRODUCTOS
-        // Para agregar uno nuevo, simplemente copia un bloque {} y pégalo al final
         // ==========================================
         const productos = [
             {
@@ -253,7 +264,7 @@
                 titulo: "Reposapies",
                 desc: "Mejora la circulación de las piernas en jornadas sedentarias.",
                 img: "https://m.media-amazon.com/images/I/51-LmMCoscL._AC_SL1000_.jpg",
-                link: "https://amzn.to/4btOl7T"
+                link: "https://amzn.to/3LFOfQb"
             },
             {
                 categoria: "desk",
@@ -274,21 +285,21 @@
                 titulo: "Papelera malla metalica",
                 desc: "Diseño polivalente ideal para cualquier estancia.",
                 img: "https://m.media-amazon.com/images/I/81yckur-iIL._SL1500_.jpg",
-                link: "https://amzn.to/4pucwGJ"
+                link: "https://amzn.to/3L8SIuF"
             },
             {
                 categoria: "acc",
                 titulo: "Elevador de Madera",
                 desc: "Añade estética natural y espacio extra bajo tu monitor.",
                 img: "https://m.media-amazon.com/images/I/61heBUIQLtL._AC_SL1500_.jpg",
-                link: "https://amzn.to/4qLZGEH"
+                link: "https://amzn.to/49wFyzJ"
             },
             {
                 categoria: "acc",
                 titulo: "Organizador Escritorio",
                 desc: "Todo en su sitio: bolígrafos, notas y pequeños accesorios.",
                 img: "https://m.media-amazon.com/images/I/71tEutfM3eL._AC_SL1500_.jpg",
-                link: "https://amzn.to/49wFyzJ"
+                link: "https://amzn.to/4qLZGEH"
             },
             {
                 categoria: "acc",
@@ -315,10 +326,8 @@
             grid.innerHTML = '';
             listaProductos.forEach(prod => {
                 const card = document.createElement('article');
-                // Añadimos las clases originales
                 card.className = `product-card ${prod.categoria} bg-white dark:bg-slate-900 rounded-[2rem] overflow-hidden border border-slate-200/60 dark:border-slate-800/60 shadow-card hover:shadow-premium hover:-translate-y-2 transition-all duration-500 group`;
                 
-                // Etiqueta opcional
                 const tagHtml = prod.tag ? 
                     `<div class="absolute top-4 left-4 bg-primary text-white text-[10px] font-bold px-3 py-1 rounded-full">${prod.tag}</div>` : '';
 
@@ -341,7 +350,6 @@
             });
         }
 
-        // Ejecutar renderizado inicial
         renderProducts(productos);
 
 
@@ -374,7 +382,7 @@
             });
         };
         window.addEventListener('scroll', reveal);
-        reveal(); // Ejecutar al inicio
+        reveal();
 
         // NAV & SCROLL TOP
         window.addEventListener('scroll', () => {
@@ -400,14 +408,12 @@
         });
         document.getElementById('scroll-top').addEventListener('click', () => window.scrollTo({top: 0}));
 
-        // PRODUCT FILTERING (Adaptado para elementos dinámicos)
+        // PRODUCT FILTERING
         const filterBtns = document.querySelectorAll('.filter-btn');
-        // Importante: Volvemos a seleccionar las cards porque ahora se han creado dinámicamente
         const getProductCards = () => document.querySelectorAll('.product-card');
 
         filterBtns.forEach(btn => {
             btn.addEventListener('click', () => {
-                // Estilos botones
                 filterBtns.forEach(b => {
                     b.classList.remove('active', 'bg-primary', 'text-white');
                     b.classList.add('bg-white', 'dark:bg-slate-800');
@@ -415,9 +421,8 @@
                 btn.classList.add('active', 'bg-primary', 'text-white');
                 btn.classList.remove('bg-white', 'dark:bg-slate-800');
 
-                // Lógica filtro
                 const category = btn.dataset.category;
-                const currentCards = getProductCards(); // Seleccionamos las cards actuales
+                const currentCards = getProductCards();
                 
                 currentCards.forEach(p => {
                     if (category === 'all' || p.classList.contains(category)) {
@@ -433,9 +438,6 @@
     </script>
 </body>
 </html>
-
-
-
 
 
 
