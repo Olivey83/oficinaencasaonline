@@ -57,20 +57,6 @@
         .glass { background: rgba(255, 255, 255, 0.7); backdrop-filter: blur(12px); }
         .dark .glass { background: rgba(15, 23, 42, 0.8); }
         .product-card { transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1); }
-        /* Ajuste para que las imágenes de Amazon se vean completas */
-        .product-img-container img { 
-            object-fit: contain; 
-            padding: 1rem; 
-            mix-blend-mode: multiply; /* Fondo transparente en modo claro */
-        }
-        .dark .product-img-container img { 
-            mix-blend-mode: normal; 
-            background: white; /* Fondo blanco en modo oscuro para ver bien el producto */
-            border-radius: 1rem;
-            margin: 1rem;
-            width: calc(100% - 2rem);
-            height: calc(100% - 2rem);
-        }
     </style>
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-BHPG0PX889"></script>
     <script>
@@ -263,101 +249,98 @@
 
     <script>
         // ==========================================
-        // 1. BASE DE DATOS DE PRODUCTOS (FOTOS REALES MANUALES)
+        // 1. BASE DE DATOS DE PRODUCTOS
         // ==========================================
-        // Nota: Estas URLs son directas de Amazon. Si alguna deja de funcionar en el futuro,
-        // ve a Amazon, clic derecho en la foto > "Copiar dirección de imagen" y pégala aquí.
-        
         const productos = [
             {
                 categoria: "ergo",
-                titulo: "Silla Sihoo M18",
-                desc: "Soporte lumbar ajustable y malla transpirable. La reina de la calidad-precio.",
-                img: "https://m.media-amazon.com/images/I/61N+1+V+1+L._AC_SL1500_.jpg", // Foto real recuperada
-                link: "https://amzn.to/44Wcq3f", // Tuyo
+                titulo: "Mejor silla calidad-precio",
+                desc: "Soporte lumbar ajustable para evitar dolores de espalda en jornadas largas.",
+                img: "https://m.media-amazon.com/images/I/81tt0QgRGJL._AC_SL1500_.jpg",
+                link: "https://amzn.to/44Wcq3f",
                 tag: "TOP VENTAS"
             },
             {
                 categoria: "desk",
-                titulo: "Escritorio Elevable Flexispot",
-                desc: "Alterna entre trabajar sentado y de pie. Motor silencioso y memoria.",
-                img: "https://m.media-amazon.com/images/I/71W+p+y+1+L._AC_SL1500_.jpg", // Foto real recuperada
-                link: "https://amzn.to/4qupXHA" // Tuyo
+                titulo: "Escritorio regulable",
+                desc: "Alterna entre trabajar sentado y de pie para cuidar tu espalda.",
+                img: "https://m.media-amazon.com/images/I/61pl8xkp5xL._AC_SX679_.jpg",
+                link: "https://amzn.to/4qupXHA"
             },
             {
                 categoria: "ergo",
-                titulo: "Soporte Laptop BoYata",
-                desc: "Eleva la pantalla a la altura de tus ojos. Postura cervical correcta.",
-                img: "https://m.media-amazon.com/images/I/71+e+1+L+x+L._AC_SL1500_.jpg", // Foto real recuperada
-                link: "https://amzn.to/4aGRYar" // Tuyo
+                titulo: "Soporte para portátil",
+                desc: "Eleva la pantalla a la altura de tus ojos para mejorar la postura cervical.",
+                img: "https://m.media-amazon.com/images/I/61BK9+YGKML._AC_SL1500_.jpg",
+                link: "https://amzn.to/4aGRYar"
             },
             {
                 categoria: "desk",
-                titulo: "Lámpara Monitor Quntis",
-                desc: "Iluminación sin reflejos en pantalla. Reduce drásticamente la fatiga visual.",
-                img: "https://m.media-amazon.com/images/I/61l+D+1+x+L._AC_SL1500_.jpg", // Foto real recuperada
-                link: "https://amzn.to/3YRFntF" // Tuyo
+                titulo: "Lámpara de despacho",
+                desc: "Luz focal regulable que reduce la fatiga visual al trabajar de noche.",
+                img: "https://m.media-amazon.com/images/I/61HWVh6wxqL._AC_SL1500_.jpg",
+                link: "https://amzn.to/3YRFntF"
             },
             {
                 categoria: "acc",
-                titulo: "Reposapiés Ergonómico",
-                desc: "Mejora la circulación y la postura al sentarte.",
-                img: "https://m.media-amazon.com/images/I/71+1+1+1+L._AC_SL1500_.jpg", 
-                link: "https://amzn.to/3LFOfQb" // Tuyo
+                titulo: "Reposapies",
+                desc: "Mejora la circulación de las piernas en jornadas sedentarias.",
+                img: "https://m.media-amazon.com/images/I/51-LmMCoscL._AC_SL1000_.jpg",
+                link: "https://amzn.to/3LFOfQb"
             },
             {
                 categoria: "desk",
-                titulo: "Cajonera de Oficina",
-                desc: "Organización minimalista bajo el escritorio. Ruedas silenciosas.",
-                img: "https://m.media-amazon.com/images/I/71+1+1+1+L._AC_SL1500_.jpg",
-                link: "https://amzn.to/4qFHtZG" // Tuyo
+                titulo: "Cajonera móvil",
+                desc: "Organización eficiente que se adapta a cualquier rincón de tu oficina.",
+                img: "https://m.media-amazon.com/images/I/511hfGz8lpL._AC_SL1500_.jpg",
+                link: "https://amzn.to/4qFHtZG"
             },
             {
                 categoria: "desk",
-                titulo: "Organizador de Documentos",
-                desc: "Clasifica papeles importantes sin ensuciar visualmente el espacio.",
-                img: "https://m.media-amazon.com/images/I/81+1+1+1+L._AC_SL1500_.jpg",
-                link: "https://amzn.to/4jnUiVX" // Tuyo
+                titulo: "Módulo 5 cajones A4+",
+                desc: "Clasifica documentos sin recargar visualmente tu escritorio.",
+                img: "https://m.media-amazon.com/images/I/61OkbjZ7otL._AC_SL1200_.jpg",
+                link: "https://amzn.to/4jnUiVX"
             },
             {
                 categoria: "ergo",
-                titulo: "Papelera Metálica",
-                desc: "Diseño limpio y transpirable. Indispensable para mantener el orden.",
-                img: "https://m.media-amazon.com/images/I/81yckur-iIL._AC_SL1500_.jpg",
-                link: "https://amzn.to/3L8SIuF" // Tuyo
+                titulo: "Papelera malla metalica",
+                desc: "Diseño polivalente ideal para cualquier estancia.",
+                img: "https://m.media-amazon.com/images/I/81yckur-iIL._SL1500_.jpg",
+                link: "https://amzn.to/3L8SIuF"
             },
             {
                 categoria: "acc",
-                titulo: "Stand de Madera",
-                desc: "Estética natural premium. Gana espacio debajo de tu monitor.",
-                img: "https://m.media-amazon.com/images/I/71+1+1+1+L._AC_SL1500_.jpg",
-                link: "https://amzn.to/49wFyzJ" // Tuyo
+                titulo: "Elevador de Madera",
+                desc: "Añade estética natural y espacio extra bajo tu monitor.",
+                img: "https://m.media-amazon.com/images/I/61heBUIQLtL._AC_SL1500_.jpg",
+                link: "https://amzn.to/49wFyzJ"
             },
             {
                 categoria: "acc",
-                titulo: "Bandeja Organizadora",
-                desc: "Para llaves, bolígrafos y pequeños objetos. Todo en su sitio.",
-                img: "https://m.media-amazon.com/images/I/61+1+1+1+L._AC_SL1500_.jpg",
-                link: "https://amzn.to/4qLZGEH" // Tuyo
+                titulo: "Organizador Escritorio",
+                desc: "Todo en su sitio: bolígrafos, notas y pequeños accesorios.",
+                img: "https://m.media-amazon.com/images/I/71tEutfM3eL._AC_SL1500_.jpg",
+                link: "https://amzn.to/4qLZGEH"
             },
             {
                 categoria: "acc",
-                titulo: "Organizador Vertical",
-                desc: "Optimiza el espacio verticalmente. Perfecto para libretas y tablets.",
-                img: "https://m.media-amazon.com/images/I/71+1+1+1+L._AC_SL1500_.jpg",
-                link: "https://amzn.to/4jF6EcE" // Tuyo
+                titulo: "Organizador de Suministros",
+                desc: "Optimiza el espacio con compartimentos verticales inteligentes.",
+                img: "https://m.media-amazon.com/images/I/61K3aaAo9cL._AC_SL1500_.jpg",
+                link: "https://amzn.to/4jF6EcE"
             },
             {
                 categoria: "desk",
-                titulo: "Alfombrilla Desk Pad",
-                desc: "Suavidad para tus manos y protección para la mesa. Fieltro gris.",
+                titulo: "Alfombrilla de Fieltro",
+                desc: "100x40cm de suavidad y silencio para tu ratón y teclado.",
                 img: "https://m.media-amazon.com/images/I/71sNZ6t0z8L._AC_SL1500_.jpg",
-                link: "https://amzn.to/49wShm0" // Tuyo
+                link: "https://amzn.to/49wShm0"
             }
         ];
 
         // ==========================================
-        // 2. LÓGICA DE RENDERIZADO (ESTÁNDAR)
+        // 2. LÓGICA DE RENDERIZADO (OPTIMIZADA)
         // ==========================================
         const grid = document.getElementById('product-grid');
 
@@ -368,20 +351,21 @@
                 card.className = `product-card ${prod.categoria} bg-white dark:bg-slate-900 rounded-[2rem] overflow-hidden border border-slate-200/60 dark:border-slate-800/60 shadow-card hover:shadow-premium hover:-translate-y-2 transition-all duration-500 group`;
                 
                 const tagHtml = prod.tag ? 
-                    `<div class="absolute top-4 left-4 bg-primary text-white text-[10px] font-bold px-3 py-1 rounded-full z-10 shadow-md">${prod.tag}</div>` : '';
+                    `<div class="absolute top-4 left-4 bg-primary text-white text-[10px] font-bold px-3 py-1 rounded-full">${prod.tag}</div>` : '';
 
+                // CORRECCIÓN LEGAL: Añadido rel="nofollow sponsored" al enlace
                 card.innerHTML = `
-                    <div class="relative overflow-hidden aspect-square product-img-container flex items-center justify-center bg-white">
-                        <img src="${prod.img}" alt="${prod.titulo}" class="max-w-[80%] max-h-[80%] object-contain transition-transform duration-700 group-hover:scale-110" loading="lazy">
+                    <div class="relative overflow-hidden aspect-square">
+                        <img src="${prod.img}" alt="${prod.titulo} - Accesorio para oficina" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy">
                         ${tagHtml}
                     </div>
-                    <div class="p-6 flex flex-col h-[200px] justify-between border-t border-slate-100 dark:border-slate-800">
+                    <div class="p-6 flex flex-col h-[200px] justify-between">
                         <div>
-                            <h3 class="font-bold text-lg mb-2 text-slate-900 dark:text-white leading-tight">${prod.titulo}</h3>
-                            <p class="text-xs text-slate-500 dark:text-slate-400 line-clamp-2">${prod.desc}</p>
+                            <h3 class="font-bold text-lg mb-2">${prod.titulo}</h3>
+                            <p class="text-xs text-slate-500 line-clamp-2">${prod.desc}</p>
                         </div>
-                        <a href="${prod.link}" target="_blank" rel="nofollow sponsored" class="w-full flex items-center justify-center gap-2 py-3 bg-slate-100 dark:bg-slate-800 rounded-xl font-bold text-sm text-slate-900 dark:text-white group-hover:bg-primary group-hover:text-white transition">
-                            <svg class="w-5 h-5"><use href="#icon-amazon"/></svg> Ver precio en Amazon
+                        <a href="${prod.link}" target="_blank" rel="nofollow sponsored" class="w-full flex items-center justify-center gap-2 py-3 bg-slate-100 dark:bg-slate-800 rounded-xl font-bold text-sm group-hover:bg-primary group-hover:text-white transition">
+                            <svg class="w-5 h-5"><use href="#icon-amazon"/></svg> Ver en Amazon
                         </a>
                     </div>
                 `;
@@ -517,7 +501,6 @@
     </script>
 </body>
 </html>
-
 
 
 
