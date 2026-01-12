@@ -63,11 +63,13 @@
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
+
       gtag('config', 'G-BHPG0PX889');
     </script>
 </head>
 
 <body class="bg-slate-50 text-slate-900 dark:bg-slate-950 dark:text-slate-50 antialiased overflow-x-hidden">
+
     <svg class="hidden">
         <symbol id="icon-amazon" viewBox="0 0 24 24" fill="currentColor">
             <path d="M15.012 13.844c-.53.43-1.286.666-2.268.706-1.12.046-2.19-.188-3.21-.692-.128-.063-.2-.047-.25.047l-.375.61c-.047.078-.03.14.047.203 1.25.92 2.782 1.344 4.5 1.25 1.516-.078 2.766-.547 3.704-1.42.062-.064.047-.14-.032-.204l-.53-.438c-.08-.063-.157-.063-.235.03zM22.5 12c0 5.797-4.703 10.5-10.5 10.5S1.5 17.797 1.5 12 6.203 1.5 12 1.5 22.5 6.203 22.5 12zm-3.875 3.328c-.125.11-.234.078-.328-.047-.14-.187-.64-.937-.734-1.078-.063-.094-.14-.11-.235-.047-1.42 1-3.218 1.53-5.28 1.485-2.22-.047-4.14-.735-5.673-2.016-.078-.063-.11-.03-.094.062.25 1.36.938 2.454 1.953 3.313 2.156 1.83 5.375 2.22 8.36 1.094.672-.25 1.265-.578 1.812-.97.094-.06.125-.155.22-.25.093-.093.11-.187.015-.296-.015-.016-.015-.047-.015-.047z"/>
@@ -153,8 +155,7 @@
             </div>
         </div>
 
-        <div id="product-grid" class="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
-            </div>
+        <div id="product-grid" class="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8"></div>
     </section>
 
     <section id="guia" class="bg-white dark:bg-slate-900 py-24 reveal">
@@ -225,8 +226,8 @@
         <div class="max-w-7xl mx-auto px-6">
             <div class="text-center mb-12">
                 <div class="flex items-center justify-center gap-3 mb-6">
-                    <div class="relative w-10 h-10 rounded-xl flex items-center justify-center overflow-hidden bg-gradient-to-br from-primary to-emerald-500"> 
-                        <svg class="w-6 h-6 text-white" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <div class="relative w-10 h-10 rounded-xl flex items-center justify-center overflow-hidden bg-gradient-to-br from-primary to-emerald-500">
+                         <svg class="w-6 h-6 text-white" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M18 34C9.16344 34 2 26.8366 2 18C2 9.16344 9.16344 2 18 2C21.049 2 23.895 2.85802 26.3471 4.3506L24.153 8.15094C22.3654 7.4096 20.2624 7 18 7C11.9249 7 7 11.9249 7 18C7 24.0751 11.9249 29 18 29C24.0751 29 29 24.0751 29 18C29 16.683 28.7682 15.4176 28.3424 14.2387L32.9153 11.5989C33.618 13.557 34 15.7202 34 18C34 26.8366 26.8366 34 18 34Z" class="fill-white/20 stroke-white/50" stroke-width="1"/>
                             <path d="M34 2L24 12H29C29 18.0751 24.0751 23 18 23V28C23.5228 28 28 23.5228 28 18H34V2Z" fill="white"/>
                         </svg>
@@ -249,7 +250,7 @@
 
     <script>
         // ==========================================
-        // 1. BASE DE DATOS DE PRODUCTOS
+        // 1. BASE DE DATOS DE PRODUCTOS (¡TUS ENLACES REALES!)
         // ==========================================
         const productos = [
             {
@@ -340,7 +341,7 @@
         ];
 
         // ==========================================
-        // 2. LÓGICA DE RENDERIZADO (OPTIMIZADA Y LEGAL)
+        // 2. LÓGICA DE RENDERIZADO (OPTIMIZADA)
         // ==========================================
         const grid = document.getElementById('product-grid');
 
@@ -353,7 +354,7 @@
                 const tagHtml = prod.tag ? 
                     `<div class="absolute top-4 left-4 bg-primary text-white text-[10px] font-bold px-3 py-1 rounded-full">${prod.tag}</div>` : '';
 
-                // MODIFICACIÓN LEGAL: Añadido rel="nofollow sponsored"
+                // CORREGIDO: Añadido rel="nofollow sponsored" para seguridad SEO y Afiliados
                 card.innerHTML = `
                     <div class="relative overflow-hidden aspect-square">
                         <img src="${prod.img}" alt="${prod.titulo} - Accesorio para oficina" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy">
@@ -458,7 +459,6 @@
             });
         });
     </script>
-
     <div id="cookie-banner" class="fixed bottom-4 left-4 right-4 md:left-auto md:right-8 md:w-96 bg-white/80 dark:bg-slate-900/80 backdrop-blur-xl border border-slate-200 dark:border-slate-700 p-6 rounded-3xl shadow-2xl z-[60] transform translate-y-full opacity-0 transition-all duration-500">
         <div class="flex items-start gap-4">
             <div class="p-3 bg-blue-100 dark:bg-blue-900/30 rounded-2xl text-2xl">🍪</div>
@@ -501,7 +501,6 @@
     </script>
 </body>
 </html>
-
 
 
 
