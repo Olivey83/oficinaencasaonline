@@ -19,7 +19,7 @@
                 }
             }
         }
-        // Lógica de Modo Oscuro al cargar (para evitar parpadeos)
+        // Lógica de Modo Oscuro con memoria (Persistencia)
         if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
             document.documentElement.classList.add('dark')
         } else {
@@ -50,9 +50,9 @@
                 <a href="#guia" class="text-sm font-semibold hover:text-primary transition">Ergonomía</a>
                 <a href="#consejos" class="text-sm font-semibold hover:text-primary transition">Errores</a>
                 
-                <button id="theme-toggle" class="p-2.5 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-500 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-slate-700 transition-all">
-                    <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
+                <button id="theme-toggle" class="p-2.5 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-500 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-slate-700 transition-all shadow-sm">
                     <svg id="theme-toggle-light-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z"></path></svg>
+                    <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
                 </button>
             </nav>
 
@@ -102,23 +102,37 @@
         <div class="max-w-7xl mx-auto px-6">
             <h2 class="text-4xl font-bold mb-16 text-center">Claves del Setup Perfecto</h2>
             <div class="grid md:grid-cols-2 gap-20 items-center">
-                <div class="space-y-12">
+                <div class="space-y-10">
                     <div class="flex flex-col md:flex-row gap-6 items-center md:items-start group">
                         <div class="w-16 h-16 flex-shrink-0 bg-primary/20 text-primary rounded-3xl flex items-center justify-center font-bold text-2xl group-hover:bg-primary group-hover:text-white transition-all">1</div>
                         <div>
                             <h4 class="text-xl font-bold mb-2">Ergonomía Activa</h4>
-                            <p class="text-slate-500 dark:text-slate-400 leading-relaxed text-balance">Invierte en herramientas que se adapten a tu morfología. La silla es el motor de tu salud laboral.</p>
+                            <p class="text-slate-500 dark:text-slate-400 leading-relaxed text-balance">Tu silla es el motor de tu salud. Busca siempre soporte lumbar que respete tu curva natural.</p>
                         </div>
                     </div>
                     <div class="flex flex-col md:flex-row gap-6 items-center md:items-start group">
                         <div class="w-16 h-16 flex-shrink-0 bg-emerald-500/10 text-emerald-500 rounded-3xl flex items-center justify-center font-bold text-2xl group-hover:bg-emerald-500 group-hover:text-white transition-all">2</div>
                         <div>
-                            <h4 class="text-xl font-bold mb-2">Orden Mental</h4>
-                            <p class="text-slate-500 dark:text-slate-400 leading-relaxed">Un escritorio despejado reduce el estrés visual y te permite concentrarte en lo que importa.</p>
+                            <h4 class="text-xl font-bold mb-2">Regla de los 90º</h4>
+                            <p class="text-slate-500 dark:text-slate-400 leading-relaxed text-balance">Codos y rodillas deben formar ángulos rectos para mantener una circulación sanguínea óptima.</p>
+                        </div>
+                    </div>
+                    <div class="flex flex-col md:flex-row gap-6 items-center md:items-start group">
+                        <div class="w-16 h-16 flex-shrink-0 bg-orange-500/10 text-orange-500 rounded-3xl flex items-center justify-center font-bold text-2xl group-hover:bg-orange-500 group-hover:text-white transition-all">3</div>
+                        <div>
+                            <h4 class="text-xl font-bold mb-2">Altura de Monitor</h4>
+                            <p class="text-slate-500 dark:text-slate-400 leading-relaxed text-balance">El borde superior de la pantalla debe estar a la altura de tus ojos para liberar el cuello.</p>
+                        </div>
+                    </div>
+                    <div class="flex flex-col md:flex-row gap-6 items-center md:items-start group">
+                        <div class="w-16 h-16 flex-shrink-0 bg-blue-400/10 text-blue-400 rounded-3xl flex items-center justify-center font-bold text-2xl group-hover:bg-blue-400 group-hover:text-white transition-all">4</div>
+                        <div>
+                            <h4 class="text-xl font-bold mb-2">Descansos Visuales</h4>
+                            <p class="text-slate-500 dark:text-slate-400 leading-relaxed text-balance">Regla 20-20-20: Cada 20 min, mira a 6 metros durante 20 segundos para relajar la vista.</p>
                         </div>
                     </div>
                 </div>
-                <img src="https://images.unsplash.com/photo-1593642532400-2682810df593?auto=format&fit=crop&q=80&w=800" class="rounded-[2.5rem] shadow-premium border border-slate-100 dark:border-slate-800 transition-all duration-700">
+                <img src="https://images.unsplash.com/photo-1593642532400-2682810df593?auto=format&fit=crop&q=80&w=800" alt="Detalle Ergonomía" class="rounded-[2.5rem] shadow-premium border-4 border-slate-50 dark:border-slate-800 transition-all duration-700 hover:scale-[1.02]">
             </div>
         </div>
     </section>
@@ -130,28 +144,34 @@
                 <h2 class="text-4xl font-bold mt-4 text-white">Errores comunes a evitar</h2>
             </div>
             <div class="grid md:grid-cols-3 gap-8">
-                <div class="bg-slate-800/50 p-10 rounded-[2.5rem] border border-slate-700 hover:border-primary transition-all group text-center md:text-left">
+                <div class="bg-slate-800/50 p-10 rounded-[2.5rem] border border-slate-700 hover:border-primary transition-all group">
                     <div class="w-12 h-12 bg-orange-500/10 text-orange-500 rounded-full flex items-center justify-center mb-6 text-2xl font-bold mx-auto md:mx-0">!</div>
                     <h3 class="text-xl font-bold mb-4 group-hover:text-primary transition-colors">Trabajar en el sofá</h3>
-                    <p class="text-slate-400 leading-relaxed mb-6">Parece cómodo, pero afecta tu postura lumbar drásticamente en tiempo récord.</p>
+                    <p class="text-slate-400 leading-relaxed mb-6">Parece cómodo, pero destruye tu postura lumbar drásticamente en tiempo récord.</p>
                     <a href="blog-dolor-espalda.html" class="inline-block text-primary font-bold hover:underline">Cuida tu espalda ahora →</a>
                 </div>
-                <div class="bg-slate-800/50 p-10 rounded-[2.5rem] border border-slate-700 text-center md:text-left">
+                <div class="bg-slate-800/50 p-10 rounded-[2.5rem] border border-slate-700">
                     <div class="w-12 h-12 bg-orange-500/10 text-orange-500 rounded-full flex items-center justify-center mb-6 text-2xl font-bold mx-auto md:mx-0">!</div>
                     <h3 class="text-xl font-bold mb-4">Mala gestión lumínica</h3>
-                    <p class="text-slate-400 leading-relaxed">Trabajar solo con luz de techo genera fatiga visual severa al final de la jornada.</p>
+                    <p class="text-slate-400 leading-relaxed">Trabajar solo con luz de techo genera sombras y fatiga visual severa al final de la jornada.</p>
                 </div>
-                <div class="bg-slate-800/50 p-10 rounded-[2.5rem] border border-slate-700 text-center md:text-left">
+                <div class="bg-slate-800/50 p-10 rounded-[2.5rem] border border-slate-700">
                     <div class="w-12 h-12 bg-orange-500/10 text-orange-500 rounded-full flex items-center justify-center mb-6 text-2xl font-bold mx-auto md:mx-0">!</div>
                     <h3 class="text-xl font-bold mb-4">Desorden de periféricos</h3>
-                    <p class="text-slate-400 leading-relaxed">Los cables enredados y objetos innecesarios rompen el estado de flujo de trabajo.</p>
+                    <p class="text-slate-400 leading-relaxed">El ruido visual genera estrés inconsciente. Un sistema de gestión de cables despeja tu mente.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <footer class="bg-white dark:bg-slate-950 py-12 border-t border-slate-200 dark:border-slate-800 text-center text-slate-400">
-        <p class="text-sm italic mb-6">Participamos en el Programa de Afiliados de Amazon. © 2026 Oficina en Casa Online.</p>
+    <footer class="bg-white dark:bg-slate-950 py-12 border-t border-slate-200 dark:border-slate-800 text-center">
+        <div class="max-w-4xl mx-auto px-6">
+            <p class="text-slate-400 text-sm italic leading-relaxed mb-8">
+                En calidad de Afiliado de Amazon, obtengo ingresos por las compras adscritas que cumplen los requisitos aplicables. 
+                Participamos en el Programa de Afiliados de Amazon, un programa de publicidad para afiliados diseñado para ofrecer a sitios web un modo de obtener comisiones por publicidad, publicitando e incluyendo enlaces a Amazon.es.
+            </p>
+            <p class="text-xs font-bold text-slate-500 uppercase tracking-widest">© 2026 Oficina en Casa Online. Todos los derechos reservados.</p>
+        </div>
     </footer>
 
     <script>
@@ -175,7 +195,7 @@
             grid.innerHTML = '';
             list.forEach(p => {
                 const art = document.createElement('article');
-                // IMÁGENES MÁS GRANDES: p-6 en vez de p-8 y h-56 en vez de h-40
+                // Imágenes grandes (h-56) y padding reducido (p-6)
                 art.className = "product-card bg-white dark:bg-slate-900 rounded-[2.5rem] overflow-hidden border border-slate-200 dark:border-slate-800 flex flex-col justify-between shadow-card hover:shadow-premium transition-all duration-500";
                 art.innerHTML = `<div class="p-6 aspect-square flex items-center justify-center relative bg-slate-50 dark:bg-slate-800/20"><img src="${p.img}" class="h-56 w-full object-contain group-hover:scale-110 transition-transform duration-700">${p.tag ? `<span class="absolute top-4 left-4 bg-primary text-white text-[10px] font-bold px-3 py-1 rounded-full">${p.tag}</span>` : ''}</div><div class="p-8 h-[220px] flex flex-col justify-between"><div><h3 class="font-bold text-lg mb-2">${p.titulo}</h3><p class="text-xs text-slate-500">${p.desc}</p></div><a href="${p.link}" target="_blank" class="w-full text-center py-3 bg-slate-100 dark:bg-slate-800 rounded-2xl font-bold text-sm hover:bg-primary hover:text-white transition-all">Ver en Amazon</a></div>`;
                 grid.appendChild(art);
@@ -183,7 +203,6 @@
         }
         render(productos);
 
-        // Lógica de Modo Oscuro con Persistencia
         const themeBtn = document.getElementById('theme-toggle');
         const darkIcon = document.getElementById('theme-toggle-dark-icon');
         const lightIcon = document.getElementById('theme-toggle-light-icon');
@@ -197,6 +216,7 @@
                 darkIcon.classList.remove('hidden');
             }
         }
+        // Ejecutar actualización de iconos al cargar
         updateIcons();
 
         themeBtn.addEventListener('click', () => {
@@ -224,4 +244,5 @@
     </script>
 </body>
 </html>
+
 
