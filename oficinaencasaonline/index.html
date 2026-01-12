@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <title>Oficina en Casa: Guía de Productos Ergonómicos y Teletrabajo 2026</title>
+    <title>Oficina en Casa: Guía de Productos Ergonómicos y Teletrabajo 2026</title>
     <link rel="icon" type="image/svg+xml" href='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 36 36"><rect width="36" height="36" rx="12" fill="%232563eb"/><path d="M18 34C9.16 34 2 26.8 2 18S9.16 2 18 2s16 7.2 16 16-7.16 16-16 16z" fill="%232563eb"/><path d="M34 2L24 12H29C29 18 24 23 18 23V28C23.5 28 28 23.5 28 18H34V2Z" fill="%2310b981"/><path d="M29 5V11" stroke="white" stroke-width="2" stroke-linecap="round"/></svg>'>
     <meta name="description" content="Descubre los mejores productos para tu oficina en casa. Sillas ergonómicas, escritorios elevables y accesorios para evitar el dolor de espalda. Guía 2026.">
     <meta name="keywords" content="oficina en casa, teletrabajo, silla ergonómica, escritorio elevable, soporte portatil, dolor espalda teletrabajo, setup minimalista, trabajar desde casa">
@@ -14,7 +14,8 @@
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://oficinaencasaonline.pages.dev">
     <meta property="og:image" content="https://images.unsplash.com/photo-1499750310107-5fef28a66643?auto=format&fit=crop&q=80&w=800">
-        <script src="https://cdn.tailwindcss.com"></script>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
             darkMode: 'class',
@@ -79,7 +80,6 @@
                         <g class="filter drop-shadow-sm">
                             <path d="M34 2L24 12H29C29 18.0751 24.0751 23 18 23V28C23.5228 28 28 23.5228 28 18H34V2Z" class="fill-emerald-500 dark:fill-emerald-400"/>
                             <path d="M29 5V11" stroke="white" stroke-width="2" stroke-linecap="round"/>
-                            <path d="M27 7C27 7 27.5 9 29 9C30.5 9 31 7 31 7" stroke="white" stroke-width="2" stroke-linecap="round"/>
                         </g>
                     </svg>
                 </div>
@@ -89,7 +89,7 @@
             </a>
             <nav class="hidden md:flex items-center gap-8">
                 <a href="#productos" class="text-sm font-semibold hover:text-primary transition">Productos</a>
-                <a href="blog-dolor-espalda.html" class="text-sm font-semibold text-primary hover:underline transition">Guía Espalda</a>
+                <a href="blog-dolor-espalda.html" class="text-sm font-semibold text-primary hover:underline transition decoration-2 underline-offset-4">Cuida tu espalda</a>
                 <a href="#guia" class="text-sm font-semibold hover:text-primary transition">Ergonomía</a>
                 <a href="#consejos" class="text-sm font-semibold hover:text-primary transition">Errores</a>
                 <button id="theme-toggle" class="p-2 rounded-full hover:bg-slate-200/50 dark:hover:bg-slate-800/50 transition">
@@ -104,7 +104,7 @@
         </div>
         <div id="mobile-menu" class="hidden md:hidden bg-white dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800 p-6 space-y-4 shadow-xl">
             <a href="#productos" class="block text-lg font-medium">Productos</a>
-            <a href="blog-dolor-espalda.html" class="block text-lg font-medium text-primary">Blog: Dolor de Espalda</a>
+            <a href="blog-dolor-espalda.html" class="block text-lg font-medium text-primary font-bold">Cuida tu espalda</a>
             <a href="#guia" class="block text-lg font-medium">Guía</a>
             <a href="#consejos" class="block text-lg font-medium">Errores</a>
         </div>
@@ -115,115 +115,108 @@
             <div class="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-primary/10 blur-[120px] rounded-full animate-pulse"></div>
             <div class="absolute bottom-[10%] right-[-5%] w-[30%] h-[30%] bg-emerald-500/10 blur-[120px] rounded-full"></div>
         </div>
-        <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-16 items-center">
+        <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-16 items-center text-center md:text-left">
             <div class="animate-fade-in-up">
-                <span class="inline-block px-4 py-1.5 rounded-full bg-primary/10 text-primary text-sm font-bold mb-6">EDICIÓN 2026</span>
-                <h1 class="text-5xl md:text-7xl font-extrabold leading-tight mb-6">Tu espacio de <span class="text-primary italic">trabajo</span> profesional</h1>
-                <p class="text-lg md:text-xl text-slate-600 dark:text-slate-400 mb-10 leading-relaxed max-w-lg">
-                    Recomendaciones reales de material de oficina. Buscamos productos útiles, cómodos y con diseño minimalista.
+                <span class="inline-block px-4 py-1.5 rounded-full bg-primary/10 text-primary text-sm font-bold mb-6 italic tracking-widest">EDICIÓN 2026</span>
+                <h1 class="text-5xl md:text-7xl font-extrabold leading-tight mb-6">Tu oficina, <span class="text-primary italic">sin dolor</span></h1>
+                <p class="text-lg md:text-xl text-slate-600 dark:text-slate-400 mb-10 leading-relaxed max-w-lg mx-auto md:mx-0">
+                    Recomendaciones reales de material de oficina. Buscamos productos útiles, cómodos y con diseño minimalista para que trabajes mejor que nunca.
                 </p>
-                <div class="flex flex-col sm:flex-row gap-4">
-                    <a href="#productos" class="px-8 py-4 bg-primary text-white rounded-2xl font-bold shadow-lg shadow-primary/30 hover:bg-primaryDark transition text-center">Ver Catálogo Completo</a>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
+                    <a href="#productos" class="px-8 py-4 bg-primary text-white rounded-2xl font-bold shadow-lg shadow-primary/30 hover:bg-primaryDark transition-all hover:scale-105">Ver Catálogo</a>
+                    <a href="blog-dolor-espalda.html" class="px-8 py-4 bg-white dark:bg-slate-800 text-slate-900 dark:text-white border border-slate-200 dark:border-slate-700 rounded-2xl font-bold hover:bg-slate-50 transition-all">Guía contra el dolor</a>
                 </div>
             </div>
             <div class="relative hidden md:block group animate-float">
                 <div class="absolute inset-0 bg-gradient-to-tr from-primary to-emerald-400 rounded-[3rem] blur-3xl opacity-20 group-hover:opacity-30 transition-opacity"></div>
-                <img src="https://images.unsplash.com/photo-1499750310107-5fef28a66643?auto=format&fit=crop&q=80&w=800"                      alt="Setup Minimalista con tecnología Apple" class="rounded-[2.5rem] shadow-premium border-8 border-white dark:border-slate-900 object-cover w-full h-[500px]">
+                <img src="https://images.unsplash.com/photo-1499750310107-5fef28a66643?auto=format&fit=crop&q=80&w=800" alt="Setup Minimalista" class="rounded-[2.5rem] shadow-premium border-8 border-white dark:border-slate-900 object-cover w-full h-[500px]">
             </div>
         </div>
     </section>
 
     <section id="productos" class="max-w-7xl mx-auto px-6 py-20 reveal">
         <div class="text-center mb-12">
-            <h2 class="text-3xl md:text-4xl font-bold mb-4">Selección Destacada</h2>
-            <p class="text-slate-500 max-w-2xl mx-auto mb-8">Todos los productos indispensables para tu oficina en casa, filtrados por categoría.</p>
-            <div class="flex flex-wrap justify-center gap-3 mt-8">
-                <button class="filter-btn active px-6 py-2.5 rounded-full bg-primary text-white font-semibold text-sm transition" data-category="all">Todos</button>
-                <button class="filter-btn px-6 py-2.5 rounded-full bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-sm font-semibold transition" data-category="ergo">Ergonomía</button>
-                <button class="filter-btn px-6 py-2.5 rounded-full bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-sm font-semibold transition" data-category="desk">Escritorio</button>
-                <button class="filter-btn px-6 py-2.5 rounded-full bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-sm font-semibold transition" data-category="acc">Accesorios</button>
+            <h2 class="text-4xl md:text-5xl font-extrabold mb-4">Selección Destacada</h2>
+            <p class="text-slate-500 max-w-2xl mx-auto mb-10 text-lg text-balance">Todos los productos indispensables para tu oficina en casa, filtrados por categoría.</p>
+            <div class="flex flex-wrap justify-center gap-3">
+                <button class="filter-btn active px-7 py-3 rounded-full bg-primary text-white font-bold text-sm transition shadow-md shadow-primary/20" data-category="all">Todos</button>
+                <button class="filter-btn px-7 py-3 rounded-full bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-sm font-bold transition hover:border-primary" data-category="ergo">Ergonomía</button>
+                <button class="filter-btn px-7 py-3 rounded-full bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-sm font-bold transition hover:border-primary" data-category="desk">Escritorio</button>
+                <button class="filter-btn px-7 py-3 rounded-full bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-sm font-bold transition hover:border-primary" data-category="acc">Accesorios</button>
             </div>
         </div>
         <div id="product-grid" class="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8"></div>
     </section>
 
-    <section id="guia" class="bg-white dark:bg-slate-900 py-24 reveal">
+    <section id="guia" class="bg-white dark:bg-slate-900 py-24 reveal border-y border-slate-100 dark:border-slate-800 text-center md:text-left">
         <div class="max-w-7xl mx-auto px-6">
-            <h2 class="text-4xl font-bold mb-12 text-center">Claves del Setup Perfecto</h2>
+            <h2 class="text-4xl font-bold mb-16 text-center">Claves del Setup Perfecto</h2>
             <div class="grid md:grid-cols-2 gap-16 items-center">
-                <div class="space-y-8">
-                    <div class="flex gap-6">
-                        <div class="w-14 h-14 flex-shrink-0 bg-primary/20 text-primary rounded-2xl flex items-center justify-center font-bold text-xl">1</div>
+                <div class="space-y-12">
+                    <div class="flex flex-col md:flex-row gap-6 items-center md:items-start">
+                        <div class="w-16 h-16 flex-shrink-0 bg-primary/20 text-primary rounded-2xl flex items-center justify-center font-bold text-2xl shadow-inner">1</div>
                         <div>
-                            <h4 class="text-xl font-bold mb-2 text-slate-900 dark:text-white">Soporte Lumbar</h4>
-                            <p class="text-slate-500 dark:text-slate-400">Tu silla debe seguir la curva natural de tu espalda. Si no, usa un cojín externo.</p>
+                            <h4 class="text-xl font-bold mb-2 text-slate-900 dark:text-white">Soporte Lumbar Activo</h4>
+                            <p class="text-slate-500 dark:text-slate-400 leading-relaxed text-balance">Tu silla debe seguir la curva natural de tu espalda. Si no, usa un cojín externo que mantenga la presión en la zona lumbar baja.</p>
                         </div>
                     </div>
-                    <div class="flex gap-6">
-                        <div class="w-14 h-14 flex-shrink-0 bg-emerald-500/20 text-emerald-500 rounded-2xl flex items-center justify-center font-bold text-xl">2</div>
+                    <div class="flex flex-col md:flex-row gap-6 items-center md:items-start">
+                        <div class="w-16 h-16 flex-shrink-0 bg-emerald-500/20 text-emerald-500 rounded-2xl flex items-center justify-center font-bold text-2xl shadow-inner">2</div>
                         <div>
                             <h4 class="text-xl font-bold mb-2 text-slate-900 dark:text-white">Regla de los 90º</h4>
-                            <p class="text-slate-500 dark:text-slate-400">Codos y rodillas deben formar ángulos rectos para evitar fatiga articular.</p>
+                            <p class="text-slate-500 dark:text-slate-400 leading-relaxed text-balance">Codos y rodillas deben formar ángulos rectos para evitar fatiga articular y mala circulación. El reposapiés es clave aquí.</p>
                         </div>
                     </div>
-                    <div class="flex gap-6">
-                        <div class="w-14 h-14 flex-shrink-0 bg-orange-500/20 text-orange-500 rounded-2xl flex items-center justify-center font-bold text-xl">3</div>
+                    <div class="flex flex-col md:flex-row gap-6 items-center md:items-start">
+                        <div class="w-16 h-16 flex-shrink-0 bg-orange-500/20 text-orange-500 rounded-2xl flex items-center justify-center font-bold text-2xl shadow-inner">3</div>
                         <div>
-                            <h4 class="text-xl font-bold mb-2 text-slate-900 dark:text-white">Descansos Visuales</h4>
-                            <p class="text-slate-500 dark:text-slate-400">Cada 20 minutos, mira algo a 6 metros de distancia durante 20 segundos.</p>
+                            <h4 class="text-xl font-bold mb-2 text-slate-900 dark:text-white">Altura del Monitor</h4>
+                            <p class="text-slate-500 dark:text-slate-400 leading-relaxed text-balance">El borde superior de la pantalla debe estar a la altura de tus ojos. Nunca trabajes mirando hacia abajo durante horas.</p>
                         </div>
                     </div>
                 </div>
-                <img src="https://images.unsplash.com/photo-1593642532400-2682810df593?auto=format&fit=crop&q=80&w=800"                      alt="Ordenador portátil en escritorio ergonómico"                     loading="lazy"                     class="rounded-[2.5rem] shadow-premium border-4 border-slate-100 dark:border-slate-800 transition-all duration-700">
+                <div class="relative">
+                    <div class="absolute -inset-4 bg-primary/5 rounded-[3rem] blur-2xl"></div>
+                    <img src="https://images.unsplash.com/photo-1593642532400-2682810df593?auto=format&fit=crop&q=80&w=800" alt="Postura perfecta" class="relative rounded-[2.5rem] shadow-premium border-4 border-slate-50 dark:border-slate-800 transition-all duration-700">
+                </div>
             </div>
         </div>
     </section>
 
-    <section id="consejos" class="bg-slate-900 text-white py-24 reveal">
-        <div class="max-w-7xl mx-auto px-6">
+    <section id="consejos" class="bg-slate-900 text-white py-24 reveal overflow-hidden">
+        <div class="max-w-7xl mx-auto px-6 relative">
             <div class="text-center mb-16">
-                <span class="text-orange-500 font-bold tracking-widest text-sm">NO HAGAS ESTO</span>
-                <h2 class="text-4xl font-bold mt-4">Errores típicos al montar tu oficina</h2>
+                <span class="text-orange-500 font-bold tracking-widest text-sm uppercase">Advertencia</span>
+                <h2 class="text-4xl font-bold mt-4">Errores que destrozan tu espalda</h2>
             </div>
             <div class="grid md:grid-cols-3 gap-8">
                 <div class="bg-slate-800/50 p-8 rounded-3xl border border-slate-700 hover:border-orange-500 transition-colors group">
                     <div class="w-12 h-12 bg-orange-500/10 text-orange-500 rounded-full flex items-center justify-center mb-6 text-2xl font-bold">!</div>
                     <h3 class="text-xl font-bold mb-4 group-hover:text-orange-500 transition-colors">Trabajar en el sofá</h3>
-                    <p class="text-slate-400 leading-relaxed mb-4">Parece cómodo, pero destruye tu postura lumbar y reduce tu concentración drásticamente en menos de 30 minutos.</p>
-                    <a href="blog-dolor-espalda.html" class="inline-block text-primary font-bold hover:underline">Ver cómo evitar el dolor →</a>
+                    <p class="text-slate-400 leading-relaxed mb-6">Parece cómodo, pero destruye tu postura lumbar y reduce tu concentración drásticamente en menos de 30 minutos.</p>
+                    <a href="blog-dolor-espalda.html" class="inline-block text-primary font-bold hover:underline">Cuida tu espalda ahora →</a>
                 </div>
-                <div class="bg-slate-800/50 p-8 rounded-3xl border border-slate-700 hover:border-orange-500 transition-colors group">
+                <div class="bg-slate-800/50 p-8 rounded-3xl border border-slate-700 group">
                     <div class="w-12 h-12 bg-orange-500/10 text-orange-500 rounded-full flex items-center justify-center mb-6 text-2xl font-bold">!</div>
-                    <h3 class="text-xl font-bold mb-4 group-hover:text-orange-500 transition-colors">Mala iluminación</h3>
+                    <h3 class="text-xl font-bold mb-4">Mala iluminación</h3>
                     <p class="text-slate-400 leading-relaxed">Trabajar solo con la luz del techo genera sombras y fatiga visual. Necesitas una luz focal suave en tu zona de tareas.</p>
                 </div>
-                <div class="bg-slate-800/50 p-8 rounded-3xl border border-slate-700 hover:border-orange-500 transition-colors group">
+                <div class="bg-slate-800/50 p-8 rounded-3xl border border-slate-700 group">
                     <div class="w-12 h-12 bg-orange-500/10 text-orange-500 rounded-full flex items-center justify-center mb-6 text-2xl font-bold">!</div>
-                    <h3 class="text-xl font-bold mb-4 group-hover:text-orange-500 transition-colors">Ignorar los cables</h3>
+                    <h3 class="text-xl font-bold mb-4">Ignorar los cables</h3>
                     <p class="text-slate-400 leading-relaxed">El "caos visual" genera estrés inconsciente. Un buen sistema de gestión de cables limpia tu mente tanto como tu escritorio.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <footer class="bg-white dark:bg-slate-950 pt-20 pb-10 border-t border-slate-200 dark:border-slate-800">
+    <footer class="bg-white dark:bg-slate-950 pt-24 pb-12 border-t border-slate-200 dark:border-slate-800 text-center">
         <div class="max-w-7xl mx-auto px-6">
-            <div class="text-center mb-12">
-                <div class="flex items-center justify-center gap-3 mb-6">
-                    <div class="relative w-10 h-10 rounded-xl flex items-center justify-center overflow-hidden bg-gradient-to-br from-primary to-emerald-500">
-                         <svg class="w-6 h-6 text-white" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M18 34C9.16344 34 2 26.8366 2 18C2 9.16344 9.16344 2 18 2C21.049 2 23.895 2.85802 26.3471 4.3506L24.153 8.15094C22.3654 7.4096 20.2624 7 18 7C11.9249 7 7 11.9249 7 18C7 24.0751 11.9249 29 18 29C24.0751 29 29 24.0751 29 18C29 16.683 28.7682 15.4176 28.3424 14.2387L32.9153 11.5989C33.618 13.557 34 15.7202 34 18C34 26.8366 26.8366 34 18 34Z" class="fill-white/20 stroke-white/50" stroke-width="1"/>
-                            <path d="M34 2L24 12H29C29 18.0751 24.0751 23 18 23V28C23.5228 28 28 23.5228 28 18H34V2Z" fill="white"/>
-                        </svg>
-                    </div>
-                    <span class="font-bold text-2xl">Oficina en Casa</span>
-                </div>
-                <p id="legal" class="text-slate-400 text-sm max-w-lg mx-auto italic">
-                    Participamos en el Programa de Afiliados de Amazon. Si compras a través de nuestros enlaces, recibimos una comisión sin coste extra para ti.
-                </p>
-            </div>
-            <div class="pt-8 border-t border-slate-100 dark:border-slate-900 text-center">
-                <p class="text-xs text-slate-500">© 2026 Oficina en Casa Online. Diseñado para la productividad.</p>
+            <p class="text-slate-400 text-sm italic max-w-lg mx-auto leading-relaxed">
+                Participamos en el Programa de Afiliados de Amazon. Si compras a través de nuestros enlaces, recibimos una comisión sin coste extra para ti. Esto ayuda a mantener la web.
+            </p>
+            <div class="mt-12 pt-8 border-t border-slate-100 dark:border-slate-900">
+                <p class="text-xs font-bold text-slate-500 uppercase tracking-widest">© 2026 Oficina en Casa Online. Diseñado para la salud.</p>
             </div>
         </div>
     </footer>
@@ -234,174 +227,63 @@
 
     <script>
         const productos = [
-            {
-                categoria: "ergo",
-                titulo: "Mejor silla calidad-precio",
-                desc: "Soporte lumbar ajustable para evitar dolores de espalda en jornadas largas.",
-                img: "https://m.media-amazon.com/images/I/81tt0QgRGJL._AC_SL1500_.jpg",
-                link: "https://amzn.to/44Wcq3f",
-                tag: "TOP VENTAS"
-            },
-            {
-                categoria: "desk",
-                titulo: "Escritorio regulable",
-                desc: "Alterna entre trabajar sentado y de pie para cuidar tu espalda.",
-                img: "https://m.media-amazon.com/images/I/61pl8xkp5xL._AC_SX679_.jpg",
-                link: "https://amzn.to/4qupXHA"
-            },
-            {
-                categoria: "ergo",
-                titulo: "Soporte para portátil",
-                desc: "Eleva la pantalla a la altura de tus ojos para mejorar la postura cervical.",
-                img: "https://m.media-amazon.com/images/I/61BK9+YGKML._AC_SL1500_.jpg",
-                link: "https://amzn.to/4aGRYar"
-            },
-            {
-                categoria: "desk",
-                titulo: "Lámpara de despacho",
-                desc: "Luz focal regulable que reduce la fatiga visual al trabajar de noche.",
-                img: "https://m.media-amazon.com/images/I/61HWVh6wxqL._AC_SL1500_.jpg",
-                link: "https://amzn.to/3YRFntF"
-            },
-            {
-                categoria: "acc",
-                titulo: "Reposapies",
-                desc: "Mejora la circulación de las piernas en jornadas sedentarias.",
-                img: "https://m.media-amazon.com/images/I/51-LmMCoscL._AC_SL1000_.jpg",
-                link: "https://amzn.to/4jDcHhx"
-            },
-            {
-                categoria: "desk",
-                titulo: "Cajonera móvil",
-                desc: "Organización eficiente que se adapta a cualquier rincón de tu oficina.",
-                img: "https://m.media-amazon.com/images/I/511hfGz8lpL._AC_SL1500_.jpg",
-                link: "https://amzn.to/4qFHtZG"
-            },
-            {
-                categoria: "desk",
-                titulo: "Módulo 5 cajones A4+",
-                desc: "Clasifica documentos sin recargar visualmente tu escritorio.",
-                img: "https://m.media-amazon.com/images/I/61OkbjZ7otL._AC_SL1200_.jpg",
-                link: "https://amzn.to/4jnUiVX"
-            },
-            {
-                categoria: "ergo",
-                titulo: "Papelera malla metalica",
-                desc: "Diseño polivalente ideal para cualquier estancia.",
-                img: "https://m.media-amazon.com/images/I/81yckur-iIL._SL1500_.jpg",
-                link: "https://amzn.to/3L8SIuF"
-            },
-            {
-                categoria: "acc",
-                titulo: "Elevador de Madera",
-                desc: "Añade estética natural y espacio extra bajo tu monitor.",
-                img: "https://m.media-amazon.com/images/I/61heBUIQLtL._AC_SL1500_.jpg",
-                link: "https://amzn.to/49wFyzJ"
-            },
-            {
-                categoria: "acc",
-                titulo: "Organizador Escritorio",
-                desc: "Todo en su sitio: bolígrafos, notas y pequeños accesorios.",
-                img: "https://m.media-amazon.com/images/I/71tEutfM3eL._AC_SL1500_.jpg",
-                link: "https://amzn.to/4qLZGEH"
-            },
-            {
-                categoria: "acc",
-                titulo: "Organizador de Suministros",
-                desc: "Optimiza el espacio con compartimentos verticales inteligentes.",
-                img: "https://m.media-amazon.com/images/I/61K3aaAo9cL._AC_SL1500_.jpg",
-                link: "https://amzn.to/4jF6EcE"
-            },
-            {
-                categoria: "desk",
-                titulo: "Alfombrilla de Fieltro",
-                desc: "100x40cm de suavidad y silencio para tu ratón y teclado.",
-                img: "https://m.media-amazon.com/images/I/71sNZ6t0z8L._AC_SL1500_.jpg",
-                link: "https://amzn.to/49wShm0"
-            }
+            { categoria: "ergo", titulo: "Silla SONGMICS Pro", desc: "Soporte lumbar ajustable para evitar dolores de espalda en jornadas largas.", img: "https://m.media-amazon.com/images/I/81tt0QgRGJL._AC_SL1500_.jpg", link: "https://amzn.to/44Wcq3f", tag: "TOP VENTAS" },
+            { categoria: "desk", titulo: "Escritorio regulable", desc: "Alterna entre trabajar sentado y de pie para cuidar tu espalda.", img: "https://m.media-amazon.com/images/I/61pl8xkp5xL._AC_SX679_.jpg", link: "https://amzn.to/4qupXHA" },
+            { categoria: "ergo", titulo: "Soporte para portátil", desc: "Eleva la pantalla a la altura de tus ojos para mejorar la postura cervical.", img: "https://m.media-amazon.com/images/I/61BK9+YGKML._AC_SL1500_.jpg", link: "https://amzn.to/4aGRYar" },
+            { categoria: "desk", titulo: "Lámpara de despacho", desc: "Luz focal regulable que reduce la fatiga visual al trabajar de noche.", img: "https://m.media-amazon.com/images/I/61HWVh6wxqL._AC_SL1500_.jpg", link: "https://amzn.to/3YRFntF" },
+            { categoria: "acc", titulo: "Reposapies Pro", desc: "Mejora la circulación de las piernas en jornadas sedentarias.", img: "https://m.media-amazon.com/images/I/51-LmMCoscL._AC_SL1000_.jpg", link: "https://amzn.to/4pHhGPP" },
+            { categoria: "desk", titulo: "Cajonera móvil", desc: "Organización eficiente que se adapta a cualquier rincón de tu oficina.", img: "https://m.media-amazon.com/images/I/511hfGz8lpL._AC_SL1500_.jpg", link: "https://amzn.to/4qFHtZG" },
+            { categoria: "desk", titulo: "Módulo 5 cajones A4+", desc: "Clasifica documentos sin recargar visualmente tu escritorio.", img: "https://m.media-amazon.com/images/I/61OkbjZ7otL._AC_SL1200_.jpg", link: "https://amzn.to/4jnUiVX" },
+            { categoria: "ergo", titulo: "Papelera de Diseño", desc: "Diseño minimalista industrial en malla metálica.", img: "https://m.media-amazon.com/images/I/81yckur-iIL._SL1500_.jpg", link: "https://amzn.to/3L8SIuF" },
+            { categoria: "acc", titulo: "Elevador de Madera", desc: "Añade estética natural y espacio extra bajo tu monitor.", img: "https://m.media-amazon.com/images/I/61heBUIQLtL._AC_SL1500_.jpg", link: "https://amzn.to/49wFyzJ" },
+            { categoria: "acc", titulo: "Organizador Escritorio", desc: "Todo en su sitio: bolígrafos, notas y pequeños accesorios.", img: "https://m.media-amazon.com/images/I/71tEutfM3eL._AC_SL1500_.jpg", link: "https://amzn.to/4qLZGEH" },
+            { categoria: "acc", titulo: "Suministros Verticales", desc: "Optimiza el espacio con compartimentos verticales inteligentes.", img: "https://m.media-amazon.com/images/I/61K3aaAo9cL._AC_SL1500_.jpg", link: "https://amzn.to/4jF6EcE" },
+            { categoria: "desk", titulo: "Alfombrilla de Fieltro XL", desc: "100x40cm de suavidad y silencio para tu ratón y teclado.", img: "https://m.media-amazon.com/images/I/71sNZ6t0z8L._AC_SL1500_.jpg", link: "https://amzn.to/49wShm0" }
         ];
 
         const grid = document.getElementById('product-grid');
-        function renderProducts(listaProductos) {
+        function render(list) {
             grid.innerHTML = '';
-            listaProductos.forEach(prod => {
-                const card = document.createElement('article');
-                card.className = `product-card ${prod.categoria} bg-white dark:bg-slate-900 rounded-[2rem] overflow-hidden border border-slate-200/60 dark:border-slate-800/60 shadow-card hover:shadow-premium hover:-translate-y-2 transition-all duration-500 group`;
-                const tagHtml = prod.tag ? `<div class="absolute top-4 left-4 bg-primary text-white text-[10px] font-bold px-3 py-1 rounded-full">${prod.tag}</div>` : '';
-                card.innerHTML = `
-                    <div class="relative overflow-hidden aspect-square">
-                        <img src="${prod.img}" alt="${prod.titulo}" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy">
-                        ${tagHtml}
+            list.forEach(p => {
+                const article = document.createElement('article');
+                article.className = `product-card bg-white dark:bg-slate-900 rounded-[2rem] overflow-hidden border border-slate-200/60 dark:border-slate-800/60 shadow-card hover:shadow-premium hover:-translate-y-2 transition-all duration-500 group`;
+                article.innerHTML = `
+                    <div class="relative overflow-hidden aspect-square p-6">
+                        <img src="${p.img}" class="w-full h-full object-contain transition-transform duration-700 group-hover:scale-110">
+                        ${p.tag ? `<div class="absolute top-4 left-4 bg-primary text-white text-[10px] font-bold px-3 py-1 rounded-full">${p.tag}</div>` : ''}
                     </div>
-                    <div class="p-6 flex flex-col h-[200px] justify-between">
-                        <div><h3 class="font-bold text-lg mb-2">${prod.titulo}</h3><p class="text-xs text-slate-500 line-clamp-2">${prod.desc}</p></div>
-                        <a href="${prod.link}" target="_blank" class="w-full flex items-center justify-center gap-2 py-3 bg-slate-100 dark:bg-slate-800 rounded-xl font-bold text-sm group-hover:bg-primary group-hover:text-white transition">
-                            <svg class="w-5 h-5"><use href="#icon-amazon"/></svg> Ver en Amazon
-                        </a>
+                    <div class="p-6 flex flex-col h-[200px] justify-between text-center md:text-left">
+                        <div><h3 class="font-bold text-lg mb-2">${p.titulo}</h3><p class="text-xs text-slate-500 line-clamp-2">${p.desc}</p></div>
+                        <a href="${p.link}" target="_blank" class="w-full text-center py-3 bg-slate-100 dark:bg-slate-800 rounded-xl font-bold text-sm hover:bg-primary hover:text-white transition">Ver en Amazon</a>
                     </div>`;
-                grid.appendChild(card);
+                grid.appendChild(article);
             });
         }
-        renderProducts(productos);
+        render(productos);
 
-        const themeToggleBtn = document.getElementById('theme-toggle');
-        const darkIcon = document.getElementById('theme-toggle-dark-icon');
-        const lightIcon = document.getElementById('theme-toggle-light-icon');
-        if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-            document.documentElement.classList.add('dark');
-            lightIcon.classList.remove('hidden');
-        } else { darkIcon.classList.remove('hidden'); }
-        themeToggleBtn.addEventListener('click', () => {
-            document.documentElement.classList.toggle('dark');
-            darkIcon.classList.toggle('hidden');
-            lightIcon.classList.toggle('hidden');
-        });
-
-        const reveal = () => {
-            document.querySelectorAll('.reveal').forEach(el => {
-                if (el.getBoundingClientRect().top < window.innerHeight - 100) el.classList.add('active');
-            });
-        };
-        window.addEventListener('scroll', reveal);
-        reveal();
-
+        const themeBtn = document.getElementById('theme-toggle');
+        themeBtn.addEventListener('click', () => { document.documentElement.classList.toggle('dark'); });
+        const reveal = () => { document.querySelectorAll('.reveal').forEach(el => { if (el.getBoundingClientRect().top < window.innerHeight - 100) el.classList.add('active'); }); };
+        window.addEventListener('scroll', reveal); reveal();
         window.addEventListener('scroll', () => {
             const nav = document.getElementById('main-nav');
-            const scrollBtn = document.getElementById('scroll-top');
-            if (window.scrollY > 50) {
-                nav.classList.add('py-2', 'shadow-lg');
-                scrollBtn.classList.remove('translate-y-24', 'opacity-0');
-            } else {
-                nav.classList.remove('py-2', 'shadow-lg');
-                scrollBtn.classList.add('translate-y-24', 'opacity-0');
-            }
+            const btn = document.getElementById('scroll-top');
+            if (window.scrollY > 50) { nav.classList.add('py-2', 'shadow-lg'); btn.classList.remove('translate-y-24', 'opacity-0'); }
+            else { nav.classList.remove('py-2', 'shadow-lg'); btn.classList.add('translate-y-24', 'opacity-0'); }
         });
-
-        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-        const mobileMenu = document.getElementById('mobile-menu');
-        mobileMenuBtn.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
-        document.getElementById('scroll-top').addEventListener('click', () => window.scrollTo({top: 0}));
-
-        const filterBtns = document.querySelectorAll('.filter-btn');
-        filterBtns.forEach(btn => {
+        document.getElementById('mobile-menu-btn').addEventListener('click', () => { document.getElementById('mobile-menu').classList.toggle('hidden'); });
+        document.querySelectorAll('.filter-btn').forEach(btn => {
             btn.addEventListener('click', () => {
-                filterBtns.forEach(b => {
-                    b.classList.remove('active', 'bg-primary', 'text-white');
-                    b.classList.add('bg-white', 'dark:bg-slate-800');
-                });
+                document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active', 'bg-primary', 'text-white'));
                 btn.classList.add('active', 'bg-primary', 'text-white');
-                const category = btn.dataset.category;
-                document.querySelectorAll('.product-card').forEach(p => {
-                    if (category === 'all' || p.classList.contains(category)) { p.style.display = 'block'; } else { p.style.display = 'none'; }
-                });
+                const cat = btn.dataset.category;
+                render(cat === 'all' ? productos : productos.filter(p => p.categoria === cat));
             });
         });
+        document.getElementById('scroll-top').addEventListener('click', () => window.scrollTo({top: 0}));
     </script>
 </body>
 </html>
-
-
-
 
 
 
