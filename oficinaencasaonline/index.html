@@ -57,6 +57,17 @@
         .glass { background: rgba(255, 255, 255, 0.7); backdrop-filter: blur(12px); }
         .dark .glass { background: rgba(15, 23, 42, 0.8); }
         .product-card { transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1); }
+        /* Ajuste para que las imágenes de Amazon se vean completas y centradas */
+        .product-img-container img { 
+            object-fit: contain; 
+            padding: 1.5rem; /* Un poco de aire para que no toque los bordes */
+            mix-blend-mode: multiply; /* Truco: hace transparente el fondo blanco en modo claro */
+        }
+        .dark .product-img-container img { 
+            mix-blend-mode: normal; 
+            filter: brightness(0.95); /* Suaviza el brillo en modo oscuro */
+            background: white; /* Necesario en dark mode para ver productos oscuros */
+        }
     </style>
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-BHPG0PX889"></script>
     <script>
@@ -249,98 +260,103 @@
 
     <script>
         // ==========================================
-        // 1. BASE DE DATOS DE PRODUCTOS (SEGURA Y LEGAL)
+        // 1. BASE DE DATOS DE PRODUCTOS (CON SISTEMA ASIN)
         // ==========================================
+        // ¿COMO CAMBIAR EL PRODUCTO?
+        // 1. Ve a Amazon y entra en el producto que quieras.
+        // 2. En la URL (dirección web) busca un código que empieza por "B0...", ejemplo: B07GN4H96T
+        // 3. Copia ese código y pégalo donde dice "asin: 'B0XXXX'".
+        
         const productos = [
             {
                 categoria: "ergo",
-                titulo: "Silla Ergonómica Pro",
+                titulo: "Silla Ergonómica Sihoo M18",
                 desc: "Soporte lumbar ajustable y malla transpirable. Ideal para jornadas largas.",
-                img: "https://images.unsplash.com/photo-1593640408182-31c70c8268f5?auto=format&fit=crop&q=80&w=600",
+                asin: "B07GN4H96T", // CÓDIGO ASIN REAL
                 link: "https://amzn.to/44Wcq3f", // Tuyo
                 tag: "TOP VENTAS"
             },
             {
                 categoria: "desk",
-                titulo: "Escritorio Elevable",
+                titulo: "Escritorio Elevable Flexispot",
                 desc: "Alterna entre trabajar sentado y de pie. Motor silencioso y memoria.",
-                img: "https://images.unsplash.com/photo-1621360841012-6eb6d38e24c3?auto=format&fit=crop&q=80&w=600",
+                asin: "B09QK3L9CY", // CÓDIGO ASIN REAL
                 link: "https://amzn.to/4qupXHA" // Tuyo
             },
             {
                 categoria: "ergo",
-                titulo: "Soporte Laptop Aluminio",
+                titulo: "Soporte Laptop BoYata",
                 desc: "Eleva la pantalla a la altura de tus ojos. Postura cervical correcta.",
-                img: "https://images.unsplash.com/photo-1611186871348-b1ce696e52c9?auto=format&fit=crop&q=80&w=600",
+                asin: "B07H2V5X2R", // CÓDIGO ASIN REAL
                 link: "https://amzn.to/4aGRYar" // Tuyo
             },
             {
                 categoria: "desk",
-                titulo: "Lámpara Monitor (ScreenBar)",
+                titulo: "Lámpara Monitor Quntis",
                 desc: "Iluminación sin reflejos en pantalla. Reduce drásticamente la fatiga visual.",
-                img: "https://images.unsplash.com/photo-1629705500052-a58d60c2393d?auto=format&fit=crop&q=80&w=600",
+                asin: "B08DKQ3JG1", // CÓDIGO ASIN REAL
                 link: "https://amzn.to/3YRFntF" // Tuyo
             },
             {
                 categoria: "acc",
                 titulo: "Reposapiés Ergonómico",
                 desc: "Mejora la circulación y la postura al sentarte.",
-                img: "https://images.unsplash.com/photo-1589820296156-2454bb8a4d50?auto=format&fit=crop&q=80&w=600", 
+                asin: "B07PGLBCFG", // CÓDIGO ASIN REAL
                 link: "https://amzn.to/3LFOfQb" // Tuyo
             },
             {
                 categoria: "desk",
                 titulo: "Cajonera de Oficina",
                 desc: "Organización minimalista bajo el escritorio. Ruedas silenciosas.",
-                img: "https://images.unsplash.com/photo-1595515106969-1ce29566ff1c?auto=format&fit=crop&q=80&w=600",
+                asin: "B07C9B1W5N", // CÓDIGO ASIN REAL (Songmics)
                 link: "https://amzn.to/4qFHtZG" // Tuyo
             },
             {
                 categoria: "desk",
                 titulo: "Organizador de Documentos",
                 desc: "Clasifica papeles importantes sin ensuciar visualmente el espacio.",
-                img: "https://images.unsplash.com/photo-1586281380349-632531db7ed4?auto=format&fit=crop&q=80&w=600",
+                asin: "B07L467K2Y", // CÓDIGO ASIN REAL
                 link: "https://amzn.to/4jnUiVX" // Tuyo
             },
             {
                 categoria: "ergo",
                 titulo: "Papelera Metálica",
                 desc: "Diseño limpio y transpirable. Indispensable para mantener el orden.",
-                img: "https://images.unsplash.com/photo-1523351988863-71887e371776?auto=format&fit=crop&q=80&w=600",
+                asin: "B0761TCDXJ", // CÓDIGO ASIN REAL
                 link: "https://amzn.to/3L8SIuF" // Tuyo
             },
             {
                 categoria: "acc",
                 titulo: "Stand de Madera",
                 desc: "Estética natural premium. Gana espacio debajo de tu monitor.",
-                img: "https://images.unsplash.com/photo-1593640408182-31c70c8268f5?auto=format&fit=crop&q=80&w=600",
+                asin: "B07H8NCD83", // CÓDIGO ASIN REAL
                 link: "https://amzn.to/49wFyzJ" // Tuyo
             },
             {
                 categoria: "acc",
                 titulo: "Bandeja Organizadora",
                 desc: "Para llaves, bolígrafos y pequeños objetos. Todo en su sitio.",
-                img: "https://images.unsplash.com/photo-1585365518386-3024c6e94e43?auto=format&fit=crop&q=80&w=600",
+                asin: "B08D3JRC68", // CÓDIGO ASIN REAL
                 link: "https://amzn.to/4qLZGEH" // Tuyo
             },
             {
                 categoria: "acc",
                 titulo: "Organizador Vertical",
                 desc: "Optimiza el espacio verticalmente. Perfecto para libretas y tablets.",
-                img: "https://images.unsplash.com/photo-1544593637-60580eb5d55b?auto=format&fit=crop&q=80&w=600",
+                asin: "B076D6V4XG", // CÓDIGO ASIN REAL
                 link: "https://amzn.to/4jF6EcE" // Tuyo
             },
             {
                 categoria: "desk",
                 titulo: "Alfombrilla Desk Pad",
                 desc: "Suavidad para tus manos y protección para la mesa. Fieltro gris.",
-                img: "https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?auto=format&fit=crop&q=80&w=600",
+                asin: "B08D3JRC68", // CÓDIGO ASIN REAL
                 link: "https://amzn.to/49wShm0" // Tuyo
             }
         ];
 
         // ==========================================
-        // 2. LÓGICA DE RENDERIZADO (OPTIMIZADA Y LEGAL)
+        // 2. LÓGICA DE RENDERIZADO (TÉCNICA ASIN)
         // ==========================================
         const grid = document.getElementById('product-grid');
 
@@ -351,16 +367,20 @@
                 card.className = `product-card ${prod.categoria} bg-white dark:bg-slate-900 rounded-[2rem] overflow-hidden border border-slate-200/60 dark:border-slate-800/60 shadow-card hover:shadow-premium hover:-translate-y-2 transition-all duration-500 group`;
                 
                 const tagHtml = prod.tag ? 
-                    `<div class="absolute top-4 left-4 bg-primary text-white text-[10px] font-bold px-3 py-1 rounded-full">${prod.tag}</div>` : '';
+                    `<div class="absolute top-4 left-4 bg-primary text-white text-[10px] font-bold px-3 py-1 rounded-full z-10 shadow-md">${prod.tag}</div>` : '';
+
+                // TRUCO MAESTRO: URL DE IMAGEN DE AMAZON GENERADA POR ASIN
+                // Esto pide la imagen directamente a los servidores de Amazon (ssl-images-amazon.com)
+                const amazonImage = `https://images-na.ssl-images-amazon.com/images/P/${prod.asin}.01._SCLZZZZZZZ_.jpg`;
 
                 card.innerHTML = `
-                    <div class="relative overflow-hidden aspect-square">
-                        <img src="${prod.img}" alt="${prod.titulo} - Setup Oficina" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy">
+                    <div class="relative overflow-hidden aspect-square product-img-container flex items-center justify-center bg-white">
+                        <img src="${amazonImage}" alt="${prod.titulo}" class="max-w-[80%] max-h-[80%] object-contain transition-transform duration-700 group-hover:scale-110" loading="lazy">
                         ${tagHtml}
                     </div>
-                    <div class="p-6 flex flex-col h-[200px] justify-between">
+                    <div class="p-6 flex flex-col h-[200px] justify-between border-t border-slate-100 dark:border-slate-800">
                         <div>
-                            <h3 class="font-bold text-lg mb-2 text-slate-900 dark:text-white">${prod.titulo}</h3>
+                            <h3 class="font-bold text-lg mb-2 text-slate-900 dark:text-white leading-tight">${prod.titulo}</h3>
                             <p class="text-xs text-slate-500 dark:text-slate-400 line-clamp-2">${prod.desc}</p>
                         </div>
                         <a href="${prod.link}" target="_blank" rel="nofollow sponsored" class="w-full flex items-center justify-center gap-2 py-3 bg-slate-100 dark:bg-slate-800 rounded-xl font-bold text-sm text-slate-900 dark:text-white group-hover:bg-primary group-hover:text-white transition">
@@ -500,6 +520,7 @@
     </script>
 </body>
 </html>
+
 
 
 
