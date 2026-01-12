@@ -3,9 +3,20 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Oficina en Casa: Guía de Productos Ergonómicos 2026</title>
-    <link rel="icon" type="image/svg+xml" href='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 36 36"><rect width="36" height="36" rx="12" fill="%232563eb"/><path d="M18 34C9.16 34 2 26.8 2 18S9.16 2 18 2s16 7.2 16 16-7.16 16-16 16z" fill="%232563eb"/><path d="M34 2L24 12H29C29 18 24 23 18 23V28C23.5 28 28 23.5 28 18H34V2Z" fill="%2310b981"/><path d="M29 5V11" stroke="white" stroke-width="2" stroke-linecap="round"/></svg>'>
     
+    <title>Oficina en Casa: Domina tu espacio de trabajo </title>
+    
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-BHPG0PX889"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-BHPG0PX889');
+    </script>
+
+    <link rel="icon" type="image/svg+xml" href='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 36 36"><defs><linearGradient id="a" x1="0" y1="0" x2="36" y2="36" gradientUnits="userSpaceOnUse"><stop stop-color="%232563eb"/><stop offset="1" stop-color="%2310b981"/></linearGradient></defs><rect width="36" height="36" rx="10" fill="url(%23a)"/><path d="M18 6L8 16V28C8 29.1 8.9 30 10 30H26C27.1 30 28 29.1 28 28V16L18 6Z" fill="white" fill-opacity="0.3"/><g fill="white"><path d="M18 26C19.1 26 20 25.1 20 24C20 22.9 19.1 22 18 22C16.9 22 16 22.9 16 24C16 25.1 16.9 26 18 26Z"/><path d="M13.7 20.7C14.9 19.5 16.4 18.9 18 18.9C19.6 18.9 21.1 19.5 22.3 20.7L20.9 22.1C20.1 21.3 19.1 20.9 18 20.9C16.9 20.9 15.9 21.3 15.1 22.1L13.7 20.7Z"/><path d="M10.2 17.2C12.3 15.1 15.1 13.9 18 13.9C20.9 13.9 23.7 15.1 25.8 17.2L24.4 18.6C22.7 16.9 20.4 15.9 18 15.9C15.6 15.9 13.3 16.9 11.6 18.6L10.2 17.2Z"/></g></svg>'>
+
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -19,7 +30,7 @@
                 }
             }
         }
-        // Lógica de Modo Oscuro con memoria (Persistencia)
+        // Lógica de Modo Oscuro con memoria
         if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
             document.documentElement.classList.add('dark')
         } else {
@@ -40,13 +51,33 @@
     <header class="fixed w-full top-0 z-50 glass border-b border-slate-200/50 dark:border-slate-800/50 transition-all duration-300" id="main-nav">
         <div class="max-w-7xl mx-auto flex items-center justify-between px-6 py-4">
             <a href="#" class="flex items-center gap-3 group">
-                <div class="w-11 h-11 rounded-2xl flex items-center justify-center bg-gradient-to-br from-primary to-blue-400 shadow-lg text-white font-bold">OC</div>
+                <div class="w-11 h-11 rounded-2xl flex items-center justify-center transition-transform group-hover:scale-110">
+                    <svg class="w-full h-full drop-shadow-md" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <defs>
+                            <linearGradient id="glass-grad-header" x1="0" y1="0" x2="36" y2="36" gradientUnits="userSpaceOnUse">
+                                <stop stop-color="#2563eb" stop-opacity="0.3"/>
+                                <stop offset="1" stop-color="#10b981" stop-opacity="0.3"/>
+                            </linearGradient>
+                            <linearGradient id="glass-stroke-header" x1="0" y1="0" x2="36" y2="36" gradientUnits="userSpaceOnUse">
+                                <stop stop-color="#60a5fa"/>
+                                <stop offset="1" stop-color="#34d399"/>
+                            </linearGradient>
+                        </defs>
+                        <path d="M18 3L4 15V31C4 32.1 4.9 33 6 33H30C31.1 33 32 32.1 32 31V15L18 3Z" fill="url(#glass-grad-header)"/>
+                        <g class="text-white dark:text-emerald-100" filter="drop-shadow(0 0 2px rgba(255,255,255,0.6))">
+                            <path d="M18 27C19.1 27 20 26.1 20 25C20 23.9 19.1 23 18 23C16.9 23 16 23.9 16 25C16 26.1 16.9 27 18 27Z" fill="currentColor"/>
+                            <path d="M12.3 19.3C13.8 17.8 15.8 17 18 17C20.2 17 22.2 17.8 23.7 19.3L22.3 20.7C21.1 19.5 19.6 18.9 18 18.9C16.4 18.9 14.9 19.5 13.7 20.7L12.3 19.3Z" fill="currentColor"/>
+                            <path d="M8.8 15.8C11.2 13.4 14.5 12 18 12C21.5 12 24.8 13.4 27.2 15.8L25.8 17.2C23.7 15.1 20.9 13.9 18 13.9C15.1 13.9 12.3 15.1 10.2 17.2L8.8 15.8Z" fill="currentColor"/>
+                        </g>
+                        <path d="M18 3L4 15V31C4 32.1 4.9 33 6 33H30C31.1 33 32 32.1 32 31V15L18 3Z" stroke="url(#glass-stroke-header)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M7 17L18 7L29 17" stroke="white" stroke-opacity="0.4" stroke-width="1" stroke-linecap="round"/>
+                    </svg>
+                </div>
                 <span class="font-bold text-lg tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-slate-900 to-slate-600 dark:from-white dark:to-slate-400">Oficina en Casa</span>
             </a>
             
             <nav class="hidden md:flex items-center gap-8">
                 <a href="#productos" class="text-sm font-semibold hover:text-primary transition">Productos</a>
-                <a href="blog-dolor-espalda.html" class="text-sm font-semibold text-primary hover:underline decoration-2 underline-offset-4 transition">Cuida tu espalda</a>
                 <a href="#guia" class="text-sm font-semibold hover:text-primary transition">Ergonomía</a>
                 <a href="#consejos" class="text-sm font-semibold hover:text-primary transition">Errores</a>
                 
@@ -63,7 +94,6 @@
         
         <div id="mobile-menu" class="hidden md:hidden bg-white dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800 p-6 space-y-4 shadow-xl text-center">
             <a href="#productos" class="block text-lg font-medium">Productos</a>
-            <a href="blog-dolor-espalda.html" class="block text-lg font-medium text-primary font-bold">Cuida tu espalda</a>
             <a href="#guia" class="block text-lg font-medium">Ergonomía</a>
             <a href="#consejos" class="block text-lg font-medium">Errores</a>
         </div>
@@ -79,6 +109,7 @@
                     <a href="#productos" class="px-10 py-4 bg-primary text-white rounded-2xl font-bold shadow-lg shadow-primary/30 hover:scale-105 transition-all">Ver Catálogo de Productos</a>
                 </div>
             </div>
+
             <div class="relative hidden md:block animate-float">
                 <img src="https://images.unsplash.com/photo-1499750310107-5fef28a66643?auto=format&fit=crop&q=80&w=800" alt="Espacio de trabajo profesional" class="rounded-[2.5rem] shadow-premium border-8 border-white dark:border-slate-900 w-full h-[500px] object-cover">
             </div>
@@ -143,6 +174,7 @@
                 <span class="text-orange-500 font-bold tracking-widest text-sm uppercase">Optimiza tu rendimiento</span>
                 <h2 class="text-4xl font-bold mt-4 text-white">Errores comunes a evitar</h2>
             </div>
+            
             <div class="grid md:grid-cols-3 gap-8">
                 <div class="bg-slate-800/50 p-10 rounded-[2.5rem] border border-slate-700 hover:border-primary transition-all group text-center md:text-left">
                     <div class="w-12 h-12 bg-orange-500/10 text-orange-500 rounded-full flex items-center justify-center mb-6 text-2xl font-bold mx-auto md:mx-0">!</div>
@@ -150,11 +182,13 @@
                     <p class="text-slate-400 leading-relaxed mb-6">Parece cómodo, pero destruye tu postura lumbar drásticamente en tiempo récord.</p>
                     <a href="blog-dolor-espalda.html" class="inline-block text-primary font-bold hover:underline">Cuida tu espalda ahora →</a>
                 </div>
+                
                 <div class="bg-slate-800/50 p-10 rounded-[2.5rem] border border-slate-700 text-center md:text-left">
                     <div class="w-12 h-12 bg-orange-500/10 text-orange-500 rounded-full flex items-center justify-center mb-6 text-2xl font-bold mx-auto md:mx-0">!</div>
                     <h3 class="text-xl font-bold mb-4">Mala gestión lumínica</h3>
                     <p class="text-slate-400 leading-relaxed">Trabajar solo con luz de techo genera fatiga visual severa al final de la jornada.</p>
                 </div>
+
                 <div class="bg-slate-800/50 p-10 rounded-[2.5rem] border border-slate-700 text-center md:text-left">
                     <div class="w-12 h-12 bg-orange-500/10 text-orange-500 rounded-full flex items-center justify-center mb-6 text-2xl font-bold mx-auto md:mx-0">!</div>
                     <h3 class="text-xl font-bold mb-4">Desorden de periféricos</h3>
@@ -166,12 +200,51 @@
 
     <footer class="bg-white dark:bg-slate-950 py-12 border-t border-slate-200 dark:border-slate-800 text-center">
         <div class="max-w-4xl mx-auto px-6">
+            <div class="flex items-center justify-center gap-2 mb-6 opacity-80 hover:opacity-100 transition">
+                <svg class="w-6 h-6" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <linearGradient id="glass-stroke-footer" x1="0" y1="0" x2="36" y2="36" gradientUnits="userSpaceOnUse">
+                            <stop stop-color="#ffffff" stop-opacity="0.8"/>
+                            <stop offset="1" stop-color="#a7f3d0" stop-opacity="0.8"/>
+                        </linearGradient>
+                    </defs>
+                    <path d="M18 3L4 15V31C4 32.1 4.9 33 6 33H30C31.1 33 32 32.1 32 31V15L18 3Z" fill="currentColor" fill-opacity="0.2"/>
+                    <g fill="currentColor">
+                        <path d="M18 27C19.1 27 20 26.1 20 25C20 23.9 19.1 23 18 23C16.9 23 16 23.9 16 25C16 26.1 16.9 27 18 27Z"/>
+                        <path d="M12.3 19.3C13.8 17.8 15.8 17 18 17C20.2 17 22.2 17.8 23.7 19.3L22.3 20.7C21.1 19.5 19.6 18.9 18 18.9C16.4 18.9 14.9 19.5 13.7 20.7L12.3 19.3Z"/>
+                        <path d="M8.8 15.8C11.2 13.4 14.5 12 18 12C21.5 12 24.8 13.4 27.2 15.8L25.8 17.2C23.7 15.1 20.9 13.9 18 13.9C15.1 13.9 12.3 15.1 10.2 17.2L8.8 15.8Z"/>
+                    </g>
+                    <path d="M18 3L4 15V31C4 32.1 4.9 33 6 33H30C31.1 33 32 32.1 32 31V15L18 3Z" stroke="url(#glass-stroke-footer)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <span class="font-bold text-lg">Oficina en Casa</span>
+            </div>
+            
             <p class="text-slate-400 text-sm italic leading-relaxed mb-8">
                 En calidad de Afiliado de Amazon, obtengo ingresos por las compras adscritas que cumplen los requisitos aplicables.
             </p>
             <p class="text-xs font-bold text-slate-500 uppercase tracking-widest">© 2026 Oficina en Casa Online. Todos los derechos reservados.</p>
         </div>
     </footer>
+
+    <div id="cookie-banner" class="fixed bottom-4 left-4 right-4 md:left-auto md:right-8 md:w-96 bg-white/80 dark:bg-slate-900/80 backdrop-blur-xl border border-slate-200 dark:border-slate-700 p-6 rounded-3xl shadow-2xl z-[60] transform translate-y-full opacity-0 transition-all duration-500">
+        <div class="flex items-start gap-4">
+            <div class="p-3 bg-blue-100 dark:bg-blue-900/30 rounded-2xl text-2xl">🍪</div>
+            <div>
+                <h4 class="font-bold text-slate-900 dark:text-white mb-1">Cookies y Privacidad</h4>
+                <p class="text-xs text-slate-500 dark:text-slate-400 mb-4 leading-relaxed">
+                    Usamos cookies propias y de Amazon para que la web funcione y financiar el proyecto.
+                </p>
+                <div class="flex gap-3">
+                    <button id="accept-cookies" class="flex-1 px-4 py-2 bg-primary hover:bg-primaryDark text-white text-xs font-bold rounded-xl transition shadow-lg shadow-primary/20">
+                        Aceptar
+                    </button>
+                    <button onclick="document.getElementById('cookie-banner').remove()" class="px-4 py-2 text-slate-500 hover:text-slate-700 dark:text-slate-400 dark:hover:text-white text-xs font-bold transition">
+                        Cerrar
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <script>
         const productos = [
@@ -190,11 +263,11 @@
         ];
 
         const grid = document.getElementById('product-grid');
+
         function render(list) {
             grid.innerHTML = '';
             list.forEach(p => {
                 const art = document.createElement('article');
-                // TARJETAS CON IMAGEN GRANDE Y BORDE REDONDEADO TIPO "BURBUJA"
                 art.className = "product-card bg-white dark:bg-slate-900 rounded-[2.5rem] overflow-hidden border border-slate-200 dark:border-slate-800 flex flex-col justify-between shadow-card hover:shadow-premium transition-all duration-500";
                 art.innerHTML = `
                     <div class="mx-3 mt-3 p-3 aspect-square flex items-center justify-center relative bg-slate-100 dark:bg-slate-800/30 rounded-[2rem] overflow-hidden">
@@ -236,6 +309,19 @@
             updateIcons();
         });
 
+        // Banner Cookies Lógica
+        const cookieBanner = document.getElementById('cookie-banner');
+        if (!localStorage.getItem('cookiesAccepted')) {
+            setTimeout(() => {
+                cookieBanner.classList.remove('translate-y-full', 'opacity-0');
+            }, 2000);
+        }
+        document.getElementById('accept-cookies').addEventListener('click', () => {
+            localStorage.setItem('cookiesAccepted', 'true');
+            cookieBanner.classList.add('translate-y-full', 'opacity-0');
+            setTimeout(() => cookieBanner.remove(), 500);
+        });
+
         const reveal = () => { document.querySelectorAll('.reveal').forEach(el => { if (el.getBoundingClientRect().top < window.innerHeight - 100) el.classList.add('active'); }); };
         window.addEventListener('scroll', reveal); reveal();
         document.getElementById('mobile-menu-btn').addEventListener('click', () => document.getElementById('mobile-menu').classList.toggle('hidden'));
@@ -250,5 +336,3 @@
     </script>
 </body>
 </html>
-
-
