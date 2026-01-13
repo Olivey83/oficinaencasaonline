@@ -8,19 +8,19 @@
     <meta name="description" content="Guía 2026 para montar tu oficina en casa. Evita el dolor de espalda con nuestra selección de sillas ergonómicas, escritorios elevables y accesorios de teletrabajo.">
     <meta name="keywords" content="oficina en casa, silla ergonómica, dolor espalda teletrabajo, escritorio elevable, setup minimalista, trabajar desde casa">
     <meta name="author" content="Oficina en Casa Online">
+
     <meta name="p:domain_verify" content="09833f4db7d1de06c2924f6252249738"/>
-    
+
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-BHPG0PX889"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-
       gtag('config', 'G-BHPG0PX889');
     </script>
 
     <link rel="icon" type="image/svg+xml" href='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 36 36"><defs><linearGradient id="a" x1="0" y1="0" x2="36" y2="36" gradientUnits="userSpaceOnUse"><stop stop-color="%232563eb"/><stop offset="1" stop-color="%2310b981"/></linearGradient></defs><rect width="36" height="36" rx="10" fill="url(%23a)"/><path d="M18 6L8 16V28C8 29.1 8.9 30 10 30H26C27.1 30 28 29.1 28 28V16L18 6Z" fill="white" fill-opacity="0.3"/><g fill="white"><path d="M18 26C19.1 26 20 25.1 20 24C20 22.9 19.1 22 18 22C16.9 22 16 22.9 16 24C16 25.1 16.9 26 18 26Z"/><path d="M13.7 20.7C14.9 19.5 16.4 18.9 18 18.9C19.6 18.9 21.1 19.5 22.3 20.7L20.9 22.1C20.1 21.3 19.1 20.9 18 20.9C16.9 20.9 15.9 21.3 15.1 22.1L13.7 20.7Z"/><path d="M10.2 17.2C12.3 15.1 15.1 13.9 18 13.9C20.9 13.9 23.7 15.1 25.8 17.2L24.4 18.6C22.7 16.9 20.4 15.9 18 15.9C15.6 15.9 13.3 16.9 11.6 18.6L10.2 17.2Z"/></g></svg>'>
-
+    
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -34,7 +34,6 @@
                 }
             }
         }
-        // Lógica de Modo Oscuro con memoria
         if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
             document.documentElement.classList.add('dark')
         } else {
@@ -339,7 +338,9 @@
                 render(cat === 'all' ? productos : productos.filter(p => p.categoria === cat));
             });
         });
-    </script></body></html>
+    </script>
+</body>
+</html>
 
 
 
