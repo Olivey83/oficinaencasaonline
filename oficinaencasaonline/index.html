@@ -129,6 +129,7 @@
                 <button class="filter-btn px-7 py-3 rounded-full bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-sm font-bold transition" data-category="ergo">Ergonomía</button>
                 <button class="filter-btn px-7 py-3 rounded-full bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-sm font-bold transition" data-category="desk">Escritorio</button>
                 <button class="filter-btn px-7 py-3 rounded-full bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-sm font-bold transition" data-category="acc">Accesorios</button>
+                <button class="filter-btn px-7 py-3 rounded-full bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-sm font-bold transition" data-category="tech">Tech & Gadgets</button>
             </div>
         </div>
         <div id="product-grid" class="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8"></div>
@@ -264,7 +265,39 @@
             { categoria: "acc", titulo: "Elevador Madera", desc: "Gana espacio y mejora la altura del monitor.", img: "https://m.media-amazon.com/images/I/61heBUIQLtL._AC_SL1500_.jpg", link: "https://amzn.to/49wFyzJ" },
             { categoria: "acc", titulo: "Organizador Mesa", desc: "Tus herramientas diarias siempre localizadas.", img: "https://m.media-amazon.com/images/I/71tEutfM3eL._AC_SL1500_.jpg", link: "https://amzn.to/4qLZGEH" },
             { categoria: "acc", titulo: "Suministros Pro", desc: "Verticalidad inteligente para tu mesa.", img: "https://m.media-amazon.com/images/I/61K3aaAo9cL._AC_SL1500_.jpg", link: "https://amzn.to/4jF6EcE" },
-            { categoria: "desk", titulo: "Alfombrilla Fieltro", desc: "Capa de confort extra para tu setup.", img: "https://m.media-amazon.com/images/I/71sNZ6t0z8L._AC_SL1500_.jpg", link: "https://amzn.to/49wShm0" }
+            { categoria: "desk", titulo: "Alfombrilla Fieltro", desc: "Capa de confort extra para tu setup.", img: "https://m.media-amazon.com/images/I/71sNZ6t0z8L._AC_SL1500_.jpg", link: "https://amzn.to/49wShm0" },
+            
+            // --- NUEVOS PRODUCTOS TECH ---
+            { 
+                categoria: "tech", 
+                titulo: "Webcam EMEET 1080P", 
+                desc: "Alta definición 1080P con tapa de privacidad física para seguridad.", 
+                img: "https://m.media-amazon.com/images/I/61BW1Spm+UL._AC_SL1423_.jpg", 
+                link: "https://amzn.to/4bCrTtj",
+                tag: "PRIVACIDAD"
+            },
+            { 
+                categoria: "tech", 
+                titulo: "Calentador de Café", 
+                desc: "Mantén tu bebida caliente en el escritorio todo el día.", 
+                img: "https://m.media-amazon.com/images/I/717-w1eeO8L._AC_SL1500_.jpg", 
+                link: "https://amzn.to/3Npxr0k",
+                tag: "GADGET"
+            },
+            { 
+                categoria: "tech", 
+                titulo: "Auriculares Wireless", 
+                desc: "Libertad inalámbrica con sonido nítido para reuniones.", 
+                img: "https://m.media-amazon.com/images/I/61PupiSYs3L._AC_SL1500_.jpg", 
+                link: "https://amzn.to/49Cyqld" 
+            },
+            { 
+                categoria: "tech", 
+                titulo: "Lámpara Flexo Pinza", 
+                desc: "Iluminación LED flexible que no ocupa espacio en tu mesa.", 
+                img: "https://m.media-amazon.com/images/I/71kLt8V7+WL._AC_SL1500_.jpg", 
+                link: "https://amzn.to/3NfN4Yl" 
+            }
         ];
 
         const grid = document.getElementById('product-grid');
@@ -341,7 +374,6 @@
     </script>
 </body>
 </html>
-
 
 
 
