@@ -125,7 +125,7 @@
         <div class="text-center mb-16">
             <h2 class="text-4xl md:text-5xl font-extrabold mb-10">Selección Destacada</h2>
             <div class="flex flex-wrap justify-center gap-3">
-                <button class="filter-btn active px-7 py-3 rounded-full bg-primary text-white font-bold text-sm transition shadow-md" data-category="all">Todos</button>
+                <button class="filter-btn active !bg-primary !text-white !border-primary px-7 py-3 rounded-full border border-slate-200 dark:border-slate-700 text-sm font-bold transition" data-category="all">Todos</button>
                 <button class="filter-btn px-7 py-3 rounded-full bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-sm font-bold transition" data-category="ergo">Ergonomía</button>
                 <button class="filter-btn px-7 py-3 rounded-full bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-sm font-bold transition" data-category="desk">Escritorio</button>
                 <button class="filter-btn px-7 py-3 rounded-full bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-sm font-bold transition" data-category="acc">Accesorios</button>
@@ -256,12 +256,12 @@
         const productos = [
             { categoria: "ergo", titulo: "Silla SONGMICS Pro", desc: "Soporte lumbar ajustable y malla transpirable.", img: "https://m.media-amazon.com/images/I/81tt0QgRGJL._AC_SL1500_.jpg", link: "https://amzn.to/44Wcq3f", tag: "TOP VENTAS" },
             { categoria: "desk", titulo: "Escritorio Elevable", desc: "Regulación de altura precisa para trabajar dinámicamente.", img: "https://m.media-amazon.com/images/I/61pl8xkp5xL._AC_SX679_.jpg", link: "https://amzn.to/4qupXHA" },
-            { categoria: "ergo", titulo: "Soporte Portátil", desc: "Eleva la pantalla a la altura de tus ojos cómodamente.", img: "https://m.media-amazon.com/images/I/61BK9+YGKML._AC_SL1500_.jpg", link: "https://amzn.to/4aGRYar" },
+            { categoria: "acc", titulo: "Soporte Portátil", desc: "Eleva la pantalla a la altura de tus ojos cómodamente.", img: "https://m.media-amazon.com/images/I/61BK9+YGKML._AC_SL1500_.jpg", link: "https://amzn.to/4aGRYar" },
             { categoria: "desk", titulo: "Lámpara Monitor", desc: "Iluminación sin reflejos directa sobre tu teclado.", img: "https://m.media-amazon.com/images/I/61HWVh6wxqL._AC_SL1500_.jpg", link: "https://amzn.to/3YRFntF" },
             { categoria: "acc", titulo: "Reposapies Pro", desc: "Mejora la circulación y postura sentado.", img: "https://m.media-amazon.com/images/I/51-LmMCoscL._AC_SL1000_.jpg", link: "https://amzn.to/4pHhGPP" },
             { categoria: "desk", titulo: "Cajonera Móvil", desc: "Almacenamiento eficiente bajo el escritorio.", img: "https://m.media-amazon.com/images/I/511hfGz8lpL._AC_SL1500_.jpg", link: "https://amzn.to/4qFHtZG" },
             { categoria: "desk", titulo: "Módulo 5 cajones", desc: "Ideal para clasificar documentos A4 con orden.", img: "https://m.media-amazon.com/images/I/61OkbjZ7otL._AC_SL1200_.jpg", link: "https://amzn.to/4jnUiVX" },
-            { categoria: "ergo", titulo: "Papelera Malla", desc: "Minimalismo industrial para tu despacho.", img: "https://m.media-amazon.com/images/I/81yckur-iIL._SL1500_.jpg", link: "https://amzn.to/3L8SIuF" },
+            { categoria: "acc", titulo: "Papelera Malla", desc: "Minimalismo industrial para tu despacho.", img: "https://m.media-amazon.com/images/I/81yckur-iIL._SL1500_.jpg", link: "https://amzn.to/3L8SIuF" },
             { categoria: "acc", titulo: "Elevador Madera", desc: "Gana espacio y mejora la altura del monitor.", img: "https://m.media-amazon.com/images/I/61heBUIQLtL._AC_SL1500_.jpg", link: "https://amzn.to/49wFyzJ" },
             { categoria: "acc", titulo: "Organizador Mesa", desc: "Tus herramientas diarias siempre localizadas.", img: "https://m.media-amazon.com/images/I/71tEutfM3eL._AC_SL1500_.jpg", link: "https://amzn.to/4qLZGEH" },
             { categoria: "acc", titulo: "Suministros Pro", desc: "Verticalidad inteligente para tu mesa.", img: "https://m.media-amazon.com/images/I/61K3aaAo9cL._AC_SL1500_.jpg", link: "https://amzn.to/4jF6EcE" },
@@ -389,10 +389,20 @@
         const reveal = () => { document.querySelectorAll('.reveal').forEach(el => { if (el.getBoundingClientRect().top < window.innerHeight - 100) el.classList.add('active'); }); };
         window.addEventListener('scroll', reveal); reveal();
         document.getElementById('mobile-menu-btn').addEventListener('click', () => document.getElementById('mobile-menu').classList.toggle('hidden'));
+        
+        // --- CORRECCIÓN BUG BOTONES FILTRO ---
         document.querySelectorAll('.filter-btn').forEach(btn => {
             btn.addEventListener('click', () => {
-                document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active', 'bg-primary', 'text-white'));
-                btn.classList.add('active', 'bg-primary', 'text-white');
+                // 1. Resetear TODOS los botones: quitar color azul y forzar fondo blanco/oscuro base
+                document.querySelectorAll('.filter-btn').forEach(b => {
+                    b.classList.remove('active', '!bg-primary', '!text-white', '!border-primary');
+                    b.classList.add('bg-white', 'dark:bg-slate-800'); // Restaurar fondo base
+                });
+                
+                // 2. Activar el botón CLICADO: Poner azul y quitar fondo blanco conflictivo
+                btn.classList.add('active', '!bg-primary', '!text-white', '!border-primary');
+                btn.classList.remove('bg-white', 'dark:bg-slate-800'); // Quitar fondo base para que no haya conflicto
+
                 const cat = btn.dataset.category;
                 render(cat === 'all' ? productos : productos.filter(p => p.categoria === cat));
             });
