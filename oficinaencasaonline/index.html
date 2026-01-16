@@ -6,17 +6,16 @@
     
     <title>Oficina en Casa: Guía de Productos Ergonómicos 2026</title>
     <meta name="description" content="Guía 2026 para montar tu oficina en casa. Evita el dolor de espalda con nuestra selección de sillas ergonómicas, escritorios elevables y accesorios de teletrabajo.">
-    <meta name="keywords" content="oficina en casa, silla ergonómica, dolor espalda teletrabajo, escritorio elevable, setup minimalista, trabajar desde casa, ram ddr4">
+    <meta name="keywords" content="oficina en casa, silla ergonómica, dolor espalda teletrabajo, escritorio elevable, setup minimalista, trabajar desde casa, ram ddr4, gestion cables">
     <meta name="author" content="Oficina en Casa Online">
 
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://oficinaencasaonline.pages.dev/">
     <meta property="og:title" content="Oficina en Casa: Guía de Productos Ergonómicos 2026">
-    <meta property="og:description" content="Domina tu espacio de trabajo. Sillas, escritorios y la mejor RAM para tu setup.">
+    <meta property="og:description" content="Domina tu espacio de trabajo. Sillas, escritorios y guías técnicas para tu setup.">
     <meta property="og:image" content="https://images.unsplash.com/photo-1499750310107-5fef28a66643?auto=format&fit=crop&q=80&w=800">
 
     <meta name="p:domain_verify" content="09833f4db7d1de06c2924f6252249738"/>
-
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-BHPG0PX889"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -275,6 +274,18 @@
 
     <script>
         const productos = [
+            // --- NUEVO: GUÍA DE CABLES ---
+            { 
+                categoria: "acc", 
+                titulo: "GUÍA: Cables Ocultos", 
+                desc: "Aprende a eliminar el ruido visual. Trucos y accesorios por menos de 20€.", 
+                img: "https://m.media-amazon.com/images/I/71Ob9g-xl8L._AC_SL1500_.jpg", 
+                link: "guia-cables.html", 
+                tag: "NUEVO ARTÍCULO",
+                tipo: "guia" // Esto le dice al código que es una guía interna
+            },
+
+            // --- PRODUCTOS NORMALES ---
             { categoria: "ergo", titulo: "Silla SONGMICS Pro", desc: "Soporte lumbar ajustable y malla transpirable.", img: "https://m.media-amazon.com/images/I/81tt0QgRGJL._AC_SL1500_.jpg", link: "https://amzn.to/44Wcq3f", tag: "TOP VENTAS" },
             { categoria: "desk", titulo: "Escritorio Elevable", desc: "Regulación de altura precisa para trabajar dinámicamente.", img: "https://m.media-amazon.com/images/I/61pl8xkp5xL._AC_SX679_.jpg", link: "https://amzn.to/4qupXHA" },
             { categoria: "acc", titulo: "Soporte Portátil", desc: "Eleva la pantalla a la altura de tus ojos cómodamente.", img: "https://m.media-amazon.com/images/I/61BK9+YGKML._AC_SL1500_.jpg", link: "https://amzn.to/4aGRYar" },
@@ -372,7 +383,7 @@
                 tag: "GAMING READY" 
             },
             
-            // --- NUEVOS: RAM (PROYECTO RAM) ---
+            // --- RAM (PROYECTO RAM) ---
             { 
                 categoria: "pc", 
                 titulo: "Crucial RAM 16GB", 
@@ -403,6 +414,12 @@
         function render(list) {
             grid.innerHTML = '';
             list.forEach(p => {
+                // LÓGICA DE BOTONES INTELIGENTE
+                const isGuia = p.tipo === "guia";
+                const btnText = isGuia ? "LEER GUÍA →" : "Ver precio en Amazon";
+                const btnColor = isGuia ? "bg-primary hover:bg-primaryDark" : "bg-[#FF9900] hover:bg-[#e68a00]";
+                const target = isGuia ? "" : `target="_blank"`; // Las guías se abren en la misma pestaña
+
                 const art = document.createElement('article');
                 art.className = "product-card bg-white dark:bg-slate-900 rounded-[2.5rem] overflow-hidden border border-slate-200 dark:border-slate-800 flex flex-col justify-between shadow-card hover:shadow-premium transition-all duration-500";
                 art.innerHTML = `
@@ -412,7 +429,7 @@
                     </div>
                     <div class="p-6 h-[210px] flex flex-col justify-between">
                         <div><h3 class="font-bold text-lg mb-2">${p.titulo}</h3><p class="text-xs text-slate-500 leading-relaxed">${p.desc}</p></div>
-                        <a href="${p.link}" target="_blank" class="w-full text-center py-3.5 bg-[#FF9900] hover:bg-[#e68a00] text-white rounded-2xl font-bold text-sm transition-all shadow-lg shadow-orange-500/20">Ver precio en Amazon</a>
+                        <a href="${p.link}" ${target} class="w-full text-center py-3.5 ${btnColor} text-white rounded-2xl font-bold text-sm transition-all shadow-lg">${btnText}</a>
                     </div>`;
                 grid.appendChild(art);
             });
@@ -445,7 +462,7 @@
             updateIcons();
         });
 
-        // Banner Cookies Lógica
+        // Banner Cookies
         const cookieBanner = document.getElementById('cookie-banner');
         if (!localStorage.getItem('cookiesAccepted')) {
             setTimeout(() => {
@@ -462,7 +479,7 @@
         window.addEventListener('scroll', reveal); reveal();
         document.getElementById('mobile-menu-btn').addEventListener('click', () => document.getElementById('mobile-menu').classList.toggle('hidden'));
         
-        // --- LÓGICA FILTROS ---
+        // Filtros
         document.querySelectorAll('.filter-btn').forEach(btn => {
             btn.addEventListener('click', () => {
                 document.querySelectorAll('.filter-btn').forEach(b => {
