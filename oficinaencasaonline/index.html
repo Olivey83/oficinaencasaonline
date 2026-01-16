@@ -16,6 +16,7 @@
     <meta property="og:image" content="https://images.unsplash.com/photo-1499750310107-5fef28a66643?auto=format&fit=crop&q=80&w=800">
 
     <meta name="p:domain_verify" content="09833f4db7d1de06c2924f6252249738"/>
+    
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-BHPG0PX889"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -274,18 +275,42 @@
 
     <script>
         const productos = [
-            // --- NUEVO: GUÍA DE CABLES ---
+            // --- 1. GUÍA: CABLES OCULTOS (BOTÓN AZUL) ---
             { 
                 categoria: "acc", 
                 titulo: "GUÍA: Cables Ocultos", 
                 desc: "Aprende a eliminar el ruido visual. Trucos y accesorios por menos de 20€.", 
-                img: "https://m.media-amazon.com/images/I/71Ob9g-xl8L._AC_SL1500_.jpg", 
+                img: "https://images.unsplash.com/photo-1593640408182-31c70c8268f5?auto=format&fit=crop&q=80&w=600", 
                 link: "guia-cables.html", 
-                tag: "NUEVO ARTÍCULO",
-                tipo: "guia" // Esto le dice al código que es una guía interna
+                tag: "TUTORIAL",
+                tipo: "guia" // Esto activa el botón azul
             },
 
-            // --- PRODUCTOS NORMALES ---
+            // --- 2. LOS 3 PRODUCTOS DE CABLES (BOTÓN NARANJA) ---
+            { 
+                categoria: "acc", 
+                titulo: "Caja Oculta-Regletas", 
+                desc: "Esconde los enchufes y protege a niños/mascotas. Material ABS seguro.", 
+                img: "https://m.media-amazon.com/images/I/51Y9tOPzfWL._AC_SL1500_.jpg", 
+                link: "https://amzn.to/4pHXEVq",
+                tag: "NUEVO"
+            },
+            { 
+                categoria: "acc", 
+                titulo: "Bandeja Bajo Mesa", 
+                desc: "Sin taladros (sistema clamp). La solución para que no cuelguen cables.", 
+                img: "https://m.media-amazon.com/images/I/71Ob9g-xl8L._AC_SL1500_.jpg", 
+                link: "https://amzn.to/4jUeuiv" 
+            },
+            { 
+                categoria: "acc", 
+                titulo: "Pack 120 Bridas Velcro", 
+                desc: "Reutilizables y ajustables. Mucho mejor que las bridas de plástico.", 
+                img: "https://m.media-amazon.com/images/I/81VmyC2ijcL._AC_SL1500_.jpg", 
+                link: "https://amzn.to/4jT32DW" 
+            },
+
+            // --- 3. PRODUCTOS ANTERIORES (Sillas, mesas, gadgets...) ---
             { categoria: "ergo", titulo: "Silla SONGMICS Pro", desc: "Soporte lumbar ajustable y malla transpirable.", img: "https://m.media-amazon.com/images/I/81tt0QgRGJL._AC_SL1500_.jpg", link: "https://amzn.to/44Wcq3f", tag: "TOP VENTAS" },
             { categoria: "desk", titulo: "Escritorio Elevable", desc: "Regulación de altura precisa para trabajar dinámicamente.", img: "https://m.media-amazon.com/images/I/61pl8xkp5xL._AC_SX679_.jpg", link: "https://amzn.to/4qupXHA" },
             { categoria: "acc", titulo: "Soporte Portátil", desc: "Eleva la pantalla a la altura de tus ojos cómodamente.", img: "https://m.media-amazon.com/images/I/61BK9+YGKML._AC_SL1500_.jpg", link: "https://amzn.to/4aGRYar" },
@@ -418,7 +443,7 @@
                 const isGuia = p.tipo === "guia";
                 const btnText = isGuia ? "LEER GUÍA →" : "Ver precio en Amazon";
                 const btnColor = isGuia ? "bg-primary hover:bg-primaryDark" : "bg-[#FF9900] hover:bg-[#e68a00]";
-                const target = isGuia ? "" : `target="_blank"`; // Las guías se abren en la misma pestaña
+                const target = isGuia ? "" : `target="_blank"`; 
 
                 const art = document.createElement('article');
                 art.className = "product-card bg-white dark:bg-slate-900 rounded-[2.5rem] overflow-hidden border border-slate-200 dark:border-slate-800 flex flex-col justify-between shadow-card hover:shadow-premium transition-all duration-500";
