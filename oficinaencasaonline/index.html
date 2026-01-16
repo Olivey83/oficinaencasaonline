@@ -9,6 +9,12 @@
     <meta name="keywords" content="oficina en casa, silla ergonómica, dolor espalda teletrabajo, escritorio elevable, setup minimalista, trabajar desde casa, ram ddr4">
     <meta name="author" content="Oficina en Casa Online">
 
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://oficinaencasaonline.pages.dev/">
+    <meta property="og:title" content="Oficina en Casa: Guía de Productos Ergonómicos 2026">
+    <meta property="og:description" content="Domina tu espacio de trabajo. Sillas, escritorios y la mejor RAM para tu setup.">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1499750310107-5fef28a66643?auto=format&fit=crop&q=80&w=800">
+
     <meta name="p:domain_verify" content="09833f4db7d1de06c2924f6252249738"/>
 
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-BHPG0PX889"></script>
@@ -401,7 +407,7 @@
                 art.className = "product-card bg-white dark:bg-slate-900 rounded-[2.5rem] overflow-hidden border border-slate-200 dark:border-slate-800 flex flex-col justify-between shadow-card hover:shadow-premium transition-all duration-500";
                 art.innerHTML = `
                     <div class="mx-3 mt-3 p-3 aspect-square flex items-center justify-center relative bg-slate-100 dark:bg-slate-800/30 rounded-[2rem] overflow-hidden">
-                        <img src="${p.img}" class="h-full w-full object-contain group-hover:scale-110 transition-transform duration-700">
+                        <img src="${p.img}" alt="${p.titulo}" class="h-full w-full object-contain group-hover:scale-110 transition-transform duration-700">
                         ${p.tag ? `<span class="absolute top-4 left-4 bg-primary text-white text-[10px] font-bold px-3 py-1 rounded-full">${p.tag}</span>` : ''}
                     </div>
                     <div class="p-6 h-[210px] flex flex-col justify-between">
@@ -474,4 +480,3 @@
     </script>
 </body>
 </html>
-
