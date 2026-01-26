@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Calculadora Ergonómica: Configura tu Setup Ideal - Oficina en Casa</title>
-    <meta name="description" content="Calcula la altura ideal de tu silla y escritorio según tu estatura. Evita dolores de espalda con nuestra herramienta gratuita.">
+    <title>Herramientas Inteligentes: Calculadora y Shopper IA - Oficina en Casa</title>
+    <meta name="description" content="Utiliza nuestra IA de compras y la calculadora ergonómica para configurar tu oficina ideal en segundos.">
     
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -14,7 +14,11 @@
                 extend: {
                     colors: { primary: "#2563eb", primaryDark: "#1e40af", accent: "#0f172a" },
                     boxShadow: { premium: "0 20px 60px rgba(15,23,42,0.22)", card: "0 10px 30px -10px rgba(0,0,0,0.1)" },
-                    borderRadius: { '3xl': '1.75rem' }
+                    borderRadius: { '3xl': '1.75rem' },
+                    animation: { 
+                        'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'spin-slow': 'spin 3s linear infinite'
+                    }
                 }
             }
         }
@@ -24,6 +28,19 @@
             document.documentElement.classList.remove('dark')
         }
     </script>
+    <style>
+        .loader {
+            border-top-color: #3B82F6;
+            -webkit-animation: spinner 1.5s linear infinite;
+            animation: spinner 1.5s linear infinite;
+        }
+        @keyframes spinner {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        .fade-in { animation: fadeIn 0.5s ease-in-out; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+    </style>
 </head>
 
 <body class="bg-slate-50 text-slate-900 dark:bg-slate-950 dark:text-slate-50 antialiased min-h-screen flex flex-col">
@@ -38,12 +55,12 @@
         </div>
     </header>
 
-    <main class="flex-grow pt-32 pb-20 px-6">
+    <main class="flex-grow pt-28 pb-20 px-6 space-y-20">
+        
         <div class="max-w-2xl mx-auto text-center">
-            
-            <span class="inline-block px-3 py-1 rounded-full bg-blue-100 text-blue-700 dark:bg-blue-900/30 dark:text-blue-400 text-xs font-bold uppercase tracking-widest mb-6">Herramienta Gratuita</span>
-            <h1 class="text-4xl md:text-5xl font-extrabold mb-6 text-slate-900 dark:text-white">Calculadora de Ergonomía</h1>
-            <p class="text-lg text-slate-500 dark:text-slate-400 mb-10">Introduce tu altura y descubre la configuración exacta para trabajar sin dolor.</p>
+            <span class="inline-block px-3 py-1 rounded-full bg-blue-100 text-blue-700 dark:bg-blue-900/30 dark:text-blue-400 text-xs font-bold uppercase tracking-widest mb-6">Herramienta 1</span>
+            <h1 class="text-4xl md:text-5xl font-extrabold mb-6 text-slate-900 dark:text-white">Calculadora Ergonómica</h1>
+            <p class="text-lg text-slate-500 dark:text-slate-400 mb-10">Introduce tu altura y descubre la configuración exacta.</p>
 
             <div class="bg-white dark:bg-slate-900 rounded-[2.5rem] p-8 shadow-premium border border-slate-200 dark:border-slate-800 relative overflow-hidden">
                 <div class="relative z-10">
@@ -58,46 +75,88 @@
                 </div>
             </div>
 
-            <div id="resultados" class="hidden mt-12 grid gap-6 animate-fade-in-up">
-                
+            <div id="resultados" class="hidden mt-12 grid gap-6 fade-in">
                 <div class="bg-white dark:bg-slate-900 p-6 rounded-3xl border border-slate-200 dark:border-slate-800 shadow-lg flex flex-col md:flex-row items-center gap-6 text-left">
                     <div class="w-16 h-16 bg-blue-100 text-blue-600 rounded-2xl flex items-center justify-center text-3xl">🪑</div>
                     <div class="flex-1">
-                        <h3 class="text-lg font-bold text-slate-900 dark:text-white">Altura de la Silla</h3>
-                        <p class="text-sm text-slate-500">Tus rodillas deben estar a 90º.</p>
-                        <div class="mt-2 text-3xl font-extrabold text-primary" id="resSilla">0 cm</div>
+                        <h3 class="text-lg font-bold text-slate-900 dark:text-white">Altura Silla</h3>
+                        <div class="mt-1 text-3xl font-extrabold text-primary" id="resSilla">0 cm</div>
                     </div>
-                    <a href="https://amzn.to/44Wcq3f" target="_blank" class="px-5 py-3 bg-[#FF9900] hover:bg-[#e68a00] text-white text-xs font-bold uppercase tracking-wider rounded-xl transition shadow-lg shadow-orange-500/20">
-                        Ver en Amazon ↗
-                    </a>
+                    <a href="https://amzn.to/44Wcq3f" target="_blank" class="px-5 py-3 bg-[#FF9900] hover:bg-[#e68a00] text-white text-xs font-bold uppercase tracking-wider rounded-xl transition shadow-lg shadow-orange-500/20">Ver Silla Ideal</a>
                 </div>
-
                 <div class="bg-white dark:bg-slate-900 p-6 rounded-3xl border border-slate-200 dark:border-slate-800 shadow-lg flex flex-col md:flex-row items-center gap-6 text-left">
                     <div class="w-16 h-16 bg-emerald-100 text-emerald-600 rounded-2xl flex items-center justify-center text-3xl">📏</div>
                     <div class="flex-1">
-                        <h3 class="text-lg font-bold text-slate-900 dark:text-white">Altura del Escritorio</h3>
-                        <p class="text-sm text-slate-500">Para apoyar los codos relajados.</p>
-                        <div class="mt-2 text-3xl font-extrabold text-emerald-500" id="resMesa">0 cm</div>
+                        <h3 class="text-lg font-bold text-slate-900 dark:text-white">Altura Mesa</h3>
+                        <div class="mt-1 text-3xl font-extrabold text-emerald-500" id="resMesa">0 cm</div>
                     </div>
-                    <a href="https://amzn.to/4qupXHA" target="_blank" class="px-5 py-3 bg-[#FF9900] hover:bg-[#e68a00] text-white text-xs font-bold uppercase tracking-wider rounded-xl transition shadow-lg shadow-orange-500/20">
-                        Ver en Amazon ↗
-                    </a>
+                    <a href="https://amzn.to/4qupXHA" target="_blank" class="px-5 py-3 bg-[#FF9900] hover:bg-[#e68a00] text-white text-xs font-bold uppercase tracking-wider rounded-xl transition shadow-lg shadow-orange-500/20">Ver Mesa Ideal</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="w-full h-px bg-slate-200 dark:bg-slate-800"></div>
+
+        <div class="max-w-2xl mx-auto text-center" id="ia-section">
+            <span class="inline-block px-3 py-1 rounded-full bg-purple-100 text-purple-700 dark:bg-purple-900/30 dark:text-purple-400 text-xs font-bold uppercase tracking-widest mb-6 animate-pulse-slow">✨ Nueva IA Beta</span>
+            <h2 class="text-4xl md:text-5xl font-extrabold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-purple-600 to-blue-500">Personal Shopper IA</h2>
+            <p class="text-lg text-slate-500 dark:text-slate-400 mb-10">Dime qué te molesta y el algoritmo encontrará la solución perfecta para ti.</p>
+
+            <div class="bg-slate-900 text-white rounded-[2.5rem] p-8 shadow-premium border border-slate-700 relative overflow-hidden text-left">
+                <div class="absolute top-0 right-0 w-64 h-64 bg-purple-600 rounded-full mix-blend-overlay filter blur-[80px] opacity-20 animate-pulse"></div>
+
+                <div id="ai-step-1" class="relative z-10">
+                    <label class="block text-lg font-bold mb-6 text-center">¿Cuál es tu mayor problema ahora mismo?</label>
+                    <div class="grid gap-4">
+                        <button onclick="runAI('espalda')" class="p-4 rounded-xl bg-slate-800 hover:bg-purple-600 border border-slate-700 hover:border-purple-500 transition-all flex items-center gap-4 group">
+                            <span class="text-2xl">🦴</span>
+                            <span class="font-semibold group-hover:text-white">Me duele la espalda o el cuello</span>
+                        </button>
+                        <button onclick="runAI('lento')" class="p-4 rounded-xl bg-slate-800 hover:bg-blue-600 border border-slate-700 hover:border-blue-500 transition-all flex items-center gap-4 group">
+                            <span class="text-2xl">🐌</span>
+                            <span class="font-semibold group-hover:text-white">Mi ordenador va muy lento</span>
+                        </button>
+                        <button onclick="runAI('caos')" class="p-4 rounded-xl bg-slate-800 hover:bg-emerald-600 border border-slate-700 hover:border-emerald-500 transition-all flex items-center gap-4 group">
+                            <span class="text-2xl">🔌</span>
+                            <span class="font-semibold group-hover:text-white">Tengo la mesa llena de cables</span>
+                        </button>
+                        <button onclick="runAI('pantalla')" class="p-4 rounded-xl bg-slate-800 hover:bg-orange-600 border border-slate-700 hover:border-orange-500 transition-all flex items-center gap-4 group">
+                            <span class="text-2xl">💻</span>
+                            <span class="font-semibold group-hover:text-white">Me falta espacio en la pantalla</span>
+                        </button>
+                    </div>
                 </div>
 
-                 <div class="bg-white dark:bg-slate-900 p-6 rounded-3xl border border-slate-200 dark:border-slate-800 shadow-lg flex flex-col md:flex-row items-center gap-6 text-left">
-                    <div class="w-16 h-16 bg-orange-100 text-orange-600 rounded-2xl flex items-center justify-center text-3xl">👀</div>
-                    <div class="flex-1">
-                        <h3 class="text-lg font-bold text-slate-900 dark:text-white">Altura del Monitor</h3>
-                        <p class="text-sm text-slate-500">Tus ojos deben alinearse con el borde superior.</p>
-                        <div class="mt-2 text-md font-bold text-slate-700 dark:text-slate-300">Usa un brazo o elevador</div>
+                <div id="ai-loading" class="hidden flex-col items-center justify-center py-10 text-center relative z-10">
+                    <div class="loader ease-linear rounded-full border-4 border-t-4 border-slate-700 h-16 w-16 mb-6"></div>
+                    <h3 class="text-xl font-bold animate-pulse">El algoritmo está pensando...</h3>
+                    <p class="text-slate-400 text-sm mt-2" id="ai-status-text">Analizando compatibilidad...</p>
+                </div>
+
+                <div id="ai-result" class="hidden text-center relative z-10 fade-in">
+                    <div class="inline-block p-3 rounded-full bg-green-500/20 text-green-400 mb-4 text-3xl">✨</div>
+                    <h3 class="text-2xl font-bold mb-2">¡Lo tengo!</h3>
+                    <p class="text-slate-300 mb-6">Para tu problema, esta es la mejor inversión Calidad/Precio:</p>
+                    
+                    <div class="bg-white text-slate-900 rounded-2xl p-4 flex flex-col md:flex-row items-center gap-6 mb-6">
+                        <img id="ai-img" src="" class="w-32 h-32 object-contain rounded-xl bg-slate-100">
+                        <div class="text-left flex-1">
+                            <span class="bg-slate-900 text-white text-[10px] font-bold px-2 py-1 rounded uppercase tracking-wider" id="ai-tag">RECOMENDADO</span>
+                            <h4 class="text-xl font-bold mt-2" id="ai-prod-title">Producto</h4>
+                            <p class="text-sm text-slate-600 mt-1" id="ai-prod-desc">Descripción</p>
+                        </div>
                     </div>
-                    <a href="https://amzn.to/4qLZGEH" target="_blank" class="px-5 py-3 bg-[#FF9900] hover:bg-[#e68a00] text-white text-xs font-bold uppercase tracking-wider rounded-xl transition shadow-lg shadow-orange-500/20">
-                        Ver en Amazon ↗
+
+                    <a id="ai-link" href="#" target="_blank" class="inline-block w-full py-4 bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-500 hover:to-blue-500 text-white font-bold rounded-xl shadow-lg transform transition hover:scale-105">
+                        Ver Oferta en Amazon →
                     </a>
+                    
+                    <button onclick="resetAI()" class="mt-6 text-sm text-slate-500 hover:text-white transition underline">Probar otra vez</button>
                 </div>
 
             </div>
         </div>
+
     </main>
 
     <footer class="bg-white dark:bg-slate-950 py-8 border-t border-slate-200 dark:border-slate-800 text-center">
@@ -105,35 +164,95 @@
     </footer>
 
     <script>
+        // --- LÓGICA CALCULADORA ---
         function calcular() {
             const altura = document.getElementById('inputAltura').value;
             const resultadosDiv = document.getElementById('resultados');
             
             if (altura > 50 && altura < 250) {
-                // Fórmulas ergonómicas estándar
                 const silla = (altura * 0.29).toFixed(1); 
-                const mesa = (altura * 0.44).toFixed(1); // Altura media sentado/tecleando
+                const mesa = (altura * 0.44).toFixed(1);
                 
                 document.getElementById('resSilla').innerText = silla + " cm";
                 document.getElementById('resMesa').innerText = mesa + " cm";
                 
                 resultadosDiv.classList.remove('hidden');
-                
-                // Pequeño scroll suave hacia los resultados
-                setTimeout(() => {
-                    resultadosDiv.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                }, 100);
             } else {
                 alert("Por favor, introduce una altura válida en cm (ej: 175)");
             }
         }
-
-        // Permitir pulsar Enter para calcular
         document.getElementById('inputAltura').addEventListener("keypress", function(event) {
-            if (event.key === "Enter") {
-                calcular();
-            }
+            if (event.key === "Enter") calcular();
         });
+
+        // --- LÓGICA INTELLIGENCIA ARTIFICIAL (SIMULADA) ---
+        const aiData = {
+            'espalda': {
+                title: "Silla Ticova Ergonómica",
+                desc: "Si te duele la espalda, necesitas soporte lumbar ajustable. Esta es la nº1 en calidad-precio.",
+                img: "https://m.media-amazon.com/images/I/61tCKoGwAUL._AC_SL1500_.jpg",
+                link: "https://amzn.to/3Ll9gQ9",
+                tag: "SALUD"
+            },
+            'lento': {
+                title: "Kit RAM Lexar DDR4",
+                desc: "No cambies de PC todavía. Ampliar la RAM es la forma más barata de revivirlo.",
+                img: "https://m.media-amazon.com/images/I/71zWep+u5FL._AC_SL1500_.jpg",
+                link: "https://amzn.to/4jMhvkK",
+                tag: "RENDIMIENTO"
+            },
+            'caos': {
+                title: "Caja Organizadora Cables",
+                desc: "El desorden visual genera estrés. Esconde todos los cables y regletas en segundos.",
+                img: "https://m.media-amazon.com/images/I/51Y9tOPzfWL._AC_SL1500_.jpg",
+                link: "https://amzn.to/4pHXEVq",
+                tag: "MINIMALISMO"
+            },
+            'pantalla': {
+                title: "Monitor Portátil USB-C",
+                desc: "Multiplica tu productividad x2. Se conecta con un solo cable y no ocupa espacio.",
+                img: "https://m.media-amazon.com/images/I/81CAEaITkeL._AC_SL1500_.jpg",
+                link: "https://amzn.to/49YbuwW",
+                tag: "PRODUCTIVIDAD"
+            }
+        };
+
+        function runAI(problem) {
+            const step1 = document.getElementById('ai-step-1');
+            const loading = document.getElementById('ai-loading');
+            const result = document.getElementById('ai-result');
+            const statusText = document.getElementById('ai-status-text');
+
+            // 1. Ocultar preguntas y mostrar carga
+            step1.classList.add('hidden');
+            loading.classList.remove('hidden');
+            loading.classList.add('flex');
+
+            // 2. Simular proceso de pensamiento (mensajes cambiantes)
+            setTimeout(() => { statusText.innerText = "Escaneando catálogo..."; }, 1000);
+            setTimeout(() => { statusText.innerText = "Encontrando mejor precio..."; }, 2000);
+
+            // 3. Mostrar resultado tras 3 segundos
+            setTimeout(() => {
+                const data = aiData[problem];
+                
+                document.getElementById('ai-prod-title').innerText = data.title;
+                document.getElementById('ai-prod-desc').innerText = data.desc;
+                document.getElementById('ai-img').src = data.img;
+                document.getElementById('ai-link').href = data.link;
+                document.getElementById('ai-tag').innerText = data.tag;
+
+                loading.classList.add('hidden');
+                loading.classList.remove('flex');
+                result.classList.remove('hidden');
+            }, 3000);
+        }
+
+        function resetAI() {
+            document.getElementById('ai-result').classList.add('hidden');
+            document.getElementById('ai-step-1').classList.remove('hidden');
+        }
     </script>
 </body>
 </html>
+
