@@ -52,6 +52,10 @@
         .glass { background: rgba(255, 255, 255, 0.75); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); }
         .dark .glass { background: rgba(15, 23, 42, 0.85); }
         .product-card { transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1); }
+        
+        /* Estilos extra para el acordeón FAQ */
+        details > summary { list-style: none; }
+        details > summary::-webkit-details-marker { display: none; }
     </style>
 </head>
 
@@ -271,6 +275,73 @@
                 </div>
             </div>
         </div>
+    </section>
+
+    <section class="max-w-4xl mx-auto px-6 py-20">
+        <div class="text-center mb-12">
+            <h2 class="text-3xl font-bold mb-4 text-slate-900 dark:text-white">Dudas Frecuentes</h2>
+            <p class="text-slate-500 text-sm">Lo que todo el mundo se pregunta al montar su setup.</p>
+        </div>
+
+        <div class="space-y-4">
+            <details class="group bg-white dark:bg-slate-900 rounded-3xl p-6 border border-slate-200 dark:border-slate-800 shadow-sm hover:shadow-md transition-all cursor-pointer">
+                <summary class="flex justify-between items-center font-bold text-lg text-slate-800 dark:text-slate-200">
+                    ¿A qué altura debo poner mi monitor?
+                    <span class="transition group-open:rotate-180">
+                        <svg fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path></svg>
+                    </span>
+                </summary>
+                <p class="text-slate-500 mt-4 leading-relaxed text-sm">
+                    El borde superior de la pantalla debe quedar exactamente a la altura de tus ojos. Si está más bajo, forzarás el cuello hacia abajo (el famoso "cuello de texto"). Usa un <a href="#productos" class="text-primary hover:underline">brazo o elevador</a> para ajustarlo.
+                </p>
+            </details>
+
+            <details class="group bg-white dark:bg-slate-900 rounded-3xl p-6 border border-slate-200 dark:border-slate-800 shadow-sm hover:shadow-md transition-all cursor-pointer">
+                <summary class="flex justify-between items-center font-bold text-lg text-slate-800 dark:text-slate-200">
+                    ¿Merece la pena un escritorio elevable?
+                    <span class="transition group-open:rotate-180">
+                        <svg fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path></svg>
+                    </span>
+                </summary>
+                <p class="text-slate-500 mt-4 leading-relaxed text-sm">
+                    Absolutamente. El cuerpo humano no está diseñado para estar 8 horas estático. Alternar entre sentado y de pie cada 2 horas reactiva la circulación y dispara la concentración. Es la mejor inversión a largo plazo.
+                </p>
+            </details>
+
+            <details class="group bg-white dark:bg-slate-900 rounded-3xl p-6 border border-slate-200 dark:border-slate-800 shadow-sm hover:shadow-md transition-all cursor-pointer">
+                <summary class="flex justify-between items-center font-bold text-lg text-slate-800 dark:text-slate-200">
+                    ¿Qué iluminación es mejor para trabajar?
+                    <span class="transition group-open:rotate-180">
+                        <svg fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path></svg>
+                    </span>
+                </summary>
+                <p class="text-slate-500 mt-4 leading-relaxed text-sm">
+                    Evita la luz directa sobre la pantalla (reflejos) o trabajar solo con la luz del monitor (contraste alto). Lo ideal es una <a href="#productos" class="text-primary hover:underline">barra de luz (ScreenBar)</a> que ilumine el escritorio sin darte en los ojos.
+                </p>
+            </details>
+        </div>
+        
+        <script type="application/ld+json">
+        {
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          "mainEntity": [{
+            "@type": "Question",
+            "name": "¿A qué altura debo poner mi monitor?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "El borde superior de la pantalla debe quedar exactamente a la altura de tus ojos para evitar dolor cervical."
+            }
+          }, {
+            "@type": "Question",
+            "name": "¿Merece la pena un escritorio elevable?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Sí, alternar entre sentado y de pie reactiva la circulación y mejora la concentración."
+            }
+          }]
+        }
+        </script>
     </section>
 
     <footer class="bg-white dark:bg-slate-950 py-12 border-t border-slate-200 dark:border-slate-800 text-center">
@@ -623,3 +694,4 @@
     </script>
 </body>
 </html>
+
