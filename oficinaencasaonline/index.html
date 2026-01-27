@@ -200,7 +200,7 @@
             <div class="flex flex-wrap justify-center gap-3">
                 <button class="filter-btn active !bg-primary !text-white !border-primary px-7 py-3 rounded-full border border-slate-200 dark:border-slate-700 text-sm font-bold transition" data-category="all">Todos</button>
                 <button class="filter-btn px-7 py-3 rounded-full bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-sm font-bold transition" data-category="ergo">Ergonomía</button>
-                <button class="filter-btn px-7 py-3 rounded-full bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-sm font-bold transition" data-category="desk">Escritorio</button>
+                <button class="filter-btn px-7 py-3 rounded-full bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-sm font-bold transition" data-category="desk">Escritorios</button>
                 <button class="filter-btn px-7 py-3 rounded-full bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-sm font-bold transition" data-category="acc">Accesorios</button>
                 <button class="filter-btn px-7 py-3 rounded-full bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-sm font-bold transition" data-category="tech">Tech & Gadgets</button>
                 <button class="filter-btn px-7 py-3 rounded-full bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-sm font-bold transition" data-category="pc">Ordenadores y RAM</button>
@@ -444,14 +444,89 @@
                 link: "https://amzn.to/4jT32DW" 
             },
 
-            // --- 2. PRODUCTOS ANTERIORES ---
-            { categoria: "ergo", titulo: "Silla SONGMICS Pro", desc: "Soporte lumbar ajustable y malla transpirable.", img: "https://m.media-amazon.com/images/I/81tt0QgRGJL._AC_SL1500_.jpg", link: "https://amzn.to/44Wcq3f", tag: "TOP VENTAS" },
-            { categoria: "desk", titulo: "Escritorio Elevable", desc: "Regulación de altura precisa para trabajar dinámicamente.", img: "https://m.media-amazon.com/images/I/61pl8xkp5xL._AC_SX679_.jpg", link: "https://amzn.to/4qupXHA" },
-            { categoria: "acc", titulo: "Soporte Portátil", desc: "Eleva la pantalla a la altura de tus ojos cómodamente.", img: "https://m.media-amazon.com/images/I/61BK9+YGKML._AC_SL1500_.jpg", link: "https://amzn.to/4aGRYar" },
-            { categoria: "desk", titulo: "Lámpara Monitor", desc: "Iluminación sin reflejos directa sobre tu teclado.", img: "https://m.media-amazon.com/images/I/61HWVh6wxqL._AC_SL1500_.jpg", link: "https://amzn.to/3YRFntF" },
-            { categoria: "acc", titulo: "Reposapies Pro", desc: "Mejora la circulación y postura sentado.", img: "https://m.media-amazon.com/images/I/51-LmMCoscL._AC_SL1000_.jpg", link: "https://amzn.to/4pHhGPP" },
-            { categoria: "desk", titulo: "Cajonera Móvil", desc: "Almacenamiento eficiente bajo el escritorio.", img: "https://m.media-amazon.com/images/I/511hfGz8lpL._AC_SL1500_.jpg", link: "https://amzn.to/4qFHtZG" },
-            { categoria: "desk", titulo: "Módulo 5 cajones", desc: "Ideal para clasificar documentos A4 con orden.", img: "https://m.media-amazon.com/images/I/61OkbjZ7otL._AC_SL1200_.jpg", link: "https://amzn.to/4jnUiVX" },
+            // --- ESCRITORIOS (Categoría DESK limpia) ---
+            {
+                categoria: "desk",
+                titulo: "Agilestic Elevable 120cm",
+                desc: "Motor silencioso y memoria de altura. La opción equilibrada para tu salud.",
+                img: "https://m.media-amazon.com/images/I/6197UATlwNL._AC_SL1500_.jpg",
+                link: "https://amzn.to/464vRY8",
+                tag: "MOTOR SILENCIOSO"
+            },
+            {
+                categoria: "desk",
+                titulo: "HLFURNIEU Stand Up",
+                desc: "Estructura sólida anti-tambaleo. Trabaja de pie con total seguridad.",
+                img: "https://m.media-amazon.com/images/I/61BnIaDfe9L._AC_SL1500_.jpg",
+                link: "https://amzn.to/49JRKhR"
+            },
+            {
+                categoria: "desk",
+                titulo: "HUANUO Compacto 80cm",
+                desc: "Ideal para espacios pequeños. Ajuste eléctrico en formato mini.",
+                img: "https://m.media-amazon.com/images/I/61U0DUlJOuL._AC_SL1500_.jpg",
+                link: "https://amzn.to/4rmU3NP",
+                tag: "COMPACTO"
+            },
+            { 
+                categoria: "desk", 
+                titulo: "Escritorio Elevable Pro", 
+                desc: "Regulación de altura precisa para trabajar dinámicamente.", 
+                img: "https://m.media-amazon.com/images/I/61pl8xkp5xL._AC_SX679_.jpg", 
+                link: "https://amzn.to/4qupXHA" 
+            },
+
+            // --- 2. ACCESORIOS (Incluye los movidos desde desk) ---
+            { 
+                categoria: "ergo", 
+                titulo: "Silla SONGMICS Pro", 
+                desc: "Soporte lumbar ajustable y malla transpirable.", 
+                img: "https://m.media-amazon.com/images/I/81tt0QgRGJL._AC_SL1500_.jpg", 
+                link: "https://amzn.to/44Wcq3f", 
+                tag: "TOP VENTAS" 
+            },
+            { 
+                categoria: "acc", 
+                titulo: "Lámpara Monitor", 
+                desc: "Iluminación sin reflejos directa sobre tu teclado.", 
+                img: "https://m.media-amazon.com/images/I/61HWVh6wxqL._AC_SL1500_.jpg", 
+                link: "https://amzn.to/3YRFntF" 
+            },
+            { 
+                categoria: "acc", 
+                titulo: "Cajonera Móvil", 
+                desc: "Almacenamiento eficiente bajo el escritorio.", 
+                img: "https://m.media-amazon.com/images/I/511hfGz8lpL._AC_SL1500_.jpg", 
+                link: "https://amzn.to/4qFHtZG" 
+            },
+            { 
+                categoria: "acc", 
+                titulo: "Módulo 5 cajones", 
+                desc: "Ideal para clasificar documentos A4 con orden.", 
+                img: "https://m.media-amazon.com/images/I/61OkbjZ7otL._AC_SL1200_.jpg", 
+                link: "https://amzn.to/4jnUiVX" 
+            },
+            { 
+                categoria: "acc", 
+                titulo: "Alfombrilla Fieltro", 
+                desc: "Capa de confort extra para tu setup.", 
+                img: "https://m.media-amazon.com/images/I/71sNZ6t0z8L._AC_SL1500_.jpg", 
+                link: "https://amzn.to/49wShm0" 
+            },
+            { 
+                categoria: "acc", 
+                titulo: "Soporte Portátil", 
+                desc: "Eleva la pantalla a la altura de tus ojos cómodamente.", 
+                img: "https://m.media-amazon.com/images/I/61BK9+YGKML._AC_SL1500_.jpg", 
+                link: "https://amzn.to/4aGRYar" 
+            },
+            { 
+                categoria: "acc", 
+                titulo: "Reposapies Pro", 
+                desc: "Mejora la circulación y postura sentado.", 
+                img: "https://m.media-amazon.com/images/I/51-LmMCoscL._AC_SL1000_.jpg", 
+                link: "https://amzn.to/4pHhGPP" 
+            },
             
             // --- AQUÍ ESTÁ LA NUEVA PAPELERA TECHZOCO ---
             { 
@@ -477,10 +552,14 @@
                 img: "https://m.media-amazon.com/images/I/71tEutfM3eL._AC_SL1500_.jpg", 
                 link: "https://amzn.to/49wFyzJ" 
             },
-            
-            { categoria: "acc", titulo: "Suministros Pro", desc: "Verticalidad inteligente para tu mesa.", img: "https://m.media-amazon.com/images/I/61K3aaAo9cL._AC_SL1500_.jpg", link: "https://amzn.to/4jF6EcE" },
-            { categoria: "desk", titulo: "Alfombrilla Fieltro", desc: "Capa de confort extra para tu setup.", img: "https://m.media-amazon.com/images/I/71sNZ6t0z8L._AC_SL1500_.jpg", link: "https://amzn.to/49wShm0" },
-            
+            { 
+                categoria: "acc", 
+                titulo: "Suministros Pro", 
+                desc: "Verticalidad inteligente para tu mesa.", 
+                img: "https://m.media-amazon.com/images/I/61K3aaAo9cL._AC_SL1500_.jpg", 
+                link: "https://amzn.to/4jF6EcE" 
+            },
+
             // --- PRODUCTOS TECH ---
             { 
                 categoria: "tech", 
@@ -490,8 +569,6 @@
                 link: "https://amzn.to/49YbuwW",
                 tag: "PRODUCTIVIDAD"
             },
-
-            
             { 
                 categoria: "tech", 
                 titulo: "Webcam EMEET 1080P", 
@@ -673,20 +750,17 @@
             });
         });
 
-        // --- CÓDIGO NUEVO AÑADIDO: Auto-filtro desde URL ---
+        // Auto-filtro desde URL
         window.addEventListener('load', () => {
             const params = new URLSearchParams(window.location.search);
-            const categoryToLoad = params.get('ver'); // Usaremos 'ver' como palabra clave
+            const categoryToLoad = params.get('ver'); 
 
             if (categoryToLoad) {
-                // Buscamos el botón que corresponde a esa categoría
                 const targetBtn = document.querySelector(`.filter-btn[data-category="${categoryToLoad}"]`);
                 
                 if (targetBtn) {
-                    // Simulamos un clic en el botón para activar el filtro
                     targetBtn.click();
                     
-                    // Llevamos al usuario suavemente a la sección de productos
                     setTimeout(() => {
                         document.getElementById('productos').scrollIntoView({ behavior: 'smooth' });
                     }, 500);
@@ -696,4 +770,3 @@
     </script>
 </body>
 </html>
-
