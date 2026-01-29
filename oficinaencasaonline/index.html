@@ -80,7 +80,6 @@
         body.gaming-mode header { border-bottom-color: rgba(255, 51, 51, 0.3) !important; }
 
         /* --- FIX BOTONES DE FILTRO (Solución de Legibilidad) --- */
-        /* En modo gaming, los botones son negros con borde gris/rojo, ignorando el tema light */
         body.gaming-mode .filter-btn {
             background-color: #000000 !important; 
             color: #ffffff !important; 
@@ -93,7 +92,7 @@
         }
         body.gaming-mode .filter-btn.active {
             background-color: #ff3333 !important;
-            color: #000000 !important; /* Texto negro sobre fondo rojo */
+            color: #000000 !important; 
             border-color: #ff3333 !important;
             box-shadow: 0 0 20px rgba(255, 51, 51, 0.6) !important;
         }
@@ -101,12 +100,11 @@
         /* --- TARJETAS EN MODO GAMING (Lógica de encendido por scroll) --- */
         body.gaming-mode .product-card {
             background-color: #0a0a0a !important;
-            border-color: #333 !important; /* Apagado por defecto */
+            border-color: #333 !important;
             box-shadow: none !important;
             transition: border-color 0.8s ease, box-shadow 0.8s ease, transform 0.5s ease;
         }
         
-        /* Clase activada por JS al hacer scroll */
         body.gaming-mode .product-card.neon-on {
             border-color: #ff3333 !important;
             box-shadow: 0 0 30px rgba(255, 51, 51, 0.25) !important;
@@ -953,7 +951,7 @@
             }
         });
 
-        // --- LÓGICA ZONA GAMING (ROJA + ETIQUETA + SCROLL NEÓN) ---
+        // --- LÓGICA ZONA GAMING (ROJA + ETIQUETA + SCROLL NEÓN + SCROLL INTELIGENTE) ---
         const btnGaming = document.getElementById('btn-gaming');
         const mobileGamingBtn = document.getElementById('mobile-gaming-btn');
         const gamingToast = document.getElementById('gaming-toast');
@@ -1016,8 +1014,10 @@
                 // Damos un pequeño respiro para que el DOM se actualice antes de observar
                 setTimeout(() => startNeonObserver(), 100);
                 
-                // 5. Scroll suave hacia los productos
-                document.getElementById('productos').scrollIntoView({ behavior: 'smooth' });
+                // 5. Scroll DIRECTO al Texto Gancho (Efecto "Entrar en Zona")
+                if(heroText) {
+                    heroText.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
                 
                 // Desactivar visualmente los filtros normales
                 document.querySelectorAll('.filter-btn').forEach(b => {
@@ -1050,5 +1050,6 @@
     </script>
 </body>
 </html>
+
 
 
