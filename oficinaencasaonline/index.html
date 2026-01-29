@@ -53,7 +53,7 @@
         .dark .glass { background: rgba(15, 23, 42, 0.85); }
         .product-card { transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1); }
         
-        /* Ocultar barra de scroll en filtros horizontal */
+        /* Ocultar barra de scroll en filtros */
         .no-scrollbar::-webkit-scrollbar { display: none; }
         .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
 
@@ -62,7 +62,7 @@
         details > summary::-webkit-details-marker { display: none; }
 
         /* =========================================
-           ZONA GAMING - ESTILOS HARDCORE v3.5 (MOBILE PRO)
+           ZONA GAMING - ESTILOS HARDCORE v3.6
            ========================================= */
         
         body.gaming-mode {
@@ -87,8 +87,6 @@
         body.gaming-mode header .font-bold.tracking-tight { 
             background: none !important; -webkit-text-fill-color: white !important; color: white !important; text-shadow: 0 0 10px rgba(255,255,255,0.3);
         }
-        
-        /* Fix Botón Hamburguesa Móvil en Gaming Mode */
         body.gaming-mode #mobile-menu-btn { color: #ffffff !important; }
 
         /* FIX BOTONES FILTRO (NEGROS) */
@@ -100,6 +98,12 @@
         }
         body.gaming-mode button.filter-btn.active {
             background-color: #ff3333 !important; color: #000000 !important; border-color: #ff3333 !important; box-shadow: 0 0 20px rgba(255, 51, 51, 0.6) !important;
+        }
+
+        /* --- NUEVO: DEGRADADO DE FILTROS EN ZONA GAMING --- */
+        /* Cambia el degradado blanco/gris a negro cuando estamos en modo gaming */
+        body.gaming-mode #filter-fade-right {
+            background: linear-gradient(to left, #050505, transparent) !important;
         }
 
         /* TARJETAS GAMING (NEÓN SCROLL) */
@@ -247,13 +251,16 @@
                 </div>
             </div>
 
-            <div class="flex overflow-x-auto pb-4 gap-3 no-scrollbar snap-x touch-pan-x md:justify-center md:flex-wrap">
-                <button class="filter-btn active flex-shrink-0 snap-start !bg-primary !text-white !border-primary px-7 py-3 rounded-full border border-slate-200 dark:border-slate-700 text-sm font-bold transition whitespace-nowrap" data-category="all">Todos</button>
-                <button class="filter-btn flex-shrink-0 snap-start px-7 py-3 rounded-full bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-sm font-bold transition whitespace-nowrap" data-category="ergo">Ergonomía</button>
-                <button class="filter-btn flex-shrink-0 snap-start px-7 py-3 rounded-full bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-sm font-bold transition whitespace-nowrap" data-category="desk">Escritorios</button>
-                <button class="filter-btn flex-shrink-0 snap-start px-7 py-3 rounded-full bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-sm font-bold transition whitespace-nowrap" data-category="acc">Accesorios</button>
-                <button class="filter-btn flex-shrink-0 snap-start px-7 py-3 rounded-full bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-sm font-bold transition whitespace-nowrap" data-category="tech">Tech & Gadgets</button>
-                <button class="filter-btn flex-shrink-0 snap-start px-7 py-3 rounded-full bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-sm font-bold transition whitespace-nowrap" data-category="pc">Ordenadores y RAM</button>
+            <div class="relative group">
+                <div class="flex overflow-x-auto pb-4 gap-3 no-scrollbar snap-x touch-pan-x md:justify-center md:flex-wrap">
+                    <button class="filter-btn active flex-shrink-0 snap-start !bg-primary !text-white !border-primary px-7 py-3 rounded-full border border-slate-200 dark:border-slate-700 text-sm font-bold transition whitespace-nowrap" data-category="all">Todos</button>
+                    <button class="filter-btn flex-shrink-0 snap-start px-7 py-3 rounded-full bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-sm font-bold transition whitespace-nowrap" data-category="ergo">Ergonomía</button>
+                    <button class="filter-btn flex-shrink-0 snap-start px-7 py-3 rounded-full bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-sm font-bold transition whitespace-nowrap" data-category="desk">Escritorios</button>
+                    <button class="filter-btn flex-shrink-0 snap-start px-7 py-3 rounded-full bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-sm font-bold transition whitespace-nowrap" data-category="acc">Accesorios</button>
+                    <button class="filter-btn flex-shrink-0 snap-start px-7 py-3 rounded-full bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-sm font-bold transition whitespace-nowrap" data-category="tech">Tech & Gadgets</button>
+                    <button class="filter-btn flex-shrink-0 snap-start px-7 py-3 rounded-full bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-sm font-bold transition whitespace-nowrap" data-category="pc">Ordenadores y RAM</button>
+                </div>
+                <div id="filter-fade-right" class="absolute right-0 top-0 h-full w-12 bg-gradient-to-l from-slate-50 via-slate-50/90 to-transparent dark:from-slate-950 dark:via-slate-950/90 pointer-events-none md:hidden"></div>
             </div>
         </div>
 
@@ -618,4 +625,3 @@
     </script>
 </body>
 </html>
-
