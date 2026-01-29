@@ -57,18 +57,18 @@
         details > summary { list-style: none; }
         details > summary::-webkit-details-marker { display: none; }
 
-        /* --- ZONA GAMING RED NEON (CORREGIDO) --- */
+        /* --- ZONA GAMING & EFECTO NEÓN SCROLL --- */
         body.gaming-mode {
             background-color: #050505 !important;
             color: #e0e0e0;
         }
         
-        /* ROJO NEÓN #ff3333 */
+        /* Colores Base Rojos */
         body.gaming-mode .text-primary { color: #ff3333 !important; text-shadow: 0 0 12px rgba(255, 51, 51, 0.6); }
         body.gaming-mode .bg-primary { background-color: #ff3333 !important; color: #000 !important; box-shadow: 0 0 20px rgba(255, 51, 51, 0.6); }
         body.gaming-mode .border-primary { border-color: #ff3333 !important; }
         
-        /* FIX VISIBILIDAD HEADER: Forzamos blanco en el menú */
+        /* Visibilidad Header */
         body.gaming-mode header nav a { color: #ffffff !important; opacity: 0.8; }
         body.gaming-mode header nav a:hover { color: #ff3333 !important; opacity: 1; text-shadow: 0 0 10px rgba(255,51,51,0.8); }
         body.gaming-mode header .font-bold.tracking-tight { 
@@ -77,18 +77,30 @@
             color: white !important;
             text-shadow: 0 0 10px rgba(255,255,255,0.3);
         }
+        body.gaming-mode header { border-bottom-color: rgba(255, 51, 51, 0.3) !important; }
 
-        /* Estilos tarjetas en modo gaming */
+        /* --- TARJETAS EN MODO GAMING (Logica de encendido) --- */
+        
+        /* Estado 1: Apagado (Por defecto al entrar en modo gaming) */
         body.gaming-mode .product-card {
             background-color: #0a0a0a !important;
-            border-color: #333 !important;
+            border-color: #333 !important; /* Borde oscuro */
+            box-shadow: none !important;    /* Sin brillo */
+            transition: border-color 0.8s ease, box-shadow 0.8s ease, transform 0.5s ease;
         }
-        body.gaming-mode .product-card:hover {
+
+        /* Estado 2: Encendido (Cuando el JS detecta el scroll) */
+        body.gaming-mode .product-card.neon-on {
             border-color: #ff3333 !important;
-            box-shadow: 0 0 25px rgba(255, 51, 51, 0.2) !important;
+            box-shadow: 0 0 30px rgba(255, 51, 51, 0.25) !important;
         }
-        /* Línea del header roja sutil */
-        body.gaming-mode header { border-bottom-color: rgba(255, 51, 51, 0.3) !important; }
+
+        /* Hover siempre activo para feedback */
+        body.gaming-mode .product-card:hover {
+            transform: scale(1.03);
+            border-color: #ff6666 !important;
+            box-shadow: 0 0 40px rgba(255, 51, 51, 0.5) !important;
+        }
     </style>
 </head>
 
@@ -818,11 +830,37 @@
             }
         });
 
-        // --- LÓGICA ZONA GAMING (ROJA + ETIQUETA) ---
+        // --- LÓGICA ZONA GAMING (ROJA + ETIQUETA + SCROLL NEÓN) ---
         const btnGaming = document.getElementById('btn-gaming');
         const mobileGamingBtn = document.getElementById('mobile-gaming-btn');
         const gamingToast = document.getElementById('gaming-toast');
         let isGamingMode = false;
+        let neonObserver = null; // Guardamos el observador globalmente
+
+        // Configuración del Observador (detecta cuando el 20% de la tarjeta es visible)
+        const observerOptions = {
+            root: null,
+            threshold: 0.2
+        };
+
+        function startNeonObserver() {
+            // Limpiamos observadores previos si existen
+            if (neonObserver) neonObserver.disconnect();
+
+            neonObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        // ENCENDER EL NEÓN
+                        entry.target.classList.add('neon-on');
+                        // Dejamos de observar este elemento para ahorrar recursos
+                        neonObserver.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+
+            // Empezamos a observar todas las tarjetas renderizadas
+            document.querySelectorAll('.product-card').forEach(card => neonObserver.observe(card));
+        }
 
         function toggleGamingMode() {
             isGamingMode = !isGamingMode;
@@ -842,10 +880,13 @@
 
                 // 2. FILTRAR POR LA ETIQUETA "GAMING: TRUE"
                 const gamingProducts = productos.filter(p => p.gaming === true);
-                
                 render(gamingProducts);
+
+                // 3. ACTIVAR EL EFECTO SCROLL NEÓN
+                // Damos un pequeño respiro para que el DOM se actualice antes de observar
+                setTimeout(() => startNeonObserver(), 100);
                 
-                // 3. Scroll suave hacia los productos
+                // 4. Scroll suave hacia los productos
                 document.getElementById('productos').scrollIntoView({ behavior: 'smooth' });
                 
                 // Desactivar visualmente los filtros normales
@@ -856,6 +897,7 @@
 
             } else {
                 // --- VOLVER A LA OFICINA ---
+                if (neonObserver) neonObserver.disconnect(); // Apagamos el observador
                 render(productos);
                 document.querySelector('.filter-btn[data-category="all"]').click();
             }
@@ -870,4 +912,3 @@
     </script>
 </body>
 </html>
-
