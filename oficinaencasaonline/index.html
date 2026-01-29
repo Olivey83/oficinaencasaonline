@@ -56,11 +56,36 @@
         /* Estilos extra para el acordeón FAQ */
         details > summary { list-style: none; }
         details > summary::-webkit-details-marker { display: none; }
+
+        /* --- ZONA GAMING (Estilos Neón) --- */
+        body.gaming-mode {
+            background-color: #050505 !important;
+            color: #e0e0e0;
+        }
+        /* Override de colores Primary a Verde Neón */
+        body.gaming-mode .text-primary { color: #00ff9d !important; text-shadow: 0 0 10px rgba(0,255,157,0.3); }
+        body.gaming-mode .bg-primary { background-color: #00ff9d !important; color: #000 !important; box-shadow: 0 0 20px rgba(0,255,157,0.5); }
+        body.gaming-mode .border-primary { border-color: #00ff9d !important; }
+        
+        /* Estilos tarjetas en modo gaming */
+        body.gaming-mode .product-card {
+            background-color: #0a0a0a !important;
+            border-color: #333 !important;
+        }
+        body.gaming-mode .product-card:hover {
+            border-color: #00ff9d !important;
+            box-shadow: 0 0 25px rgba(0, 255, 157, 0.15) !important;
+        }
+        body.gaming-mode header { border-bottom-color: rgba(0,255,157,0.2) !important; }
     </style>
 </head>
 
-<body class="bg-slate-50 text-slate-900 dark:bg-slate-950 dark:text-slate-50 antialiased overflow-x-hidden">
+<body class="bg-slate-50 text-slate-900 dark:bg-slate-950 dark:text-slate-50 antialiased overflow-x-hidden transition-colors duration-500">
     
+    <div id="gaming-toast" class="fixed top-28 left-1/2 transform -translate-x-1/2 bg-black/90 text-[#00ff9d] px-8 py-3 rounded-full border border-[#00ff9d] shadow-[0_0_30px_rgba(0,255,157,0.3)] backdrop-blur-md z-[60] opacity-0 pointer-events-none transition-all duration-500 scale-90">
+        <span class="font-bold tracking-widest uppercase flex items-center gap-2">🚀 MODO GAMING ACTIVADO</span>
+    </div>
+
     <header class="fixed w-full top-0 z-50 glass border-b border-slate-200/50 dark:border-slate-800/50 transition-all duration-300" id="main-nav">
         <div class="max-w-7xl mx-auto flex items-center justify-between px-6 py-4">
             <a href="#" class="flex items-center gap-3 group">
@@ -89,14 +114,18 @@
                 <span class="font-bold text-lg tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-slate-900 to-slate-600 dark:from-white dark:to-slate-400">Oficina en Casa</span>
             </a>
             
-            <nav class="hidden md:flex items-center gap-8">
+            <nav class="hidden md:flex items-center gap-6">
                 <a href="#productos" class="text-sm font-semibold hover:text-primary transition">Productos</a>
                 <a href="blog-dolor-espalda.html" class="text-sm font-semibold text-primary hover:underline decoration-2 underline-offset-4 transition">Cuida tu espalda</a>
                 
                 <a href="herramientas.html" class="text-sm font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-blue-500 hover:opacity-80 transition">✨ Setup Studio</a>
                 
                 <a href="#guia" class="text-sm font-semibold hover:text-primary transition">Ergonomía</a>
-                <a href="#consejos" class="text-sm font-semibold hover:text-primary transition">Errores</a>
+                
+                <button id="btn-gaming" class="group relative px-4 py-2 font-bold text-sm rounded-xl overflow-hidden bg-slate-100 dark:bg-slate-800 transition-all hover:scale-105 border border-transparent hover:border-purple-500/30">
+                    <div class="absolute inset-0 w-full h-full bg-gradient-to-r from-purple-600 to-pink-500 opacity-0 group-hover:opacity-10 transition-opacity duration-300"></div>
+                    <span class="relative z-10 group-hover:text-purple-600 dark:group-hover:text-purple-400 transition-colors flex items-center gap-1">Zona Gaming 🎮</span>
+                </button>
                 
                 <button id="theme-toggle" class="p-2.5 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-500 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-slate-700 transition-all shadow-sm">
                     <svg id="theme-toggle-light-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z"></path></svg>
@@ -114,7 +143,7 @@
             <a href="herramientas.html" class="block text-lg font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-blue-500">✨ Setup Studio</a>
             <a href="blog-dolor-espalda.html" class="block text-lg font-medium text-primary font-bold">Cuida tu espalda</a>
             <a href="#guia" class="block text-lg font-medium">Ergonomía</a>
-            <a href="#consejos" class="block text-lg font-medium">Errores</a>
+            <button id="mobile-gaming-btn" class="w-full py-2 bg-slate-100 dark:bg-slate-800 rounded-lg font-bold">Zona Gaming 🎮</button>
         </div>
     </header>
 
@@ -403,14 +432,16 @@
                 desc: "Olvídate de los cortes. WiFi 6 Mesh para cobertura total en toda la casa.", 
                 img: "https://m.media-amazon.com/images/I/41bEk1ukEtL._AC_SL1000_.jpg", 
                 link: "https://amzn.to/4r5n945",
-                tag: "MI FAVORITO"
+                tag: "MI FAVORITO",
+                gaming: true // Ideal para jugar sin lag
             },
             { 
                 categoria: "tech", 
                 titulo: "TP-Link Deco X50", 
                 desc: "Sistema AI Mesh inteligente. El estándar de calidad para hogares grandes.", 
                 img: "https://m.media-amazon.com/images/I/61ZkAaGIkLL._AC_SL1500_.jpg", 
-                link: "https://amzn.to/3NvYPtB" 
+                link: "https://amzn.to/3NvYPtB",
+                gaming: true
             },
             { 
                 categoria: "tech", 
@@ -567,7 +598,8 @@
                 desc: "Duplica tu pantalla donde quieras. Se alimenta directo del portátil (un solo cable).", 
                 img: "https://m.media-amazon.com/images/I/81CAEaITkeL._AC_SL1500_.jpg", 
                 link: "https://amzn.to/49YbuwW",
-                tag: "PRODUCTIVIDAD"
+                tag: "PRODUCTIVIDAD",
+                gaming: true // Muy útil para Discord/Stream
             },
             { 
                 categoria: "tech", 
@@ -590,7 +622,8 @@
                 titulo: "Auriculares Wireless", 
                 desc: "Libertad inalámbrica con sonido nítido para reuniones.", 
                 img: "https://m.media-amazon.com/images/I/61PupiSYs3L._AC_SL1500_.jpg", 
-                link: "https://amzn.to/49Cyqld" 
+                link: "https://amzn.to/49Cyqld",
+                gaming: true
             },
             { 
                 categoria: "tech", 
@@ -649,7 +682,8 @@
                 desc: "Setup completo premontado. Listo para jugar y editar vídeo.", 
                 img: "https://m.media-amazon.com/images/I/71gnwUb30JL._AC_SL1500_.jpg", 
                 link: "https://amzn.to/4pAAIHr", 
-                tag: "GAMING READY" 
+                tag: "GAMING READY",
+                gaming: true // ESENCIAL
             },
             
             // --- RAM (PROYECTO RAM) ---
@@ -659,14 +693,16 @@
                 desc: "Actualización económica y fiable para acelerar tu portátil al instante.", 
                 img: "https://m.media-amazon.com/images/I/71zWep+u5FL._AC_SL1500_.jpg", 
                 link: "https://amzn.to/4jMhvkK", 
-                tag: "REVIVE TU PC" 
+                tag: "REVIVE TU PC",
+                gaming: true
             },
             { 
                 categoria: "pc", 
                 titulo: "Kingston FURY Beast 16GB", 
                 desc: "Rendimiento puro sin luces. Estética negra profesional.", 
                 img: "https://m.media-amazon.com/images/I/61uXihcspuL._AC_SL1500_.jpg", 
-                link: "https://amzn.to/4b49tlg" 
+                link: "https://amzn.to/4b49tlg",
+                gaming: true
             }
         ];
 
@@ -734,9 +770,14 @@
         window.addEventListener('scroll', reveal); reveal();
         document.getElementById('mobile-menu-btn').addEventListener('click', () => document.getElementById('mobile-menu').classList.toggle('hidden'));
         
-        // Filtros
+        // Filtros Normales
         document.querySelectorAll('.filter-btn').forEach(btn => {
             btn.addEventListener('click', () => {
+                // Si estamos en modo gaming, lo desactivamos al pulsar un filtro normal
+                if(isGamingMode) {
+                   toggleGamingMode(); 
+                }
+
                 document.querySelectorAll('.filter-btn').forEach(b => {
                     b.classList.remove('active', '!bg-primary', '!text-white', '!border-primary');
                     b.classList.add('bg-white', 'dark:bg-slate-800'); 
@@ -757,16 +798,65 @@
 
             if (categoryToLoad) {
                 const targetBtn = document.querySelector(`.filter-btn[data-category="${categoryToLoad}"]`);
-                
                 if (targetBtn) {
                     targetBtn.click();
-                    
                     setTimeout(() => {
                         document.getElementById('productos').scrollIntoView({ behavior: 'smooth' });
                     }, 500);
                 }
             }
         });
+
+        // --- LÓGICA ZONA GAMING (ACTUALIZADA) ---
+        const btnGaming = document.getElementById('btn-gaming');
+        const mobileGamingBtn = document.getElementById('mobile-gaming-btn');
+        const gamingToast = document.getElementById('gaming-toast');
+        let isGamingMode = false;
+
+        function toggleGamingMode() {
+            isGamingMode = !isGamingMode;
+            document.body.classList.toggle('gaming-mode');
+
+            // Actualizar texto de botones
+            const btnText = isGamingMode ? "Salir Modo Gaming ❌" : "Zona Gaming 🎮";
+            if(btnGaming) btnGaming.querySelector('span').innerText = btnText;
+            if(mobileGamingBtn) mobileGamingBtn.innerText = btnText;
+
+            if (isGamingMode) {
+                // 1. Mostrar Toast con estilo
+                gamingToast.classList.remove('opacity-0', 'scale-90');
+                setTimeout(() => { 
+                    gamingToast.classList.add('opacity-0', 'scale-90');
+                }, 3000);
+
+                // 2. FILTRAR POR LA ETIQUETA "GAMING: TRUE"
+                // Solo mostramos lo que hayas marcado explícitamente para gaming
+                const gamingProducts = productos.filter(p => p.gaming === true);
+                
+                render(gamingProducts);
+                
+                // 3. Scroll suave hacia los productos
+                document.getElementById('productos').scrollIntoView({ behavior: 'smooth' });
+                
+                // Desactivar visualmente los filtros normales
+                document.querySelectorAll('.filter-btn').forEach(b => {
+                     b.classList.remove('active', '!bg-primary', '!text-white');
+                     b.classList.add('bg-white', 'dark:bg-slate-800');
+                });
+
+            } else {
+                // --- VOLVER A LA OFICINA ---
+                render(productos);
+                document.querySelector('.filter-btn[data-category="all"]').click();
+            }
+        }
+
+        if(btnGaming) btnGaming.addEventListener('click', toggleGamingMode);
+        if(mobileGamingBtn) mobileGamingBtn.addEventListener('click', () => {
+            toggleGamingMode();
+            document.getElementById('mobile-menu').classList.add('hidden'); // Cerrar menú móvil
+        });
+
     </script>
 </body>
 </html>
