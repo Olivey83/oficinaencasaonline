@@ -57,18 +57,18 @@
         details > summary { list-style: none; }
         details > summary::-webkit-details-marker { display: none; }
 
-        /* --- ZONA GAMING & EFECTO NEÓN SCROLL --- */
+        /* --- ZONA GAMING RED NEON (CORREGIDO) --- */
         body.gaming-mode {
             background-color: #050505 !important;
             color: #e0e0e0;
         }
         
-        /* Colores Base Rojos */
+        /* ROJO NEÓN #ff3333 */
         body.gaming-mode .text-primary { color: #ff3333 !important; text-shadow: 0 0 12px rgba(255, 51, 51, 0.6); }
         body.gaming-mode .bg-primary { background-color: #ff3333 !important; color: #000 !important; box-shadow: 0 0 20px rgba(255, 51, 51, 0.6); }
         body.gaming-mode .border-primary { border-color: #ff3333 !important; }
         
-        /* Visibilidad Header */
+        /* FIX VISIBILIDAD HEADER */
         body.gaming-mode header nav a { color: #ffffff !important; opacity: 0.8; }
         body.gaming-mode header nav a:hover { color: #ff3333 !important; opacity: 1; text-shadow: 0 0 10px rgba(255,51,51,0.8); }
         body.gaming-mode header .font-bold.tracking-tight { 
@@ -79,23 +79,35 @@
         }
         body.gaming-mode header { border-bottom-color: rgba(255, 51, 51, 0.3) !important; }
 
-        /* --- TARJETAS EN MODO GAMING (Logica de encendido) --- */
-        
-        /* Estado 1: Apagado (Por defecto al entrar en modo gaming) */
-        body.gaming-mode .product-card {
-            background-color: #0a0a0a !important;
-            border-color: #333 !important; /* Borde oscuro */
-            box-shadow: none !important;    /* Sin brillo */
-            transition: border-color 0.8s ease, box-shadow 0.8s ease, transform 0.5s ease;
+        /* --- FIX BOTONES DE FILTRO (Solución Legibilidad) --- */
+        body.gaming-mode .filter-btn {
+            background-color: #000000 !important; 
+            color: #ffffff !important; 
+            border-color: #333333 !important;
+        }
+        body.gaming-mode .filter-btn:hover {
+            border-color: #ff3333 !important;
+            color: #ff3333 !important;
+            box-shadow: 0 0 15px rgba(255, 51, 51, 0.4) !important;
+        }
+        body.gaming-mode .filter-btn.active {
+            background-color: #ff3333 !important;
+            color: #000000 !important; /* Texto negro sobre rojo */
+            border-color: #ff3333 !important;
+            box-shadow: 0 0 20px rgba(255, 51, 51, 0.6) !important;
         }
 
-        /* Estado 2: Encendido (Cuando el JS detecta el scroll) */
+        /* --- TARJETAS EN MODO GAMING (Lógica de encendido por scroll) --- */
+        body.gaming-mode .product-card {
+            background-color: #0a0a0a !important;
+            border-color: #333 !important;
+            box-shadow: none !important;
+            transition: border-color 0.8s ease, box-shadow 0.8s ease, transform 0.5s ease;
+        }
         body.gaming-mode .product-card.neon-on {
             border-color: #ff3333 !important;
             box-shadow: 0 0 30px rgba(255, 51, 51, 0.25) !important;
         }
-
-        /* Hover siempre activo para feedback */
         body.gaming-mode .product-card:hover {
             transform: scale(1.03);
             border-color: #ff6666 !important;
@@ -256,6 +268,44 @@
                 <button class="filter-btn px-7 py-3 rounded-full bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-sm font-bold transition" data-category="acc">Accesorios</button>
                 <button class="filter-btn px-7 py-3 rounded-full bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-sm font-bold transition" data-category="tech">Tech & Gadgets</button>
                 <button class="filter-btn px-7 py-3 rounded-full bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-sm font-bold transition" data-category="pc">Ordenadores y RAM</button>
+            </div>
+        </div>
+
+        <div id="gaming-hero-text" class="hidden mb-16 relative">
+            <div class="p-8 md:p-10 rounded-[2.5rem] bg-black border-2 border-[#ff3333] shadow-[0_0_40px_rgba(255,51,51,0.15)] text-center md:text-left relative overflow-hidden group">
+                
+                <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-20"></div>
+                <div class="absolute -right-20 -top-20 w-96 h-96 bg-[#ff3333] rounded-full mix-blend-overlay filter blur-[100px] opacity-20 animate-pulse"></div>
+
+                <div class="relative z-10 grid md:grid-cols-3 gap-8 items-center">
+                    <div class="md:col-span-2">
+                        <span class="inline-block py-1 px-3 rounded-full bg-[#ff3333]/10 text-[#ff3333] text-xs font-bold tracking-[0.2em] mb-4 border border-[#ff3333]/30 uppercase">GUÍA DE COMPRA 2026</span>
+                        
+                        <h2 class="text-3xl md:text-4xl font-extrabold text-white mb-6 leading-tight">
+                            ¿Es mejor un <span class="text-[#ff3333]">PC Gaming Premontado</span> o por piezas?
+                        </h2>
+                        
+                        <div class="space-y-4 text-gray-400 text-sm md:text-base leading-relaxed">
+                            <p>
+                                <strong class="text-white">El mercado ha cambiado.</strong> Antiguamente, montar tu ordenador por piezas ahorraba dinero. En 2026, debido al coste de las gráficas NVIDIA RTX por separado, esto ya no es así.
+                            </p>
+                            <p>
+                                Las marcas como <strong>NitroPC o HP OMEN</strong> compran componentes a precios mayoristas. Esto significa que puedes comprar un <strong class="text-[#ff3333]">PC Gaming completo más barato</strong> que comprando la CPU y la GPU sueltas en Amazon.
+                            </p>
+                            <p class="border-l-4 border-[#ff3333] pl-4 italic text-white">
+                                "Nuestra selección de torres premontadas ofrece el mejor rendimiento por euro invertido, con garantía oficial y sin riesgos de montaje."
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <div class="hidden md:flex flex-col items-center justify-center p-6 rounded-3xl bg-[#0a0a0a] border border-gray-800 text-center transform rotate-2 group-hover:rotate-0 transition-transform duration-500">
+                        <div class="text-5xl mb-2">📉</div>
+                        <h3 class="text-gray-300 font-bold mb-1">Ahorro Real</h3>
+                        <p class="text-xs text-gray-500 mb-4">En Setup Premontado</p>
+                        <span class="text-4xl font-black text-[#ff3333] tracking-tighter">~200€</span>
+                        <span class="text-[10px] text-gray-600 mt-2 uppercase tracking-wide">Vs Componentes Sueltos</span>
+                    </div>
+                </div>
             </div>
         </div>
 
@@ -935,15 +985,22 @@
                     gamingToast.classList.add('opacity-0', 'scale-90');
                 }, 3000);
 
-                // 2. FILTRAR POR LA ETIQUETA "GAMING: TRUE"
+                // 2. MOSTRAR EL TEXTO GANCHO SEO
+                const heroText = document.getElementById('gaming-hero-text');
+                if(heroText) {
+                    heroText.classList.remove('hidden');
+                    heroText.classList.add('block', 'animate-fade-in-up');
+                }
+
+                // 3. FILTRAR POR LA ETIQUETA "GAMING: TRUE"
                 const gamingProducts = productos.filter(p => p.gaming === true);
                 render(gamingProducts);
 
-                // 3. ACTIVAR EL EFECTO SCROLL NEÓN
+                // 4. ACTIVAR EL EFECTO SCROLL NEÓN
                 // Damos un pequeño respiro para que el DOM se actualice antes de observar
                 setTimeout(() => startNeonObserver(), 100);
                 
-                // 4. Scroll suave hacia los productos
+                // 5. Scroll suave hacia los productos
                 document.getElementById('productos').scrollIntoView({ behavior: 'smooth' });
                 
                 // Desactivar visualmente los filtros normales
@@ -954,6 +1011,14 @@
 
             } else {
                 // --- VOLVER A LA OFICINA ---
+                
+                // Ocultar texto gancho
+                const heroText = document.getElementById('gaming-hero-text');
+                if(heroText) {
+                    heroText.classList.add('hidden');
+                    heroText.classList.remove('block', 'animate-fade-in-up');
+                }
+
                 if (neonObserver) neonObserver.disconnect(); // Apagamos el observador
                 render(productos);
                 document.querySelector('.filter-btn[data-category="all"]').click();
@@ -969,4 +1034,5 @@
     </script>
 </body>
 </html>
+
 
