@@ -62,7 +62,7 @@
         details > summary::-webkit-details-marker { display: none; }
 
         /* =========================================
-           ZONA GAMING - ESTILOS HARDCORE v3.6
+           ZONA GAMING - ESTILOS HARDCORE v4.0
            ========================================= */
         
         body.gaming-mode {
@@ -100,8 +100,7 @@
             background-color: #ff3333 !important; color: #000000 !important; border-color: #ff3333 !important; box-shadow: 0 0 20px rgba(255, 51, 51, 0.6) !important;
         }
 
-        /* --- NUEVO: DEGRADADO DE FILTROS EN ZONA GAMING --- */
-        /* Cambia el degradado blanco/gris a negro cuando estamos en modo gaming */
+        /* --- DEGRADADO DE FILTROS EN ZONA GAMING --- */
         body.gaming-mode #filter-fade-right {
             background: linear-gradient(to left, #050505, transparent) !important;
         }
@@ -545,12 +544,24 @@
 
         window.addEventListener('load', () => {
             const params = new URLSearchParams(window.location.search);
+            
+            // 1. DETECTAR "ENLACE MÁGICO" (Zona Gaming Directa)
+            if (params.get('modo') === 'gaming') {
+                // Pequeño retraso para asegurar que la web ha cargado antes del "bam"
+                setTimeout(() => {
+                    toggleGamingMode();
+                }, 100);
+            }
+
+            // 2. Detectar categorías normales (existente)
             const categoryToLoad = params.get('ver'); 
             if (categoryToLoad) {
                 const targetBtn = document.querySelector(`.filter-btn[data-category="${categoryToLoad}"]`);
                 if (targetBtn) {
                     targetBtn.click();
-                    setTimeout(() => { document.getElementById('productos').scrollIntoView({ behavior: 'smooth' }); }, 500);
+                    setTimeout(() => {
+                        document.getElementById('productos').scrollIntoView({ behavior: 'smooth' });
+                    }, 500);
                 }
             }
         });
