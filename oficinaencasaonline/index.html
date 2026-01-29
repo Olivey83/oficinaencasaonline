@@ -53,12 +53,16 @@
         .dark .glass { background: rgba(15, 23, 42, 0.85); }
         .product-card { transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1); }
         
+        /* Ocultar barra de scroll en filtros horizontal */
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
         /* Estilos extra para el acordeón FAQ */
         details > summary { list-style: none; }
         details > summary::-webkit-details-marker { display: none; }
 
         /* =========================================
-           ZONA GAMING - ESTILOS HARDCORE v3.0
+           ZONA GAMING - ESTILOS HARDCORE v3.5 (MOBILE PRO)
            ========================================= */
         
         body.gaming-mode {
@@ -66,80 +70,56 @@
             color: #e0e0e0;
         }
         
-        /* --- 1. OVERRIDES DE COLOR ROJO NEÓN (#ff3333) --- */
+        /* OVERRIDES COLOR ROJO NEÓN (#ff3333) */
         body.gaming-mode .text-primary { color: #ff3333 !important; text-shadow: 0 0 12px rgba(255, 51, 51, 0.6); }
         body.gaming-mode .bg-primary { background-color: #ff3333 !important; color: #000 !important; box-shadow: 0 0 20px rgba(255, 51, 51, 0.6); }
         body.gaming-mode .border-primary { border-color: #ff3333 !important; }
         
-        /* --- 2. FIX HEADER (FONDO NEGRO OBLIGATORIO) --- */
-        /* Esto arregla que no se vean las letras en modo claro */
+        /* FIX HEADER & MENÚ */
         body.gaming-mode header#main-nav { 
-            background-color: rgba(5, 5, 5, 0.95) !important; /* Fondo casi negro */
+            background-color: rgba(5, 5, 5, 0.95) !important;
             border-bottom-color: rgba(255, 51, 51, 0.3) !important;
             backdrop-filter: blur(10px);
         }
-        
-        /* Texto del menú en blanco */
         body.gaming-mode header nav a { color: #ffffff !important; opacity: 0.9; }
         body.gaming-mode header nav a:hover { color: #ff3333 !important; opacity: 1; text-shadow: 0 0 10px rgba(255,51,51,0.8); }
-        
-        /* Fix específico para el enlace "Cuida tu espalda" en modo gaming: BLANCO, NO ROJO */
-        body.gaming-mode header nav a[href*="dolor-espalda"] {
-            color: #ffffff !important;
-            text-shadow: none !important;
-            font-weight: 700;
-        }
-
-        /* Logo texto en blanco */
+        body.gaming-mode header nav a[href*="dolor-espalda"] { color: #ffffff !important; text-shadow: none !important; font-weight: 700; }
         body.gaming-mode header .font-bold.tracking-tight { 
-            background: none !important; 
-            -webkit-text-fill-color: white !important; 
-            color: white !important;
-            text-shadow: 0 0 10px rgba(255,255,255,0.3);
+            background: none !important; -webkit-text-fill-color: white !important; color: white !important; text-shadow: 0 0 10px rgba(255,255,255,0.3);
         }
+        
+        /* Fix Botón Hamburguesa Móvil en Gaming Mode */
+        body.gaming-mode #mobile-menu-btn { color: #ffffff !important; }
 
-        /* --- 3. FIX BOTONES DE FILTRO (NEGROS) --- */
-        /* Forzamos negro con selectores fuertes para ganar a Tailwind */
+        /* FIX BOTONES FILTRO (NEGROS) */
         body.gaming-mode button.filter-btn {
-            background-color: #000000 !important; 
-            color: #ffffff !important; 
-            border: 1px solid #333333 !important;
+            background-color: #000000 !important; color: #ffffff !important; border: 1px solid #333333 !important;
         }
         body.gaming-mode button.filter-btn:hover {
-            border-color: #ff3333 !important;
-            color: #ff3333 !important;
-            box-shadow: 0 0 15px rgba(255, 51, 51, 0.4) !important;
+            border-color: #ff3333 !important; color: #ff3333 !important; box-shadow: 0 0 15px rgba(255, 51, 51, 0.4) !important;
         }
         body.gaming-mode button.filter-btn.active {
-            background-color: #ff3333 !important;
-            color: #000000 !important; 
-            border-color: #ff3333 !important;
-            box-shadow: 0 0 20px rgba(255, 51, 51, 0.6) !important;
+            background-color: #ff3333 !important; color: #000000 !important; border-color: #ff3333 !important; box-shadow: 0 0 20px rgba(255, 51, 51, 0.6) !important;
         }
 
-        /* --- 4. EFECTO SCROLL TARJETAS --- */
+        /* TARJETAS GAMING (NEÓN SCROLL) */
         body.gaming-mode .product-card {
-            background-color: #0a0a0a !important;
-            border-color: #333 !important;
-            box-shadow: none !important;
+            background-color: #0a0a0a !important; border-color: #333 !important; box-shadow: none !important;
             transition: border-color 0.8s ease, box-shadow 0.8s ease, transform 0.5s ease;
         }
         body.gaming-mode .product-card.neon-on {
-            border-color: #ff3333 !important;
-            box-shadow: 0 0 30px rgba(255, 51, 51, 0.25) !important;
+            border-color: #ff3333 !important; box-shadow: 0 0 30px rgba(255, 51, 51, 0.25) !important;
         }
         body.gaming-mode .product-card:hover {
-            transform: scale(1.03);
-            border-color: #ff6666 !important;
-            box-shadow: 0 0 40px rgba(255, 51, 51, 0.5) !important;
+            transform: scale(1.03); border-color: #ff6666 !important; box-shadow: 0 0 40px rgba(255, 51, 51, 0.5) !important;
         }
     </style>
 </head>
 
 <body class="bg-slate-50 text-slate-900 dark:bg-slate-950 dark:text-slate-50 antialiased overflow-x-hidden transition-colors duration-500">
     
-    <div id="gaming-toast" class="fixed top-28 left-1/2 transform -translate-x-1/2 bg-black text-[#ff3333] px-8 py-3 rounded-full border-2 border-[#ff3333] shadow-[0_0_30px_rgba(255,51,51,0.5)] backdrop-blur-md z-[60] opacity-0 pointer-events-none transition-all duration-500 scale-90">
-        <span class="font-bold tracking-widest uppercase flex items-center gap-2 text-lg">☢️ ZONA GAMING ACTIVADA</span>
+    <div id="gaming-toast" class="fixed top-28 left-1/2 transform -translate-x-1/2 bg-black text-[#ff3333] px-6 py-2 md:px-8 md:py-3 rounded-full border-2 border-[#ff3333] shadow-[0_0_30px_rgba(255,51,51,0.5)] backdrop-blur-md z-[60] opacity-0 pointer-events-none transition-all duration-500 scale-90 w-max max-w-[90%] text-center">
+        <span class="font-bold tracking-widest uppercase flex items-center justify-center gap-2 text-sm md:text-lg">☢️ ZONA GAMING ACTIVADA</span>
     </div>
 
     <header class="fixed w-full top-0 z-50 glass border-b border-slate-200/50 dark:border-slate-800/50 transition-all duration-300" id="main-nav">
@@ -173,15 +153,11 @@
             <nav class="hidden md:flex items-center gap-6">
                 <a href="#productos" class="text-sm font-semibold hover:text-primary transition">Productos</a>
                 <a href="blog-dolor-espalda.html" class="text-sm font-semibold text-primary hover:underline decoration-2 underline-offset-4 transition">Cuida tu espalda</a>
-                
                 <a href="herramientas.html" class="text-sm font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-blue-500 hover:opacity-80 transition">✨ Setup Studio</a>
-                
                 <a href="#guia" class="text-sm font-semibold hover:text-primary transition">Ergonomía</a>
-                
                 <button id="btn-gaming" class="group relative px-5 py-2 font-bold text-sm rounded-xl bg-black border-2 border-[#ff3333] text-[#ff3333] shadow-[0_0_10px_rgba(255,51,51,0.3)] hover:shadow-[0_0_20px_rgba(255,51,51,0.8)] hover:bg-[#ff3333] hover:text-black transition-all duration-300">
                     <span class="relative z-10 flex items-center gap-2">Zona Gaming 🎮</span>
                 </button>
-                
                 <button id="theme-toggle" class="p-2.5 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-500 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-slate-700 transition-all shadow-sm">
                     <svg id="theme-toggle-light-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z"></path></svg>
                     <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
@@ -224,11 +200,9 @@
             <h2 class="text-4xl md:text-5xl font-extrabold mb-10">Selección Destacada</h2>
             
             <div class="grid md:grid-cols-3 gap-6 mb-16">
-                
                 <div class="relative rounded-[2.5rem] overflow-hidden bg-slate-900 text-white shadow-premium group border border-slate-800 transition-all hover:scale-[1.02]">
                     <div class="absolute inset-0 bg-gradient-to-r from-blue-900 to-slate-900 opacity-95"></div>
                     <div class="absolute top-0 right-0 w-64 h-64 bg-blue-500 rounded-full mix-blend-overlay filter blur-3xl opacity-20 animate-pulse"></div>
-
                     <div class="relative p-8 flex flex-col justify-between h-full min-h-[320px] z-10">
                         <div>
                             <span class="bg-blue-600 text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-widest mb-4 inline-block shadow-lg shadow-blue-900/50">Rendimiento</span>
@@ -236,9 +210,7 @@
                             <p class="text-blue-100 text-sm font-medium leading-relaxed mb-6">Descubre cómo la memoria DDR4 revive tu ordenador por menos de 50€.</p>
                         </div>
                         <div class="mt-auto">
-                            <a href="guia-ram.html" class="inline-block px-6 py-3 bg-white text-slate-900 font-bold rounded-xl text-sm shadow-xl hover:bg-blue-50 transition-colors">
-                                Leer Guía RAM →
-                            </a>
+                            <a href="guia-ram.html" class="inline-block px-6 py-3 bg-white text-slate-900 font-bold rounded-xl text-sm shadow-xl hover:bg-blue-50 transition-colors">Leer Guía RAM →</a>
                         </div>
                     </div>
                     <img src="https://m.media-amazon.com/images/I/71zWep+u5FL._AC_SL1500_.jpg" class="absolute -bottom-6 -right-6 w-48 object-contain opacity-50 group-hover:opacity-80 transition-all duration-700 rotate-12 group-hover:rotate-6 group-hover:scale-110 z-0">
@@ -246,7 +218,6 @@
 
                 <div class="relative rounded-[2.5rem] overflow-hidden bg-white dark:bg-slate-100 text-slate-900 shadow-premium group border border-slate-200 dark:border-slate-300 transition-all hover:scale-[1.02]">
                     <div class="absolute inset-0 bg-gradient-to-br from-white to-slate-50 opacity-100"></div>
-                    
                     <div class="relative p-8 flex flex-col justify-between h-full min-h-[320px] z-10">
                         <div>
                             <span class="bg-purple-100 text-purple-600 border border-purple-200 text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-widest mb-4 inline-block">Minimalismo</span>
@@ -254,9 +225,7 @@
                             <p class="text-slate-600 text-sm font-medium leading-relaxed mb-6">Elimina el ruido visual. Trucos y accesorios por menos de 20€ para un setup zen.</p>
                         </div>
                         <div class="mt-auto">
-                            <a href="guia-cables.html" class="inline-block px-6 py-3 bg-slate-900 text-white font-bold rounded-xl text-sm shadow-xl hover:bg-slate-800 transition-colors">
-                                Ver Trucos →
-                            </a>
+                            <a href="guia-cables.html" class="inline-block px-6 py-3 bg-slate-900 text-white font-bold rounded-xl text-sm shadow-xl hover:bg-slate-800 transition-colors">Ver Trucos →</a>
                         </div>
                     </div>
                     <img src="https://m.media-amazon.com/images/I/71Ob9g-xl8L._AC_SL1500_.jpg" class="absolute -bottom-6 -right-6 w-48 object-contain opacity-60 group-hover:opacity-100 transition-all duration-700 group-hover:scale-105 z-0 mix-blend-multiply">
@@ -271,29 +240,25 @@
                             <p class="text-emerald-100 text-sm font-medium leading-relaxed mb-6">La solución definitiva no es un repetidor. Descubre la red Mesh.</p>
                         </div>
                         <div class="mt-auto">
-                            <a href="guia-wifi-mesh.html" class="inline-block px-6 py-3 bg-white text-emerald-950 font-bold rounded-xl text-sm shadow-xl hover:bg-emerald-50 transition-colors">
-                                Solucionar WiFi →
-                            </a>
+                            <a href="guia-wifi-mesh.html" class="inline-block px-6 py-3 bg-white text-emerald-950 font-bold rounded-xl text-sm shadow-xl hover:bg-emerald-50 transition-colors">Solucionar WiFi →</a>
                         </div>
                     </div>
                     <img src="https://m.media-amazon.com/images/I/51w+30+8iBL._AC_SL1000_.jpg" class="absolute -bottom-8 -right-8 w-48 object-contain opacity-40 group-hover:opacity-100 transition-all duration-700 -rotate-6 group-hover:rotate-0 group-hover:scale-110 z-0 mix-blend-screen">
                 </div>
-
             </div>
 
-            <div class="flex flex-wrap justify-center gap-3">
-                <button class="filter-btn active !bg-primary !text-white !border-primary px-7 py-3 rounded-full border border-slate-200 dark:border-slate-700 text-sm font-bold transition" data-category="all">Todos</button>
-                <button class="filter-btn px-7 py-3 rounded-full bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-sm font-bold transition" data-category="ergo">Ergonomía</button>
-                <button class="filter-btn px-7 py-3 rounded-full bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-sm font-bold transition" data-category="desk">Escritorios</button>
-                <button class="filter-btn px-7 py-3 rounded-full bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-sm font-bold transition" data-category="acc">Accesorios</button>
-                <button class="filter-btn px-7 py-3 rounded-full bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-sm font-bold transition" data-category="tech">Tech & Gadgets</button>
-                <button class="filter-btn px-7 py-3 rounded-full bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-sm font-bold transition" data-category="pc">Ordenadores y RAM</button>
+            <div class="flex overflow-x-auto pb-4 gap-3 no-scrollbar snap-x touch-pan-x md:justify-center md:flex-wrap">
+                <button class="filter-btn active flex-shrink-0 snap-start !bg-primary !text-white !border-primary px-7 py-3 rounded-full border border-slate-200 dark:border-slate-700 text-sm font-bold transition whitespace-nowrap" data-category="all">Todos</button>
+                <button class="filter-btn flex-shrink-0 snap-start px-7 py-3 rounded-full bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-sm font-bold transition whitespace-nowrap" data-category="ergo">Ergonomía</button>
+                <button class="filter-btn flex-shrink-0 snap-start px-7 py-3 rounded-full bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-sm font-bold transition whitespace-nowrap" data-category="desk">Escritorios</button>
+                <button class="filter-btn flex-shrink-0 snap-start px-7 py-3 rounded-full bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-sm font-bold transition whitespace-nowrap" data-category="acc">Accesorios</button>
+                <button class="filter-btn flex-shrink-0 snap-start px-7 py-3 rounded-full bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-sm font-bold transition whitespace-nowrap" data-category="tech">Tech & Gadgets</button>
+                <button class="filter-btn flex-shrink-0 snap-start px-7 py-3 rounded-full bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-sm font-bold transition whitespace-nowrap" data-category="pc">Ordenadores y RAM</button>
             </div>
         </div>
 
         <div id="gaming-hero-text" class="hidden mb-16 relative animate-fade-in-up">
-            <div class="p-8 md:p-10 rounded-[2.5rem] bg-black border-2 border-[#ff3333] shadow-[0_0_40px_rgba(255,51,51,0.15)] text-center md:text-left relative overflow-hidden group">
-                
+            <div class="p-6 md:p-10 rounded-[2rem] md:rounded-[2.5rem] bg-black border-2 border-[#ff3333] shadow-[0_0_40px_rgba(255,51,51,0.15)] text-center md:text-left relative overflow-hidden group">
                 <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-30"></div>
                 <div class="absolute -right-20 -top-20 w-96 h-96 bg-[#ff3333] rounded-full mix-blend-overlay filter blur-[100px] opacity-15 animate-pulse"></div>
 
@@ -304,44 +269,37 @@
                             <span class="inline-block py-1 px-3 rounded-full bg-gray-800 text-gray-300 text-xs font-bold tracking-wide border border-gray-700">DIY vs PREMONTADO</span>
                         </div>
                         
-                        <h2 class="text-3xl md:text-4xl font-extrabold text-white leading-tight">
+                        <h2 class="text-2xl md:text-4xl font-extrabold text-white leading-tight">
                             La "Trampa" de montar tu PC a piezas hoy: <span class="text-[#ff3333]">Gráficas y RAM</span>
                         </h2>
                         
-                        <div class="text-gray-400 text-sm md:text-base leading-relaxed space-y-4">
-                            <p>
-                                En 2026, la lógica ha cambiado. La crisis de semiconductores ha disparado el precio de la <strong>RAM DDR5 de alta frecuencia</strong> y los SSD NVMe Gen5 para el comprador individual. Pero el verdadero golpe está en la Gráfica.
-                            </p>
-                            <p>
-                                Comprar una <strong>NVIDIA RTX 5060 o 5070 suelta</strong> implica pagar un sobrecoste de "minorista" brutal. Sin embargo, marcas como <strong>NitroPC o HP</strong> acceden a lotes industriales a precios un 30% inferiores.
-                            </p>
+                        <div class="text-gray-400 text-sm md:text-base leading-relaxed space-y-4 text-left">
+                            <p>En 2026, la lógica ha cambiado. La crisis de semiconductores ha disparado el precio de la <strong>RAM DDR5 de alta frecuencia</strong> y los SSD NVMe Gen5 para el comprador individual.</p>
+                            <p>Comprar una <strong>NVIDIA RTX 5060 o 5070 suelta</strong> implica pagar un sobrecoste de "minorista" brutal. Sin embargo, marcas como <strong>NitroPC o HP</strong> acceden a lotes industriales a precios un 30% inferiores.</p>
                             <div class="bg-[#ff3333]/10 border-l-4 border-[#ff3333] p-4 rounded-r-xl">
-                                <p class="text-white text-sm font-medium italic">
-                                    "Si sumas el precio inflado de la GPU suelta, la RAM y la licencia de Windows, <strong>montarlo tú mismo hoy te sale más caro</strong> que comprar la torre terminada y testeada."
-                                </p>
+                                <p class="text-white text-sm font-medium italic">"Si sumas el precio inflado de la GPU suelta, la RAM y la licencia de Windows, <strong>montarlo tú mismo hoy te sale más caro</strong> que comprar la torre terminada y testeada."</p>
                             </div>
                         </div>
                     </div>
                     
-                    <div class="hidden md:flex flex-col gap-4">
-                        <div class="p-5 rounded-3xl bg-[#0a0a0a] border border-gray-800 text-center hover:border-[#ff3333] transition-colors duration-300">
-                            <div class="text-3xl mb-1">💸</div>
-                            <h3 class="text-gray-300 font-bold text-sm">GPU Suelta</h3>
-                            <p class="text-[#ff3333] font-bold text-lg">Precio Inflado</p>
-                            <p class="text-xs text-gray-500">Mercado Minorista</p>
+                    <div class="flex md:flex-col gap-3 justify-center">
+                        <div class="flex-1 p-4 rounded-2xl bg-[#0a0a0a] border border-[#ff3333] shadow-[0_0_15px_rgba(255,51,51,0.2)] text-center transform md:scale-105">
+                            <div class="text-2xl md:text-3xl mb-1">🤝</div>
+                            <h3 class="text-white font-bold text-xs md:text-sm">Pack Premontado</h3>
+                            <p class="text-[#00ff9d] font-bold text-base md:text-lg">Precio Mayorista</p>
+                            <p class="text-[10px] md:text-xs text-gray-400">Ahorro en componentes</p>
                         </div>
-                        <div class="p-5 rounded-3xl bg-[#0a0a0a] border border-[#ff3333] shadow-[0_0_15px_rgba(255,51,51,0.2)] text-center transform scale-105">
-                            <div class="text-3xl mb-1">🤝</div>
-                            <h3 class="text-white font-bold text-sm">Pack Premontado</h3>
-                            <p class="text-[#00ff9d] font-bold text-lg">Precio Mayorista</p>
-                            <p class="text-xs text-gray-400">Ahorro en componentes</p>
+                        <div class="flex-1 p-4 rounded-2xl bg-[#0a0a0a] border border-gray-800 text-center opacity-70">
+                            <div class="text-2xl md:text-3xl mb-1">💸</div>
+                            <h3 class="text-gray-300 font-bold text-xs md:text-sm">GPU Suelta</h3>
+                            <p class="text-[#ff3333] font-bold text-base md:text-lg">Precio Inflado</p>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
 
-        <div id="product-grid" class="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8"></div>
+        <div id="product-grid" class="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-3 md:gap-8"></div>
     </section>
 
     <section id="guia" class="bg-white dark:bg-slate-900 py-24 reveal border-y border-slate-100 dark:border-slate-800 text-center md:text-left">
@@ -351,31 +309,19 @@
                 <div class="space-y-10">
                     <div class="flex flex-col md:flex-row gap-6 items-center md:items-start group">
                         <div class="w-16 h-16 flex-shrink-0 bg-primary/20 text-primary rounded-3xl flex items-center justify-center font-bold text-2xl group-hover:bg-primary group-hover:text-white transition-all">1</div>
-                        <div>
-                            <h4 class="text-xl font-bold mb-2">Ergonomía Activa</h4>
-                            <p class="text-slate-500 dark:text-slate-400 leading-relaxed text-balance">Tu silla es el motor de tu salud. Busca siempre soporte lumbar que respete tu curva natural.</p>
-                        </div>
+                        <div><h4 class="text-xl font-bold mb-2">Ergonomía Activa</h4><p class="text-slate-500 dark:text-slate-400 leading-relaxed text-balance">Tu silla es el motor de tu salud. Busca siempre soporte lumbar que respete tu curva natural.</p></div>
                     </div>
                     <div class="flex flex-col md:flex-row gap-6 items-center md:items-start group">
                         <div class="w-16 h-16 flex-shrink-0 bg-emerald-500/10 text-emerald-500 rounded-3xl flex items-center justify-center font-bold text-2xl group-hover:bg-emerald-500 group-hover:text-white transition-all">2</div>
-                        <div>
-                            <h4 class="text-xl font-bold mb-2">Regla de los 90º</h4>
-                            <p class="text-slate-500 dark:text-slate-400 leading-relaxed text-balance">Codos y rodillas deben formar ángulos rectos para mantener una circulación sanguínea óptima.</p>
-                        </div>
+                        <div><h4 class="text-xl font-bold mb-2">Regla de los 90º</h4><p class="text-slate-500 dark:text-slate-400 leading-relaxed text-balance">Codos y rodillas deben formar ángulos rectos para mantener una circulación sanguínea óptima.</p></div>
                     </div>
                     <div class="flex flex-col md:flex-row gap-6 items-center md:items-start group">
                         <div class="w-16 h-16 flex-shrink-0 bg-orange-500/10 text-orange-500 rounded-3xl flex items-center justify-center font-bold text-2xl group-hover:bg-orange-500 group-hover:text-white transition-all">3</div>
-                        <div>
-                            <h4 class="text-xl font-bold mb-2">Altura de Monitor</h4>
-                            <p class="text-slate-500 dark:text-slate-400 leading-relaxed text-balance">El borde superior de la pantalla debe estar a la altura de tus ojos para liberar el cuello.</p>
-                        </div>
+                        <div><h4 class="text-xl font-bold mb-2">Altura de Monitor</h4><p class="text-slate-500 dark:text-slate-400 leading-relaxed text-balance">El borde superior de la pantalla debe estar a la altura de tus ojos para liberar el cuello.</p></div>
                     </div>
                     <div class="flex flex-col md:flex-row gap-6 items-center md:items-start group">
                         <div class="w-16 h-16 flex-shrink-0 bg-blue-400/10 text-blue-400 rounded-3xl flex items-center justify-center font-bold text-2xl group-hover:bg-blue-400 group-hover:text-white transition-all">4</div>
-                        <div>
-                            <h4 class="text-xl font-bold mb-2">Descansos Visuales</h4>
-                            <p class="text-slate-500 dark:text-slate-400 leading-relaxed text-balance">Regla 20-20-20: Cada 20 min, mira a 6 metros durante 20 segundos para relajar la vista.</p>
-                        </div>
+                        <div><h4 class="text-xl font-bold mb-2">Descansos Visuales</h4><p class="text-slate-500 dark:text-slate-400 leading-relaxed text-balance">Regla 20-20-20: Cada 20 min, mira a 6 metros durante 20 segundos para relajar la vista.</p></div>
                     </div>
                 </div>
                 <img src="https://images.unsplash.com/photo-1593642532400-2682810df593?auto=format&fit=crop&q=80&w=800" alt="Detalle Ergonomía" class="rounded-[2.5rem] shadow-premium border-4 border-slate-50 dark:border-slate-800 transition-all duration-700 hover:scale-[1.02]">
@@ -389,7 +335,6 @@
                 <span class="text-orange-500 font-bold tracking-widest text-sm uppercase">Optimiza tu rendimiento</span>
                 <h2 class="text-4xl font-bold mt-4 text-white">Errores comunes a evitar</h2>
             </div>
-            
             <div class="grid md:grid-cols-3 gap-8">
                 <div class="bg-slate-800/50 p-10 rounded-[2.5rem] border border-slate-700 hover:border-primary transition-all group text-center md:text-left">
                     <div class="w-12 h-12 bg-orange-500/10 text-orange-500 rounded-full flex items-center justify-center mb-6 text-2xl font-bold mx-auto md:mx-0">!</div>
@@ -397,13 +342,11 @@
                     <p class="text-slate-400 leading-relaxed mb-6">Parece cómodo, pero destruye tu postura lumbar drásticamente en tiempo récord.</p>
                     <a href="blog-dolor-espalda.html" class="inline-block text-primary font-bold hover:underline">Cuida tu espalda ahora →</a>
                 </div>
-                
                 <div class="bg-slate-800/50 p-10 rounded-[2.5rem] border border-slate-700 text-center md:text-left">
                     <div class="w-12 h-12 bg-orange-500/10 text-orange-500 rounded-full flex items-center justify-center mb-6 text-2xl font-bold mx-auto md:mx-0">!</div>
                     <h3 class="text-xl font-bold mb-4">Mala gestión lumínica</h3>
                     <p class="text-slate-400 leading-relaxed">Trabajar solo con luz de techo genera fatiga visual severa al final de la jornada.</p>
                 </div>
-
                 <div class="bg-slate-800/50 p-10 rounded-[2.5rem] border border-slate-700 text-center md:text-left">
                     <div class="w-12 h-12 bg-orange-500/10 text-orange-500 rounded-full flex items-center justify-center mb-6 text-2xl font-bold mx-auto md:mx-0">!</div>
                     <h3 class="text-xl font-bold mb-4">Desorden de periféricos</h3>
@@ -414,96 +357,31 @@
     </section>
 
     <section class="max-w-4xl mx-auto px-6 py-20">
-        <div class="text-center mb-12">
-            <h2 class="text-3xl font-bold mb-4 text-slate-900 dark:text-white">Dudas Frecuentes</h2>
-            <p class="text-slate-500 text-sm">Lo que todo el mundo se pregunta al montar su setup.</p>
-        </div>
-
+        <div class="text-center mb-12"><h2 class="text-3xl font-bold mb-4 text-slate-900 dark:text-white">Dudas Frecuentes</h2><p class="text-slate-500 text-sm">Lo que todo el mundo se pregunta al montar su setup.</p></div>
         <div class="space-y-4">
             <details class="group bg-white dark:bg-slate-900 rounded-3xl p-6 border border-slate-200 dark:border-slate-800 shadow-sm hover:shadow-md transition-all cursor-pointer">
-                <summary class="flex justify-between items-center font-bold text-lg text-slate-800 dark:text-slate-200">
-                    ¿A qué altura debo poner mi monitor?
-                    <span class="transition group-open:rotate-180">
-                        <svg fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path></svg>
-                    </span>
-                </summary>
-                <p class="text-slate-500 mt-4 leading-relaxed text-sm">
-                    El borde superior de la pantalla debe quedar exactamente a la altura de tus ojos. Si está más bajo, forzarás el cuello hacia abajo (el famoso "cuello de texto"). Usa un <a href="#productos" class="text-primary hover:underline">brazo o elevador</a> para ajustarlo.
-                </p>
+                <summary class="flex justify-between items-center font-bold text-lg text-slate-800 dark:text-slate-200">¿A qué altura debo poner mi monitor?<span class="transition group-open:rotate-180"><svg fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path></svg></span></summary>
+                <p class="text-slate-500 mt-4 leading-relaxed text-sm">El borde superior de la pantalla debe quedar exactamente a la altura de tus ojos. Si está más bajo, forzarás el cuello hacia abajo.</p>
             </details>
-
             <details class="group bg-white dark:bg-slate-900 rounded-3xl p-6 border border-slate-200 dark:border-slate-800 shadow-sm hover:shadow-md transition-all cursor-pointer">
-                <summary class="flex justify-between items-center font-bold text-lg text-slate-800 dark:text-slate-200">
-                    ¿Merece la pena un escritorio elevable?
-                    <span class="transition group-open:rotate-180">
-                        <svg fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path></svg>
-                    </span>
-                </summary>
-                <p class="text-slate-500 mt-4 leading-relaxed text-sm">
-                    Absolutamente. El cuerpo humano no está diseñado para estar 8 horas estático. Alternar entre sentado y de pie cada 2 horas reactiva la circulación y dispara la concentración. Es la mejor inversión a largo plazo.
-                </p>
+                <summary class="flex justify-between items-center font-bold text-lg text-slate-800 dark:text-slate-200">¿Merece la pena un escritorio elevable?<span class="transition group-open:rotate-180"><svg fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path></svg></span></summary>
+                <p class="text-slate-500 mt-4 leading-relaxed text-sm">Absolutamente. Alternar entre sentado y de pie cada 2 horas reactiva la circulación y dispara la concentración.</p>
             </details>
-
             <details class="group bg-white dark:bg-slate-900 rounded-3xl p-6 border border-slate-200 dark:border-slate-800 shadow-sm hover:shadow-md transition-all cursor-pointer">
-                <summary class="flex justify-between items-center font-bold text-lg text-slate-800 dark:text-slate-200">
-                    ¿Qué iluminación es mejor para trabajar?
-                    <span class="transition group-open:rotate-180">
-                        <svg fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path></svg>
-                    </span>
-                </summary>
-                <p class="text-slate-500 mt-4 leading-relaxed text-sm">
-                    Evita la luz directa sobre la pantalla (reflejos) o trabajar solo con la luz del monitor (contraste alto). Lo ideal es una <a href="#productos" class="text-primary hover:underline">barra de luz (ScreenBar)</a> que ilumine el escritorio sin darte en los ojos.
-                </p>
+                <summary class="flex justify-between items-center font-bold text-lg text-slate-800 dark:text-slate-200">¿Qué iluminación es mejor para trabajar?<span class="transition group-open:rotate-180"><svg fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path></svg></span></summary>
+                <p class="text-slate-500 mt-4 leading-relaxed text-sm">Evita la luz directa sobre la pantalla. Lo ideal es una barra de luz (ScreenBar) que ilumine el escritorio sin darte en los ojos.</p>
             </details>
         </div>
-        
-        <script type="application/ld+json">
-        {
-          "@context": "https://schema.org",
-          "@type": "FAQPage",
-          "mainEntity": [{
-            "@type": "Question",
-            "name": "¿A qué altura debo poner mi monitor?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "El borde superior de la pantalla debe quedar exactamente a la altura de tus ojos para evitar dolor cervical."
-            }
-          }, {
-            "@type": "Question",
-            "name": "¿Merece la pena un escritorio elevable?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Sí, alternar entre sentado y de pie reactiva la circulación y mejora la concentración."
-            }
-          }]
-        }
-        </script>
+        <script type="application/ld+json">{"@context": "https://schema.org","@type": "FAQPage","mainEntity": [{"@type": "Question","name": "¿A qué altura debo poner mi monitor?","acceptedAnswer": {"@type": "Answer","text": "El borde superior de la pantalla debe quedar exactamente a la altura de tus ojos para evitar dolor cervical."}}, {"@type": "Question","name": "¿Merece la pena un escritorio elevable?","acceptedAnswer": {"@type": "Answer","text": "Sí, alternar entre sentado y de pie reactiva la circulación y mejora la concentración."}}]}</script>
     </section>
 
     <footer class="bg-white dark:bg-slate-950 py-12 border-t border-slate-200 dark:border-slate-800 text-center">
         <div class="max-w-4xl mx-auto px-6">
             <div class="flex items-center justify-center gap-2 mb-6 opacity-80 hover:opacity-100 transition">
-                <svg class="w-6 h-6" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <defs>
-                        <linearGradient id="glass-stroke-footer" x1="0" y1="0" x2="36" y2="36" gradientUnits="userSpaceOnUse">
-                            <stop stop-color="#ffffff" stop-opacity="0.8"/>
-                            <stop offset="1" stop-color="#a7f3d0" stop-opacity="0.8"/>
-                        </linearGradient>
-                    </defs>
-                    <path d="M18 3L4 15V31C4 32.1 4.9 33 6 33H30C31.1 33 32 32.1 32 31V15L18 3Z" fill="currentColor" fill-opacity="0.2"/>
-                    <g fill="currentColor">
-                        <path d="M18 27C19.1 27 20 26.1 20 25C20 23.9 19.1 23 18 23C16.9 23 16 23.9 16 25C16 26.1 16.9 27 18 27Z"/>
-                        <path d="M12.3 19.3C13.8 17.8 15.8 17 18 17C20.2 17 22.2 17.8 23.7 19.3L22.3 20.7C21.1 19.5 19.6 18.9 18 18.9C16.4 18.9 14.9 19.5 13.7 20.7L12.3 19.3Z"/>
-                        <path d="M8.8 15.8C11.2 13.4 14.5 12 18 12C21.5 12 24.8 13.4 27.2 15.8L25.8 17.2C23.7 15.1 20.9 13.9 18 13.9C15.1 13.9 12.3 15.1 10.2 17.2L8.8 15.8Z"/>
-                    </g>
-                    <path d="M18 3L4 15V31C4 32.1 4.9 33 6 33H30C31.1 33 32 32.1 32 31V15L18 3Z" stroke="url(#glass-stroke-footer)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
+                <svg class="w-6 h-6" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="glass-stroke-footer" x1="0" y1="0" x2="36" y2="36" gradientUnits="userSpaceOnUse"><stop stop-color="#ffffff" stop-opacity="0.8"/><stop offset="1" stop-color="#a7f3d0" stop-opacity="0.8"/></linearGradient></defs><path d="M18 3L4 15V31C4 32.1 4.9 33 6 33H30C31.1 33 32 32.1 32 31V15L18 3Z" fill="currentColor" fill-opacity="0.2"/><g fill="currentColor"><path d="M18 27C19.1 27 20 26.1 20 25C20 23.9 19.1 23 18 23C16.9 23 16 23.9 16 25C16 26.1 16.9 27 18 27Z"/><path d="M12.3 19.3C13.8 17.8 15.8 17 18 17C20.2 17 22.2 17.8 23.7 19.3L22.3 20.7C21.1 19.5 19.6 18.9 18 18.9C16.4 18.9 14.9 19.5 13.7 20.7L12.3 19.3Z"/><path d="M8.8 15.8C11.2 13.4 14.5 12 18 12C21.5 12 24.8 13.4 27.2 15.8L25.8 17.2C23.7 15.1 20.9 13.9 18 13.9C15.1 13.9 12.3 15.1 10.2 17.2L8.8 15.8Z"/></g><path d="M18 3L4 15V31C4 32.1 4.9 33 6 33H30C31.1 33 32 32.1 32 31V15L18 3Z" stroke="url(#glass-stroke-footer)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
                 <span class="font-bold text-lg">Oficina en Casa</span>
             </div>
-            
-            <p class="text-slate-400 text-sm italic leading-relaxed mb-8">
-                En calidad de Afiliado de Amazon, obtengo ingresos por las compras adscritas que cumplen los requisitos aplicables.
-            </p>
+            <p class="text-slate-400 text-sm italic leading-relaxed mb-8">En calidad de Afiliado de Amazon, obtengo ingresos por las compras adscritas que cumplen los requisitos aplicables.</p>
             <p class="text-xs font-bold text-slate-500 uppercase tracking-widest">© 2026 Oficina en Casa Online. Todos los derechos reservados.</p>
         </div>
     </footer>
@@ -513,16 +391,10 @@
             <div class="p-3 bg-blue-100 dark:bg-blue-900/30 rounded-2xl text-2xl">🍪</div>
             <div>
                 <h4 class="font-bold text-slate-900 dark:text-white mb-1">Cookies y Privacidad</h4>
-                <p class="text-xs text-slate-500 dark:text-slate-400 mb-4 leading-relaxed">
-                    Usamos cookies propias y de Amazon para que la web funcione y financiar el proyecto.
-                </p>
+                <p class="text-xs text-slate-500 dark:text-slate-400 mb-4 leading-relaxed">Usamos cookies propias y de Amazon para que la web funcione y financiar el proyecto.</p>
                 <div class="flex gap-3">
-                    <button id="accept-cookies" class="flex-1 px-4 py-2 bg-primary hover:bg-primaryDark text-white text-xs font-bold rounded-xl transition shadow-lg shadow-primary/20">
-                        Aceptar
-                    </button>
-                    <button onclick="document.getElementById('cookie-banner').remove()" class="px-4 py-2 text-slate-500 hover:text-slate-700 dark:text-slate-400 dark:hover:text-white text-xs font-bold transition">
-                        Cerrar
-                    </button>
+                    <button id="accept-cookies" class="flex-1 px-4 py-2 bg-primary hover:bg-primaryDark text-white text-xs font-bold rounded-xl transition shadow-lg shadow-primary/20">Aceptar</button>
+                    <button onclick="document.getElementById('cookie-banner').remove()" class="px-4 py-2 text-slate-500 hover:text-slate-700 dark:text-slate-400 dark:hover:text-white text-xs font-bold transition">Cerrar</button>
                 </div>
             </div>
         </div>
@@ -530,342 +402,54 @@
 
     <script>
         const productos = [
-            // --- WIFI MESH (Gaming retirado) ---
-            { 
-                categoria: "tech", 
-                titulo: "Xiaomi Router AX3000", 
-                desc: "Olvídate de los cortes. WiFi 6 Mesh para cobertura total en toda la casa.", 
-                img: "https://m.media-amazon.com/images/I/41bEk1ukEtL._AC_SL1000_.jpg", 
-                link: "https://amzn.to/4r5n945",
-                tag: "MI FAVORITO"
-            },
-            { 
-                categoria: "tech", 
-                titulo: "TP-Link Deco X50", 
-                desc: "Sistema AI Mesh inteligente. El estándar de calidad para hogares grandes.", 
-                img: "https://m.media-amazon.com/images/I/61ZkAaGIkLL._AC_SL1500_.jpg", 
-                link: "https://amzn.to/3NvYPtB"
-            },
-            { 
-                categoria: "tech", 
-                titulo: "Amazon eero 6+", 
-                desc: "El más pequeño y sencillo. Se integra perfecto con Alexa.", 
-                img: "https://m.media-amazon.com/images/I/41Khi+nEqoL._SL1500_.jpg", 
-                link: "https://amzn.to/4pIicgl" 
-            },
-
-            // --- 1. PRODUCTOS CABLES ---
-            { 
-                categoria: "acc", 
-                titulo: "Caja Oculta-Regletas", 
-                desc: "Esconde los enchufes y protege a niños/mascotas. Material ABS seguro.", 
-                img: "https://m.media-amazon.com/images/I/51Y9tOPzfWL._AC_SL1500_.jpg", 
-                link: "https://amzn.to/4pHXEVq",
-                tag: "NUEVO"
-            },
-            { 
-                categoria: "acc", 
-                titulo: "Bandeja Bajo Mesa", 
-                desc: "Sin taladros (sistema clamp). La solución para que no cuelguen cables.", 
-                img: "https://m.media-amazon.com/images/I/71Ob9g-xl8L._AC_SL1500_.jpg", 
-                link: "https://amzn.to/4jUeuiv" 
-            },
-            { 
-                categoria: "acc", 
-                titulo: "Pack 120 Bridas Velcro", 
-                desc: "Reutilizables y ajustables. Mucho mejor que las bridas de plástico.", 
-                img: "https://m.media-amazon.com/images/I/81VmyC2ijcL._AC_SL1500_.jpg", 
-                link: "https://amzn.to/4jT32DW" 
-            },
-
+            // --- WIFI MESH ---
+            { categoria: "tech", titulo: "Xiaomi Router AX3000", desc: "Olvídate de los cortes. WiFi 6 Mesh para cobertura total.", img: "https://m.media-amazon.com/images/I/41bEk1ukEtL._AC_SL1000_.jpg", link: "https://amzn.to/4r5n945", tag: "MI FAVORITO" },
+            { categoria: "tech", titulo: "TP-Link Deco X50", desc: "Sistema AI Mesh inteligente. Calidad para hogares grandes.", img: "https://m.media-amazon.com/images/I/61ZkAaGIkLL._AC_SL1500_.jpg", link: "https://amzn.to/3NvYPtB" },
+            { categoria: "tech", titulo: "Amazon eero 6+", desc: "Pequeño y sencillo. Se integra perfecto con Alexa.", img: "https://m.media-amazon.com/images/I/41Khi+nEqoL._SL1500_.jpg", link: "https://amzn.to/4pIicgl" },
+            // --- CABLES ---
+            { categoria: "acc", titulo: "Caja Oculta-Regletas", desc: "Esconde enchufes y protege a niños. Material ABS seguro.", img: "https://m.media-amazon.com/images/I/51Y9tOPzfWL._AC_SL1500_.jpg", link: "https://amzn.to/4pHXEVq", tag: "NUEVO" },
+            { categoria: "acc", titulo: "Bandeja Bajo Mesa", desc: "Sin taladros (clamp). La solución para que no cuelguen cables.", img: "https://m.media-amazon.com/images/I/71Ob9g-xl8L._AC_SL1500_.jpg", link: "https://amzn.to/4jUeuiv" },
+            { categoria: "acc", titulo: "Pack 120 Bridas Velcro", desc: "Reutilizables y ajustables. Mejor que las de plástico.", img: "https://m.media-amazon.com/images/I/81VmyC2ijcL._AC_SL1500_.jpg", link: "https://amzn.to/4jT32DW" },
             // --- ESCRITORIOS ---
-            {
-                categoria: "desk",
-                titulo: "Agilestic Elevable 120cm",
-                desc: "Motor silencioso y memoria de altura. La opción equilibrada para tu salud.",
-                img: "https://m.media-amazon.com/images/I/6197UATlwNL._AC_SL1500_.jpg",
-                link: "https://amzn.to/464vRY8",
-                tag: "MOTOR SILENCIOSO"
-            },
-            {
-                categoria: "desk",
-                titulo: "HLFURNIEU Stand Up",
-                desc: "Estructura sólida anti-tambaleo. Trabaja de pie con total seguridad.",
-                img: "https://m.media-amazon.com/images/I/61BnIaDfe9L._AC_SL1500_.jpg",
-                link: "https://amzn.to/49JRKhR"
-            },
-            {
-                categoria: "desk",
-                titulo: "HUANUO Compacto 80cm",
-                desc: "Ideal para espacios pequeños. Ajuste eléctrico en formato mini.",
-                img: "https://m.media-amazon.com/images/I/61U0DUlJOuL._AC_SL1500_.jpg",
-                link: "https://amzn.to/4rmU3NP",
-                tag: "COMPACTO"
-            },
-            { 
-                categoria: "desk", 
-                titulo: "Escritorio Elevable Pro", 
-                desc: "Regulación de altura precisa para trabajar dinámicamente.", 
-                img: "https://m.media-amazon.com/images/I/61pl8xkp5xL._AC_SX679_.jpg", 
-                link: "https://amzn.to/4qupXHA" 
-            },
-
-            // --- 2. ACCESORIOS ---
-            { 
-                categoria: "ergo", 
-                titulo: "Silla SONGMICS Pro", 
-                desc: "Soporte lumbar ajustable y malla transpirable.", 
-                img: "https://m.media-amazon.com/images/I/81tt0QgRGJL._AC_SL1500_.jpg", 
-                link: "https://amzn.to/44Wcq3f", 
-                tag: "TOP VENTAS" 
-            },
-            { 
-                categoria: "acc", 
-                titulo: "Lámpara Monitor", 
-                desc: "Iluminación sin reflejos directa sobre tu teclado.", 
-                img: "https://m.media-amazon.com/images/I/61HWVh6wxqL._AC_SL1500_.jpg", 
-                link: "https://amzn.to/3YRFntF" 
-            },
-            { 
-                categoria: "acc", 
-                titulo: "Cajonera Móvil", 
-                desc: "Almacenamiento eficiente bajo el escritorio.", 
-                img: "https://m.media-amazon.com/images/I/511hfGz8lpL._AC_SL1500_.jpg", 
-                link: "https://amzn.to/4qFHtZG" 
-            },
-            { 
-                categoria: "acc", 
-                titulo: "Módulo 5 cajones", 
-                desc: "Ideal para clasificar documentos A4 con orden.", 
-                img: "https://m.media-amazon.com/images/I/61OkbjZ7otL._AC_SL1200_.jpg", 
-                link: "https://amzn.to/4jnUiVX" 
-            },
-            { 
-                categoria: "acc", 
-                titulo: "Alfombrilla Fieltro", 
-                desc: "Capa de confort extra para tu setup.", 
-                img: "https://m.media-amazon.com/images/I/71sNZ6t0z8L._AC_SL1500_.jpg", 
-                link: "https://amzn.to/49wShm0" 
-            },
-            { 
-                categoria: "acc", 
-                titulo: "Soporte Portátil", 
-                desc: "Eleva la pantalla a la altura de tus ojos cómodamente.", 
-                img: "https://m.media-amazon.com/images/I/61BK9+YGKML._AC_SL1500_.jpg", 
-                link: "https://amzn.to/4aGRYar" 
-            },
-            { 
-                categoria: "acc", 
-                titulo: "Reposapies Pro", 
-                desc: "Mejora la circulación y postura sentado.", 
-                img: "https://m.media-amazon.com/images/I/51-LmMCoscL._AC_SL1000_.jpg", 
-                link: "https://amzn.to/4pHhGPP" 
-            },
-            
-            // --- PAPELERA TECHZOCO ---
-            { 
-                categoria: "acc", 
-                titulo: "Papelera TECHZOCO", 
-                desc: "Minimalismo industrial para tu despacho.", 
-                img: "https://m.media-amazon.com/images/I/81yckur-iIL._SL1500_.jpg", 
-                link: "https://amzn.to/4qsaGHG" 
-            },
-
-            // --- ACCESORIOS VARIOS ---
-            { 
-                categoria: "acc", 
-                titulo: "Elevador Madera", 
-                desc: "Gana espacio y mejora la altura del monitor.", 
-                img: "https://m.media-amazon.com/images/I/61heBUIQLtL._AC_SL1500_.jpg", 
-                link: "https://amzn.to/4qLZGEH" 
-            },
-            { 
-                categoria: "acc", 
-                titulo: "Organizador Mesa", 
-                desc: "Tus herramientas diarias siempre localizadas.", 
-                img: "https://m.media-amazon.com/images/I/71tEutfM3eL._AC_SL1500_.jpg", 
-                link: "https://amzn.to/49wFyzJ" 
-            },
-            { 
-                categoria: "acc", 
-                titulo: "Suministros Pro", 
-                desc: "Verticalidad inteligente para tu mesa.", 
-                img: "https://m.media-amazon.com/images/I/61K3aaAo9cL._AC_SL1500_.jpg", 
-                link: "https://amzn.to/4jF6EcE" 
-            },
-
-            // --- PRODUCTOS TECH (Gaming retirado) ---
-            { 
-                categoria: "tech", 
-                titulo: "Monitor Portátil 15.6''", 
-                desc: "Duplica tu pantalla donde quieras. Se alimenta directo del portátil (un solo cable).", 
-                img: "https://m.media-amazon.com/images/I/81CAEaITkeL._AC_SL1500_.jpg", 
-                link: "https://amzn.to/49YbuwW",
-                tag: "PRODUCTIVIDAD"
-            },
-            { 
-                categoria: "tech", 
-                titulo: "Webcam EMEET 1080P", 
-                desc: "Alta definición 1080P con tapa de privacidad física para seguridad.", 
-                img: "https://m.media-amazon.com/images/I/61BW1Spm+UL._AC_SL1423_.jpg", 
-                link: "https://amzn.to/4bCrTtj",
-                tag: "PRIVACIDAD"
-            },
-            { 
-                categoria: "tech", 
-                titulo: "Calentador de Café", 
-                desc: "Mantén tu bebida caliente en el escritorio todo el día.", 
-                img: "https://m.media-amazon.com/images/I/717-w1eeO8L._AC_SL1500_.jpg", 
-                link: "https://amzn.to/3Npxr0k",
-                tag: "GADGET"
-            },
-            { 
-                categoria: "tech", 
-                titulo: "Auriculares Wireless", 
-                desc: "Libertad inalámbrica con sonido nítido para reuniones.", 
-                img: "https://m.media-amazon.com/images/I/61PupiSYs3L._AC_SL1500_.jpg", 
-                link: "https://amzn.to/49Cyqld"
-            },
-            { 
-                categoria: "tech", 
-                titulo: "Lámpara Flexo Pinza", 
-                desc: "Iluminación LED flexible que no ocupa espacio en tu mesa.", 
-                img: "https://m.media-amazon.com/images/I/71kLt8V7+WL._AC_SL1500_.jpg", 
-                link: "https://amzn.to/3NfN4Yl" 
-            },
-
-            // --- SILLAS ERGONÓMICAS ---
-            { 
-                categoria: "ergo", 
-                titulo: "SIHOO M57 3D", 
-                desc: "Reposabrazos 3D y malla completa para máxima ventilación y soporte.", 
-                img: "https://m.media-amazon.com/images/I/71330d+25SL._AC_SL1500_.jpg", 
-                link: "https://amzn.to/4sGUcgv",
-                tag: "100% MALLA"
-            },
-            { 
-                categoria: "ergo", 
-                titulo: "Ticova Ergonómica", 
-                desc: "Cabecero y soporte lumbar ultra ajustables para tu espalda.", 
-                img: "https://m.media-amazon.com/images/I/61tCKoGwAUL._AC_SL1500_.jpg", 
-                link: "https://amzn.to/3Ll9gQ9",
-                tag: "COMODIDAD"
-            },
-            { 
-                categoria: "ergo", 
-                titulo: "HOLLUDLE Lumbar 3D", 
-                desc: "Soporte lumbar adaptativo que sigue el movimiento de tu columna.", 
-                img: "https://m.media-amazon.com/images/I/71bq+3JgOML._AC_SL1500_.jpg", 
-                link: "https://amzn.to/45JQEQA",
-                tag: "LUMBAR 3D"
-            },
-
-            // --- ORDENADORES Y RAM (Limpieza Gaming) ---
-            { 
-                categoria: "pc", 
-                titulo: "Lenovo IdeaPad Slim 3", 
-                desc: "Fino, ligero y potente. La mejor opción calidad-precio para trabajar fluido.", 
-                img: "https://m.media-amazon.com/images/I/71mztVugfcL._AC_SL1500_.jpg", 
-                link: "https://amzn.to/4pTTYQz", 
-                tag: "CALIDAD/PRECIO" 
-            },
-            { 
-                categoria: "pc", 
-                titulo: "Mini PC Beelink SER5", 
-                desc: "Potencia bruta en tamaño mini. Escóndelo tras el monitor.", 
-                img: "https://m.media-amazon.com/images/I/71XDS960HDL._AC_SL1500_.jpg", 
-                link: "https://amzn.to/3LMfybC", 
-                tag: "MINIMALISTA" 
-            },
-            // RAMs (Ya no salen en gaming)
-            { 
-                categoria: "pc", 
-                titulo: "Lexar RAM DDR4 8GB", 
-                desc: "Actualización económica y fiable para acelerar tu portátil al instante.", 
-                img: "https://m.media-amazon.com/images/I/71zWep+u5FL._AC_SL1500_.jpg", 
-                link: "https://amzn.to/4jMhvkK", 
-                tag: "REVIVE TU PC"
-            },
-            { 
-                categoria: "pc", 
-                titulo: "Kingston FURY Beast 16GB", 
-                desc: "Rendimiento puro sin luces. Estética negra profesional.", 
-                img: "https://m.media-amazon.com/images/I/61uXihcspuL._AC_SL1500_.jpg", 
-                link: "https://amzn.to/4b49tlg"
-            },
-
-            // --- ZONA GAMING EXCLUSIVA (TORRES) ---
-            
-            // 1. NitroPC (Existente)
-            { 
-                categoria: "pc", 
-                titulo: "NitroPC Pack Bronze", 
-                desc: "Setup completo premontado. Listo para jugar y editar vídeo.", 
-                img: "https://m.media-amazon.com/images/I/71gnwUb30JL._AC_SL1500_.jpg", 
-                link: "https://amzn.to/4pAAIHr", 
-                tag: "GAMING READY",
-                gaming: true
-            },
-            
-            // 2. Greed MK2 Plus
-            { 
-                categoria: "pc", 
-                titulo: "Greed® MK2 Plus", 
-                desc: "Potencia bruta con Intel Core i7-12700F y gráfica RX 9060 XT 8GB.", 
-                img: "https://m.media-amazon.com/images/I/71K19I0MsCL._AC_SL1500_.jpg", 
-                link: "https://amzn.to/4k9AWo2", 
-                gaming: true
-            },
-
-            // 3. HYPER BYTE
-            { 
-                categoria: "pc", 
-                titulo: "HYPER BYTE® Set", 
-                desc: "Set completo listo para empezar. AMD Ryzen 7 5700G y 16GB RAM.", 
-                img: "https://m.media-amazon.com/images/I/71NX6LZabEL._AC_SL1500_.jpg", 
-                link: "https://amzn.to/4kbyVYr", 
-                gaming: true
-            },
-
-            // 4. Mirage X (RTX 5070)
-            { 
-                categoria: "pc", 
-                titulo: "PC Gamer Mirage X", 
-                desc: "Rendimiento extremo: i7-14700F (20 núcleos) y la nueva RTX 5070 12GB.", 
-                img: "https://m.media-amazon.com/images/I/91irKWz3-UL._AC_SL1500_.jpg", 
-                link: "https://amzn.to/4kdoyU6", 
-                gaming: true
-            },
-
-            // 5. HP OMEN 35L (RTX 5070)
-            { 
-                categoria: "pc", 
-                titulo: "HP OMEN 35L", 
-                desc: "Diseño premium HP. Ryzen 7 8700F, 32GB DDR5 y RTX 5070.", 
-                img: "https://m.media-amazon.com/images/I/61DpKIMgmpL._AC_SL1500_.jpg", 
-                link: "https://amzn.to/46kX4G2", 
-                gaming: true
-            },
-
-            // 6. TrendingPC (RTX 5060)
-            { 
-                categoria: "pc", 
-                titulo: "TrendingPC Ultimate", 
-                desc: "Equilibrio perfecto: i7 14700F, 32GB DDR5 y NVIDIA RTX 5060.", 
-                img: "https://m.media-amazon.com/images/I/61TA7ySf9JL._AC_SL1107_.jpg", 
-                link: "https://amzn.to/4brpxxA", 
-                gaming: true
-            },
-
-            // 7. Ryzen 7 Generic (RTX 5060)
-            { 
-                categoria: "pc", 
-                titulo: "PC Gaming Ryzen 7", 
-                desc: "Velocidad y multitarea. Ryzen 7 5700X, 32GB RAM y RTX 5060.", 
-                img: "https://m.media-amazon.com/images/I/61uzLQZIllL._AC_.jpg", 
-                link: "https://amzn.to/4alOIjX", 
-                gaming: true
-            }
+            { categoria: "desk", titulo: "Agilestic Elevable 120cm", desc: "Motor silencioso y memoria. Opción equilibrada para tu salud.", img: "https://m.media-amazon.com/images/I/6197UATlwNL._AC_SL1500_.jpg", link: "https://amzn.to/464vRY8", tag: "MOTOR SILENCIOSO" },
+            { categoria: "desk", titulo: "HLFURNIEU Stand Up", desc: "Estructura sólida anti-tambaleo. Trabaja de pie seguro.", img: "https://m.media-amazon.com/images/I/61BnIaDfe9L._AC_SL1500_.jpg", link: "https://amzn.to/49JRKhR" },
+            { categoria: "desk", titulo: "HUANUO Compacto 80cm", desc: "Ideal espacios pequeños. Ajuste eléctrico en formato mini.", img: "https://m.media-amazon.com/images/I/61U0DUlJOuL._AC_SL1500_.jpg", link: "https://amzn.to/4rmU3NP", tag: "COMPACTO" },
+            { categoria: "desk", titulo: "Escritorio Elevable Pro", desc: "Regulación precisa para trabajar dinámicamente.", img: "https://m.media-amazon.com/images/I/61pl8xkp5xL._AC_SX679_.jpg", link: "https://amzn.to/4qupXHA" },
+            // --- ACCESORIOS ---
+            { categoria: "ergo", titulo: "Silla SONGMICS Pro", desc: "Soporte lumbar ajustable y malla transpirable.", img: "https://m.media-amazon.com/images/I/81tt0QgRGJL._AC_SL1500_.jpg", link: "https://amzn.to/44Wcq3f", tag: "TOP VENTAS" },
+            { categoria: "acc", titulo: "Lámpara Monitor", desc: "Iluminación sin reflejos directa sobre tu teclado.", img: "https://m.media-amazon.com/images/I/61HWVh6wxqL._AC_SL1500_.jpg", link: "https://amzn.to/3YRFntF" },
+            { categoria: "acc", titulo: "Cajonera Móvil", desc: "Almacenamiento eficiente bajo el escritorio.", img: "https://m.media-amazon.com/images/I/511hfGz8lpL._AC_SL1500_.jpg", link: "https://amzn.to/4qFHtZG" },
+            { categoria: "acc", titulo: "Módulo 5 cajones", desc: "Ideal para clasificar documentos A4 con orden.", img: "https://m.media-amazon.com/images/I/61OkbjZ7otL._AC_SL1200_.jpg", link: "https://amzn.to/4jnUiVX" },
+            { categoria: "acc", titulo: "Alfombrilla Fieltro", desc: "Capa de confort extra para tu setup.", img: "https://m.media-amazon.com/images/I/71sNZ6t0z8L._AC_SL1500_.jpg", link: "https://amzn.to/49wShm0" },
+            { categoria: "acc", titulo: "Soporte Portátil", desc: "Eleva la pantalla a la altura de tus ojos cómodamente.", img: "https://m.media-amazon.com/images/I/61BK9+YGKML._AC_SL1500_.jpg", link: "https://amzn.to/4aGRYar" },
+            { categoria: "acc", titulo: "Reposapies Pro", desc: "Mejora la circulación y postura sentado.", img: "https://m.media-amazon.com/images/I/51-LmMCoscL._AC_SL1000_.jpg", link: "https://amzn.to/4pHhGPP" },
+            { categoria: "acc", titulo: "Papelera TECHZOCO", desc: "Minimalismo industrial para tu despacho.", img: "https://m.media-amazon.com/images/I/81yckur-iIL._SL1500_.jpg", link: "https://amzn.to/4qsaGHG" },
+            { categoria: "acc", titulo: "Elevador Madera", desc: "Gana espacio y mejora la altura del monitor.", img: "https://m.media-amazon.com/images/I/61heBUIQLtL._AC_SL1500_.jpg", link: "https://amzn.to/4qLZGEH" },
+            { categoria: "acc", titulo: "Organizador Mesa", desc: "Tus herramientas diarias siempre localizadas.", img: "https://m.media-amazon.com/images/I/71tEutfM3eL._AC_SL1500_.jpg", link: "https://amzn.to/49wFyzJ" },
+            { categoria: "acc", titulo: "Suministros Pro", desc: "Verticalidad inteligente para tu mesa.", img: "https://m.media-amazon.com/images/I/61K3aaAo9cL._AC_SL1500_.jpg", link: "https://amzn.to/4jF6EcE" },
+            // --- TECH ---
+            { categoria: "tech", titulo: "Monitor Portátil 15.6''", desc: "Duplica pantalla donde quieras. Un solo cable.", img: "https://m.media-amazon.com/images/I/81CAEaITkeL._AC_SL1500_.jpg", link: "https://amzn.to/49YbuwW", tag: "PRODUCTIVIDAD" },
+            { categoria: "tech", titulo: "Webcam EMEET 1080P", desc: "Alta definición con tapa de privacidad física.", img: "https://m.media-amazon.com/images/I/61BW1Spm+UL._AC_SL1423_.jpg", link: "https://amzn.to/4bCrTtj", tag: "PRIVACIDAD" },
+            { categoria: "tech", titulo: "Calentador de Café", desc: "Mantén tu bebida caliente en el escritorio.", img: "https://m.media-amazon.com/images/I/717-w1eeO8L._AC_SL1500_.jpg", link: "https://amzn.to/3Npxr0k", tag: "GADGET" },
+            { categoria: "tech", titulo: "Auriculares Wireless", desc: "Libertad inalámbrica con sonido nítido.", img: "https://m.media-amazon.com/images/I/61PupiSYs3L._AC_SL1500_.jpg", link: "https://amzn.to/49Cyqld" },
+            { categoria: "tech", titulo: "Lámpara Flexo Pinza", desc: "Iluminación LED flexible sin ocupar espacio.", img: "https://m.media-amazon.com/images/I/71kLt8V7+WL._AC_SL1500_.jpg", link: "https://amzn.to/3NfN4Yl" },
+            // --- SILLAS ---
+            { categoria: "ergo", titulo: "SIHOO M57 3D", desc: "Reposabrazos 3D y malla completa ventilada.", img: "https://m.media-amazon.com/images/I/71330d+25SL._AC_SL1500_.jpg", link: "https://amzn.to/4sGUcgv", tag: "100% MALLA" },
+            { categoria: "ergo", titulo: "Ticova Ergonómica", desc: "Cabecero y soporte lumbar ultra ajustables.", img: "https://m.media-amazon.com/images/I/61tCKoGwAUL._AC_SL1500_.jpg", link: "https://amzn.to/3Ll9gQ9", tag: "COMODIDAD" },
+            { categoria: "ergo", titulo: "HOLLUDLE Lumbar 3D", desc: "Soporte lumbar adaptativo que sigue tu espalda.", img: "https://m.media-amazon.com/images/I/71bq+3JgOML._AC_SL1500_.jpg", link: "https://amzn.to/45JQEQA", tag: "LUMBAR 3D" },
+            // --- PC & RAM ---
+            { categoria: "pc", titulo: "Lenovo IdeaPad Slim 3", desc: "Fino, ligero y potente. Calidad-precio para trabajar.", img: "https://m.media-amazon.com/images/I/71mztVugfcL._AC_SL1500_.jpg", link: "https://amzn.to/4pTTYQz", tag: "CALIDAD/PRECIO" },
+            { categoria: "pc", titulo: "Mini PC Beelink SER5", desc: "Potencia bruta en tamaño mini. Escóndelo tras el monitor.", img: "https://m.media-amazon.com/images/I/71XDS960HDL._AC_SL1500_.jpg", link: "https://amzn.to/3LMfybC", tag: "MINIMALISTA" },
+            { categoria: "pc", titulo: "Lexar RAM DDR4 8GB", desc: "Actualización económica para acelerar portátil.", img: "https://m.media-amazon.com/images/I/71zWep+u5FL._AC_SL1500_.jpg", link: "https://amzn.to/4jMhvkK", tag: "REVIVE TU PC" },
+            { categoria: "pc", titulo: "Kingston FURY 16GB", desc: "Rendimiento puro sin luces. Estética negra.", img: "https://m.media-amazon.com/images/I/61uXihcspuL._AC_SL1500_.jpg", link: "https://amzn.to/4b49tlg" },
+            // --- ZONA GAMING (Torres) ---
+            { categoria: "pc", titulo: "NitroPC Pack Bronze", desc: "Setup completo premontado. Listo para jugar.", img: "https://m.media-amazon.com/images/I/71gnwUb30JL._AC_SL1500_.jpg", link: "https://amzn.to/4pAAIHr", tag: "GAMING READY", gaming: true },
+            { categoria: "pc", titulo: "Greed® MK2 Plus", desc: "Intel Core i7-12700F y gráfica RX 9060 XT 8GB.", img: "https://m.media-amazon.com/images/I/71K19I0MsCL._AC_SL1500_.jpg", link: "https://amzn.to/4k9AWo2", gaming: true },
+            { categoria: "pc", titulo: "HYPER BYTE® Set", desc: "Set completo listo. AMD Ryzen 7 5700G + 16GB.", img: "https://m.media-amazon.com/images/I/71NX6LZabEL._AC_SL1500_.jpg", link: "https://amzn.to/4kbyVYr", gaming: true },
+            { categoria: "pc", titulo: "PC Gamer Mirage X", desc: "Rendimiento extremo: i7-14700F y RTX 5070.", img: "https://m.media-amazon.com/images/I/91irKWz3-UL._AC_SL1500_.jpg", link: "https://amzn.to/4kdoyU6", gaming: true },
+            { categoria: "pc", titulo: "HP OMEN 35L", desc: "Ryzen 7 8700F, 32GB DDR5 y RTX 5070.", img: "https://m.media-amazon.com/images/I/61DpKIMgmpL._AC_SL1500_.jpg", link: "https://amzn.to/46kX4G2", gaming: true },
+            { categoria: "pc", titulo: "TrendingPC Ultimate", desc: "i7 14700F, 32GB DDR5 y NVIDIA RTX 5060.", img: "https://m.media-amazon.com/images/I/61TA7ySf9JL._AC_SL1107_.jpg", link: "https://amzn.to/4brpxxA", gaming: true },
+            { categoria: "pc", titulo: "PC Gaming Ryzen 7", desc: "Ryzen 7 5700X, 32GB RAM y RTX 5060.", img: "https://m.media-amazon.com/images/I/61uzLQZIllL._AC_.jpg", link: "https://amzn.to/4alOIjX", gaming: true }
         ];
 
         const grid = document.getElementById('product-grid');
@@ -874,15 +458,20 @@
             grid.innerHTML = '';
             list.forEach(p => {
                 const art = document.createElement('article');
-                art.className = "product-card bg-white dark:bg-slate-900 rounded-[2.5rem] overflow-hidden border border-slate-200 dark:border-slate-800 flex flex-col justify-between shadow-card hover:shadow-premium transition-all duration-500";
+                // CAMBIO CLAVE: Clases responsive para adaptar tamaño móvil vs PC
+                art.className = "product-card bg-white dark:bg-slate-900 rounded-2xl md:rounded-[2.5rem] overflow-hidden border border-slate-200 dark:border-slate-800 flex flex-col justify-between shadow-card hover:shadow-premium transition-all duration-500";
+                
                 art.innerHTML = `
-                    <div class="mx-3 mt-3 p-3 aspect-square flex items-center justify-center relative bg-slate-100 dark:bg-slate-800/30 rounded-[2rem] overflow-hidden">
+                    <div class="mx-2 mt-2 md:mx-3 md:mt-3 p-2 md:p-3 aspect-square flex items-center justify-center relative bg-slate-100 dark:bg-slate-800/30 rounded-xl md:rounded-[2rem] overflow-hidden">
                         <img src="${p.img}" alt="${p.titulo}" class="h-full w-full object-contain group-hover:scale-110 transition-transform duration-700">
-                        ${p.tag ? `<span class="absolute top-4 left-4 bg-primary text-white text-[10px] font-bold px-3 py-1 rounded-full">${p.tag}</span>` : ''}
+                        ${p.tag ? `<span class="absolute top-2 left-2 md:top-4 md:left-4 bg-primary text-white text-[9px] md:text-[10px] font-bold px-2 py-0.5 md:px-3 md:py-1 rounded-full">${p.tag}</span>` : ''}
                     </div>
-                    <div class="p-6 h-[210px] flex flex-col justify-between">
-                        <div><h3 class="font-bold text-lg mb-2">${p.titulo}</h3><p class="text-xs text-slate-500 leading-relaxed">${p.desc}</p></div>
-                        <a href="${p.link}" target="_blank" class="w-full text-center py-3.5 bg-[#FF9900] hover:bg-[#e68a00] text-white rounded-2xl font-bold text-sm transition-all shadow-lg shadow-orange-500/20">Ver precio en Amazon</a>
+                    <div class="p-3 md:p-6 h-[160px] md:h-[210px] flex flex-col justify-between">
+                        <div>
+                            <h3 class="font-bold text-sm md:text-lg mb-1 md:mb-2 leading-tight line-clamp-2">${p.titulo}</h3>
+                            <p class="text-[10px] md:text-xs text-slate-500 leading-relaxed line-clamp-2 md:line-clamp-3">${p.desc}</p>
+                        </div>
+                        <a href="${p.link}" target="_blank" class="w-full text-center py-2 md:py-3.5 bg-[#FF9900] hover:bg-[#e68a00] text-white rounded-lg md:rounded-2xl font-bold text-xs md:text-sm transition-all shadow-lg shadow-orange-500/20">Ver en Amazon</a>
                     </div>`;
                 grid.appendChild(art);
             });
@@ -935,69 +524,49 @@
         // Filtros Normales
         document.querySelectorAll('.filter-btn').forEach(btn => {
             btn.addEventListener('click', () => {
-                // Si estamos en modo gaming, lo desactivamos al pulsar un filtro normal
-                if(isGamingMode) {
-                   toggleGamingMode(); 
-                }
-
+                if(isGamingMode) toggleGamingMode(); 
                 document.querySelectorAll('.filter-btn').forEach(b => {
                     b.classList.remove('active', '!bg-primary', '!text-white', '!border-primary');
                     b.classList.add('bg-white', 'dark:bg-slate-800'); 
                 });
-                
                 btn.classList.add('active', '!bg-primary', '!text-white', '!border-primary');
                 btn.classList.remove('bg-white', 'dark:bg-slate-800'); 
-
                 const cat = btn.dataset.category;
                 render(cat === 'all' ? productos : productos.filter(p => p.categoria === cat));
             });
         });
 
-        // Auto-filtro desde URL
         window.addEventListener('load', () => {
             const params = new URLSearchParams(window.location.search);
             const categoryToLoad = params.get('ver'); 
-
             if (categoryToLoad) {
                 const targetBtn = document.querySelector(`.filter-btn[data-category="${categoryToLoad}"]`);
                 if (targetBtn) {
                     targetBtn.click();
-                    setTimeout(() => {
-                        document.getElementById('productos').scrollIntoView({ behavior: 'smooth' });
-                    }, 500);
+                    setTimeout(() => { document.getElementById('productos').scrollIntoView({ behavior: 'smooth' }); }, 500);
                 }
             }
         });
 
-        // --- LÓGICA ZONA GAMING (ROJA + ETIQUETA + SCROLL NEÓN + SCROLL INTELIGENTE) ---
+        // --- LÓGICA ZONA GAMING ---
         const btnGaming = document.getElementById('btn-gaming');
         const mobileGamingBtn = document.getElementById('mobile-gaming-btn');
         const gamingToast = document.getElementById('gaming-toast');
         let isGamingMode = false;
-        let neonObserver = null; // Guardamos el observador globalmente
+        let neonObserver = null;
 
-        // Configuración del Observador (detecta cuando el 20% de la tarjeta es visible)
-        const observerOptions = {
-            root: null,
-            threshold: 0.2
-        };
+        const observerOptions = { root: null, threshold: 0.15 }; // Threshold más bajo para móvil
 
         function startNeonObserver() {
-            // Limpiamos observadores previos si existen
             if (neonObserver) neonObserver.disconnect();
-
             neonObserver = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
-                        // ENCENDER EL NEÓN
                         entry.target.classList.add('neon-on');
-                        // Dejamos de observar este elemento para ahorrar recursos
                         neonObserver.unobserve(entry.target);
                     }
                 });
             }, observerOptions);
-
-            // Empezamos a observar todas las tarjetas renderizadas
             document.querySelectorAll('.product-card').forEach(card => neonObserver.observe(card));
         }
 
@@ -1005,55 +574,37 @@
             isGamingMode = !isGamingMode;
             document.body.classList.toggle('gaming-mode');
 
-            // Actualizar texto de botones
             const btnText = isGamingMode ? "Salir Modo Gaming ❌" : "Zona Gaming 🎮";
             if(btnGaming) btnGaming.querySelector('span').innerText = btnText;
             if(mobileGamingBtn) mobileGamingBtn.innerText = btnText;
 
             if (isGamingMode) {
-                // 1. Mostrar Toast con estilo
                 gamingToast.classList.remove('opacity-0', 'scale-90');
-                setTimeout(() => { 
-                    gamingToast.classList.add('opacity-0', 'scale-90');
-                }, 3000);
+                setTimeout(() => { gamingToast.classList.add('opacity-0', 'scale-90'); }, 3000);
 
-                // 2. MOSTRAR EL TEXTO GANCHO SEO
                 const heroText = document.getElementById('gaming-hero-text');
                 if(heroText) {
                     heroText.classList.remove('hidden');
                     heroText.classList.add('block', 'animate-fade-in-up');
                 }
 
-                // 3. FILTRAR POR LA ETIQUETA "GAMING: TRUE"
                 const gamingProducts = productos.filter(p => p.gaming === true);
                 render(gamingProducts);
-
-                // 4. ACTIVAR EL EFECTO SCROLL NEÓN
-                // Damos un pequeño respiro para que el DOM se actualice antes de observar
                 setTimeout(() => startNeonObserver(), 100);
+                if(heroText) heroText.scrollIntoView({ behavior: 'smooth', block: 'start' });
                 
-                // 5. Scroll DIRECTO al Texto Gancho (Efecto "Entrar en Zona")
-                if(heroText) {
-                    heroText.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                }
-                
-                // Desactivar visualmente los filtros normales
                 document.querySelectorAll('.filter-btn').forEach(b => {
                      b.classList.remove('active', '!bg-primary', '!text-white');
                      b.classList.add('bg-white', 'dark:bg-slate-800');
                 });
 
             } else {
-                // --- VOLVER A LA OFICINA ---
-                
-                // Ocultar texto gancho
                 const heroText = document.getElementById('gaming-hero-text');
                 if(heroText) {
                     heroText.classList.add('hidden');
                     heroText.classList.remove('block', 'animate-fade-in-up');
                 }
-
-                if (neonObserver) neonObserver.disconnect(); // Apagamos el observador
+                if (neonObserver) neonObserver.disconnect();
                 render(productos);
                 document.querySelector('.filter-btn[data-category="all"]').click();
             }
@@ -1062,11 +613,9 @@
         if(btnGaming) btnGaming.addEventListener('click', toggleGamingMode);
         if(mobileGamingBtn) mobileGamingBtn.addEventListener('click', () => {
             toggleGamingMode();
-            document.getElementById('mobile-menu').classList.add('hidden'); // Cerrar menú móvil
+            document.getElementById('mobile-menu').classList.add('hidden');
         });
-
     </script>
 </body>
 </html>
-
 
