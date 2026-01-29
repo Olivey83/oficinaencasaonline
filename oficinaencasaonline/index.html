@@ -57,59 +57,77 @@
         details > summary { list-style: none; }
         details > summary::-webkit-details-marker { display: none; }
 
-        /* --- ZONA GAMING (ESTILO HARDCORE RED) --- */
+        /* =========================================
+           ZONA GAMING - ESTILOS HARDCORE v3.0
+           ========================================= */
+        
         body.gaming-mode {
             background-color: #050505 !important;
             color: #e0e0e0;
         }
         
-        /* ROJO NEÓN #ff3333 */
+        /* --- 1. OVERRIDES DE COLOR ROJO NEÓN (#ff3333) --- */
         body.gaming-mode .text-primary { color: #ff3333 !important; text-shadow: 0 0 12px rgba(255, 51, 51, 0.6); }
         body.gaming-mode .bg-primary { background-color: #ff3333 !important; color: #000 !important; box-shadow: 0 0 20px rgba(255, 51, 51, 0.6); }
         body.gaming-mode .border-primary { border-color: #ff3333 !important; }
         
-        /* FIX VISIBILIDAD HEADER (Texto blanco sobre fondo negro) */
-        body.gaming-mode header nav a { color: #ffffff !important; opacity: 0.8; }
+        /* --- 2. FIX HEADER (FONDO NEGRO OBLIGATORIO) --- */
+        /* Esto arregla que no se vean las letras en modo claro */
+        body.gaming-mode header#main-nav { 
+            background-color: rgba(5, 5, 5, 0.95) !important; /* Fondo casi negro */
+            border-bottom-color: rgba(255, 51, 51, 0.3) !important;
+            backdrop-filter: blur(10px);
+        }
+        
+        /* Texto del menú en blanco */
+        body.gaming-mode header nav a { color: #ffffff !important; opacity: 0.9; }
         body.gaming-mode header nav a:hover { color: #ff3333 !important; opacity: 1; text-shadow: 0 0 10px rgba(255,51,51,0.8); }
+        
+        /* Fix específico para el enlace "Cuida tu espalda" en modo gaming: BLANCO, NO ROJO */
+        body.gaming-mode header nav a[href*="dolor-espalda"] {
+            color: #ffffff !important;
+            text-shadow: none !important;
+            font-weight: 700;
+        }
+
+        /* Logo texto en blanco */
         body.gaming-mode header .font-bold.tracking-tight { 
             background: none !important; 
             -webkit-text-fill-color: white !important; 
             color: white !important;
             text-shadow: 0 0 10px rgba(255,255,255,0.3);
         }
-        body.gaming-mode header { border-bottom-color: rgba(255, 51, 51, 0.3) !important; }
 
-        /* --- FIX BOTONES DE FILTRO (Solución de Legibilidad) --- */
-        body.gaming-mode .filter-btn {
+        /* --- 3. FIX BOTONES DE FILTRO (NEGROS) --- */
+        /* Forzamos negro con selectores fuertes para ganar a Tailwind */
+        body.gaming-mode button.filter-btn {
             background-color: #000000 !important; 
             color: #ffffff !important; 
-            border-color: #333333 !important;
+            border: 1px solid #333333 !important;
         }
-        body.gaming-mode .filter-btn:hover {
+        body.gaming-mode button.filter-btn:hover {
             border-color: #ff3333 !important;
             color: #ff3333 !important;
             box-shadow: 0 0 15px rgba(255, 51, 51, 0.4) !important;
         }
-        body.gaming-mode .filter-btn.active {
+        body.gaming-mode button.filter-btn.active {
             background-color: #ff3333 !important;
             color: #000000 !important; 
             border-color: #ff3333 !important;
             box-shadow: 0 0 20px rgba(255, 51, 51, 0.6) !important;
         }
 
-        /* --- TARJETAS EN MODO GAMING (Lógica de encendido por scroll) --- */
+        /* --- 4. EFECTO SCROLL TARJETAS --- */
         body.gaming-mode .product-card {
             background-color: #0a0a0a !important;
             border-color: #333 !important;
             box-shadow: none !important;
             transition: border-color 0.8s ease, box-shadow 0.8s ease, transform 0.5s ease;
         }
-        
         body.gaming-mode .product-card.neon-on {
             border-color: #ff3333 !important;
             box-shadow: 0 0 30px rgba(255, 51, 51, 0.25) !important;
         }
-
         body.gaming-mode .product-card:hover {
             transform: scale(1.03);
             border-color: #ff6666 !important;
@@ -1050,6 +1068,5 @@
     </script>
 </body>
 </html>
-
 
 
