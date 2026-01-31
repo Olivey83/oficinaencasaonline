@@ -8,7 +8,11 @@
     
     <title>Referencias de Producto | Oficina en Casa</title>
     
-    <link rel="icon" type="image/svg+xml" href='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 36 36"><defs><linearGradient id="a" x1="0" y1="0" x2="36" y2="36" gradientUnits="userSpaceOnUse"><stop stop-color="%232563eb"/><stop offset="1" stop-color="%2310b981"/></linearGradient></defs><rect width="36" height="36" rx="10" fill="url(%23a)"/><path d="M18 6L8 16V28C8 29.1 8.9 30 10 30H26C27.1 30 28 29.1 28 28V16L18 6Z" fill="white" fill-opacity="0.3"/><g fill="white"><path d="M18 26C19.1 26 20 25.1 20 24C20 22.9 19.1 22 18 22C16.9 22 16 22.9 16 24C16 25.1 16.9 26 18 26Z"/><path d="M13.7 20.7C14.9 19.5 16.4 18.9 18 18.9C19.6 18.9 21.1 19.5 22.3 20.7L20.9 22.1C20.1 21.3 19.1 20.9 18 20.9C16.9 20.9 15.9 21.3 15.1 22.1L13.7 20.7Z"/><path d="M10.2 17.2C12.3 15.1 15.1 13.9 18 13.9C20.9 13.9 23.7 15.1 25.8 17.2L24.4 18.6C22.7 16.9 20.4 15.9 18 15.9C15.6 15.9 13.3 16.9 11.6 18.6L10.2 17.2Z"/></g></svg>'>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700;800;900&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+
+    <link rel="icon" type="image/svg+xml" href='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 36 36"><path d="M18 6L8 16V28C8 29.1 8.9 30 10 30H26C27.1 30 28 29.1 28 28V16L18 6Z" fill="%230f172a"/><rect x="12" y="18" width="12" height="8" rx="1" fill="white"/></svg>'>
     
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -16,9 +20,20 @@
             darkMode: 'class',
             theme: {
                 extend: {
-                    colors: { primary: "#2563eb", primaryDark: "#1e40af", accent: "#0f172a" },
+                    fontFamily: {
+                        sans: ['"Open Sans"', 'sans-serif'],
+                        display: ['"Montserrat"', 'sans-serif'],
+                    },
+                    colors: { 
+                        primary: "#2563eb", 
+                        primaryDark: "#1e40af", 
+                        accent: "#0f172a",
+                        corporateBlue: "#0f172a", 
+                        corporateTeal: "#2dd4bf"
+                    },
                     boxShadow: { premium: "0 20px 60px rgba(15,23,42,0.22)", card: "0 10px 30px -10px rgba(0,0,0,0.1)" },
-                    borderRadius: { '3xl': '1.75rem' }
+                    borderRadius: { '3xl': '1.75rem' },
+                    animation: { 'fade-in-up': 'fade-in-up 0.8s ease-out forwards' }
                 }
             }
         }
@@ -29,39 +44,34 @@
         }
     </script>
     <style>
-        .glass { background: rgba(255, 255, 255, 0.75); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); }
-        .dark .glass { background: rgba(15, 23, 42, 0.85); }
+        .glass { background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(14px); }
+        .dark .glass { background: rgba(15, 23, 42, 0.95); }
+        .product-card { transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1); }
     </style>
 </head>
 
-<body class="bg-slate-50 text-slate-900 dark:bg-slate-950 dark:text-slate-50 antialiased overflow-x-hidden transition-colors duration-500">
+<body class="bg-slate-50 text-slate-900 dark:bg-slate-950 dark:text-slate-50 antialiased overflow-x-hidden transition-colors duration-500 font-sans">
     
     <header class="fixed w-full top-0 z-50 glass border-b border-slate-200/50 dark:border-slate-800/50 transition-all duration-300" id="main-nav">
         <div class="max-w-7xl mx-auto flex items-center justify-between px-6 py-4">
-            <a href="index.html" class="flex items-center gap-3 group">
-                <div class="w-11 h-11 rounded-2xl flex items-center justify-center transition-transform group-hover:scale-110">
-                    <svg class="w-full h-full drop-shadow-md" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <defs>
-                            <linearGradient id="glass-grad-header" x1="0" y1="0" x2="36" y2="36" gradientUnits="userSpaceOnUse"><stop stop-color="#2563eb" stop-opacity="0.3"/><stop offset="1" stop-color="#10b981" stop-opacity="0.3"/></linearGradient>
-                            <linearGradient id="glass-stroke-header" x1="0" y1="0" x2="36" y2="36" gradientUnits="userSpaceOnUse"><stop stop-color="#60a5fa"/><stop offset="1" stop-color="#34d399"/></linearGradient>
-                        </defs>
-                        <path d="M18 3L4 15V31C4 32.1 4.9 33 6 33H30C31.1 33 32 32.1 32 31V15L18 3Z" fill="url(#glass-grad-header)"/>
-                        <g class="text-white dark:text-emerald-100" filter="drop-shadow(0 0 2px rgba(255,255,255,0.6))">
-                            <path d="M18 27C19.1 27 20 26.1 20 25C20 23.9 19.1 23 18 23C16.9 23 16 23.9 16 25C16 26.1 16.9 27 18 27Z" fill="currentColor"/>
-                            <path d="M12.3 19.3C13.8 17.8 15.8 17 18 17C20.2 17 22.2 17.8 23.7 19.3L22.3 20.7C21.1 19.5 19.6 18.9 18 18.9C16.4 18.9 14.9 19.5 13.7 20.7L12.3 19.3Z" fill="currentColor"/>
-                            <path d="M8.8 15.8C11.2 13.4 14.5 12 18 12C21.5 12 24.8 13.4 27.2 15.8L25.8 17.2C23.7 15.1 20.9 13.9 18 13.9C15.1 13.9 12.3 15.1 10.2 17.2L8.8 15.8Z" fill="currentColor"/>
-                        </g>
-                        <path d="M18 3L4 15V31C4 32.1 4.9 33 6 33H30C31.1 33 32 32.1 32 31V15L18 3Z" stroke="url(#glass-stroke-header)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                        <path d="M7 17L18 7L29 17" stroke="white" stroke-opacity="0.4" stroke-width="1" stroke-linecap="round"/>
+            
+            <a href="index.html" class="group flex items-center gap-3">
+                <div class="w-10 h-10 md:w-12 md:h-12 text-corporateBlue dark:text-white transition-transform group-hover:scale-105">
+                    <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full h-full">
+                        <path d="M10 40 L50 15 L90 40" stroke="currentColor" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M68 26 V18 H78 V32" stroke="currentColor" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+                        <rect x="20" y="45" width="60" height="38" rx="3" stroke="currentColor" stroke-width="6"/>
+                        <path d="M15 88 H85 L82 92 H18 L15 88Z" fill="currentColor"/>
                     </svg>
                 </div>
-                <span class="font-bold text-lg tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-slate-900 to-slate-600 dark:from-white dark:to-slate-400">Oficina en Casa</span>
+                <div class="flex flex-col justify-center">
+                    <span class="font-display font-bold text-xl md:text-2xl tracking-tight leading-none text-corporateBlue dark:text-white">OFICINA EN CASA</span>
+                    <span class="font-sans text-[0.6rem] md:text-[0.7rem] font-medium tracking-wide text-corporateBlue dark:text-slate-300 mt-0.5">Simplifica. Enfócate. Prospera.</span>
+                </div>
             </a>
             
             <nav class="hidden md:flex items-center gap-6">
-                <a href="index.html#productos" class="text-sm font-semibold hover:text-primary transition">Productos</a>
-                <a href="index.html#guia" class="text-sm font-semibold hover:text-primary transition">Ergonomía</a>
-                <a href="blog-dolor-espalda.html" class="text-sm font-semibold text-primary hover:underline decoration-2 underline-offset-4 transition">Cuida tu espalda</a>
+                <a href="index.html" class="text-sm font-semibold hover:text-primary transition">← Volver a Inicio</a>
                 
                 <button id="theme-toggle" class="p-2.5 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-500 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-slate-700 transition-all shadow-sm">
                     <svg id="theme-toggle-light-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z"></path></svg>
@@ -73,9 +83,9 @@
 
     <main class="pt-32 pb-20 max-w-7xl mx-auto px-6">
         <div class="text-center mb-12">
-            <span class="inline-block px-4 py-1.5 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-500 text-xs font-bold tracking-widest uppercase mb-4">Documentación</span>
-            <h1 class="text-3xl md:text-5xl font-extrabold text-slate-900 dark:text-white mb-4">Referencias de Producto</h1>
-            <p class="text-slate-500 max-w-xl mx-auto">Listado técnico de componentes y mobiliario recomendado.</p>
+            <span class="inline-block px-4 py-1.5 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-500 text-xs font-bold tracking-widest uppercase mb-4 font-display">Documentación Privada</span>
+            <h1 class="text-3xl md:text-5xl font-extrabold text-slate-900 dark:text-white mb-4 font-display">Referencias de Producto</h1>
+            <p class="text-slate-500 max-w-xl mx-auto">Listado técnico de componentes y productos recomendados (Uso interno).</p>
         </div>
 
         <div class="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-3 md:gap-8">
@@ -83,11 +93,11 @@
             <article class="product-card bg-white dark:bg-slate-900 rounded-2xl md:rounded-[2.5rem] overflow-hidden border border-slate-200 dark:border-slate-800 flex flex-col justify-between shadow-card hover:shadow-premium transition-all duration-500">
                 <div class="mx-2 mt-2 md:mx-3 md:mt-3 p-2 md:p-3 aspect-square flex items-center justify-center relative bg-slate-100 dark:bg-slate-800/30 rounded-xl md:rounded-[2rem] overflow-hidden">
                     <img src="https://m.media-amazon.com/images/I/71gY6vuIpYL._AC_SL1500_.jpg" alt="Papel Térmico A4" class="h-full w-full object-contain hover:scale-110 transition-transform duration-700">
-                    <span class="absolute top-2 left-2 md:top-4 md:left-4 bg-primary text-white text-[9px] md:text-[10px] font-bold px-2 py-0.5 md:px-3 md:py-1 rounded-full">RECAMBIO</span>
+                    <span class="absolute top-2 left-2 md:top-4 md:left-4 bg-primary text-white text-[9px] md:text-[10px] font-bold px-2 py-0.5 md:px-3 md:py-1 rounded-full font-display">RECAMBIO</span>
                 </div>
                 <div class="p-3 md:p-6 h-[160px] md:h-[210px] flex flex-col justify-between">
                     <div>
-                        <h3 class="font-bold text-sm md:text-lg mb-1 md:mb-2 leading-tight line-clamp-2">Pack 5 Rollos Papel Térmico A4</h3>
+                        <h3 class="font-bold text-sm md:text-lg mb-1 md:mb-2 leading-tight line-clamp-2 font-display">Pack 5 Rollos Papel Térmico A4</h3>
                         <p class="text-[10px] md:text-xs text-slate-500 leading-relaxed line-clamp-2 md:line-clamp-3">Papel térmico de alta calidad para impresora portátil. Formato A4 estándar.</p>
                     </div>
                     <a href="https://amzn.to/4qVUezK" target="_blank" rel="nofollow" class="w-full text-center py-2 md:py-3.5 bg-[#FF9900] hover:bg-[#e68a00] text-white rounded-lg md:rounded-2xl font-bold text-xs md:text-sm transition-all shadow-lg shadow-orange-500/20">Ver referencia</a>
@@ -96,29 +106,39 @@
 
             <article class="product-card bg-white dark:bg-slate-900 rounded-2xl md:rounded-[2.5rem] overflow-hidden border border-slate-200 dark:border-slate-800 flex flex-col justify-between shadow-card hover:shadow-premium transition-all duration-500">
                 <div class="mx-2 mt-2 md:mx-3 md:mt-3 p-2 md:p-3 aspect-square flex items-center justify-center relative bg-slate-100 dark:bg-slate-800/30 rounded-xl md:rounded-[2rem] overflow-hidden">
-                    <img src="https://m.media-amazon.com/images/I/6197UATlwNL._AC_SL1500_.jpg" alt="Producto Ejemplo" class="h-full w-full object-contain hover:scale-110 transition-transform duration-700">
-                    <span class="absolute top-2 left-2 md:top-4 md:left-4 bg-slate-500 text-white text-[9px] md:text-[10px] font-bold px-2 py-0.5 md:px-3 md:py-1 rounded-full">EJEMPLO</span>
+                    <img src="https://m.media-amazon.com/images/I/81k-zNcruUL._AC_SL1500_.jpg" alt="NIVEA MEN Hyaluron" class="h-full w-full object-contain hover:scale-110 transition-transform duration-700">
+                    <span class="absolute top-2 left-2 md:top-4 md:left-4 bg-corporateTeal text-white text-[9px] md:text-[10px] font-bold px-2 py-0.5 md:px-3 md:py-1 rounded-full font-display">CUIDADO</span>
                 </div>
                 <div class="p-3 md:p-6 h-[160px] md:h-[210px] flex flex-col justify-between">
                     <div>
-                        <h3 class="font-bold text-sm md:text-lg mb-1 md:mb-2 leading-tight line-clamp-2">Hueco Disponible</h3>
-                        <p class="text-[10px] md:text-xs text-slate-500 leading-relaxed line-clamp-2 md:line-clamp-3">Edita este bloque cuando tengas otro producto para recomendar.</p>
+                        <h3 class="font-bold text-sm md:text-lg mb-1 md:mb-2 leading-tight line-clamp-2 font-display">NIVEA MEN Hyaluron Antiedad</h3>
+                        <p class="text-[10px] md:text-xs text-slate-500 leading-relaxed line-clamp-2 md:line-clamp-3">Crema hidratante facial con ácido hialurónico. Reduce arrugas profundas y reafirma la piel.</p>
                     </div>
-                    <a href="#" class="w-full text-center py-2 md:py-3.5 bg-slate-200 text-slate-500 rounded-lg md:rounded-2xl font-bold text-xs md:text-sm transition-all cursor-not-allowed">Sin enlace</a>
+                    <a href="https://amzn.to/4qXdyNc" target="_blank" rel="nofollow" class="w-full text-center py-2 md:py-3.5 bg-[#FF9900] hover:bg-[#e68a00] text-white rounded-lg md:rounded-2xl font-bold text-xs md:text-sm transition-all shadow-lg shadow-orange-500/20">Ver referencia</a>
                 </div>
             </article>
 
         </div>
     </main>
 
-    <footer class="bg-white dark:bg-slate-950 py-12 border-t border-slate-200 dark:border-slate-800 text-center">
+    <footer class="bg-corporateBlue text-white py-12 border-t border-slate-200 dark:border-slate-800 text-center">
         <div class="max-w-4xl mx-auto px-6">
-            <div class="flex items-center justify-center gap-2 mb-6 opacity-80 hover:opacity-100 transition">
-                <svg class="w-6 h-6" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="glass-stroke-footer" x1="0" y1="0" x2="36" y2="36" gradientUnits="userSpaceOnUse"><stop stop-color="#ffffff" stop-opacity="0.8"/><stop offset="1" stop-color="#a7f3d0" stop-opacity="0.8"/></linearGradient></defs><path d="M18 3L4 15V31C4 32.1 4.9 33 6 33H30C31.1 33 32 32.1 32 31V15L18 3Z" fill="currentColor" fill-opacity="0.2"/><g fill="currentColor"><path d="M18 27C19.1 27 20 26.1 20 25C20 23.9 19.1 23 18 23C16.9 23 16 23.9 16 25C16 26.1 16.9 27 18 27Z"/><path d="M12.3 19.3C13.8 17.8 15.8 17 18 17C20.2 17 22.2 17.8 23.7 19.3L22.3 20.7C21.1 19.5 19.6 18.9 18 18.9C16.4 18.9 14.9 19.5 13.7 20.7L12.3 19.3Z"/><path d="M8.8 15.8C11.2 13.4 14.5 12 18 12C21.5 12 24.8 13.4 27.2 15.8L25.8 17.2C23.7 15.1 20.9 13.9 18 13.9C15.1 13.9 12.3 15.1 10.2 17.2L8.8 15.8Z"/></g><path d="M18 3L4 15V31C4 32.1 4.9 33 6 33H30C31.1 33 32 32.1 32 31V15L18 3Z" stroke="url(#glass-stroke-footer)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                <span class="font-bold text-lg">Oficina en Casa</span>
+            <div class="flex items-center justify-center gap-3 mb-6 opacity-80 hover:opacity-100 transition">
+                <div class="w-8 h-8 md:w-10 md:h-10 text-white">
+                    <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full h-full">
+                        <path d="M10 40 L50 15 L90 40" stroke="currentColor" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M68 26 V18 H78 V32" stroke="currentColor" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+                        <rect x="20" y="45" width="60" height="38" rx="3" stroke="currentColor" stroke-width="6"/>
+                        <path d="M15 88 H85 L82 92 H18 L15 88Z" fill="currentColor"/>
+                    </svg>
+                </div>
+                <div class="flex flex-col justify-center text-left">
+                    <span class="font-display font-bold text-xl tracking-tight leading-none text-white">OFICINA EN CASA</span>
+                    <span class="font-sans text-[0.6rem] font-medium tracking-wide text-slate-300 mt-0.5">Simplifica. Enfócate. Prospera.</span>
+                </div>
             </div>
             <p class="text-slate-400 text-sm italic leading-relaxed mb-8">En calidad de Afiliado de Amazon, obtengo ingresos por las compras adscritas que cumplen los requisitos aplicables.</p>
-            <p class="text-xs font-bold text-slate-500 uppercase tracking-widest">© 2026 Oficina en Casa Online. Todos los derechos reservados.</p>
+            <p class="text-xs font-bold text-slate-500 uppercase tracking-widest font-display">© 2026 Oficina en Casa Online. Todos los derechos reservados.</p>
         </div>
     </footer>
 
