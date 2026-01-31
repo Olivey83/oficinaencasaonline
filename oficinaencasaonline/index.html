@@ -27,7 +27,7 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800;900&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700;800;900&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
 
     <link rel="icon" type="image/svg+xml" href='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 36 36"><defs><linearGradient id="a" x1="0" y1="0" x2="36" y2="36" gradientUnits="userSpaceOnUse"><stop stop-color="%232563eb"/><stop offset="1" stop-color="%2310b981"/></linearGradient></defs><rect width="36" height="36" rx="10" fill="url(%23a)"/><path d="M18 6L8 16V28C8 29.1 8.9 30 10 30H26C27.1 30 28 29.1 28 28V16L18 6Z" fill="white" fill-opacity="0.3"/><g fill="white"><path d="M18 26C19.1 26 20 25.1 20 24C20 22.9 19.1 22 18 22C16.9 22 16 22.9 16 24C16 25.1 16.9 26 18 26Z"/><path d="M13.7 20.7C14.9 19.5 16.4 18.9 18 18.9C19.6 18.9 21.1 19.5 22.3 20.7L20.9 22.1C20.1 21.3 19.1 20.9 18 20.9C16.9 20.9 15.9 21.3 15.1 22.1L13.7 20.7Z"/><path d="M10.2 17.2C12.3 15.1 15.1 13.9 18 13.9C20.9 13.9 23.7 15.1 25.8 17.2L24.4 18.6C22.7 16.9 20.4 15.9 18 15.9C15.6 15.9 13.3 16.9 11.6 18.6L10.2 17.2Z"/></g></svg>'>
     
@@ -93,7 +93,7 @@
 
         /* TRANSFORMACIÓN LOGO MODO GAMING */
         body.gaming-mode .logo-part-blue { color: #ffffff !important; } 
-        body.gaming-mode .logo-part-teal { color: #ff3333 !important; } 
+        body.gaming-mode .logo-part-teal { color: #ffffff !important; } /* En gaming todo blanco */
         body.gaming-mode .logo-icon-stroke { stroke: #ffffff !important; } 
         body.gaming-mode .logo-icon-fill { fill: #ffffff !important; }
 
@@ -142,18 +142,20 @@
         <div class="max-w-7xl mx-auto flex items-center justify-between px-6 py-4">
             
             <a href="index.html" class="group flex items-center gap-3">
-                <div class="w-8 h-8 md:w-10 md:h-10 text-corporateBlue dark:text-white transition-transform group-hover:scale-105">
+                <div class="w-9 h-9 md:w-11 md:h-11 text-corporateBlue dark:text-white transition-transform group-hover:scale-105">
                     <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full h-full">
                         <path d="M10 40 L50 10 L90 40" stroke="currentColor" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" class="text-corporateBlue dark:text-white logo-icon-stroke"/>
                         <path d="M70 25 V15 H80 V32" stroke="currentColor" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" class="text-corporateBlue dark:text-white logo-icon-stroke"/>
                         <rect x="20" y="45" width="60" height="40" rx="4" fill="currentColor" class="text-corporateBlue dark:text-white logo-icon-fill"/>
-                        <path d="M15 88 H85 L80 92 H20 L15 88Z" fill="currentColor" class="text-corporateBlue dark:text-white logo-icon-fill"/>
                     </svg>
                 </div>
                 
-                <div class="font-display font-black text-lg md:text-2xl tracking-tight leading-none flex items-center gap-1.5">
-                    <span class="text-corporateBlue dark:text-white logo-part-blue">OFICINA</span>
-                    <span class="text-corporateTeal logo-part-teal">EN CASA</span>
+                <div class="flex flex-col justify-center">
+                    <div class="font-display font-black text-lg md:text-xl tracking-tight leading-none flex items-center gap-1.5">
+                        <span class="text-corporateBlue dark:text-white logo-part-blue">OFICINA</span>
+                        <span class="text-corporateBlue dark:text-white logo-part-teal">EN CASA</span>
+                    </div>
+                    <span class="font-sans text-[0.55rem] md:text-[0.65rem] font-semibold tracking-wider uppercase text-corporateBlue/70 dark:text-white/70 mt-0.5">Simplifica. Enfócate. Prospera.</span>
                 </div>
             </a>
             
@@ -387,20 +389,24 @@
 
     <footer class="bg-white dark:bg-slate-950 py-12 border-t border-slate-200 dark:border-slate-800 text-center">
         <div class="max-w-4xl mx-auto px-6">
+            
             <div class="flex items-center justify-center gap-3 mb-6 opacity-80 hover:opacity-100 transition">
-                <div class="w-8 h-8 md:w-10 md:h-10 text-slate-900 dark:text-white">
+                <div class="w-9 h-9 md:w-11 md:h-11 text-slate-900 dark:text-white">
                     <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full h-full">
                         <path d="M10 40 L50 10 L90 40" stroke="currentColor" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
                         <path d="M70 25 V15 H80 V32" stroke="currentColor" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
                         <rect x="20" y="45" width="60" height="40" rx="4" fill="currentColor"/>
-                        <path d="M15 88 H85 L80 92 H20 L15 88Z" fill="currentColor"/>
                     </svg>
                 </div>
-                <div class="font-display font-black text-xl md:text-2xl tracking-tight flex items-center gap-1.5">
-                    <span class="text-slate-900 dark:text-white">OFICINA</span>
-                    <span class="text-corporateTeal">EN CASA</span>
+                <div class="flex flex-col justify-center text-left">
+                     <div class="font-display font-black text-lg md:text-xl tracking-tight leading-none flex items-center gap-1.5">
+                        <span class="text-slate-900 dark:text-white">OFICINA</span>
+                        <span class="text-slate-900 dark:text-white">EN CASA</span>
+                    </div>
+                    <span class="font-sans text-[0.55rem] md:text-[0.65rem] font-semibold tracking-wider uppercase text-slate-500 dark:text-slate-400 mt-0.5">Simplifica. Enfócate. Prospera.</span>
                 </div>
             </div>
+
             <p class="text-slate-400 text-sm italic leading-relaxed mb-8">En calidad de Afiliado de Amazon, obtengo ingresos por las compras adscritas que cumplen los requisitos aplicables.</p>
             <p class="text-xs font-bold text-slate-500 uppercase tracking-widest font-display">© 2026 Oficina en Casa Online. Todos los derechos reservados.</p>
         </div>
