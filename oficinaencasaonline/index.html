@@ -9,12 +9,6 @@
     <meta name="keywords" content="oficina en casa, silla ergonómica, dolor espalda teletrabajo, escritorio elevable, setup minimalista, trabajar desde casa, ram ddr4, gestion cables, wifi mesh">
     <meta name="author" content="Oficina en Casa Online">
 
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://oficinaencasaonline.pages.dev/">
-    <meta property="og:title" content="Oficina en Casa: Guía de Productos Ergonómicos 2026">
-    <meta property="og:description" content="Domina tu espacio de trabajo. Sillas, escritorios y guías técnicas para tu setup.">
-    <meta property="og:image" content="https://images.unsplash.com/photo-1499750310107-5fef28a66643?auto=format&fit=crop&q=80&w=800">
-
     <meta name="p:domain_verify" content="09833f4db7d1de06c2924f6252249738"/>
     
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-BHPG0PX889"></script>
@@ -27,9 +21,9 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700;800;900&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
 
-    <link rel="icon" type="image/svg+xml" href='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 36 36"><defs><linearGradient id="a" x1="0" y1="0" x2="36" y2="36" gradientUnits="userSpaceOnUse"><stop stop-color="%232563eb"/><stop offset="1" stop-color="%2310b981"/></linearGradient></defs><rect width="36" height="36" rx="10" fill="url(%23a)"/><path d="M18 6L8 16V28C8 29.1 8.9 30 10 30H26C27.1 30 28 29.1 28 28V16L18 6Z" fill="white" fill-opacity="0.3"/><g fill="white"><path d="M18 26C19.1 26 20 25.1 20 24C20 22.9 19.1 22 18 22C16.9 22 16 22.9 16 24C16 25.1 16.9 26 18 26Z"/><path d="M13.7 20.7C14.9 19.5 16.4 18.9 18 18.9C19.6 18.9 21.1 19.5 22.3 20.7L20.9 22.1C20.1 21.3 19.1 20.9 18 20.9C16.9 20.9 15.9 21.3 15.1 22.1L13.7 20.7Z"/><path d="M10.2 17.2C12.3 15.1 15.1 13.9 18 13.9C20.9 13.9 23.7 15.1 25.8 17.2L24.4 18.6C22.7 16.9 20.4 15.9 18 15.9C15.6 15.9 13.3 16.9 11.6 18.6L10.2 17.2Z"/></g></svg>'>
+    <link rel="icon" type="image/svg+xml" href='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 36 36"><path d="M18 6L8 16V28C8 29.1 8.9 30 10 30H26C27.1 30 28 29.1 28 28V16L18 6Z" fill="%230f172a"/><rect x="12" y="18" width="12" height="8" rx="1" fill="white"/></svg>'>
     
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -43,17 +37,16 @@
                     },
                     colors: { 
                         primary: "#2563eb", 
-                        primaryDark: "#1e40af", 
-                        accent: "#0f172a",
-                        corporateBlue: "#0f172a", // Azul oscuro
-                        corporateTeal: "#2dd4bf"  // Turquesa
+                        corporateBlue: "#0f172a", // EL AZUL CORPORATIVO EXACTO
+                        corporateTeal: "#2dd4bf"
                     },
                     boxShadow: { premium: "0 20px 60px rgba(15,23,42,0.22)", card: "0 10px 30px -10px rgba(0,0,0,0.1)" },
                     borderRadius: { '3xl': '1.75rem' },
-                    animation: { 'fade-in-up': 'fade-in-up 0.8s ease-out forwards', 'float': 'float 6s ease-in-out infinite' }
+                    animation: { 'fade-in-up': 'fade-in-up 0.8s ease-out forwards' }
                 }
             }
         }
+        // Forzar modo claro por defecto para ver el azul corporativo correctamente
         if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
             document.documentElement.classList.add('dark')
         } else {
@@ -61,9 +54,7 @@
         }
     </script>
     <style>
-        .reveal { opacity: 0; transform: translateY(30px); transition: all 0.8s ease-out; }
-        .reveal.active { opacity: 1; transform: translateY(0); }
-        .glass { background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); }
+        .glass { background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(14px); }
         .dark .glass { background: rgba(15, 23, 42, 0.95); }
         .product-card { transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1); }
         
@@ -73,62 +64,28 @@
         details > summary { list-style: none; }
         details > summary::-webkit-details-marker { display: none; }
 
-        /* =========================================
-           ZONA GAMING - ESTILOS HARDCORE v4.0
-           ========================================= */
-        body.gaming-mode {
-            background-color: #050505 !important;
-            color: #e0e0e0;
-        }
+        /* MODO GAMING */
+        body.gaming-mode { background-color: #050505 !important; color: #e0e0e0; }
+        body.gaming-mode header#main-nav { background-color: rgba(5, 5, 5, 0.95) !important; border-bottom: 1px solid #ff3333; }
         
-        body.gaming-mode .text-primary { color: #ff3333 !important; text-shadow: 0 0 12px rgba(255, 51, 51, 0.6); }
-        body.gaming-mode .bg-primary { background-color: #ff3333 !important; color: #000 !important; box-shadow: 0 0 20px rgba(255, 51, 51, 0.6); }
-        body.gaming-mode .border-primary { border-color: #ff3333 !important; }
-        
-        body.gaming-mode header#main-nav { 
-            background-color: rgba(5, 5, 5, 0.95) !important;
-            border-bottom-color: rgba(255, 51, 51, 0.3) !important;
-            backdrop-filter: blur(10px);
-        }
+        /* En modo gaming, el logo pasa a blanco/rojo */
+        body.gaming-mode .logo-text-gaming { color: #ffffff !important; } 
+        body.gaming-mode .logo-tagline-gaming { color: #ff3333 !important; }
+        body.gaming-mode .logo-stroke-gaming { stroke: #ffffff !important; } 
+        body.gaming-mode .logo-fill-gaming { fill: #ffffff !important; }
 
-        /* TRANSFORMACIÓN LOGO MODO GAMING */
-        body.gaming-mode .logo-part-blue { color: #ffffff !important; } 
-        body.gaming-mode .logo-part-teal { color: #ffffff !important; } /* En gaming todo blanco */
-        body.gaming-mode .logo-icon-stroke { stroke: #ffffff !important; } 
-        body.gaming-mode .logo-icon-fill { fill: #ffffff !important; }
-
-        body.gaming-mode header nav a { color: #ffffff !important; opacity: 0.9; }
-        body.gaming-mode header nav a:hover { color: #ff3333 !important; opacity: 1; text-shadow: 0 0 10px rgba(255,51,51,0.8); }
-        body.gaming-mode header nav a[href*="dolor-espalda"] { color: #ffffff !important; text-shadow: none !important; font-weight: 700; }
-        body.gaming-mode #mobile-menu-btn { color: #ffffff !important; }
-
-        body.gaming-mode button.filter-btn {
-            background-color: #000000 !important; color: #ffffff !important; border: 1px solid #333333 !important;
-        }
-        body.gaming-mode button.filter-btn:hover {
-            border-color: #ff3333 !important; color: #ff3333 !important; box-shadow: 0 0 15px rgba(255, 51, 51, 0.4) !important;
-        }
-        body.gaming-mode button.filter-btn.active {
-            background-color: #ff3333 !important; color: #000000 !important; border-color: #ff3333 !important; box-shadow: 0 0 20px rgba(255, 51, 51, 0.6) !important;
-        }
-
-        body.gaming-mode #filter-fade-right {
-            background: linear-gradient(to left, #050505, transparent) !important;
-        }
-
-        body.gaming-mode .product-card {
-            background-color: #0a0a0a !important; border-color: #333 !important; box-shadow: none !important;
-            transition: border-color 0.8s ease, box-shadow 0.8s ease, transform 0.5s ease;
-        }
-        body.gaming-mode .product-card.neon-on {
-            border-color: #ff3333 !important; box-shadow: 0 0 30px rgba(255, 51, 51, 0.25) !important;
-        }
-        body.gaming-mode .product-card:hover {
-            transform: scale(1.03); border-color: #ff6666 !important; box-shadow: 0 0 40px rgba(255, 51, 51, 0.5) !important;
-        }
-        
-        /* Ocultar elementos normales en modo gaming */
+        body.gaming-mode #btn-gaming { background: #ff3333; color: black; box-shadow: 0 0 20px #ff3333; border-color: #ff3333; }
         body.gaming-mode .hide-on-gaming { display: none !important; }
+        
+        /* Efecto Neón */
+        body.gaming-mode .product-card.neon-on, body.gaming-mode .product-card:hover {
+            border-color: #ff3333 !important;
+            box-shadow: 0 0 30px rgba(255, 51, 51, 0.25) !important;
+        }
+        body.gaming-mode .product-card { background-color: #0a0a0a !important; border-color: #333 !important; box-shadow: none !important; }
+
+        .reveal { opacity: 0; transform: translateY(30px); transition: all 0.8s ease-out; }
+        .reveal.active { opacity: 1; transform: translateY(0); }
     </style>
 </head>
 
@@ -142,20 +99,18 @@
         <div class="max-w-7xl mx-auto flex items-center justify-between px-6 py-4">
             
             <a href="index.html" class="group flex items-center gap-3">
-                <div class="w-9 h-9 md:w-11 md:h-11 text-corporateBlue dark:text-white transition-transform group-hover:scale-105">
+                <div class="w-10 h-10 md:w-12 md:h-12 text-corporateBlue dark:text-white transition-transform group-hover:scale-105">
                     <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full h-full">
-                        <path d="M10 40 L50 10 L90 40" stroke="currentColor" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" class="text-corporateBlue dark:text-white logo-icon-stroke"/>
-                        <path d="M70 25 V15 H80 V32" stroke="currentColor" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" class="text-corporateBlue dark:text-white logo-icon-stroke"/>
-                        <rect x="20" y="45" width="60" height="40" rx="4" fill="currentColor" class="text-corporateBlue dark:text-white logo-icon-fill"/>
+                        <path d="M10 40 L50 15 L90 40" stroke="currentColor" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" class="logo-stroke-gaming"/>
+                        <path d="M68 26 V18 H78 V32" stroke="currentColor" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" class="logo-stroke-gaming"/>
+                        <rect x="20" y="45" width="60" height="38" rx="3" stroke="currentColor" stroke-width="6" class="logo-stroke-gaming"/>
+                        <path d="M15 88 H85 L82 92 H18 L15 88Z" fill="currentColor" class="logo-fill-gaming"/>
                     </svg>
                 </div>
                 
                 <div class="flex flex-col justify-center">
-                    <div class="font-display font-black text-lg md:text-xl tracking-tight leading-none flex items-center gap-1.5">
-                        <span class="text-corporateBlue dark:text-white logo-part-blue">OFICINA</span>
-                        <span class="text-corporateBlue dark:text-white logo-part-teal">EN CASA</span>
-                    </div>
-                    <span class="font-sans text-[0.55rem] md:text-[0.65rem] font-semibold tracking-wider uppercase text-corporateBlue/70 dark:text-white/70 mt-0.5">Simplifica. Enfócate. Prospera.</span>
+                    <span class="font-display font-bold text-xl md:text-2xl tracking-tight leading-none text-corporateBlue dark:text-white logo-text-gaming">OFICINA EN CASA</span>
+                    <span class="font-sans text-[0.6rem] md:text-[0.7rem] font-medium tracking-wide text-corporateBlue dark:text-slate-300 mt-0.5 logo-tagline-gaming">Simplifica. Enfócate. Prospera.</span>
                 </div>
             </a>
             
@@ -211,7 +166,6 @@
             <div id="guias-container" class="grid md:grid-cols-3 gap-6 mb-16 hide-on-gaming">
                 <div class="relative rounded-[2.5rem] overflow-hidden bg-slate-900 text-white shadow-premium group border border-slate-800 transition-all hover:scale-[1.02]">
                     <div class="absolute inset-0 bg-gradient-to-r from-blue-900 to-slate-900 opacity-95"></div>
-                    <div class="absolute top-0 right-0 w-64 h-64 bg-blue-500 rounded-full mix-blend-overlay filter blur-3xl opacity-20 animate-pulse"></div>
                     <div class="relative p-8 flex flex-col justify-between h-full min-h-[320px] z-10 text-left">
                         <div>
                             <span class="bg-blue-600 text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-widest mb-4 inline-block shadow-lg shadow-blue-900/50">Rendimiento</span>
@@ -387,23 +341,21 @@
         <script type="application/ld+json">{"@context": "https://schema.org","@type": "FAQPage","mainEntity": [{"@type": "Question","name": "¿A qué altura debo poner mi monitor?","acceptedAnswer": {"@type": "Answer","text": "El borde superior de la pantalla debe quedar exactamente a la altura de tus ojos para evitar dolor cervical."}}, {"@type": "Question","name": "¿Merece la pena un escritorio elevable?","acceptedAnswer": {"@type": "Answer","text": "Sí, alternar entre sentado y de pie reactiva la circulación y mejora la concentración."}}]}</script>
     </section>
 
-    <footer class="bg-white dark:bg-slate-950 py-12 border-t border-slate-200 dark:border-slate-800 text-center">
+    <footer class="bg-corporateBlue text-white py-12 border-t border-slate-200 dark:border-slate-800 text-center">
         <div class="max-w-4xl mx-auto px-6">
             
             <div class="flex items-center justify-center gap-3 mb-6 opacity-80 hover:opacity-100 transition">
-                <div class="w-9 h-9 md:w-11 md:h-11 text-slate-900 dark:text-white">
+                <div class="w-10 h-10 text-white">
                     <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full h-full">
-                        <path d="M10 40 L50 10 L90 40" stroke="currentColor" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
-                        <path d="M70 25 V15 H80 V32" stroke="currentColor" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
-                        <rect x="20" y="45" width="60" height="40" rx="4" fill="currentColor"/>
+                        <path d="M10 40 L50 15 L90 40" stroke="currentColor" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M68 26 V18 H78 V32" stroke="currentColor" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+                        <rect x="20" y="45" width="60" height="38" rx="3" stroke="currentColor" stroke-width="6"/>
+                        <path d="M15 88 H85 L82 92 H18 L15 88Z" fill="currentColor"/>
                     </svg>
                 </div>
                 <div class="flex flex-col justify-center text-left">
-                     <div class="font-display font-black text-lg md:text-xl tracking-tight leading-none flex items-center gap-1.5">
-                        <span class="text-slate-900 dark:text-white">OFICINA</span>
-                        <span class="text-slate-900 dark:text-white">EN CASA</span>
-                    </div>
-                    <span class="font-sans text-[0.55rem] md:text-[0.65rem] font-semibold tracking-wider uppercase text-slate-500 dark:text-slate-400 mt-0.5">Simplifica. Enfócate. Prospera.</span>
+                    <span class="font-display font-bold text-xl tracking-tight leading-none text-white">OFICINA EN CASA</span>
+                    <span class="font-sans text-[0.6rem] font-medium tracking-wide text-slate-300 mt-0.5">Simplifica. Enfócate. Prospera.</span>
                 </div>
             </div>
 
