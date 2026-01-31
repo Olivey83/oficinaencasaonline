@@ -6,7 +6,6 @@
     
     <title>Oficina en Casa: Guía de Productos Ergonómicos 2026</title>
     <meta name="description" content="Guía 2026 para montar tu oficina en casa. Evita el dolor de espalda con nuestra selección de sillas ergonómicas, escritorios elevables y accesorios de teletrabajo.">
-    
     <meta name="p:domain_verify" content="09833f4db7d1de06c2924f6252249738"/>
 
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-BHPG0PX889"></script>
@@ -27,17 +26,11 @@
             darkMode: 'class',
             theme: {
                 extend: {
-                    fontFamily: {
-                        sans: ['"Open Sans"', 'sans-serif'],
-                        display: ['"Montserrat"', 'sans-serif'],
-                    },
-                    colors: { 
-                        primary: "#2563eb", 
-                        corporateBlue: "#0f172a", // Azul oscuro del logo
-                        corporateTeal: "#2dd4bf"  // Turquesa del logo
-                    },
+                    fontFamily: { sans: ['"Open Sans"', 'sans-serif'], display: ['"Montserrat"', 'sans-serif'] },
+                    colors: { primary: "#2563eb", corporateBlue: "#0f172a", corporateTeal: "#2dd4bf" },
                     boxShadow: { premium: "0 20px 60px rgba(15,23,42,0.22)" },
-                    borderRadius: { '3xl': '1.75rem' }
+                    borderRadius: { '3xl': '1.75rem' },
+                    animation: { 'fade-in-up': 'fade-in-up 0.8s ease-out forwards' }
                 }
             }
         }
@@ -51,30 +44,49 @@
         .glass { background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(14px); }
         .dark .glass { background: rgba(15, 23, 42, 0.95); }
         
-        /* ESTILOS MODO GAMING */
+        /* === ESTILOS MODO GAMING (RECUPERADOS) === */
         body.gaming-mode { background-color: #050505 !important; color: #e0e0e0; }
         body.gaming-mode header#main-nav { background-color: rgba(5, 5, 5, 0.95) !important; border-bottom: 1px solid #ff3333; }
         
-        /* TRANSFORMACIÓN LOGO MODO GAMING */
+        /* LOGO EN GAMING */
         body.gaming-mode .logo-part-blue { color: #ffffff !important; } 
         body.gaming-mode .logo-part-teal { color: #ff3333 !important; } 
         body.gaming-mode .logo-underline { background-color: #ff3333 !important; } 
         body.gaming-mode .logo-icon-stroke { stroke: #ffffff !important; } 
         body.gaming-mode .logo-icon-fill { fill: #ffffff !important; }
         
+        /* EFECTOS NEÓN EN TARJETAS */
+        body.gaming-mode .product-card {
+            background-color: #0a0a0a !important; 
+            border-color: #333 !important; 
+            box-shadow: none !important;
+            transition: border-color 0.4s ease, box-shadow 0.4s ease, transform 0.3s ease;
+        }
+        /* Clase que añade JS al hacer scroll o hover */
+        body.gaming-mode .product-card.neon-on, 
+        body.gaming-mode .product-card:hover {
+            border-color: #ff3333 !important;
+            box-shadow: 0 0 20px rgba(255, 51, 51, 0.4) !important;
+            transform: scale(1.02);
+        }
+
         body.gaming-mode #btn-gaming { background: #ff3333; color: black; box-shadow: 0 0 20px #ff3333; border-color: #ff3333; }
+        body.gaming-mode .hide-on-gaming { display: none !important; }
+        
+        /* Animaciones */
+        .reveal { opacity: 0; transform: translateY(30px); transition: all 0.8s ease-out; }
+        .reveal.active { opacity: 1; transform: translateY(0); }
     </style>
 </head>
 
 <body class="bg-slate-50 text-slate-900 dark:bg-slate-950 dark:text-slate-50 antialiased overflow-x-hidden transition-colors duration-500 font-sans">
 
     <div id="gaming-toast" class="fixed top-28 left-1/2 transform -translate-x-1/2 bg-black text-[#ff3333] px-8 py-3 rounded-full border-2 border-[#ff3333] shadow-[0_0_30px_rgba(255,51,51,0.5)] z-[60] opacity-0 pointer-events-none transition-all duration-500 scale-90">
-        <span class="font-bold tracking-widest uppercase font-display">☢️ MODO GAMING</span>
+        <span class="font-bold tracking-widest uppercase font-display">☢️ MODO GAMING ACTIVADO</span>
     </div>
 
     <header class="fixed w-full top-0 z-50 glass border-b border-slate-200/50 dark:border-slate-800/50 transition-all duration-300" id="main-nav">
         <div class="max-w-7xl mx-auto flex items-center justify-between px-6 py-3">
-            
             <a href="index.html" class="group flex flex-col items-center gap-1">
                 <div class="flex items-end gap-3">
                     <div class="w-12 h-12 mb-1">
@@ -85,7 +97,6 @@
                             <path d="M15 88 H85 L80 92 H20 L15 88Z" fill="currentColor" class="text-corporateBlue dark:text-white logo-icon-fill"/>
                         </svg>
                     </div>
-                    
                     <div class="flex flex-col leading-none">
                         <span class="font-display font-black text-4xl uppercase text-corporateBlue dark:text-white tracking-wide logo-part-blue">OFICINA</span>
                         <span class="font-display font-black text-4xl uppercase text-corporateTeal logo-part-teal" style="margin-top: -5px;">EN CASA</span>
@@ -108,7 +119,6 @@
                     <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
                 </button>
             </nav>
-
             <button class="md:hidden p-2" id="mobile-menu-btn">
                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
             </button>
@@ -126,12 +136,8 @@
         <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-16 items-center">
             <div class="animate-fade-in-up">
                 <span class="inline-block px-4 py-1.5 rounded-full bg-blue-100 text-blue-800 text-sm font-bold mb-6 tracking-widest uppercase font-display">GUÍA 2026</span>
-                <h1 class="font-display text-5xl md:text-7xl font-extrabold leading-tight mb-6 text-slate-900 dark:text-white">
-                    Domina tu <span class="text-primary italic">espacio</span> de trabajo
-                </h1>
-                <p class="text-lg md:text-xl text-slate-600 dark:text-slate-400 mb-10 leading-relaxed max-w-lg mx-auto md:mx-0">
-                    Analizamos y seleccionamos el material que transforma una oficina común en un setup de alto rendimiento. Comodidad y diseño para tu día a día.
-                </p>
+                <h1 class="font-display text-5xl md:text-7xl font-extrabold leading-tight mb-6 text-slate-900 dark:text-white">Domina tu <span class="text-primary italic">espacio</span> de trabajo</h1>
+                <p class="text-lg md:text-xl text-slate-600 dark:text-slate-400 mb-10 leading-relaxed max-w-lg mx-auto md:mx-0">Analizamos y seleccionamos el material que transforma una oficina común en un setup de alto rendimiento.</p>
                 <div class="flex justify-center md:justify-start gap-4">
                     <a href="#productos" class="px-8 py-4 bg-corporateBlue text-white rounded-2xl font-bold shadow-lg hover:bg-slate-800 transition-all">Ver Catálogo</a>
                     <a href="herramientas.html" class="px-8 py-4 bg-white text-corporateBlue border-2 border-slate-200 rounded-2xl font-bold hover:border-corporateBlue transition-all dark:bg-transparent dark:text-white dark:border-slate-700">Configurador</a>
@@ -147,20 +153,140 @@
         <div class="text-center mb-16">
             <h2 class="font-display text-4xl font-extrabold mb-10 text-corporateBlue dark:text-white">Selección Destacada</h2>
             
-            <div class="flex flex-wrap justify-center gap-3 mb-10 font-bold">
+            <div id="guias-container" class="grid md:grid-cols-3 gap-6 mb-16 hide-on-gaming">
+                <div class="relative rounded-[2.5rem] overflow-hidden bg-slate-900 text-white shadow-premium group border border-slate-800 transition-all hover:scale-[1.02]">
+                    <div class="absolute inset-0 bg-gradient-to-r from-blue-900 to-slate-900 opacity-95"></div>
+                    <div class="relative p-8 flex flex-col justify-between h-full min-h-[320px] z-10 text-left">
+                        <div>
+                            <span class="bg-blue-600 text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-widest mb-4 inline-block shadow-lg font-display">Rendimiento</span>
+                            <h3 class="font-display text-3xl font-extrabold mb-3 tracking-tight">¿PC Lento?</h3>
+                            <p class="text-blue-100 text-sm font-medium leading-relaxed mb-6">Descubre cómo la memoria DDR4 revive tu ordenador por menos de 50€.</p>
+                        </div>
+                        <a href="guia-ram.html" class="inline-block px-6 py-3 bg-white text-slate-900 font-bold rounded-xl text-sm shadow-xl hover:bg-blue-50 transition-colors text-center">Leer Guía RAM →</a>
+                    </div>
+                </div>
+                <div class="relative rounded-[2.5rem] overflow-hidden bg-white dark:bg-slate-100 text-slate-900 shadow-premium group border border-slate-200 dark:border-slate-300 transition-all hover:scale-[1.02]">
+                    <div class="absolute inset-0 bg-gradient-to-br from-white to-slate-50 opacity-100"></div>
+                    <div class="relative p-8 flex flex-col justify-between h-full min-h-[320px] z-10 text-left">
+                        <div>
+                            <span class="bg-purple-100 text-purple-600 border border-purple-200 text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-widest mb-4 inline-block font-display">Minimalismo</span>
+                            <h3 class="font-display text-3xl font-extrabold mb-3 tracking-tight text-slate-900">Adiós Cables</h3>
+                            <p class="text-slate-600 text-sm font-medium leading-relaxed mb-6">Elimina el ruido visual. Trucos y accesorios por menos de 20€.</p>
+                        </div>
+                        <a href="guia-cables.html" class="inline-block px-6 py-3 bg-slate-900 text-white font-bold rounded-xl text-sm shadow-xl hover:bg-slate-800 transition-colors text-center">Ver Trucos →</a>
+                    </div>
+                </div>
+                <div class="relative rounded-[2.5rem] overflow-hidden bg-emerald-900 text-white shadow-premium group border border-emerald-800 transition-all hover:scale-[1.02]">
+                    <div class="absolute inset-0 bg-gradient-to-bl from-emerald-950 to-slate-900 opacity-95"></div>
+                    <div class="relative p-8 flex flex-col justify-between h-full min-h-[320px] z-10 text-left">
+                        <div>
+                            <span class="bg-emerald-500 text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-widest mb-4 inline-block shadow-lg font-display">Conectividad</span>
+                            <h3 class="font-display text-3xl font-extrabold mb-3 tracking-tight">¿WiFi con Cortes?</h3>
+                            <p class="text-emerald-100 text-sm font-medium leading-relaxed mb-6">La solución definitiva no es un repetidor. Descubre la red Mesh.</p>
+                        </div>
+                        <a href="guia-wifi-mesh.html" class="inline-block px-6 py-3 bg-white text-emerald-950 font-bold rounded-xl text-sm shadow-xl hover:bg-emerald-50 transition-colors text-center">Solucionar WiFi →</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flex flex-wrap justify-center gap-3 mb-10 font-bold hide-on-gaming">
                 <button class="filter-btn px-6 py-2 rounded-full bg-corporateBlue text-white" onclick="filterProducts('all')">Todos</button>
                 <button class="filter-btn px-6 py-2 rounded-full bg-slate-100 text-slate-600 hover:bg-slate-200 dark:bg-slate-800 dark:text-slate-300" onclick="filterProducts('ergo')">Ergonomía</button>
                 <button class="filter-btn px-6 py-2 rounded-full bg-slate-100 text-slate-600 hover:bg-slate-200 dark:bg-slate-800 dark:text-slate-300" onclick="filterProducts('desk')">Escritorios</button>
                 <button class="filter-btn px-6 py-2 rounded-full bg-slate-100 text-slate-600 hover:bg-slate-200 dark:bg-slate-800 dark:text-slate-300" onclick="filterProducts('tech')">Tech</button>
             </div>
 
-            <div id="gaming-hero-text" class="hidden mb-12 p-8 rounded-3xl bg-black border border-[#ff3333] shadow-[0_0_20px_rgba(255,51,51,0.2)]">
-                <h2 class="text-3xl font-display font-bold text-white mb-4">SETUP GAMING DE ALTO RENDIMIENTO</h2>
-                <p class="text-gray-400">Componentes seleccionados para FPS y Streaming.</p>
+            <div id="gaming-hero-text" class="hidden mb-16 relative animate-fade-in-up">
+                <div class="p-6 md:p-10 rounded-[2rem] md:rounded-[2.5rem] bg-black border-2 border-[#ff3333] shadow-[0_0_40px_rgba(255,51,51,0.15)] text-center md:text-left relative overflow-hidden group">
+                    <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-30"></div>
+                    <div class="absolute -right-20 -top-20 w-96 h-96 bg-[#ff3333] rounded-full mix-blend-overlay filter blur-[100px] opacity-15 animate-pulse"></div>
+                    <div class="relative z-10 grid md:grid-cols-3 gap-10 items-center">
+                        <div class="md:col-span-2 space-y-6">
+                            <div class="flex flex-wrap gap-2 justify-center md:justify-start font-display">
+                                <span class="inline-block py-1 px-3 rounded-full bg-[#ff3333]/10 text-[#ff3333] text-xs font-bold tracking-[0.2em] border border-[#ff3333]/30 uppercase">ANÁLISIS 2026</span>
+                                <span class="inline-block py-1 px-3 rounded-full bg-gray-800 text-gray-300 text-xs font-bold tracking-wide border border-gray-700">DIY vs PREMONTADO</span>
+                            </div>
+                            <h2 class="font-display text-2xl md:text-4xl font-extrabold text-white leading-tight">
+                                La "Trampa" de montar tu PC a piezas hoy: <span class="text-[#ff3333]">Gráficas y RAM</span>
+                            </h2>
+                            <div class="text-gray-400 text-sm md:text-base leading-relaxed space-y-4 text-left">
+                                <p>En 2026, la crisis de semiconductores ha disparado el precio de la <strong>RAM DDR5</strong> y SSDs para particulares. Comprar una <strong>RTX 4070 suelta</strong> es pagar sobrecoste. Marcas como <strong>NitroPC</strong> acceden a lotes industriales más baratos.</p>
+                                <div class="bg-[#ff3333]/10 border-l-4 border-[#ff3333] p-4 rounded-r-xl">
+                                    <p class="text-white text-sm font-medium italic">"Montarlo tú mismo hoy te sale más caro que comprar la torre terminada y testeada."</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flex md:flex-col gap-3 justify-center">
+                            <div class="flex-1 p-4 rounded-2xl bg-[#0a0a0a] border border-[#ff3333] shadow-[0_0_15px_rgba(255,51,51,0.2)] text-center transform md:scale-105">
+                                <h3 class="text-white font-bold text-xs md:text-sm font-display">Pack Premontado</h3>
+                                <p class="text-[#00ff9d] font-bold text-base md:text-lg">Precio Mayorista</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
 
-            <div id="product-grid" class="grid grid-cols-2 md:grid-cols-4 gap-6">
+            <div id="product-grid" class="grid grid-cols-2 md:grid-cols-4 gap-6"></div>
+        </div>
+    </section>
+
+    <section id="guia" class="bg-white dark:bg-slate-900 py-24 reveal border-y border-slate-100 dark:border-slate-800 text-center md:text-left">
+        <div class="max-w-7xl mx-auto px-6">
+            <h2 class="font-display text-4xl font-bold mb-16 text-center">Claves del Setup Perfecto</h2>
+            <div class="grid md:grid-cols-2 gap-20 items-center">
+                <div class="space-y-10">
+                    <div class="flex flex-col md:flex-row gap-6 items-center md:items-start group">
+                        <div class="w-16 h-16 flex-shrink-0 bg-primary/20 text-primary rounded-3xl flex items-center justify-center font-bold text-2xl font-display">1</div>
+                        <div><h4 class="text-xl font-bold mb-2 font-display">Ergonomía Activa</h4><p class="text-slate-500">Tu silla es el motor de tu salud. Busca siempre soporte lumbar.</p></div>
+                    </div>
+                    <div class="flex flex-col md:flex-row gap-6 items-center md:items-start group">
+                        <div class="w-16 h-16 flex-shrink-0 bg-emerald-500/10 text-emerald-500 rounded-3xl flex items-center justify-center font-bold text-2xl font-display">2</div>
+                        <div><h4 class="text-xl font-bold mb-2 font-display">Regla de los 90º</h4><p class="text-slate-500">Codos y rodillas deben formar ángulos rectos.</p></div>
+                    </div>
+                    <div class="flex flex-col md:flex-row gap-6 items-center md:items-start group">
+                        <div class="w-16 h-16 flex-shrink-0 bg-orange-500/10 text-orange-500 rounded-3xl flex items-center justify-center font-bold text-2xl font-display">3</div>
+                        <div><h4 class="text-xl font-bold mb-2 font-display">Altura de Monitor</h4><p class="text-slate-500">Borde superior a la altura de tus ojos.</p></div>
+                    </div>
                 </div>
+                <img src="https://images.unsplash.com/photo-1593642532400-2682810df593?auto=format&fit=crop&q=80&w=800" alt="Detalle Ergonomía" class="rounded-[2.5rem] shadow-premium border-4 border-slate-50 dark:border-slate-800">
+            </div>
+        </div>
+    </section>
+
+    <section id="consejos" class="bg-slate-900 text-white py-24 reveal">
+        <div class="max-w-7xl mx-auto px-6 text-center md:text-left">
+            <div class="text-center mb-16">
+                <span class="text-orange-500 font-bold tracking-widest text-sm uppercase font-display">Optimiza tu rendimiento</span>
+                <h2 class="font-display text-4xl font-bold mt-4 text-white">Errores comunes a evitar</h2>
+            </div>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-slate-800/50 p-10 rounded-[2.5rem] border border-slate-700">
+                    <h3 class="font-display text-xl font-bold mb-4 text-orange-500">! Trabajar en el sofá</h3>
+                    <p class="text-slate-400">Destruye tu postura lumbar drásticamente.</p>
+                </div>
+                <div class="bg-slate-800/50 p-10 rounded-[2.5rem] border border-slate-700">
+                    <h3 class="font-display text-xl font-bold mb-4 text-orange-500">! Mala luz</h3>
+                    <p class="text-slate-400">La luz de techo genera fatiga visual. Usa flexo.</p>
+                </div>
+                <div class="bg-slate-800/50 p-10 rounded-[2.5rem] border border-slate-700">
+                    <h3 class="font-display text-xl font-bold mb-4 text-orange-500">! Desorden</h3>
+                    <p class="text-slate-400">El ruido visual genera estrés inconsciente.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="max-w-4xl mx-auto px-6 py-20">
+        <div class="text-center mb-12"><h2 class="font-display text-3xl font-bold mb-4 text-slate-900 dark:text-white">Dudas Frecuentes</h2></div>
+        <div class="space-y-4">
+            <details class="group bg-white dark:bg-slate-900 rounded-3xl p-6 border border-slate-200 dark:border-slate-800 shadow-sm cursor-pointer">
+                <summary class="flex justify-between items-center font-bold text-lg text-slate-800 dark:text-slate-200 font-display">¿Altura del monitor?</summary>
+                <p class="text-slate-500 mt-4 leading-relaxed text-sm">Borde superior a la altura de los ojos.</p>
+            </details>
+            <details class="group bg-white dark:bg-slate-900 rounded-3xl p-6 border border-slate-200 dark:border-slate-800 shadow-sm cursor-pointer">
+                <summary class="flex justify-between items-center font-bold text-lg text-slate-800 dark:text-slate-200 font-display">¿Escritorio elevable?</summary>
+                <p class="text-slate-500 mt-4 leading-relaxed text-sm">Sí, alternar postura mejora la circulación.</p>
+            </details>
         </div>
     </section>
 
@@ -186,56 +312,55 @@
     </footer>
 
     <script>
-        // LISTA COMPLETA DE PRODUCTOS (RESTAURADA)
         const productos = [
             // --- WIFI MESH ---
-            { categoria: "tech", titulo: "Xiaomi Router AX3000", desc: "Olvídate de los cortes. WiFi 6 Mesh para cobertura total.", img: "https://m.media-amazon.com/images/I/41bEk1ukEtL._AC_SL1000_.jpg", link: "https://amzn.to/4r5n945", tag: "MI FAVORITO" },
-            { categoria: "tech", titulo: "TP-Link Deco X50", desc: "Sistema AI Mesh inteligente. Calidad para hogares grandes.", img: "https://m.media-amazon.com/images/I/61ZkAaGIkLL._AC_SL1500_.jpg", link: "https://amzn.to/3NvYPtB" },
-            { categoria: "tech", titulo: "Amazon eero 6+", desc: "Pequeño y sencillo. Se integra perfecto con Alexa.", img: "https://m.media-amazon.com/images/I/41Khi+nEqoL._SL1500_.jpg", link: "https://amzn.to/4pIicgl" },
+            { categoria: "tech", titulo: "Xiaomi Router AX3000", desc: "Olvídate de los cortes. WiFi 6 Mesh.", img: "https://m.media-amazon.com/images/I/41bEk1ukEtL._AC_SL1000_.jpg", link: "https://amzn.to/4r5n945", tag: "MI FAVORITO" },
+            { categoria: "tech", titulo: "TP-Link Deco X50", desc: "Sistema AI Mesh inteligente.", img: "https://m.media-amazon.com/images/I/61ZkAaGIkLL._AC_SL1500_.jpg", link: "https://amzn.to/3NvYPtB" },
+            { categoria: "tech", titulo: "Amazon eero 6+", desc: "Pequeño y sencillo con Alexa.", img: "https://m.media-amazon.com/images/I/41Khi+nEqoL._SL1500_.jpg", link: "https://amzn.to/4pIicgl" },
             // --- CABLES ---
-            { categoria: "acc", titulo: "Caja Oculta-Regletas", desc: "Esconde enchufes y protege a niños. Material ABS seguro.", img: "https://m.media-amazon.com/images/I/51Y9tOPzfWL._AC_SL1500_.jpg", link: "https://amzn.to/4pHXEVq", tag: "NUEVO" },
-            { categoria: "acc", titulo: "Bandeja Bajo Mesa", desc: "Sin taladros (clamp). La solución para que no cuelguen cables.", img: "https://m.media-amazon.com/images/I/71Ob9g-xl8L._AC_SL1500_.jpg", link: "https://amzn.to/4jUeuiv" },
-            { categoria: "acc", titulo: "Pack 120 Bridas Velcro", desc: "Reutilizables y ajustables. Mejor que las de plástico.", img: "https://m.media-amazon.com/images/I/81VmyC2ijcL._AC_SL1500_.jpg", link: "https://amzn.to/4jT32DW" },
+            { categoria: "acc", titulo: "Caja Oculta-Regletas", desc: "Esconde enchufes y protege a niños.", img: "https://m.media-amazon.com/images/I/51Y9tOPzfWL._AC_SL1500_.jpg", link: "https://amzn.to/4pHXEVq", tag: "NUEVO" },
+            { categoria: "acc", titulo: "Bandeja Bajo Mesa", desc: "Sin taladros (clamp).", img: "https://m.media-amazon.com/images/I/71Ob9g-xl8L._AC_SL1500_.jpg", link: "https://amzn.to/4jUeuiv" },
+            { categoria: "acc", titulo: "Pack 120 Bridas Velcro", desc: "Reutilizables y ajustables.", img: "https://m.media-amazon.com/images/I/81VmyC2ijcL._AC_SL1500_.jpg", link: "https://amzn.to/4jT32DW" },
             // --- ESCRITORIOS ---
-            { categoria: "desk", titulo: "Agilestic Elevable 120cm", desc: "Motor silencioso y memoria. Opción equilibrada para tu salud.", img: "https://m.media-amazon.com/images/I/6197UATlwNL._AC_SL1500_.jpg", link: "https://amzn.to/464vRY8", tag: "MOTOR SILENCIOSO" },
-            { categoria: "desk", titulo: "HLFURNIEU Stand Up", desc: "Estructura sólida anti-tambaleo. Trabaja de pie seguro.", img: "https://m.media-amazon.com/images/I/61BnIaDfe9L._AC_SL1500_.jpg", link: "https://amzn.to/49JRKhR" },
-            { categoria: "desk", titulo: "HUANUO Compacto 80cm", desc: "Ideal espacios pequeños. Ajuste eléctrico en formato mini.", img: "https://m.media-amazon.com/images/I/61U0DUlJOuL._AC_SL1500_.jpg", link: "https://amzn.to/4rmU3NP", tag: "COMPACTO" },
-            { categoria: "desk", titulo: "Escritorio Elevable Pro", desc: "Regulación precisa para trabajar dinámicamente.", img: "https://m.media-amazon.com/images/I/61pl8xkp5xL._AC_SX679_.jpg", link: "https://amzn.to/4qupXHA" },
+            { categoria: "desk", titulo: "Agilestic Elevable 120cm", desc: "Motor silencioso y memoria.", img: "https://m.media-amazon.com/images/I/6197UATlwNL._AC_SL1500_.jpg", link: "https://amzn.to/464vRY8", tag: "MOTOR SILENCIOSO" },
+            { categoria: "desk", titulo: "HLFURNIEU Stand Up", desc: "Estructura sólida anti-tambaleo.", img: "https://m.media-amazon.com/images/I/61BnIaDfe9L._AC_SL1500_.jpg", link: "https://amzn.to/49JRKhR" },
+            { categoria: "desk", titulo: "HUANUO Compacto 80cm", desc: "Ideal espacios pequeños.", img: "https://m.media-amazon.com/images/I/61U0DUlJOuL._AC_SL1500_.jpg", link: "https://amzn.to/4rmU3NP", tag: "COMPACTO" },
+            { categoria: "desk", titulo: "Escritorio Elevable Pro", desc: "Regulación precisa.", img: "https://m.media-amazon.com/images/I/61pl8xkp5xL._AC_SX679_.jpg", link: "https://amzn.to/4qupXHA" },
             // --- ACCESORIOS ---
-            { categoria: "ergo", titulo: "Silla SONGMICS Pro", desc: "Soporte lumbar ajustable y malla transpirable.", img: "https://m.media-amazon.com/images/I/81tt0QgRGJL._AC_SL1500_.jpg", link: "https://amzn.to/44Wcq3f", tag: "TOP VENTAS" },
-            { categoria: "acc", titulo: "Lámpara Monitor", desc: "Iluminación sin reflejos directa sobre tu teclado.", img: "https://m.media-amazon.com/images/I/61HWVh6wxqL._AC_SL1500_.jpg", link: "https://amzn.to/3YRFntF" },
-            { categoria: "acc", titulo: "Cajonera Móvil", desc: "Almacenamiento eficiente bajo el escritorio.", img: "https://m.media-amazon.com/images/I/511hfGz8lpL._AC_SL1500_.jpg", link: "https://amzn.to/4qFHtZG" },
-            { categoria: "acc", titulo: "Módulo 5 cajones", desc: "Ideal para clasificar documentos A4 con orden.", img: "https://m.media-amazon.com/images/I/61OkbjZ7otL._AC_SL1200_.jpg", link: "https://amzn.to/4jnUiVX" },
-            { categoria: "acc", titulo: "Alfombrilla Fieltro", desc: "Capa de confort extra para tu setup.", img: "https://m.media-amazon.com/images/I/71sNZ6t0z8L._AC_SL1500_.jpg", link: "https://amzn.to/49wShm0" },
-            { categoria: "acc", titulo: "Soporte Portátil", desc: "Eleva la pantalla a la altura de tus ojos cómodamente.", img: "https://m.media-amazon.com/images/I/61BK9+YGKML._AC_SL1500_.jpg", link: "https://amzn.to/4aGRYar" },
-            { categoria: "acc", titulo: "Reposapies Pro", desc: "Mejora la circulación y postura sentado.", img: "https://m.media-amazon.com/images/I/51-LmMCoscL._AC_SL1000_.jpg", link: "https://amzn.to/4pHhGPP" },
-            { categoria: "acc", titulo: "Papelera TECHZOCO", desc: "Minimalismo industrial para tu despacho.", img: "https://m.media-amazon.com/images/I/81yckur-iIL._SL1500_.jpg", link: "https://amzn.to/4qsaGHG" },
-            { categoria: "acc", titulo: "Elevador Madera", desc: "Gana espacio y mejora la altura del monitor.", img: "https://m.media-amazon.com/images/I/61heBUIQLtL._AC_SL1500_.jpg", link: "https://amzn.to/4qLZGEH" },
-            { categoria: "acc", titulo: "Organizador Mesa", desc: "Tus herramientas diarias siempre localizadas.", img: "https://m.media-amazon.com/images/I/71tEutfM3eL._AC_SL1500_.jpg", link: "https://amzn.to/49wFyzJ" },
-            { categoria: "acc", titulo: "Suministros Pro", desc: "Verticalidad inteligente para tu mesa.", img: "https://m.media-amazon.com/images/I/61K3aaAo9cL._AC_SL1500_.jpg", link: "https://amzn.to/4jF6EcE" },
+            { categoria: "ergo", titulo: "Silla SONGMICS Pro", desc: "Soporte lumbar ajustable.", img: "https://m.media-amazon.com/images/I/81tt0QgRGJL._AC_SL1500_.jpg", link: "https://amzn.to/44Wcq3f", tag: "TOP VENTAS" },
+            { categoria: "acc", titulo: "Lámpara Monitor", desc: "Iluminación sin reflejos.", img: "https://m.media-amazon.com/images/I/61HWVh6wxqL._AC_SL1500_.jpg", link: "https://amzn.to/3YRFntF" },
+            { categoria: "acc", titulo: "Cajonera Móvil", desc: "Almacenamiento eficiente.", img: "https://m.media-amazon.com/images/I/511hfGz8lpL._AC_SL1500_.jpg", link: "https://amzn.to/4qFHtZG" },
+            { categoria: "acc", titulo: "Módulo 5 cajones", desc: "Clasificar documentos A4.", img: "https://m.media-amazon.com/images/I/61OkbjZ7otL._AC_SL1200_.jpg", link: "https://amzn.to/4jnUiVX" },
+            { categoria: "acc", titulo: "Alfombrilla Fieltro", desc: "Capa de confort extra.", img: "https://m.media-amazon.com/images/I/71sNZ6t0z8L._AC_SL1500_.jpg", link: "https://amzn.to/49wShm0" },
+            { categoria: "acc", titulo: "Soporte Portátil", desc: "Eleva la pantalla.", img: "https://m.media-amazon.com/images/I/61BK9+YGKML._AC_SL1500_.jpg", link: "https://amzn.to/4aGRYar" },
+            { categoria: "acc", titulo: "Reposapies Pro", desc: "Mejora la circulación.", img: "https://m.media-amazon.com/images/I/51-LmMCoscL._AC_SL1000_.jpg", link: "https://amzn.to/4pHhGPP" },
+            { categoria: "acc", titulo: "Papelera TECHZOCO", desc: "Minimalismo industrial.", img: "https://m.media-amazon.com/images/I/81yckur-iIL._SL1500_.jpg", link: "https://amzn.to/4qsaGHG" },
+            { categoria: "acc", titulo: "Elevador Madera", desc: "Gana espacio.", img: "https://m.media-amazon.com/images/I/61heBUIQLtL._AC_SL1500_.jpg", link: "https://amzn.to/4qLZGEH" },
+            { categoria: "acc", titulo: "Organizador Mesa", desc: "Herramientas localizadas.", img: "https://m.media-amazon.com/images/I/71tEutfM3eL._AC_SL1500_.jpg", link: "https://amzn.to/49wFyzJ" },
+            { categoria: "acc", titulo: "Suministros Pro", desc: "Verticalidad inteligente.", img: "https://m.media-amazon.com/images/I/61K3aaAo9cL._AC_SL1500_.jpg", link: "https://amzn.to/4jF6EcE" },
             // --- TECH ---
-            { categoria: "tech", titulo: "Monitor Portátil 15.6''", desc: "Duplica pantalla donde quieras. Un solo cable.", img: "https://m.media-amazon.com/images/I/81CAEaITkeL._AC_SL1500_.jpg", link: "https://amzn.to/49YbuwW", tag: "PRODUCTIVIDAD" },
-            { categoria: "tech", titulo: "Webcam EMEET 1080P", desc: "Alta definición con tapa de privacidad física.", img: "https://m.media-amazon.com/images/I/61BW1Spm+UL._AC_SL1423_.jpg", link: "https://amzn.to/4bCrTtj", tag: "PRIVACIDAD" },
-            { categoria: "tech", titulo: "Calentador de Café", desc: "Mantén tu bebida caliente en el escritorio.", img: "https://m.media-amazon.com/images/I/717-w1eeO8L._AC_SL1500_.jpg", link: "https://amzn.to/3Npxr0k", tag: "GADGET" },
-            { categoria: "tech", titulo: "Auriculares Wireless", desc: "Libertad inalámbrica con sonido nítido.", img: "https://m.media-amazon.com/images/I/61PupiSYs3L._AC_SL1500_.jpg", link: "https://amzn.to/49Cyqld" },
-            { categoria: "tech", titulo: "Lámpara Flexo Pinza", desc: "Iluminación LED flexible sin ocupar espacio.", img: "https://m.media-amazon.com/images/I/71kLt8V7+WL._AC_SL1500_.jpg", link: "https://amzn.to/3NfN4Yl" },
+            { categoria: "tech", titulo: "Monitor Portátil 15.6''", desc: "Duplica pantalla donde quieras.", img: "https://m.media-amazon.com/images/I/81CAEaITkeL._AC_SL1500_.jpg", link: "https://amzn.to/49YbuwW", tag: "PRODUCTIVIDAD" },
+            { categoria: "tech", titulo: "Webcam EMEET 1080P", desc: "Alta definición con tapa.", img: "https://m.media-amazon.com/images/I/61BW1Spm+UL._AC_SL1423_.jpg", link: "https://amzn.to/4bCrTtj", tag: "PRIVACIDAD" },
+            { categoria: "tech", titulo: "Calentador de Café", desc: "Mantén tu bebida caliente.", img: "https://m.media-amazon.com/images/I/717-w1eeO8L._AC_SL1500_.jpg", link: "https://amzn.to/3Npxr0k", tag: "GADGET" },
+            { categoria: "tech", titulo: "Auriculares Wireless", desc: "Libertad inalámbrica.", img: "https://m.media-amazon.com/images/I/61PupiSYs3L._AC_SL1500_.jpg", link: "https://amzn.to/49Cyqld" },
+            { categoria: "tech", titulo: "Lámpara Flexo Pinza", desc: "Iluminación LED flexible.", img: "https://m.media-amazon.com/images/I/71kLt8V7+WL._AC_SL1500_.jpg", link: "https://amzn.to/3NfN4Yl" },
             // --- SILLAS ---
-            { categoria: "ergo", titulo: "SIHOO M57 3D", desc: "Reposabrazos 3D y malla completa ventilada.", img: "https://m.media-amazon.com/images/I/71330d+25SL._AC_SL1500_.jpg", link: "https://amzn.to/4sGUcgv", tag: "100% MALLA" },
-            { categoria: "ergo", titulo: "Ticova Ergonómica", desc: "Cabecero y soporte lumbar ultra ajustables.", img: "https://m.media-amazon.com/images/I/61tCKoGwAUL._AC_SL1500_.jpg", link: "https://amzn.to/3Ll9gQ9", tag: "COMODIDAD" },
-            { categoria: "ergo", titulo: "HOLLUDLE Lumbar 3D", desc: "Soporte lumbar adaptativo que sigue tu espalda.", img: "https://m.media-amazon.com/images/I/71bq+3JgOML._AC_SL1500_.jpg", link: "https://amzn.to/45JQEQA", tag: "LUMBAR 3D" },
+            { categoria: "ergo", titulo: "SIHOO M57 3D", desc: "Reposabrazos 3D y malla.", img: "https://m.media-amazon.com/images/I/71330d+25SL._AC_SL1500_.jpg", link: "https://amzn.to/4sGUcgv", tag: "100% MALLA" },
+            { categoria: "ergo", titulo: "Ticova Ergonómica", desc: "Cabecero ultra ajustable.", img: "https://m.media-amazon.com/images/I/61tCKoGwAUL._AC_SL1500_.jpg", link: "https://amzn.to/3Ll9gQ9", tag: "COMODIDAD" },
+            { categoria: "ergo", titulo: "HOLLUDLE Lumbar 3D", desc: "Soporte lumbar adaptativo.", img: "https://m.media-amazon.com/images/I/71bq+3JgOML._AC_SL1500_.jpg", link: "https://amzn.to/45JQEQA", tag: "LUMBAR 3D" },
             // --- PC & RAM ---
-            { categoria: "pc", titulo: "Lenovo IdeaPad Slim 3", desc: "Fino, ligero y potente. Calidad-precio para trabajar.", img: "https://m.media-amazon.com/images/I/71mztVugfcL._AC_SL1500_.jpg", link: "https://amzn.to/4pTTYQz", tag: "CALIDAD/PRECIO" },
-            { categoria: "pc", titulo: "Mini PC Beelink SER5", desc: "Potencia bruta en tamaño mini. Escóndelo tras el monitor.", img: "https://m.media-amazon.com/images/I/71XDS960HDL._AC_SL1500_.jpg", link: "https://amzn.to/3LMfybC", tag: "MINIMALISTA" },
-            { categoria: "pc", titulo: "Lexar RAM DDR4 8GB", desc: "Actualización económica para acelerar portátil.", img: "https://m.media-amazon.com/images/I/71zWep+u5FL._AC_SL1500_.jpg", link: "https://amzn.to/4jMhvkK", tag: "REVIVE TU PC" },
-            { categoria: "pc", titulo: "Kingston FURY 16GB", desc: "Rendimiento puro sin luces. Estética negra.", img: "https://m.media-amazon.com/images/I/61uXihcspuL._AC_SL1500_.jpg", link: "https://amzn.to/4b49tlg" },
+            { categoria: "pc", titulo: "Lenovo IdeaPad Slim 3", desc: "Fino y ligero.", img: "https://m.media-amazon.com/images/I/71mztVugfcL._AC_SL1500_.jpg", link: "https://amzn.to/4pTTYQz", tag: "CALIDAD/PRECIO" },
+            { categoria: "pc", titulo: "Mini PC Beelink SER5", desc: "Potencia bruta en tamaño mini.", img: "https://m.media-amazon.com/images/I/71XDS960HDL._AC_SL1500_.jpg", link: "https://amzn.to/3LMfybC", tag: "MINIMALISTA" },
+            { categoria: "pc", titulo: "Lexar RAM DDR4 8GB", desc: "Actualización económica.", img: "https://m.media-amazon.com/images/I/71zWep+u5FL._AC_SL1500_.jpg", link: "https://amzn.to/4jMhvkK", tag: "REVIVE TU PC" },
+            { categoria: "pc", titulo: "Kingston FURY 16GB", desc: "Rendimiento puro.", img: "https://m.media-amazon.com/images/I/61uXihcspuL._AC_SL1500_.jpg", link: "https://amzn.to/4b49tlg" },
             // --- ZONA GAMING (Torres) ---
-            { categoria: "pc", titulo: "NitroPC Pack Bronze", desc: "Setup completo premontado. Listo para jugar.", img: "https://m.media-amazon.com/images/I/71gnwUb30JL._AC_SL1500_.jpg", link: "https://amzn.to/4pAAIHr", tag: "GAMING READY", gaming: true },
-            { categoria: "pc", titulo: "Greed® MK2 Plus", desc: "Intel Core i7-12700F y gráfica RX 9060 XT 8GB.", img: "https://m.media-amazon.com/images/I/71K19I0MsCL._AC_SL1500_.jpg", link: "https://amzn.to/4k9AWo2", gaming: true },
-            { categoria: "pc", titulo: "HYPER BYTE® Set", desc: "Set completo listo. AMD Ryzen 7 5700G + 16GB.", img: "https://m.media-amazon.com/images/I/71NX6LZabEL._AC_SL1500_.jpg", link: "https://amzn.to/4kbyVYr", gaming: true },
-            { categoria: "pc", titulo: "PC Gamer Mirage X", desc: "Rendimiento extremo: i7-14700F y RTX 5070.", img: "https://m.media-amazon.com/images/I/91irKWz3-UL._AC_SL1500_.jpg", link: "https://amzn.to/4kdoyU6", gaming: true },
-            { categoria: "pc", titulo: "HP OMEN 35L", desc: "Ryzen 7 8700F, 32GB DDR5 y RTX 5070.", img: "https://m.media-amazon.com/images/I/61DpKIMgmpL._AC_SL1500_.jpg", link: "https://amzn.to/46kX4G2", gaming: true },
-            { categoria: "pc", titulo: "TrendingPC Ultimate", desc: "i7 14700F, 32GB DDR5 y NVIDIA RTX 5060.", img: "https://m.media-amazon.com/images/I/61TA7ySf9JL._AC_SL1107_.jpg", link: "https://amzn.to/4brpxxA", gaming: true },
-            { categoria: "pc", titulo: "PC Gaming Ryzen 7", desc: "Ryzen 7 5700X, 32GB RAM y RTX 5060.", img: "https://m.media-amazon.com/images/I/61uzLQZIllL._AC_.jpg", link: "https://amzn.to/4alOIjX", gaming: true }
+            { categoria: "pc", titulo: "NitroPC Pack Bronze", desc: "Setup completo premontado.", img: "https://m.media-amazon.com/images/I/71gnwUb30JL._AC_SL1500_.jpg", link: "https://amzn.to/4pAAIHr", tag: "GAMING READY", gaming: true },
+            { categoria: "pc", titulo: "Greed® MK2 Plus", desc: "i7-12700F + RX 9060 XT.", img: "https://m.media-amazon.com/images/I/71K19I0MsCL._AC_SL1500_.jpg", link: "https://amzn.to/4k9AWo2", gaming: true },
+            { categoria: "pc", titulo: "HYPER BYTE® Set", desc: "Ryzen 7 5700G + 16GB.", img: "https://m.media-amazon.com/images/I/71NX6LZabEL._AC_SL1500_.jpg", link: "https://amzn.to/4kbyVYr", gaming: true },
+            { categoria: "pc", titulo: "PC Gamer Mirage X", desc: "i7-14700F + RTX 5070.", img: "https://m.media-amazon.com/images/I/91irKWz3-UL._AC_SL1500_.jpg", link: "https://amzn.to/4kdoyU6", gaming: true },
+            { categoria: "pc", titulo: "HP OMEN 35L", desc: "Ryzen 7 8700F + RTX 5070.", img: "https://m.media-amazon.com/images/I/61DpKIMgmpL._AC_SL1500_.jpg", link: "https://amzn.to/46kX4G2", gaming: true },
+            { categoria: "pc", titulo: "TrendingPC Ultimate", desc: "i7 14700F + RTX 5060.", img: "https://m.media-amazon.com/images/I/61TA7ySf9JL._AC_SL1107_.jpg", link: "https://amzn.to/4brpxxA", gaming: true },
+            { categoria: "pc", titulo: "PC Gaming Ryzen 7", desc: "Ryzen 7 5700X + RTX 5060.", img: "https://m.media-amazon.com/images/I/61uzLQZIllL._AC_.jpg", link: "https://amzn.to/4alOIjX", gaming: true }
         ];
 
         const grid = document.getElementById('product-grid');
@@ -244,7 +369,10 @@
             grid.innerHTML = '';
             list.forEach(p => {
                 const card = document.createElement('div');
+                // IMPORTANTE: Aquí se restablece la clase 'product-card' para el neón
                 card.className = "bg-white dark:bg-slate-900 rounded-3xl p-4 border border-slate-100 dark:border-slate-800 shadow-sm hover:shadow-xl transition-all group product-card";
+                
+                // NOTA: Botón Amazon Naranja restaurado (#FF9900)
                 card.innerHTML = `
                     <div class="relative bg-slate-50 dark:bg-slate-800 rounded-2xl p-4 mb-4 flex items-center justify-center h-48">
                         <img src="${p.img}" class="h-full object-contain group-hover:scale-110 transition-transform">
@@ -252,22 +380,42 @@
                     </div>
                     <h3 class="font-bold text-slate-900 dark:text-white mb-1 font-display leading-tight">${p.titulo}</h3>
                     <p class="text-xs text-slate-500 mb-4">${p.desc}</p>
-                    <a href="${p.link}" target="_blank" class="block w-full py-2.5 bg-corporateTeal hover:bg-emerald-400 text-white text-center rounded-xl font-bold text-sm transition-colors">Ver en Amazon</a>
+                    <a href="${p.link}" target="_blank" class="block w-full py-2.5 bg-[#FF9900] hover:bg-[#e68a00] text-white text-center rounded-xl font-bold text-sm transition-colors shadow-lg shadow-orange-500/20">Ver en Amazon</a>
                 `;
                 grid.appendChild(card);
             });
+            
+            // Si estamos en modo gaming, activar observador de neón
+            if(document.body.classList.contains('gaming-mode')) {
+                startNeonObserver();
+            }
         }
         
         // Render inicial
         render(productos.filter(p => !p.gaming));
 
-        // Filtros básicos
+        // Filtros
         window.filterProducts = (cat) => {
             const list = cat === 'all' ? productos.filter(p => !p.gaming) : productos.filter(p => p.categoria === cat);
             render(list);
         }
 
-        // LÓGICA MODO GAMING & DARK MODE
+        // --- LÓGICA NEÓN Y MODO GAMING ---
+        let neonObserver = null;
+        function startNeonObserver() {
+            if (neonObserver) neonObserver.disconnect();
+            const options = { threshold: 0.2 }; 
+            neonObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('neon-on'); // Activa el brillo rojo
+                        neonObserver.unobserve(entry.target);
+                    }
+                });
+            }, options);
+            document.querySelectorAll('.product-card').forEach(card => neonObserver.observe(card));
+        }
+
         const btnGaming = document.getElementById('btn-gaming');
         const mobileGaming = document.getElementById('mobile-gaming-btn');
         let gamingMode = false;
@@ -278,16 +426,23 @@
             
             const toast = document.getElementById('gaming-toast');
             const heroText = document.getElementById('gaming-hero-text');
+            const guiasContainer = document.getElementById('guias-container');
+            const filtrosContainer = document.querySelector('.hide-on-gaming');
             
             if(gamingMode) {
                 toast.classList.remove('opacity-0', 'scale-90');
                 setTimeout(() => toast.classList.add('opacity-0', 'scale-90'), 2000);
+                
                 heroText.classList.remove('hidden');
-                // Mostrar solo productos gaming
+                guiasContainer.classList.add('hidden');
+                filtrosContainer.classList.add('hidden');
+                
                 render(productos.filter(p => p.gaming));
                 window.scrollTo({ top: document.getElementById('productos').offsetTop - 100, behavior: 'smooth' });
             } else {
                 heroText.classList.add('hidden');
+                guiasContainer.classList.remove('hidden');
+                filtrosContainer.classList.remove('hidden');
                 render(productos.filter(p => !p.gaming));
             }
         }
@@ -295,7 +450,7 @@
         btnGaming.addEventListener('click', toggleGaming);
         mobileGaming.addEventListener('click', toggleGaming);
 
-        // Dark Mode Logic
+        // Dark Mode
         const themeBtn = document.getElementById('theme-toggle');
         themeBtn.addEventListener('click', () => {
             document.documentElement.classList.toggle('dark');
@@ -310,6 +465,15 @@
         } else {
             document.getElementById('theme-toggle-dark-icon').classList.remove('hidden');
         }
+        
+        // Animaciones scroll
+        const reveal = () => { 
+            document.querySelectorAll('.reveal').forEach(el => { 
+                if (el.getBoundingClientRect().top < window.innerHeight - 100) el.classList.add('active'); 
+            }); 
+        };
+        window.addEventListener('scroll', reveal); reveal();
+        document.getElementById('mobile-menu-btn').addEventListener('click', () => document.getElementById('mobile-menu').classList.toggle('hidden'));
     </script>
 </body>
 </html>
