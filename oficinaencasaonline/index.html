@@ -94,6 +94,7 @@
         /* Ajuste para el nuevo logo en modo gaming */
         body.gaming-mode #logo-icon { color: #ff3333 !important; filter: drop-shadow(0 0 8px rgba(255,51,51,0.5)); }
         body.gaming-mode #logo-text-main { color: #ffffff !important; }
+        body.gaming-mode #logo-text-sub-container { border-color: #ff3333 !important; }
         body.gaming-mode #logo-text-sub { color: #ff3333 !important; }
 
         body.gaming-mode header nav a { color: #ffffff !important; opacity: 0.9; }
@@ -137,16 +138,18 @@
     <header class="fixed w-full top-0 z-50 glass border-b border-slate-200/50 dark:border-slate-800/50 transition-all duration-300" id="main-nav">
         <div class="max-w-7xl mx-auto flex items-center justify-between px-6 py-3">
             
-            <a href="#" class="flex items-center gap-3 group">
-                <div id="logo-icon" class="w-10 h-10 text-corporateBlue dark:text-white transition-transform group-hover:scale-105">
+            <a href="#" class="flex items-center gap-4 group">
+                <div id="logo-icon" class="w-12 h-12 text-corporateBlue dark:text-white transition-transform group-hover:scale-105">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-full h-full">
-                        <path d="M11.47 1.72a.75.75 0 011.06 0l9 9a.75.75 0 01-1.06 1.06l-.97-.97V19.5a3 3 0 01-3 3H7.5a3 3 0 01-3-3V10.81l-.97.97a.75.75 0 01-1.06-1.06l9-9zM16.5 19.5V10.81L12 6.31l-4.5 4.5v8.69a1.5 1.5 0 001.5 1.5h9a1.5 1.5 0 001.5-1.5z" opacity="0.6"/>
+                        <path d="M11.47 1.72a.75.75 0 011.06 0l9 9a.75.75 0 01-1.06 1.06l-.97-.97V19.5a3 3 0 01-3 3H7.5a3 3 0 01-3-3V10.81l-.97.97a.75.75 0 01-1.06-1.06l9-9zM16.5 19.5V10.81L12 6.31l-4.5 4.5v8.69a1.5 1.5 0 001.5 1.5h9a1.5 1.5 0 001.5-1.5z" opacity="0.9"/>
                         <path d="M4.5 13.5A.75.75 0 015.25 12.75h13.5a.75.75 0 01.75.75v5.25a.75.75 0 01-.75.75H5.25a.75.75 0 01-.75-.75V13.5z M3 20.25a.75.75 0 01.75-.75h16.5a.75.75 0 01.75.75v.75a.75.75 0 01-.75.75H3.75a.75.75 0 01-.75-.75v-.75z" />
                     </svg>
                 </div>
-                <div class="flex flex-col leading-none">
-                    <span id="logo-text-main" class="font-display font-black text-2xl uppercase text-corporateBlue dark:text-white tracking-wide">OFICINA</span>
-                    <span id="logo-text-sub" class="font-display font-bold text-[0.65rem] uppercase text-corporateTeal dark:text-teal-400 tracking-[0.2em] text-center">— en casa —</span>
+                <div class="flex flex-col">
+                    <span id="logo-text-main" class="font-display font-black text-3xl uppercase text-corporateBlue dark:text-white tracking-wider leading-none">OFICINA</span>
+                    <div id="logo-text-sub-container" class="flex flex-col items-center border-b-2 border-corporateTeal pb-0.5">
+                        <span id="logo-text-sub" class="font-display font-bold text-xs uppercase text-corporateTeal tracking-[0.3em] leading-none text-center w-full">EN CASA</span>
+                    </div>
                 </div>
             </a>
             
@@ -381,15 +384,17 @@
     <footer class="bg-white dark:bg-slate-950 py-12 border-t border-slate-200 dark:border-slate-800 text-center">
         <div class="max-w-4xl mx-auto px-6">
             <div class="flex items-center justify-center gap-3 mb-6 opacity-80 hover:opacity-100 transition">
-                <div class="w-8 h-8 text-slate-900 dark:text-white">
+                <div class="w-10 h-10 text-slate-900 dark:text-white">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-full h-full">
-                        <path d="M11.47 1.72a.75.75 0 011.06 0l9 9a.75.75 0 01-1.06 1.06l-.97-.97V19.5a3 3 0 01-3 3H7.5a3 3 0 01-3-3V10.81l-.97.97a.75.75 0 01-1.06-1.06l9-9zM16.5 19.5V10.81L12 6.31l-4.5 4.5v8.69a1.5 1.5 0 001.5 1.5h9a1.5 1.5 0 001.5-1.5z" opacity="0.6"/>
+                        <path d="M11.47 1.72a.75.75 0 011.06 0l9 9a.75.75 0 01-1.06 1.06l-.97-.97V19.5a3 3 0 01-3 3H7.5a3 3 0 01-3-3V10.81l-.97.97a.75.75 0 01-1.06-1.06l9-9zM16.5 19.5V10.81L12 6.31l-4.5 4.5v8.69a1.5 1.5 0 001.5 1.5h9a1.5 1.5 0 001.5-1.5z" opacity="0.9"/>
                         <path d="M4.5 13.5A.75.75 0 015.25 12.75h13.5a.75.75 0 01.75.75v5.25a.75.75 0 01-.75.75H5.25a.75.75 0 01-.75-.75V13.5z M3 20.25a.75.75 0 01.75-.75h16.5a.75.75 0 01.75.75v.75a.75.75 0 01-.75.75H3.75a.75.75 0 01-.75-.75v-.75z" />
                     </svg>
                 </div>
                 <div class="flex flex-col leading-none text-left">
-                    <span class="font-display font-black text-xl uppercase text-slate-900 dark:text-white tracking-wide">OFICINA</span>
-                    <span class="font-display font-bold text-[0.6rem] uppercase text-corporateTeal dark:text-teal-400 tracking-[0.2em]">— en casa —</span>
+                    <span class="font-display font-black text-2xl uppercase text-slate-900 dark:text-white tracking-wider">OFICINA</span>
+                    <div class="border-b-2 border-corporateTeal pb-0.5">
+                        <span class="font-display font-bold text-[0.65rem] uppercase text-corporateTeal tracking-[0.3em] leading-none block text-center">EN CASA</span>
+                    </div>
                 </div>
             </div>
             <p class="text-slate-400 text-sm italic leading-relaxed mb-8">En calidad de Afiliado de Amazon, obtengo ingresos por las compras adscritas que cumplen los requisitos aplicables.</p>
@@ -640,4 +645,3 @@
     </script>
 </body>
 </html>
-
