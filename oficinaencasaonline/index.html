@@ -10,6 +10,8 @@
     <meta name="author" content="Oficina en Casa Online">
     <meta name="p:domain_verify" content="09833f4db7d1de06c2924f6252249738"/>
     
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script>
+
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-BHPG0PX889"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -383,56 +385,11 @@
     </div>
 
     <script>
-        const productos = [
-            // --- WIFI MESH ---
-            { categoria: "tech", titulo: "Xiaomi Router AX3000", desc: "Olvídate de los cortes. WiFi 6 Mesh para cobertura total.", img: "https://m.media-amazon.com/images/I/41bEk1ukEtL._AC_SL1000_.jpg", link: "https://amzn.to/4r5n945", tag: "MI FAVORITO" },
-            { categoria: "tech", titulo: "TP-Link Deco X50", desc: "Sistema AI Mesh inteligente. Calidad para hogares grandes.", img: "https://m.media-amazon.com/images/I/61ZkAaGIkLL._AC_SL1500_.jpg", link: "https://amzn.to/3NvYPtB" },
-            { categoria: "tech", titulo: "Amazon eero 6+", desc: "Pequeño y sencillo. Se integra perfecto con Alexa.", img: "https://m.media-amazon.com/images/I/41Khi+nEqoL._SL1500_.jpg", link: "https://amzn.to/4pIicgl" },
-            // --- CABLES ---
-            { categoria: "acc", titulo: "Caja Oculta-Regletas", desc: "Esconde enchufes y protege a niños. Material ABS seguro.", img: "https://m.media-amazon.com/images/I/51Y9tOPzfWL._AC_SL1500_.jpg", link: "https://amzn.to/4pHXEVq", tag: "NUEVO" },
-            { categoria: "acc", titulo: "Bandeja Bajo Mesa", desc: "Sin taladros (clamp). La solución para que no cuelguen cables.", img: "https://m.media-amazon.com/images/I/71Ob9g-xl8L._AC_SL1500_.jpg", link: "https://amzn.to/4jUeuiv" },
-            { categoria: "acc", titulo: "Pack 120 Bridas Velcro", desc: "Reutilizables y ajustables. Mejor que las de plástico.", img: "https://m.media-amazon.com/images/I/81VmyC2ijcL._AC_SL1500_.jpg", link: "https://amzn.to/4jT32DW" },
-            // --- ESCRITORIOS ---
-            { categoria: "desk", titulo: "Agilestic Elevable 120cm", desc: "Motor silencioso y memoria. Opción equilibrada para tu salud.", img: "https://m.media-amazon.com/images/I/6197UATlwNL._AC_SL1500_.jpg", link: "https://amzn.to/464vRY8", tag: "MOTOR SILENCIOSO" },
-            { categoria: "desk", titulo: "HLFURNIEU Stand Up", desc: "Estructura sólida anti-tambaleo. Trabaja de pie seguro.", img: "https://m.media-amazon.com/images/I/61BnIaDfe9L._AC_SL1500_.jpg", link: "https://amzn.to/49JRKhR" },
-            { categoria: "desk", titulo: "HUANUO Compacto 80cm", desc: "Ideal espacios pequeños. Ajuste eléctrico en formato mini.", img: "https://m.media-amazon.com/images/I/61U0DUlJOuL._AC_SL1500_.jpg", link: "https://amzn.to/4rmU3NP", tag: "COMPACTO" },
-            { categoria: "desk", titulo: "Escritorio Elevable Pro", desc: "Regulación precisa para trabajar dinámicamente.", img: "https://m.media-amazon.com/images/I/61pl8xkp5xL._AC_SX679_.jpg", link: "https://amzn.to/4qupXHA" },
-            // --- ACCESORIOS ---
-            { categoria: "ergo", titulo: "Silla SONGMICS Pro", desc: "Soporte lumbar ajustable y malla transpirable.", img: "https://m.media-amazon.com/images/I/81tt0QgRGJL._AC_SL1500_.jpg", link: "https://amzn.to/44Wcq3f", tag: "TOP VENTAS" },
-            { categoria: "acc", titulo: "Lámpara Monitor", desc: "Iluminación sin reflejos directa sobre tu teclado.", img: "https://m.media-amazon.com/images/I/61HWVh6wxqL._AC_SL1500_.jpg", link: "https://amzn.to/3YRFntF" },
-            { categoria: "acc", titulo: "Cajonera Móvil", desc: "Almacenamiento eficiente bajo el escritorio.", img: "https://m.media-amazon.com/images/I/511hfGz8lpL._AC_SL1500_.jpg", link: "https://amzn.to/4qFHtZG" },
-            { categoria: "acc", titulo: "Módulo 5 cajones", desc: "Ideal para clasificar documentos A4 con orden.", img: "https://m.media-amazon.com/images/I/61OkbjZ7otL._AC_SL1200_.jpg", link: "https://amzn.to/4jnUiVX" },
-            { categoria: "acc", titulo: "Alfombrilla Fieltro", desc: "Capa de confort extra para tu setup.", img: "https://m.media-amazon.com/images/I/71sNZ6t0z8L._AC_SL1500_.jpg", link: "https://amzn.to/49wShm0" },
-            { categoria: "acc", titulo: "Soporte Portátil", desc: "Eleva la pantalla a la altura de tus ojos cómodamente.", img: "https://m.media-amazon.com/images/I/61BK9+YGKML._AC_SL1500_.jpg", link: "https://amzn.to/4aGRYar" },
-            { categoria: "acc", titulo: "Reposapies Pro", desc: "Mejora la circulación y postura sentado.", img: "https://m.media-amazon.com/images/I/51-LmMCoscL._AC_SL1000_.jpg", link: "https://amzn.to/4pHhGPP" },
-            { categoria: "acc", titulo: "Papelera TECHZOCO", desc: "Minimalismo industrial para tu despacho.", img: "https://m.media-amazon.com/images/I/81yckur-iIL._SL1500_.jpg", link: "https://amzn.to/4qsaGHG" },
-            { categoria: "acc", titulo: "Elevador Madera", desc: "Gana espacio y mejora la altura del monitor.", img: "https://m.media-amazon.com/images/I/61heBUIQLtL._AC_SL1500_.jpg", link: "https://amzn.to/4qLZGEH" },
-            { categoria: "acc", titulo: "Organizador Mesa", desc: "Tus herramientas diarias siempre localizadas.", img: "https://m.media-amazon.com/images/I/71tEutfM3eL._AC_SL1500_.jpg", link: "https://amzn.to/49wFyzJ" },
-            { categoria: "acc", titulo: "Suministros Pro", desc: "Verticalidad inteligente para tu mesa.", img: "https://m.media-amazon.com/images/I/61K3aaAo9cL._AC_SL1500_.jpg", link: "https://amzn.to/4jF6EcE" },
-            // --- TECH ---
-            { categoria: "tech", titulo: "Monitor Portátil 15.6''", desc: "Duplica pantalla donde quieras. Un solo cable.", img: "https://m.media-amazon.com/images/I/81CAEaITkeL._AC_SL1500_.jpg", link: "https://amzn.to/49YbuwW", tag: "PRODUCTIVIDAD" },
-            { categoria: "tech", titulo: "Webcam EMEET 1080P", desc: "Alta definición con tapa de privacidad física.", img: "https://m.media-amazon.com/images/I/61BW1Spm+UL._AC_SL1423_.jpg", link: "https://amzn.to/4bCrTtj", tag: "PRIVACIDAD" },
-            { categoria: "tech", titulo: "Calentador de Café", desc: "Mantén tu bebida caliente en el escritorio.", img: "https://m.media-amazon.com/images/I/717-w1eeO8L._AC_SL1500_.jpg", link: "https://amzn.to/3Npxr0k", tag: "GADGET" },
-            { categoria: "tech", titulo: "Auriculares Wireless", desc: "Libertad inalámbrica con sonido nítido.", img: "https://m.media-amazon.com/images/I/61PupiSYs3L._AC_SL1500_.jpg", link: "https://amzn.to/49Cyqld" },
-            { categoria: "tech", titulo: "Lámpara Flexo Pinza", desc: "Iluminación LED flexible sin ocupar espacio.", img: "https://m.media-amazon.com/images/I/71kLt8V7+WL._AC_SL1500_.jpg", link: "https://amzn.to/3NfN4Yl" },
-            // --- SILLAS ---
-            { categoria: "ergo", titulo: "SIHOO M57 3D", desc: "Reposabrazos 3D y malla completa ventilada.", img: "https://m.media-amazon.com/images/I/71330d+25SL._AC_SL1500_.jpg", link: "https://amzn.to/4sGUcgv", tag: "100% MALLA" },
-            { categoria: "ergo", titulo: "Ticova Ergonómica", desc: "Cabecero y soporte lumbar ultra ajustables.", img: "https://m.media-amazon.com/images/I/61tCKoGwAUL._AC_SL1500_.jpg", link: "https://amzn.to/3Ll9gQ9", tag: "COMODIDAD" },
-            { categoria: "ergo", titulo: "HOLLUDLE Lumbar 3D", desc: "Soporte lumbar adaptativo que sigue tu espalda.", img: "https://m.media-amazon.com/images/I/71bq+3JgOML._AC_SL1500_.jpg", link: "https://amzn.to/45JQEQA", tag: "LUMBAR 3D" },
-            // --- PC & RAM ---
-            { categoria: "pc", titulo: "Lenovo IdeaPad Slim 3", desc: "Fino, ligero y potente. Calidad-precio para trabajar.", img: "https://m.media-amazon.com/images/I/71mztVugfcL._AC_SL1500_.jpg", link: "https://amzn.to/4pTTYQz", tag: "CALIDAD/PRECIO" },
-            { categoria: "pc", titulo: "Mini PC Beelink SER5", desc: "Potencia bruta en tamaño mini. Escóndelo tras el monitor.", img: "https://m.media-amazon.com/images/I/71XDS960HDL._AC_SL1500_.jpg", link: "https://amzn.to/3LMfybC", tag: "MINIMALISTA" },
-            { categoria: "pc", titulo: "Lexar RAM DDR4 8GB", desc: "Actualización económica para acelerar portátil.", img: "https://m.media-amazon.com/images/I/71zWep+u5FL._AC_SL1500_.jpg", link: "https://amzn.to/4jMhvkK", tag: "REVIVE TU PC" },
-            { categoria: "pc", titulo: "Kingston FURY 16GB", desc: "Rendimiento puro sin luces. Estética negra.", img: "https://m.media-amazon.com/images/I/61uXihcspuL._AC_SL1500_.jpg", link: "https://amzn.to/4b49tlg" },
-            // --- ZONA GAMING (Torres) ---
-            { categoria: "pc", titulo: "NitroPC Pack Bronze", desc: "Setup completo premontado. Listo para jugar.", img: "https://m.media-amazon.com/images/I/71gnwUb30JL._AC_SL1500_.jpg", link: "https://amzn.to/4pAAIHr", tag: "GAMING READY", gaming: true },
-            { categoria: "pc", titulo: "Greed® MK2 Plus", desc: "Intel Core i7-12700F y gráfica RX 9060 XT 8GB.", img: "https://m.media-amazon.com/images/I/71K19I0MsCL._AC_SL1500_.jpg", link: "https://amzn.to/4k9AWo2", gaming: true },
-            { categoria: "pc", titulo: "HYPER BYTE® Set", desc: "Set completo listo. AMD Ryzen 7 5700G + 16GB.", img: "https://m.media-amazon.com/images/I/71NX6LZabEL._AC_SL1500_.jpg", link: "https://amzn.to/4kbyVYr", gaming: true },
-            { categoria: "pc", titulo: "PC Gamer Mirage X", desc: "Rendimiento extremo: i7-14700F y RTX 5070.", img: "https://m.media-amazon.com/images/I/91irKWz3-UL._AC_SL1500_.jpg", link: "https://amzn.to/4kdoyU6", gaming: true },
-            { categoria: "pc", titulo: "HP OMEN 35L", desc: "Ryzen 7 8700F, 32GB DDR5 y RTX 5070.", img: "https://m.media-amazon.com/images/I/61DpKIMgmpL._AC_SL1500_.jpg", link: "https://amzn.to/46kX4G2", gaming: true },
-            { categoria: "pc", titulo: "TrendingPC Ultimate", desc: "i7 14700F, 32GB DDR5 y NVIDIA RTX 5060.", img: "https://m.media-amazon.com/images/I/61TA7ySf9JL._AC_SL1107_.jpg", link: "https://amzn.to/4brpxxA", gaming: true },
-            { categoria: "pc", titulo: "PC Gaming Ryzen 7", desc: "Ryzen 7 5700X, 32GB RAM y RTX 5060.", img: "https://m.media-amazon.com/images/I/61uzLQZIllL._AC_.jpg", link: "https://amzn.to/4alOIjX", gaming: true }
-        ];
+        // --- CONEXIÓN CON GOOGLE SHEETS ---
+        // Este es tu enlace mágico
+        const SHEET_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQn2Ifz1SNqIBkGa7NN_tioSdgbF4JPt_YaCcWTQb4cE3P14-yT1vld3diS177T_dmD-ugVvbLk1gYP/pub?gid=0&single=true&output=csv';
+        
+        let productos = []; 
 
         const grid = document.getElementById('product-grid');
         
@@ -457,7 +414,44 @@
                 grid.appendChild(art);
             });
         }
-        render(productos);
+        
+        // --- FUNCIÓN QUE CARGA LOS DATOS DEL SHEET ---
+        function cargarProductos() {
+            Papa.parse(SHEET_URL, {
+                download: true,
+                header: true, 
+                complete: function(results) {
+                    // Convertimos los datos de la hoja al formato de la web
+                    productos = results.data.map(fila => ({
+                        id: fila.id,
+                        titulo: fila.titulo,
+                        precio: fila.precio, 
+                        img: fila.imagen,    
+                        link: fila.enlace,   
+                        categoria: fila.categoria,
+                        desc: fila.opinion,  
+                        tag: fila.etiqueta,
+                        // Detectar si es gaming (si pone TRUE o VERDADERO)
+                        gaming: (fila.es_gaming && (fila.es_gaming.toUpperCase() === 'TRUE' || fila.es_gaming.toUpperCase() === 'VERDADERO'))
+                    })).filter(p => p.titulo); // Evitamos filas vacías
+
+                    // Una vez cargados, pintamos la web
+                    render(productos);
+                    
+                    // Comprobar filtros URL
+                    const params = new URLSearchParams(window.location.search);
+                    const categoryToLoad = params.get('ver');
+                    if (categoryToLoad) {
+                        const targetBtn = document.querySelector(`.filter-btn[data-category="${categoryToLoad}"]`);
+                        if (targetBtn) targetBtn.click();
+                    }
+                }
+            });
+        }
+
+        // Ejecutar carga inicial
+        cargarProductos();
+
 
         const themeBtn = document.getElementById('theme-toggle');
         const darkIcon = document.getElementById('theme-toggle-dark-icon');
@@ -525,18 +519,6 @@
                 setTimeout(() => {
                     toggleGamingMode();
                 }, 100);
-            }
-
-            // 2. Detectar categorías normales (existente)
-            const categoryToLoad = params.get('ver'); 
-            if (categoryToLoad) {
-                const targetBtn = document.querySelector(`.filter-btn[data-category="${categoryToLoad}"]`);
-                if (targetBtn) {
-                    targetBtn.click();
-                    setTimeout(() => {
-                        document.getElementById('productos').scrollIntoView({ behavior: 'smooth' });
-                    }, 500);
-                }
             }
         });
 
