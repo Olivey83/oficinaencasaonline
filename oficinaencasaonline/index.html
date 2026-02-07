@@ -47,7 +47,7 @@
                 }
             }
         }
-        // Forzar modo claro
+        // Forzar modo claro por defecto
         if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
             document.documentElement.classList.add('dark')
         } else {
@@ -69,6 +69,7 @@
         body.gaming-mode { background-color: #050505 !important; color: #e0e0e0; }
         body.gaming-mode header#main-nav { background-color: rgba(5, 5, 5, 0.95) !important; border-bottom: 1px solid #ff3333; }
         
+        /* En modo gaming, el logo pasa a blanco/rojo */
         body.gaming-mode .logo-text-gaming { color: #ffffff !important; } 
         body.gaming-mode .logo-tagline-gaming { color: #ff3333 !important; }
         body.gaming-mode .logo-stroke-gaming { stroke: #ffffff !important; } 
@@ -77,6 +78,7 @@
         body.gaming-mode #btn-gaming { background: #ff3333; color: black; box-shadow: 0 0 20px #ff3333; border-color: #ff3333; }
         body.gaming-mode .hide-on-gaming { display: none !important; }
         
+        /* Efecto Neón */
         body.gaming-mode .product-card.neon-on, body.gaming-mode .product-card:hover {
             border-color: #ff3333 !important;
             box-shadow: 0 0 30px rgba(255, 51, 51, 0.25) !important;
@@ -392,6 +394,7 @@
             grid.innerHTML = '';
             if (list.length === 0) {
                 console.warn("⚠️ ALERTA: La lista de productos a pintar está VACÍA.");
+                grid.innerHTML = '<div class="col-span-full text-center p-10"><p class="text-xl">Cargando productos...</p><p class="text-sm text-slate-500">Si no aparecen en unos segundos, revisa la consola (F12).</p></div>';
                 return;
             }
             console.log("✅ PINTANDO", list.length, "PRODUCTOS EN PANTALLA...");
@@ -402,7 +405,7 @@
                 
                 art.innerHTML = `
                     <div class="mx-2 mt-2 md:mx-3 md:mt-3 p-2 md:p-3 aspect-square flex items-center justify-center relative bg-slate-100 dark:bg-slate-800/30 rounded-xl md:rounded-[2rem] overflow-hidden">
-                        <img src="${p.img}" alt="${p.titulo}" class="h-full w-full object-contain group-hover:scale-110 transition-transform duration-700">
+                        <img src="${p.img}" alt="${p.titulo}" class="h-full w-full object-contain group-hover:scale-110 transition-transform duration-700" onerror="this.src='https://via.placeholder.com/300x300?text=Sin+Imagen'">
                         ${p.tag ? `<span class="absolute top-2 left-2 md:top-4 md:left-4 bg-primary text-white text-[9px] md:text-[10px] font-bold px-2 py-0.5 md:px-3 md:py-1 rounded-full font-display">${p.tag}</span>` : ''}
                     </div>
                     <div class="p-3 md:p-6 h-[160px] md:h-[210px] flex flex-col justify-between">
@@ -417,40 +420,60 @@
         }
         
         function cargarProductos() {
-            console.log("⏳ INICIANDO CONEXIÓN CON GOOGLE SHEETS...");
+            console.log("⏳ INICIANDO CONEXIÓN INTELIGENTE...");
             
             if (typeof Papa === 'undefined') {
-                console.error("❌ ERROR GRAVE: La librería 'PapaParse' no se ha cargado.");
+                console.error("❌ ERROR: Falta la librería PapaParse en el <head>.");
                 return;
             }
 
             Papa.parse(SHEET_URL, {
                 download: true,
                 header: true, 
-                // AQUÍ ESTÁ EL TRUCO: Esta línea elimina los espacios invisibles de las cabeceras
-                transformHeader: function(h) { return h.trim(); }, 
+                skipEmptyLines: true, // Esto ayuda a limpiar filas vacías
+                transformHeader: function(h) { return h.trim(); }, // Elimina espacios invisibles antes de procesar
                 complete: function(results) {
-                    console.log("📨 DATOS RECIBIDOS DEL EXCEL. Total filas crudas:", results.data.length);
-
-                    if (results.errors.length > 0) {
-                        console.error("❌ ERRORES LEYENDO EL CSV:", results.errors);
-                    }
-
-                    productos = results.data.map(fila => ({
-                        id: fila.id,
-                        titulo: fila.titulo,
-                        precio: fila.precio, 
-                        img: fila.imagen,    
-                        link: fila.enlace,   
-                        categoria: fila.categoria,
-                        desc: fila.opinion,  
-                        tag: fila.etiqueta,
-                        gaming: (fila.es_gaming && (fila.es_gaming.toUpperCase() === 'TRUE' || fila.es_gaming.toUpperCase() === 'VERDADERO'))
-                    })).filter(p => p.titulo); 
-
-                    console.log("✨ PRODUCTOS PROCESADOS VALIDOS:", productos.length);
-                    render(productos);
+                    console.log("📨 DATOS RECIBIDOS:", results.data.length, "filas.");
                     
+                    if (results.data.length > 0) {
+                        // DETECTIVE DE COLUMNAS: Vamos a ver qué nombres de columna ha encontrado realmente
+                        const primeraFila = results.data[0];
+                        const nombresColumnas = Object.keys(primeraFila);
+                        console.log("🔑 Columnas detectadas:", nombresColumnas);
+                        
+                        // Función auxiliar para buscar datos por nombre O por posición (Plan B)
+                        const getDato = (fila, nombreIdeal, indiceIdeal) => {
+                            // 1. Intenta buscar por nombre exacto o parecido (quita espacios y mayúsculas)
+                            let claveEncontrada = nombresColumnas.find(k => k.trim().toLowerCase() === nombreIdeal);
+                            if (claveEncontrada) return fila[claveEncontrada];
+                            
+                            // 2. Si falla, usa la posición (índice)
+                            // id=0, titulo=1, precio=2, imagen=3, enlace=4, categoria=5, opinion=6, etiqueta=7, gaming=8
+                            const clavePorIndice = nombresColumnas[indiceIdeal];
+                            return fila[clavePorIndice];
+                        };
+
+                        productos = results.data.map(fila => ({
+                            id: getDato(fila, 'id', 0),
+                            titulo: getDato(fila, 'titulo', 1),
+                            precio: getDato(fila, 'precio', 2),
+                            img: getDato(fila, 'imagen', 3),
+                            link: getDato(fila, 'enlace', 4),
+                            categoria: getDato(fila, 'categoria', 5),
+                            desc: getDato(fila, 'opinion', 6),
+                            tag: getDato(fila, 'etiqueta', 7),
+                            // Para gaming buscamos 'es_gaming' o columna 8
+                            gaming: (function() {
+                                const val = getDato(fila, 'es_gaming', 8);
+                                return val && (val.toString().toUpperCase() === 'TRUE' || val.toString().toUpperCase() === 'VERDADERO');
+                            })()
+                        })).filter(p => p.titulo); // Solo guardamos si tiene título
+
+                        console.log("✨ PRODUCTOS CARGADOS:", productos.length);
+                        render(productos);
+                    }
+                    
+                    // Restaurar filtros URL
                     const params = new URLSearchParams(window.location.search);
                     const categoryToLoad = params.get('ver');
                     if (categoryToLoad) {
@@ -459,14 +482,14 @@
                     }
                 },
                 error: function(err) {
-                    console.error("❌ ERROR DE CONEXIÓN (CORS o Red):", err);
+                    console.error("❌ ERROR DE RED:", err);
                 }
             });
         }
 
         cargarProductos();
 
-        // Código de UI (Tema, Cookies, etc.)
+        // --- RESTO DE LÓGICA VISUAL (NO TOCAR) ---
         const themeBtn = document.getElementById('theme-toggle');
         const darkIcon = document.getElementById('theme-toggle-dark-icon');
         const lightIcon = document.getElementById('theme-toggle-light-icon');
@@ -526,9 +549,7 @@
         window.addEventListener('load', () => {
             const params = new URLSearchParams(window.location.search);
             if (params.get('modo') === 'gaming') {
-                setTimeout(() => {
-                    toggleGamingMode();
-                }, 100);
+                setTimeout(() => { toggleGamingMode(); }, 100);
             }
         });
 
@@ -539,7 +560,6 @@
         const filtersContainer = document.querySelector('.relative.group'); 
         let isGamingMode = false;
         let neonObserver = null;
-
         const observerOptions = { root: null, threshold: 0.15 }; 
 
         function startNeonObserver() {
@@ -558,43 +578,30 @@
         function toggleGamingMode() {
             isGamingMode = !isGamingMode;
             document.body.classList.toggle('gaming-mode');
-
             const btnText = isGamingMode ? "Salir Modo Gaming ❌" : "Zona Gaming 🎮";
             if(btnGaming) btnGaming.querySelector('span').innerText = btnText;
             if(mobileGamingBtn) mobileGamingBtn.innerText = btnText;
-
             if (isGamingMode) {
                 gamingToast.classList.remove('opacity-0', 'scale-90');
                 setTimeout(() => { gamingToast.classList.add('opacity-0', 'scale-90'); }, 3000);
-
                 const heroText = document.getElementById('gaming-hero-text');
-                if(heroText) {
-                    heroText.classList.remove('hidden');
-                    heroText.classList.add('block', 'animate-fade-in-up');
-                }
+                if(heroText) { heroText.classList.remove('hidden'); heroText.classList.add('block', 'animate-fade-in-up'); }
                 if(guiasContainer) guiasContainer.classList.add('hide-on-gaming');
                 if(filtersContainer) filtersContainer.classList.add('hide-on-gaming');
-
                 const gamingProducts = productos.filter(p => p.gaming === true);
                 render(gamingProducts);
                 setTimeout(() => startNeonObserver(), 100);
                 if(heroText) heroText.scrollIntoView({ behavior: 'smooth', block: 'start' });
-            
             } else {
                 const heroText = document.getElementById('gaming-hero-text');
-                if(heroText) {
-                    heroText.classList.add('hidden');
-                    heroText.classList.remove('block', 'animate-fade-in-up');
-                }
+                if(heroText) { heroText.classList.add('hidden'); heroText.classList.remove('block', 'animate-fade-in-up'); }
                 if(guiasContainer) guiasContainer.classList.remove('hide-on-gaming');
                 if(filtersContainer) filtersContainer.classList.remove('hide-on-gaming');
-
                 if (neonObserver) neonObserver.disconnect();
                 render(productos);
                 document.querySelector('.filter-btn[data-category="all"]').click();
             }
         }
-
         if(btnGaming) btnGaming.addEventListener('click', toggleGamingMode);
         if(mobileGamingBtn) mobileGamingBtn.addEventListener('click', () => {
             toggleGamingMode();
