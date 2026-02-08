@@ -74,24 +74,27 @@
         details > summary::-webkit-details-marker { display: none; }
 
         /* ============================ */
-        /* MODO GAMING (CORREGIDO) */
+        /* MODO GAMING (CORREGIDO Y REFINADO) */
         /* ============================ */
         body.gaming-mode { background-color: #050505 !important; color: #e0e0e0; }
         
         /* Navbar Gaming */
         body.gaming-mode header#main-nav { background-color: rgba(5, 5, 5, 0.95) !important; border-bottom: 1px solid #ff3333; }
-        body.gaming-mode .logo-text-gaming, 
-        body.gaming-mode .text-brand { color: #ffffff !important; } 
-        body.gaming-mode .logo-tagline-gaming { color: #ff3333 !important; }
-        body.gaming-mode .logo-stroke-gaming { stroke: #ffffff !important; } 
+        
+        /* AQUI ESTÁ EL CAMBIO: Mantenemos la marca AZUL, el resto BLANCO */
+        body.gaming-mode .text-brand { color: #3B82F6 !important; text-shadow: 0 0 15px rgba(59, 130, 246, 0.5); } /* Azul Brillante */
+        body.gaming-mode .logo-stroke-gaming { stroke: #3B82F6 !important; } /* Icono Azul */
+        
+        body.gaming-mode .logo-text-gaming { color: #ffffff !important; } /* Resto del texto blanco */
+        body.gaming-mode .logo-tagline-gaming { color: #ff3333 !important; } /* Tagline rojo */
         body.gaming-mode .logo-fill-gaming { fill: #ffffff !important; }
+        
         body.gaming-mode #btn-gaming { background: #ff3333; color: black; box-shadow: 0 0 20px #ff3333; border-color: #ff3333; }
         
         /* Ocultar elementos no gaming */
         body.gaming-mode .hide-on-gaming { display: none !important; }
 
         /* CORRECCIÓN 1: TEXTOS VISIBLES EN GAMING */
-        /* Forzamos que todos los títulos y párrafos sean claros o rojos, ignorando el gris original */
         body.gaming-mode h1, 
         body.gaming-mode h2, 
         body.gaming-mode h3, 
@@ -101,16 +104,19 @@
         body.gaming-mode .text-slate-500 {
             color: #e0e0e0 !important;
         }
+        
+        /* Excepción: Si un texto tiene explícitamente la clase text-brand, ¡respétalo en azul! */
+        body.gaming-mode span.text-brand {
+            color: #3B82F6 !important;
+        }
 
-        /* CORRECCIÓN 2: TRANSFORMACIÓN DE COLOR (AZUL -> ROJO GAMING) */
-        /* Todo lo que era "primary" (azul) ahora será rojo neón */
+        /* CORRECCIÓN 2: TRANSFORMACIÓN DE COLOR (INTERFAZ ROJA) */
         body.gaming-mode .text-primary { color: #ff3333 !important; }
         body.gaming-mode .bg-primary { background-color: #ff3333 !important; box-shadow: 0 0 20px rgba(255, 51, 51, 0.5) !important; }
         body.gaming-mode .bg-primary\/10 { background-color: rgba(255, 51, 51, 0.1) !important; color: #ff3333 !important; }
         body.gaming-mode .bg-blue-600 { background-color: #cc0000 !important; }
 
         /* CORRECCIÓN 3: FONDOS BLANCOS A NEGROS */
-        /* Si una sección tiene fondo blanco (como la de 'Claves'), la pintamos de negro */
         body.gaming-mode .bg-white,
         body.gaming-mode .bg-slate-50,
         body.gaming-mode section#guia {
@@ -194,7 +200,7 @@
         <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-16 items-center">
             <div class="animate-fade-in-up">
                 <span class="inline-block px-4 py-1.5 rounded-full bg-primary/10 text-primary text-sm font-bold mb-6 italic tracking-widest uppercase font-display">EDICIÓN 2026</span>
-                <h1 class="text-5xl md:text-7xl font-extrabold leading-tight mb-6 text-slate-900 dark:text-white tracking-tight font-display">Domina tu <span class="text-primary italic">espacio</span> de trabajo</h1>
+                <h1 class="text-5xl md:text-7xl font-extrabold leading-tight mb-6 text-slate-900 dark:text-white tracking-tight font-display">Domina tu <span class="text-brand italic">espacio</span> de trabajo</h1>
                 <p class="text-lg md:text-xl text-slate-600 dark:text-slate-400 mb-10 leading-relaxed max-w-lg mx-auto md:mx-0">Analizamos y seleccionamos el material que transforma una oficina común en un setup de alto rendimiento. Comodidad y diseño para tu día a día.</p>
                 <div class="flex justify-center md:justify-start">
                     <a href="#productos" class="px-10 py-4 bg-primary text-white rounded-2xl font-bold shadow-lg shadow-primary/30 hover:scale-105 transition-all">Ver Catálogo de Productos</a>
