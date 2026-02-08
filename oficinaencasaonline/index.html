@@ -47,13 +47,14 @@
                 }
             }
         }
-        // Forzar modo claro por defecto
+        // Forzar modo claro por defecto al inicio si no hay preferencia
         if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
             document.documentElement.classList.add('dark')
         } else {
             document.documentElement.classList.remove('dark')
         }
     </script>
+
     <style>
         /* --- BRANDING CORPORATIVO --- */
         :root {
@@ -74,56 +75,65 @@
         details > summary::-webkit-details-marker { display: none; }
 
         /* ============================ */
-        /* MODO GAMING (CORREGIDO FINAL) */
+        /* MODO GAMING (CONFIGURACIÓN PROFESIONAL) */
         /* ============================ */
         body.gaming-mode { background-color: #050505 !important; color: #e0e0e0; }
         
         /* Navbar Gaming */
         body.gaming-mode header#main-nav { background-color: rgba(5, 5, 5, 0.95) !important; border-bottom: 1px solid #ff3333; }
         
-        /* LOGO EN MODO GAMING (La joya de la corona) */
-        /* 1. El texto de marca (OFICINA) y los trazos de marca (Tejado) -> AZUL */
+        /* LOGO EN MODO GAMING: Azul + Blanco Neutro */
         body.gaming-mode .text-brand { color: #3B82F6 !important; text-shadow: 0 0 15px rgba(59, 130, 246, 0.5); } 
         body.gaming-mode .logo-stroke-gaming.text-brand { stroke: #3B82F6 !important; } 
         
-        /* 2. El resto de trazos (Portátil) -> BLANCO NEUTRO */
+        /* Elementos neutros del logo (portátil, base) a BLANCO */
         body.gaming-mode .logo-stroke-gaming { stroke: #ffffff !important; }
-        
-        /* 3. El resto de textos (EN CASA) -> BLANCO NEUTRO */
         body.gaming-mode .logo-text-gaming { color: #ffffff !important; }
-        
-        /* Tagline y detalles extra */
-        body.gaming-mode .logo-tagline-gaming { color: #ff3333 !important; } 
         body.gaming-mode .logo-fill-gaming { fill: #ffffff !important; }
         
+        /* Tagline: GRIS NEUTRO (Corrección aplicada) */
+        body.gaming-mode .logo-tagline-gaming { color: #94a3b8 !important; } 
+        
+        /* Botón Gaming */
         body.gaming-mode #btn-gaming { background: #ff3333; color: black; box-shadow: 0 0 20px #ff3333; border-color: #ff3333; }
         
+        /* Botón Tema en Gaming: OSCURO (Corrección aplicada) */
+        body.gaming-mode #theme-toggle {
+            background-color: rgba(255,255,255,0.1) !important; 
+            color: #ffffff !important;
+            border: 1px solid #333 !important;
+        }
+
         /* Ocultar elementos no gaming */
         body.gaming-mode .hide-on-gaming { display: none !important; }
 
-        /* CORRECCIÓN 1: TEXTOS VISIBLES EN GAMING */
+        /* TEXTOS VISIBLES EN GAMING: Forzamos gris claro para que se lea sobre negro */
         body.gaming-mode h1, 
         body.gaming-mode h2, 
         body.gaming-mode h3, 
         body.gaming-mode p,
         body.gaming-mode .text-slate-900,
         body.gaming-mode .text-slate-600,
-        body.gaming-mode .text-slate-500 {
+        body.gaming-mode .text-slate-500,
+        body.gaming-mode .text-slate-700 {
             color: #e0e0e0 !important;
         }
         
-        /* Excepción: Si un texto tiene explícitamente la clase text-brand, ¡respétalo en azul! */
-        body.gaming-mode span.text-brand {
-            color: #3B82F6 !important;
-        }
+        /* Enlaces del menú en Gaming: Neutros, rojo al pasar el ratón */
+        body.gaming-mode nav a { color: #e0e0e0 !important; }
+        body.gaming-mode nav a:hover { color: #ff3333 !important; }
 
-        /* CORRECCIÓN 2: TRANSFORMACIÓN DE COLOR (INTERFAZ ROJA) */
+        /* Excepción: Si un texto es text-brand, ¡respétalo en azul! */
+        body.gaming-mode span.text-brand { color: #3B82F6 !important; }
+
+        /* INTERFAZ ROJA (Sustituye al azul original) */
         body.gaming-mode .text-primary { color: #ff3333 !important; }
         body.gaming-mode .bg-primary { background-color: #ff3333 !important; box-shadow: 0 0 20px rgba(255, 51, 51, 0.5) !important; }
         body.gaming-mode .bg-primary\/10 { background-color: rgba(255, 51, 51, 0.1) !important; color: #ff3333 !important; }
         body.gaming-mode .bg-blue-600 { background-color: #cc0000 !important; }
+        body.gaming-mode .hover\:text-primary:hover { color: #ff3333 !important; }
 
-        /* CORRECCIÓN 3: FONDOS BLANCOS A NEGROS */
+        /* FONDOS BLANCOS A NEGROS (Corrección de legibilidad) */
         body.gaming-mode .bg-white,
         body.gaming-mode .bg-slate-50,
         body.gaming-mode section#guia {
@@ -154,7 +164,7 @@
         <span class="font-bold tracking-widest uppercase flex items-center justify-center gap-2 text-sm md:text-lg font-display">☢️ ZONA GAMING ACTIVADA</span>
     </div>
 
-   <header class="fixed w-full top-0 z-50 glass border-b border-slate-200/50 dark:border-slate-800/50 transition-all duration-300" id="main-nav">
+    <header class="fixed w-full top-0 z-50 glass border-b border-slate-200/50 dark:border-slate-800/50 transition-all duration-300" id="main-nav">
         <div class="max-w-7xl mx-auto flex items-center justify-between px-6 py-4">
             
             <a href="index.html" class="group flex items-center gap-3">
@@ -510,7 +520,6 @@
                     if (results.data.length > 0) {
                         const primeraFila = results.data[0];
                         const nombresColumnas = Object.keys(primeraFila);
-                        console.log("🔑 Columnas detectadas:", nombresColumnas);
                         
                         const getDato = (fila, nombreIdeal, indiceIdeal) => {
                             let claveEncontrada = nombresColumnas.find(k => k.trim().toLowerCase() === nombreIdeal);
@@ -674,4 +683,5 @@
     </script>
 </body>
 </html>
+
 
