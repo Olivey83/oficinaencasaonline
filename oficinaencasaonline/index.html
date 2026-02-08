@@ -154,7 +154,7 @@
         <span class="font-bold tracking-widest uppercase flex items-center justify-center gap-2 text-sm md:text-lg font-display">☢️ ZONA GAMING ACTIVADA</span>
     </div>
 
-    <header class="fixed w-full top-0 z-50 glass border-b border-slate-200/50 dark:border-slate-800/50 transition-all duration-300" id="main-nav">
+   <header class="fixed w-full top-0 z-50 glass border-b border-slate-200/50 dark:border-slate-800/50 transition-all duration-300" id="main-nav">
         <div class="max-w-7xl mx-auto flex items-center justify-between px-6 py-4">
             
             <a href="index.html" class="group flex items-center gap-3">
@@ -175,14 +175,24 @@
                 </div>
             </a>
             
-            <nav class="hidden md:flex items-center gap-6">
-                <a href="#productos" class="text-sm font-semibold hover:text-primary transition">Productos</a>
-                <a href="blog-dolor-espalda.html" class="text-sm font-semibold text-primary hover:underline decoration-2 underline-offset-4 transition">Cuida tu espalda</a>
-                <a href="herramientas.html" class="text-sm font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-blue-500 hover:opacity-80 transition">✨ Setup Studio</a>
-                <a href="#guia" class="text-sm font-semibold hover:text-primary transition">Ergonomía</a>
-                <button id="btn-gaming" class="group relative px-5 py-2 font-bold text-sm rounded-xl bg-black border-2 border-[#ff3333] text-[#ff3333] shadow-[0_0_10px_rgba(255,51,51,0.3)] hover:shadow-[0_0_20px_rgba(255,51,51,0.8)] hover:bg-[#ff3333] hover:text-black transition-all duration-300">
+            <nav class="hidden md:flex items-center gap-8">
+                <a href="#productos" class="text-sm font-bold text-slate-600 dark:text-slate-300 hover:text-primary transition-colors">
+                    Productos
+                </a>
+                <a href="blog-dolor-espalda.html" class="text-sm font-bold text-slate-600 dark:text-slate-300 hover:text-primary transition-colors">
+                    Cuida tu espalda
+                </a>
+                <a href="herramientas.html" class="text-sm font-bold text-slate-600 dark:text-slate-300 hover:text-primary transition-colors">
+                    Setup Studio
+                </a>
+                <a href="#guia" class="text-sm font-bold text-slate-600 dark:text-slate-300 hover:text-primary transition-colors">
+                    Ergonomía
+                </a>
+
+                <button id="btn-gaming" class="group relative px-5 py-2 font-bold text-sm rounded-xl bg-black border-2 border-[#ff3333] text-[#ff3333] shadow-[0_0_10px_rgba(255,51,51,0.3)] hover:shadow-[0_0_20px_rgba(255,51,51,0.8)] hover:bg-[#ff3333] hover:text-black transition-all duration-300 ml-2">
                     <span class="relative z-10 flex items-center gap-2 font-display">Zona Gaming 🎮</span>
                 </button>
+
                 <button id="theme-toggle" class="p-2.5 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-500 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-slate-700 transition-all shadow-sm">
                     <svg id="theme-toggle-light-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z"></path></svg>
                     <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
@@ -195,10 +205,10 @@
         </div>
         
         <div id="mobile-menu" class="hidden md:hidden bg-white dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800 p-6 space-y-4 shadow-xl text-center">
-            <a href="#productos" class="block text-lg font-medium">Productos</a>
-            <a href="herramientas.html" class="block text-lg font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-blue-500">✨ Setup Studio</a>
-            <a href="blog-dolor-espalda.html" class="block text-lg font-medium text-primary font-bold">Cuida tu espalda</a>
-            <a href="#guia" class="block text-lg font-medium">Ergonomía</a>
+            <a href="#productos" class="block text-lg font-medium text-slate-700 dark:text-slate-200">Productos</a>
+            <a href="herramientas.html" class="block text-lg font-medium text-slate-700 dark:text-slate-200">Setup Studio</a>
+            <a href="blog-dolor-espalda.html" class="block text-lg font-medium text-slate-700 dark:text-slate-200">Cuida tu espalda</a>
+            <a href="#guia" class="block text-lg font-medium text-slate-700 dark:text-slate-200">Ergonomía</a>
             <button id="mobile-gaming-btn" class="w-full py-2 bg-black text-[#ff3333] border border-[#ff3333] rounded-lg font-bold font-display">Zona Gaming 🎮</button>
         </div>
     </header>
@@ -664,3 +674,4 @@
     </script>
 </body>
 </html>
+
