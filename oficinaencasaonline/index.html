@@ -24,7 +24,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
 
-    <link rel="icon" type="image/svg+xml" href='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 36 36"><path d="M18 6L8 16V28C8 29.1 8.9 30 10 30H26C27.1 30 28 29.1 28 28V16L18 6Z" fill="%230f172a"/><rect x="12" y="18" width="12" height="8" rx="1" fill="white"/></svg>'>
+    <link rel="icon" type="image/svg+xml" href='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 36 36"><path d="M18 6L8 16V28C8 29.1 8.9 30 10 30H26C27.1 30 28 29.1 28 28V16L18 6Z" fill="%232563EB"/><rect x="12" y="18" width="12" height="8" rx="1" fill="white"/></svg>'>
     
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -55,6 +55,14 @@
         }
     </script>
     <style>
+        /* --- BRANDING CORPORATIVO --- */
+        :root {
+            --brand-blue: #2563EB; /* Azul Tech */
+        }
+        .text-brand { color: var(--brand-blue); }
+        .dark .text-brand { color: #3B82F6; } /* Azul más brillante para modo oscuro */
+        
+        /* ESTILOS BASE */
         .glass { background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(14px); }
         .dark .glass { background: rgba(15, 23, 42, 0.95); }
         .product-card { transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1); }
@@ -69,8 +77,9 @@
         body.gaming-mode { background-color: #050505 !important; color: #e0e0e0; }
         body.gaming-mode header#main-nav { background-color: rgba(5, 5, 5, 0.95) !important; border-bottom: 1px solid #ff3333; }
         
-        /* En modo gaming, el logo pasa a blanco/rojo */
-        body.gaming-mode .logo-text-gaming { color: #ffffff !important; } 
+        /* En modo gaming, forzamos blanco y rojo sobre el branding azul */
+        body.gaming-mode .logo-text-gaming, 
+        body.gaming-mode .text-brand { color: #ffffff !important; } 
         body.gaming-mode .logo-tagline-gaming { color: #ff3333 !important; }
         body.gaming-mode .logo-stroke-gaming { stroke: #ffffff !important; } 
         body.gaming-mode .logo-fill-gaming { fill: #ffffff !important; }
@@ -102,7 +111,7 @@
             <a href="index.html" class="group flex items-center gap-3">
                 <div class="w-10 h-10 md:w-12 md:h-12 text-corporateBlue dark:text-white transition-transform group-hover:scale-105">
                     <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full h-full">
-                        <path d="M10 40 L50 15 L90 40" stroke="currentColor" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" class="logo-stroke-gaming"/>
+                        <path d="M10 40 L50 15 L90 40" stroke="currentColor" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" class="logo-stroke-gaming text-brand"/>
                         <path d="M68 26 V18 H78 V32" stroke="currentColor" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" class="logo-stroke-gaming"/>
                         <rect x="20" y="45" width="60" height="38" rx="3" stroke="currentColor" stroke-width="6" class="logo-stroke-gaming"/>
                         <path d="M15 88 H85 L82 92 H18 L15 88Z" fill="currentColor" class="logo-fill-gaming"/>
@@ -110,7 +119,9 @@
                 </div>
                 
                 <div class="flex flex-col justify-center">
-                    <span class="font-display font-bold text-xl md:text-2xl tracking-tight leading-none text-corporateBlue dark:text-white logo-text-gaming">OFICINA EN CASA</span>
+                    <span class="font-display font-bold text-xl md:text-2xl tracking-tight leading-none text-corporateBlue dark:text-white logo-text-gaming">
+                        <span class="text-brand">OFICINA</span> EN CASA
+                    </span>
                     <span class="font-sans text-[0.6rem] md:text-[0.7rem] font-medium tracking-wide text-corporateBlue dark:text-slate-300 mt-0.5 logo-tagline-gaming">Simplifica. Enfócate. Prospera.</span>
                 </div>
             </a>
@@ -204,7 +215,7 @@
                             <p class="text-emerald-100 text-sm font-medium leading-relaxed mb-6">La solución definitiva no es un repetidor. Descubre la red Mesh.</p>
                         </div>
                         <div class="mt-auto">
-                            <a href="guia-wifi-mesh.html" class="inline-block px-6 py-3 bg-white text-emerald-950 font-bold rounded-xl text-sm shadow-xl hover:bg-emerald-50 transition-colors">Solucionar WiFi →</a>
+                            <a href="guia-wifi-mesh.html" class="inline-block px-6 py-3 bg-white text-emerald-950 font-bold rounded-xl text-sm shadow-xl hover:bg-emerald-5 from-colors">Solucionar WiFi →</a>
                         </div>
                     </div>
                     <img src="https://m.media-amazon.com/images/I/41bEk1ukEtL._AC_SL1000_.jpg" class="absolute -bottom-8 -right-8 w-48 object-contain opacity-40 group-hover:opacity-100 transition-all duration-700 -rotate-6 group-hover:rotate-0 group-hover:scale-110 z-0 mix-blend-screen">
@@ -348,14 +359,16 @@
             <div class="flex items-center justify-center gap-3 mb-6 opacity-80 hover:opacity-100 transition">
                 <div class="w-10 h-10 text-white">
                     <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full h-full">
-                        <path d="M10 40 L50 15 L90 40" stroke="currentColor" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M10 40 L50 15 L90 40" stroke="currentColor" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" class="text-brand"/>
                         <path d="M68 26 V18 H78 V32" stroke="currentColor" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
                         <rect x="20" y="45" width="60" height="38" rx="3" stroke="currentColor" stroke-width="6"/>
                         <path d="M15 88 H85 L82 92 H18 L15 88Z" fill="currentColor"/>
                     </svg>
                 </div>
                 <div class="flex flex-col justify-center text-left">
-                    <span class="font-display font-bold text-xl tracking-tight leading-none text-white">OFICINA EN CASA</span>
+                    <span class="font-display font-bold text-xl tracking-tight leading-none text-white">
+                        <span class="text-brand">OFICINA</span> EN CASA
+                    </span>
                     <span class="font-sans text-[0.6rem] font-medium tracking-wide text-slate-300 mt-0.5">Simplifica. Enfócate. Prospera.</span>
                 </div>
             </div>
@@ -430,25 +443,19 @@
             Papa.parse(SHEET_URL, {
                 download: true,
                 header: true, 
-                skipEmptyLines: true, // Esto ayuda a limpiar filas vacías
-                transformHeader: function(h) { return h.trim(); }, // Elimina espacios invisibles antes de procesar
+                skipEmptyLines: true, 
+                transformHeader: function(h) { return h.trim(); },
                 complete: function(results) {
                     console.log("📨 DATOS RECIBIDOS:", results.data.length, "filas.");
                     
                     if (results.data.length > 0) {
-                        // DETECTIVE DE COLUMNAS: Vamos a ver qué nombres de columna ha encontrado realmente
                         const primeraFila = results.data[0];
                         const nombresColumnas = Object.keys(primeraFila);
                         console.log("🔑 Columnas detectadas:", nombresColumnas);
                         
-                        // Función auxiliar para buscar datos por nombre O por posición (Plan B)
                         const getDato = (fila, nombreIdeal, indiceIdeal) => {
-                            // 1. Intenta buscar por nombre exacto o parecido (quita espacios y mayúsculas)
                             let claveEncontrada = nombresColumnas.find(k => k.trim().toLowerCase() === nombreIdeal);
                             if (claveEncontrada) return fila[claveEncontrada];
-                            
-                            // 2. Si falla, usa la posición (índice)
-                            // id=0, titulo=1, precio=2, imagen=3, enlace=4, categoria=5, opinion=6, etiqueta=7, gaming=8
                             const clavePorIndice = nombresColumnas[indiceIdeal];
                             return fila[clavePorIndice];
                         };
@@ -462,18 +469,16 @@
                             categoria: getDato(fila, 'categoria', 5),
                             desc: getDato(fila, 'opinion', 6),
                             tag: getDato(fila, 'etiqueta', 7),
-                            // Para gaming buscamos 'es_gaming' o columna 8
                             gaming: (function() {
                                 const val = getDato(fila, 'es_gaming', 8);
                                 return val && (val.toString().toUpperCase() === 'TRUE' || val.toString().toUpperCase() === 'VERDADERO');
                             })()
-                        })).filter(p => p.titulo); // Solo guardamos si tiene título
+                        })).filter(p => p.titulo); 
 
                         console.log("✨ PRODUCTOS CARGADOS:", productos.length);
                         render(productos);
                     }
                     
-                    // Restaurar filtros URL
                     const params = new URLSearchParams(window.location.search);
                     const categoryToLoad = params.get('ver');
                     if (categoryToLoad) {
@@ -489,7 +494,7 @@
 
         cargarProductos();
 
-        // --- RESTO DE LÓGICA VISUAL (NO TOCAR) ---
+        // --- RESTO DE LÓGICA VISUAL ---
         const themeBtn = document.getElementById('theme-toggle');
         const darkIcon = document.getElementById('theme-toggle-dark-icon');
         const lightIcon = document.getElementById('theme-toggle-light-icon');
