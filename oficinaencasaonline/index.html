@@ -619,13 +619,6 @@
             });
         });
 
-        window.addEventListener('load', () => {
-            const params = new URLSearchParams(window.location.search);
-            if (params.get('modo') === 'gaming') {
-                setTimeout(() => { toggleGamingMode(); }, 100);
-            }
-        });
-
         const btnGaming = document.getElementById('btn-gaming');
         const mobileGamingBtn = document.getElementById('mobile-gaming-btn');
         const gamingToast = document.getElementById('gaming-toast');
@@ -680,8 +673,22 @@
             toggleGamingMode();
             document.getElementById('mobile-menu').classList.add('hidden');
         });
+
+        // --- AUTO-ACTIVADOR ZONA GAMING (Mejorado para Pinterest) ---
+        document.addEventListener("DOMContentLoaded", () => {
+            const params = new URLSearchParams(window.location.search);
+            // Detecta ?zona=gaming (tu nuevo enlace) o ?modo=gaming (antiguo)
+            if (params.get('zona') === 'gaming' || params.get('modo') === 'gaming') {
+                setTimeout(() => {
+                    const btn = document.getElementById('btn-gaming');
+                    if (btn) {
+                        btn.click(); // Simula el clic real para activar todo
+                    } else {
+                        toggleGamingMode(); // Fallback
+                    }
+                }, 300); // Pequeño retraso para asegurar carga visual
+            }
+        });
     </script>
 </body>
 </html>
-
-
