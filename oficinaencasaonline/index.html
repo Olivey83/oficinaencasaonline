@@ -74,19 +74,26 @@
         details > summary::-webkit-details-marker { display: none; }
 
         /* ============================ */
-        /* MODO GAMING (CORREGIDO Y REFINADO) */
+        /* MODO GAMING (CORREGIDO FINAL) */
         /* ============================ */
         body.gaming-mode { background-color: #050505 !important; color: #e0e0e0; }
         
         /* Navbar Gaming */
         body.gaming-mode header#main-nav { background-color: rgba(5, 5, 5, 0.95) !important; border-bottom: 1px solid #ff3333; }
         
-        /* AQUI ESTÁ EL CAMBIO: Mantenemos la marca AZUL, el resto BLANCO */
-        body.gaming-mode .text-brand { color: #3B82F6 !important; text-shadow: 0 0 15px rgba(59, 130, 246, 0.5); } /* Azul Brillante */
-        body.gaming-mode .logo-stroke-gaming { stroke: #3B82F6 !important; } /* Icono Azul */
+        /* LOGO EN MODO GAMING (La joya de la corona) */
+        /* 1. El texto de marca (OFICINA) y los trazos de marca (Tejado) -> AZUL */
+        body.gaming-mode .text-brand { color: #3B82F6 !important; text-shadow: 0 0 15px rgba(59, 130, 246, 0.5); } 
+        body.gaming-mode .logo-stroke-gaming.text-brand { stroke: #3B82F6 !important; } 
         
-        body.gaming-mode .logo-text-gaming { color: #ffffff !important; } /* Resto del texto blanco */
-        body.gaming-mode .logo-tagline-gaming { color: #ff3333 !important; } /* Tagline rojo */
+        /* 2. El resto de trazos (Portátil) -> BLANCO NEUTRO */
+        body.gaming-mode .logo-stroke-gaming { stroke: #ffffff !important; }
+        
+        /* 3. El resto de textos (EN CASA) -> BLANCO NEUTRO */
+        body.gaming-mode .logo-text-gaming { color: #ffffff !important; }
+        
+        /* Tagline y detalles extra */
+        body.gaming-mode .logo-tagline-gaming { color: #ff3333 !important; } 
         body.gaming-mode .logo-fill-gaming { fill: #ffffff !important; }
         
         body.gaming-mode #btn-gaming { background: #ff3333; color: black; box-shadow: 0 0 20px #ff3333; border-color: #ff3333; }
@@ -657,4 +664,3 @@
     </script>
 </body>
 </html>
-
