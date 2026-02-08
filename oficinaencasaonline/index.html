@@ -60,7 +60,7 @@
             --brand-blue: #2563EB; /* Azul Tech */
         }
         .text-brand { color: var(--brand-blue); }
-        .dark .text-brand { color: #3B82F6; } /* Azul más brillante para modo oscuro */
+        .dark .text-brand { color: #3B82F6; }
         
         /* ESTILOS BASE */
         .glass { background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(14px); }
@@ -73,26 +73,62 @@
         details > summary { list-style: none; }
         details > summary::-webkit-details-marker { display: none; }
 
-        /* MODO GAMING */
+        /* ============================ */
+        /* MODO GAMING (CORREGIDO) */
+        /* ============================ */
         body.gaming-mode { background-color: #050505 !important; color: #e0e0e0; }
-        body.gaming-mode header#main-nav { background-color: rgba(5, 5, 5, 0.95) !important; border-bottom: 1px solid #ff3333; }
         
-        /* En modo gaming, forzamos blanco y rojo sobre el branding azul */
+        /* Navbar Gaming */
+        body.gaming-mode header#main-nav { background-color: rgba(5, 5, 5, 0.95) !important; border-bottom: 1px solid #ff3333; }
         body.gaming-mode .logo-text-gaming, 
         body.gaming-mode .text-brand { color: #ffffff !important; } 
         body.gaming-mode .logo-tagline-gaming { color: #ff3333 !important; }
         body.gaming-mode .logo-stroke-gaming { stroke: #ffffff !important; } 
         body.gaming-mode .logo-fill-gaming { fill: #ffffff !important; }
-
         body.gaming-mode #btn-gaming { background: #ff3333; color: black; box-shadow: 0 0 20px #ff3333; border-color: #ff3333; }
-        body.gaming-mode .hide-on-gaming { display: none !important; }
         
-        /* Efecto Neón */
+        /* Ocultar elementos no gaming */
+        body.gaming-mode .hide-on-gaming { display: none !important; }
+
+        /* CORRECCIÓN 1: TEXTOS VISIBLES EN GAMING */
+        /* Forzamos que todos los títulos y párrafos sean claros o rojos, ignorando el gris original */
+        body.gaming-mode h1, 
+        body.gaming-mode h2, 
+        body.gaming-mode h3, 
+        body.gaming-mode p,
+        body.gaming-mode .text-slate-900,
+        body.gaming-mode .text-slate-600,
+        body.gaming-mode .text-slate-500 {
+            color: #e0e0e0 !important;
+        }
+
+        /* CORRECCIÓN 2: TRANSFORMACIÓN DE COLOR (AZUL -> ROJO GAMING) */
+        /* Todo lo que era "primary" (azul) ahora será rojo neón */
+        body.gaming-mode .text-primary { color: #ff3333 !important; }
+        body.gaming-mode .bg-primary { background-color: #ff3333 !important; box-shadow: 0 0 20px rgba(255, 51, 51, 0.5) !important; }
+        body.gaming-mode .bg-primary\/10 { background-color: rgba(255, 51, 51, 0.1) !important; color: #ff3333 !important; }
+        body.gaming-mode .bg-blue-600 { background-color: #cc0000 !important; }
+
+        /* CORRECCIÓN 3: FONDOS BLANCOS A NEGROS */
+        /* Si una sección tiene fondo blanco (como la de 'Claves'), la pintamos de negro */
+        body.gaming-mode .bg-white,
+        body.gaming-mode .bg-slate-50,
+        body.gaming-mode section#guia {
+            background-color: #050505 !important;
+            border-top: 1px solid #333;
+            border-bottom: 1px solid #333;
+        }
+        
+        /* Tarjetas de Producto en Gaming */
         body.gaming-mode .product-card.neon-on, body.gaming-mode .product-card:hover {
             border-color: #ff3333 !important;
             box-shadow: 0 0 30px rgba(255, 51, 51, 0.25) !important;
         }
         body.gaming-mode .product-card { background-color: #0a0a0a !important; border-color: #333 !important; box-shadow: none !important; }
+        
+        /* FAQ Detalles en Gaming */
+        body.gaming-mode details { background-color: #0a0a0a !important; border-color: #333 !important; }
+        body.gaming-mode summary { color: #fff !important; }
 
         .reveal { opacity: 0; transform: translateY(30px); transition: all 0.8s ease-out; }
         .reveal.active { opacity: 1; transform: translateY(0); }
