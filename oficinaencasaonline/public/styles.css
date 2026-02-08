@@ -1,2 +1,26 @@
-/* Tailwind CSS compilado personalizado */
+/* --- TEMA CORPORATIVO OFICINA EN CASA --- */
+:root {
+    /* Tu Azul Corporativo (Cámbialo aquí si quieres otro tono) */
+    --brand-blue: #2563EB; 
+}
+
+/* Clase para textos en Azul Corporativo (Títulos, Logo) */
+.text-brand {
+    color: var(--brand-blue);
+}
+
+/* Clase para fondos en Azul Corporativo (Botones, Detalles) */
+.bg-brand {
+    background-color: var(--brand-blue);
+}
+
+/* Ajuste para el Modo Oscuro (Opcional: hace el azul un pelín más brillante para que se lea mejor) */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --brand-blue: #3B82F6; 
+    }
+}
+
+/* --- TUS ESTILOS ANTIGUOS --- */
 body { background-color: #f9fafb; color: #111827; }
+/* ... el resto de tu CSS ... */
