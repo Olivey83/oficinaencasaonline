@@ -8,7 +8,8 @@
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;800&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/svg+xml" href='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 36 36"><path d="M18 6L8 16V28C8 29.1 8.9 30 10 30H26C27.1 30 28 29.1 28 28V16L18 6Z" fill="%232563EB"/><rect x="12" y="18" width="12" height="8" rx="1" fill="white"/></svg>'>
 
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -16,17 +17,20 @@
             darkMode: 'class',
             theme: {
                 extend: {
-                    // MEJORA 2: CONFIGURACIÓN DE FUENTES
                     fontFamily: {
                         sans: ['"Open Sans"', 'sans-serif'],
                         display: ['"Montserrat"', 'sans-serif'],
                     },
-                    colors: { primary: "#2563eb", primaryDark: "#1e40af", accent: "#0f172a" },
+                    colors: { 
+                        primary: "#2563eb", 
+                        primaryDark: "#1e40af", 
+                        corporateBlue: "#0f172a" 
+                    },
                     boxShadow: { premium: "0 20px 60px rgba(15,23,42,0.22)", card: "0 10px 30px -10px rgba(0,0,0,0.1)" },
                     borderRadius: { '3xl': '1.75rem' },
                     animation: { 
                         'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
-                        'spin-slow': 'spin 3s linear infinite'
+                        'fade-in-up': 'fade-in-up 0.8s ease-out forwards'
                     }
                 }
             }
@@ -38,6 +42,15 @@
         }
     </script>
     <style>
+        /* ESTILOS BASE */
+        :root { --brand-blue: #2563EB; }
+        .text-brand { color: var(--brand-blue); }
+        .dark .text-brand { color: #3B82F6; }
+        
+        .glass { background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(14px); }
+        .dark .glass { background: rgba(15, 23, 42, 0.95); }
+        
+        /* Loader IA */
         .loader {
             border-top-color: #3B82F6;
             -webkit-animation: spinner 1.5s linear infinite;
@@ -52,28 +65,68 @@
     </style>
 </head>
 
-<body class="bg-slate-50 text-slate-900 dark:bg-slate-950 dark:text-slate-50 antialiased min-h-screen flex flex-col font-sans">
+<body class="bg-slate-50 text-slate-900 dark:bg-slate-950 dark:text-slate-50 antialiased min-h-screen flex flex-col font-sans transition-colors duration-500">
     
-    <header class="fixed w-full top-0 z-50 bg-white/80 dark:bg-slate-900/80 backdrop-blur-md border-b border-slate-200 dark:border-slate-800">
-        <div class="max-w-4xl mx-auto px-6 py-4 flex justify-between items-center">
-            <a href="index.html" class="flex items-center gap-2 group text-slate-600 dark:text-slate-300 hover:text-primary transition">
-                <svg class="w-5 h-5 group-hover:-translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
-                <span class="font-bold">Volver al Inicio</span>
+    <header class="fixed w-full top-0 z-50 glass border-b border-slate-200/50 dark:border-slate-800/50 transition-all duration-300" id="main-nav">
+        <div class="max-w-7xl mx-auto flex items-center justify-between px-6 py-4">
+            
+            <a href="index.html" class="group flex items-center gap-3">
+                <div class="w-10 h-10 md:w-12 md:h-12 text-corporateBlue dark:text-white transition-transform group-hover:scale-105">
+                    <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full h-full">
+                        <path d="M10 40 L50 15 L90 40" stroke="currentColor" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" class="text-brand"/>
+                        <path d="M68 26 V18 H78 V32" stroke="currentColor" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" class="text-brand"/>
+                        <rect x="20" y="45" width="60" height="38" rx="3" stroke="currentColor" stroke-width="6"/>
+                        <path d="M15 88 H85 L82 92 H18 L15 88Z" fill="currentColor"/>
+                    </svg>
+                </div>
+                
+                <div class="flex flex-col justify-center">
+                    <span class="font-display font-bold text-xl md:text-2xl tracking-tight leading-none text-corporateBlue dark:text-white">
+                        <span class="text-brand">OFICINA</span> EN CASA
+                    </span>
+                    <span class="font-sans text-[0.6rem] md:text-[0.7rem] font-medium tracking-wide text-corporateBlue dark:text-slate-300 mt-0.5">Simplifica. Enfócate. Prospera.</span>
+                </div>
             </a>
-            <span class="font-display font-bold text-lg bg-clip-text text-transparent bg-gradient-to-r from-slate-900 to-slate-600 dark:from-white dark:to-slate-400">Oficina en Casa</span>
+            
+            <nav class="hidden md:flex items-center gap-8">
+                <a href="index.html#productos" class="text-sm font-bold text-slate-600 dark:text-slate-300 hover:text-primary transition-colors">Productos</a>
+                <a href="blog-dolor-espalda.html" class="text-sm font-bold text-slate-600 dark:text-slate-300 hover:text-primary transition-colors">Cuida tu espalda</a>
+                <a href="#" class="text-sm font-bold text-primary transition-colors">Setup Studio</a> <a href="index.html#guia" class="text-sm font-bold text-slate-600 dark:text-slate-300 hover:text-primary transition-colors">Ergonomía</a>
+
+                <a href="index.html?modo=gaming" class="group relative px-5 py-2 font-bold text-sm rounded-xl bg-black border-2 border-[#ff3333] text-[#ff3333] shadow-[0_0_10px_rgba(255,51,51,0.3)] hover:shadow-[0_0_20px_rgba(255,51,51,0.8)] hover:bg-[#ff3333] hover:text-black transition-all duration-300 ml-2 flex items-center gap-2 font-display">
+                    Zona Gaming 🎮
+                </a>
+
+                <button id="theme-toggle" class="p-2.5 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-500 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-slate-700 transition-all shadow-sm">
+                    <svg id="theme-toggle-light-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z"></path></svg>
+                    <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
+                </button>
+            </nav>
+
+            <button class="md:hidden p-2" id="mobile-menu-btn">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+            </button>
+        </div>
+        
+        <div id="mobile-menu" class="hidden md:hidden bg-white dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800 p-6 space-y-4 shadow-xl text-center">
+            <a href="index.html#productos" class="block text-lg font-medium text-slate-700 dark:text-slate-200">Productos</a>
+            <a href="#" class="block text-lg font-medium text-primary font-bold">Setup Studio</a>
+            <a href="blog-dolor-espalda.html" class="block text-lg font-medium text-slate-700 dark:text-slate-200">Cuida tu espalda</a>
+            <a href="index.html#guia" class="block text-lg font-medium text-slate-700 dark:text-slate-200">Ergonomía</a>
+            <a href="index.html?modo=gaming" class="block w-full py-2 bg-black text-[#ff3333] border border-[#ff3333] rounded-lg font-bold font-display">Zona Gaming 🎮</a>
         </div>
     </header>
 
     <main class="flex-grow pt-32 pb-20 px-6 space-y-24">
         
         <div class="max-w-3xl mx-auto text-center">
-            <h1 class="font-display text-4xl md:text-6xl font-extrabold mb-6 leading-tight">Configura tu <span class="text-primary">Setup Ideal</span></h1>
+            <h1 class="font-display text-4xl md:text-6xl font-extrabold mb-6 leading-tight text-slate-900 dark:text-white">Configura tu <span class="text-brand">Setup Ideal</span></h1>
             <p class="text-lg text-slate-500 dark:text-slate-400 mb-10 text-balance">Tienes dos formas de mejorar tu espacio hoy. Elige tu herramienta:</p>
             
             <div class="grid md:grid-cols-2 gap-4 max-w-xl mx-auto">
                 <a href="#calculadora" class="group bg-white dark:bg-slate-800 p-6 rounded-3xl border border-slate-200 dark:border-slate-700 shadow-sm hover:shadow-xl hover:border-blue-500 transition-all text-left">
                     <div class="w-12 h-12 bg-blue-100 text-blue-600 rounded-2xl flex items-center justify-center text-2xl mb-4 group-hover:scale-110 transition-transform">📐</div>
-                    <h3 class="font-display font-bold text-lg mb-1 group-hover:text-blue-500 transition-colors">Calculadora Ergonómica</h3>
+                    <h3 class="font-display font-bold text-lg mb-1 group-hover:text-blue-500 transition-colors text-slate-900 dark:text-white">Calculadora Ergonómica</h3>
                     <p class="text-xs text-slate-500">Ajusta la altura exacta de tu silla y mesa.</p>
                 </a>
                 
@@ -187,11 +240,68 @@
 
     </main>
 
-    <footer class="bg-white dark:bg-slate-950 py-8 border-t border-slate-200 dark:border-slate-800 text-center">
-        <p class="text-slate-400 text-xs">© 2026 Oficina en Casa Online.</p>
+    <footer class="bg-corporateBlue text-white py-12 border-t border-slate-200 dark:border-slate-800 text-center">
+        <div class="max-w-4xl mx-auto px-6">
+            <div class="flex items-center justify-center gap-3 mb-6 opacity-80 hover:opacity-100 transition">
+                <div class="w-10 h-10 text-white">
+                    <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full h-full">
+                        <path d="M10 40 L50 15 L90 40" stroke="currentColor" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" class="text-brand"/>
+                        <path d="M68 26 V18 H78 V32" stroke="currentColor" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" class="text-brand"/>
+                        <rect x="20" y="45" width="60" height="38" rx="3" stroke="currentColor" stroke-width="6"/>
+                        <path d="M15 88 H85 L82 92 H18 L15 88Z" fill="currentColor"/>
+                    </svg>
+                </div>
+                <div class="flex flex-col justify-center text-left">
+                    <span class="font-display font-bold text-xl tracking-tight leading-none text-white">
+                        <span class="text-brand">OFICINA</span> EN CASA
+                    </span>
+                    <span class="font-sans text-[0.6rem] font-medium tracking-wide text-slate-300 mt-0.5">Simplifica. Enfócate. Prospera.</span>
+                </div>
+            </div>
+            <p class="text-slate-400 text-sm italic leading-relaxed mb-6">En calidad de Afiliado de Amazon, obtengo ingresos por las compras adscritas que cumplen los requisitos aplicables.</p>
+            <div class="mb-6">
+                <a href="referencias.html" class="text-[10px] uppercase tracking-widest font-bold text-slate-700 hover:text-slate-400 transition-colors">Lifestyle & Extras</a>
+            </div>
+            <p class="text-xs font-bold text-slate-500 uppercase tracking-widest font-display">© 2026 Oficina en Casa Online. Todos los derechos reservados.</p>
+        </div>
     </footer>
 
     <script>
+        // --- UI COMÚN ---
+        const themeBtn = document.getElementById('theme-toggle');
+        const darkIcon = document.getElementById('theme-toggle-dark-icon');
+        const lightIcon = document.getElementById('theme-toggle-light-icon');
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        function updateIcons() {
+            if (document.documentElement.classList.contains('dark')) {
+                darkIcon.classList.add('hidden');
+                lightIcon.classList.remove('hidden');
+            } else {
+                lightIcon.classList.add('hidden');
+                darkIcon.classList.remove('hidden');
+            }
+        }
+        updateIcons();
+
+        themeBtn.addEventListener('click', () => {
+            if (document.documentElement.classList.contains('dark')) {
+                document.documentElement.classList.remove('dark');
+                localStorage.theme = 'light';
+            } else {
+                document.documentElement.classList.add('dark');
+                localStorage.theme = 'dark';
+            }
+            updateIcons();
+        });
+
+        if(mobileMenuBtn) {
+            mobileMenuBtn.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+        }
+
         // --- LÓGICA CALCULADORA ---
         function calcular() {
             const altura = document.getElementById('inputAltura').value;
@@ -213,8 +323,7 @@
             if (event.key === "Enter") calcular();
         });
 
-        // --- LÓGICA INTELLIGENCIA ARTIFICIAL (SIMULADA) ---
-        // ¡IMPORTANTE! REVISA ESTOS ENLACES DE AMAZON PARA ASEGURARTE QUE SON LOS TUYOS
+        // --- LÓGICA IA ---
         const aiData = {
             'espalda': {
                 title: "Silla Ticova Ergonómica",
@@ -252,16 +361,13 @@
             const result = document.getElementById('ai-result');
             const statusText = document.getElementById('ai-status-text');
 
-            // 1. Ocultar preguntas y mostrar carga
             step1.classList.add('hidden');
             loading.classList.remove('hidden');
             loading.classList.add('flex');
 
-            // 2. Simular proceso de pensamiento (mensajes cambiantes)
             setTimeout(() => { statusText.innerText = "Escaneando catálogo..."; }, 1000);
             setTimeout(() => { statusText.innerText = "Encontrando mejor precio..."; }, 2000);
 
-            // 3. Mostrar resultado tras 3 segundos
             setTimeout(() => {
                 const data = aiData[problem];
                 
@@ -284,4 +390,3 @@
     </script>
 </body>
 </html>
-
